@@ -56,6 +56,13 @@ class SiteController extends Controller
 					$rows[$i][$j] = $currentSheet->getCell($address)->getFormattedValue();
 				}
 			}
+			if($rows != null){
+				var_dump($en_str = JSON_ENCODE($rows));
+				$de_arr = JSON_DECODE($en_str,true);
+				var_dump($de_arr);
+				exit;
+			}
+			
 			echo $c,"<br/>";
 			var_dump($rows);
 			ob_end_flush();
