@@ -62,7 +62,7 @@ class SiteController extends Controller
 				var_dump($de_arr);
 				exit;
 			}
-			//comment
+			
 			echo $c,"<br/>";
 			var_dump($rows);
 			ob_end_flush();
