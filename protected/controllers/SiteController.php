@@ -27,6 +27,7 @@ class SiteController extends Controller
 	 */
 	public function actionIndex()
 	{
+		//modify
 		set_time_limit(0);
 		//ini_set('memory_limit', '512M');
 		Yii::import('application.vendors.*');
