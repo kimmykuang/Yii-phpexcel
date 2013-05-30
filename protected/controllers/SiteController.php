@@ -58,7 +58,7 @@ class SiteController extends Controller
 			}
 			if($rows != null){
 				var_dump($en_str = JSON_ENCODE($rows));
-				$de_arr = JSON_DECODE($en_str,true);
+				$de_arr = JSON_DECODE($en_str,true);  //加上第二个参数true表示将JSON对象强制转化为关联数组
 				var_dump($de_arr);
 				exit;
 			}
