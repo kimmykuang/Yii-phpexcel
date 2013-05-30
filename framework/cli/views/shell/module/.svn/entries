@@ -1,0 +1,77 @@
+10
+
+dir
+1043
+svn://192.168.1.42/framework/cli/views/shell/module
+svn://192.168.1.42
+
+
+
+2012-08-08T02:53:02.983661Z
+940
+benlee7
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+b5c569a8-5dcc-1948-ac23-e0f9f2a111f5
+
+models
+dir
+
+components
+dir
+
+controllers
+dir
+
+messages
+dir
+
+module.php
+file
+
+
+
+
+2012-08-08T02:59:58.000000Z
+a97ef89d8542a49d40a950fd89bd1b5c
+2012-08-08T02:53:02.983661Z
+940
+benlee7
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+707
+
+views
+dir
+

@@ -1,0 +1,77 @@
+10
+
+dir
+1043
+svn://192.168.1.42/framework/gii/generators/module/templates/default
+svn://192.168.1.42
+
+
+
+2012-08-08T02:53:02.983661Z
+940
+benlee7
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+b5c569a8-5dcc-1948-ac23-e0f9f2a111f5
+
+models
+dir
+
+components
+dir
+
+controllers
+dir
+
+messages
+dir
+
+module.php
+file
+
+
+
+
+2012-08-08T03:00:02.000000Z
+bc12cddc675b1908d484eba5838e4941
+2012-08-08T02:53:02.983661Z
+940
+benlee7
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+725
+
+views
+dir
+

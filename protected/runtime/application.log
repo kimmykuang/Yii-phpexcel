@@ -1,0 +1,220 @@
+2013/05/28 14:58:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "index".' in D:\wamp\www\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('index')
+#1 D:\wamp\www\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/phpexcel/index
+---
+2013/05/28 15:15:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "index".' in D:\wamp\www\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('index')
+#1 D:\wamp\www\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/phpexcel/index
+---
+2013/05/28 15:34:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "about".' in D:\wamp\www\yii\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\CController.php(271): CController->missingAction('about')
+#1 D:\wamp\www\yii\framework\web\CWebApplication.php(276): CController->run('about')
+#2 D:\wamp\www\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('site/about')
+#3 D:\wamp\www\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/about
+---
+2013/05/28 15:44:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "index-test.phpsite/page".' in D:\wamp\www\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('index-test.phps...')
+#1 D:\wamp\www\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/phpexcel/index-test.phpsite/page.html?view=about
+---
+2013/05/28 16:04:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "index".' in D:\wamp\www\phpexcel\framework\web\CWebApplication.php:280
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('')
+#1 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/phpexcel/
+---
+2013/05/28 16:06:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "index".' in D:\wamp\www\phpexcel\framework\web\CWebApplication.php:280
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('')
+#1 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/phpexcel/
+---
+2013/05/28 16:06:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "index".' in D:\wamp\www\phpexcel\framework\web\CWebApplication.php:280
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('')
+#1 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/phpexcel/
+---
+2013/05/28 16:09:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "index".' in D:\wamp\www\phpexcel\framework\web\CWebApplication.php:280
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('')
+#1 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/phpexcel/
+---
+2013/05/28 16:11:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "view".' in D:\wamp\www\phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(271): CController->missingAction('view')
+#1 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('view')
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/view')
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/1
+---
+2013/05/28 16:11:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "view".' in D:\wamp\www\phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(271): CController->missingAction('view')
+#1 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('view')
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/view')
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/3
+---
+2013/05/28 16:11:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "about".' in D:\wamp\www\phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(271): CController->missingAction('about')
+#1 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('about')
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/about')
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/about
+---
+2013/05/28 17:25:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "page" 动作.' in D:\wamp\www\phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(271): CController->missingAction('page')
+#1 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('page')
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/page')
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/page.html?view=about
+HTTP_REFERER=http://127.0.0.1/phpexcel/
+---
+2013/05/28 17:25:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "page" 动作.' in D:\wamp\www\phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(271): CController->missingAction('page')
+#1 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('page')
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/page')
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/page.html?view=about
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/page.html?view=about
+---
+2013/05/29 14:32:45 [error] [php] YiiBase::include(PHPExcel_Shared_ZipStreamWrapper.php) [<a href='function.YiiBase-include'>function.YiiBase-include</a>]: failed to open stream: No such file or directory (D:\wamp\www\phpexcel\framework\YiiBase.php:418)
+Stack trace:
+#0 D:\wamp\www\phpexcel\protected\vendors\PHPExcel\PHPExcel\Autoloader.php(31): spl_autoload_call()
+#1 D:\wamp\www\phpexcel\protected\vendors\PHPExcel\PHPExcel.php(32): require()
+#2 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(31): require_once()
+#3 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#7 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#9 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\wamp\www\phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/site/index.html
+in D:\wamp\www\phpexcel\protected\vendors\PHPExcel\PHPExcel\Autoloader.php (31)
+in D:\wamp\www\phpexcel\protected\vendors\PHPExcel\PHPExcel.php (32)
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (31)
+2013/05/29 14:34:46 [error] [php] YiiBase::include(PHPExcel_Shared_ZipStreamWrapper.php) [<a href='function.YiiBase-include'>function.YiiBase-include</a>]: failed to open stream: No such file or directory (D:\wamp\www\phpexcel\framework\YiiBase.php:418)
+Stack trace:
+#0 D:\wamp\www\phpexcel\protected\vendors\PHPExcel\PHPExcel\Autoloader.php(31): spl_autoload_call()
+#1 D:\wamp\www\phpexcel\protected\vendors\PHPExcel\PHPExcel.php(32): require()
+#2 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(31): require_once()
+#3 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#7 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#9 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\wamp\www\phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/site/index.html
+in D:\wamp\www\phpexcel\protected\vendors\PHPExcel\PHPExcel\Autoloader.php (31)
+in D:\wamp\www\phpexcel\protected\vendors\PHPExcel\PHPExcel.php (32)
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (31)
+2013/05/29 14:34:51 [error] [php] YiiBase::include(PHPExcel_Shared_ZipStreamWrapper.php) [<a href='function.YiiBase-include'>function.YiiBase-include</a>]: failed to open stream: No such file or directory (D:\wamp\www\phpexcel\framework\YiiBase.php:418)
+Stack trace:
+#0 D:\wamp\www\phpexcel\protected\vendors\PHPExcel\PHPExcel\Autoloader.php(31): spl_autoload_call()
+#1 D:\wamp\www\phpexcel\protected\vendors\PHPExcel\PHPExcel.php(32): require()
+#2 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(31): require_once()
+#3 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#7 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#9 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\wamp\www\phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/site/index.html
+in D:\wamp\www\phpexcel\protected\vendors\PHPExcel\PHPExcel\Autoloader.php (31)
+in D:\wamp\www\phpexcel\protected\vendors\PHPExcel\PHPExcel.php (32)
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (31)
+2013/05/29 14:39:32 [error] [php] YiiBase::include(PHPExcel_Shared_ZipStreamWrapper.php) [<a href='function.YiiBase-include'>function.YiiBase-include</a>]: failed to open stream: No such file or directory (D:\wamp\www\phpexcel\framework\YiiBase.php:418)
+Stack trace:
+#0 D:\wamp\www\phpexcel\protected\vendors\PHPExcel\PHPExcel\Autoloader.php(31): spl_autoload_call()
+#1 D:\wamp\www\phpexcel\protected\vendors\PHPExcel\PHPExcel.php(32): require()
+#2 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(34): require_once()
+#3 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#7 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#9 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\wamp\www\phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/site/index.html
+in D:\wamp\www\phpexcel\protected\vendors\PHPExcel\PHPExcel\Autoloader.php (31)
+in D:\wamp\www\phpexcel\protected\vendors\PHPExcel\PHPExcel.php (32)
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (34)
+2013/05/29 14:39:33 [error] [php] YiiBase::include(PHPExcel_Shared_ZipStreamWrapper.php) [<a href='function.YiiBase-include'>function.YiiBase-include</a>]: failed to open stream: No such file or directory (D:\wamp\www\phpexcel\framework\YiiBase.php:418)
+Stack trace:
+#0 D:\wamp\www\phpexcel\protected\vendors\PHPExcel\PHPExcel\Autoloader.php(31): spl_autoload_call()
+#1 D:\wamp\www\phpexcel\protected\vendors\PHPExcel\PHPExcel.php(32): require()
+#2 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(34): require_once()
+#3 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#7 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#9 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\wamp\www\phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/site/index.html
+in D:\wamp\www\phpexcel\protected\vendors\PHPExcel\PHPExcel\Autoloader.php (31)
+in D:\wamp\www\phpexcel\protected\vendors\PHPExcel\PHPExcel.php (32)
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (34)
+2013/05/29 14:41:39 [error] [php] YiiBase::include(PHPExcel_Shared_ZipStreamWrapper.php) [<a href='function.YiiBase-include'>function.YiiBase-include</a>]: failed to open stream: No such file or directory (D:\wamp\www\phpexcel\framework\YiiBase.php:418)
+Stack trace:
+#0 D:\wamp\www\phpexcel\protected\vendors\PHPExcel\PHPExcel\Autoloader.php(31): spl_autoload_call()
+#1 D:\wamp\www\phpexcel\protected\vendors\PHPExcel\PHPExcel.php(32): require()
+#2 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(32): require_once()
+#3 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#7 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#9 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\wamp\www\phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/site/index.html
+in D:\wamp\www\phpexcel\protected\vendors\PHPExcel\PHPExcel\Autoloader.php (31)
+in D:\wamp\www\phpexcel\protected\vendors\PHPExcel\PHPExcel.php (32)
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (32)
