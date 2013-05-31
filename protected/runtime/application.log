@@ -218,3 +218,656 @@ REQUEST_URI=/phpexcel/site/index.html
 in D:\wamp\www\phpexcel\protected\vendors\PHPExcel\PHPExcel\Autoloader.php (31)
 in D:\wamp\www\phpexcel\protected\vendors\PHPExcel\PHPExcel.php (32)
 in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (32)
+2013/05/31 10:56:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "upload" 动作.' in D:\wamp\www\phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(271): CController->missingAction('upload')
+#1 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/upload
+---
+2013/05/31 10:58:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "upload" 动作.' in D:\wamp\www\phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(271): CController->missingAction('upload')
+#1 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/upload
+---
+2013/05/31 10:58:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "upload" 动作.' in D:\wamp\www\phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(271): CController->missingAction('upload')
+#1 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/upload
+---
+2013/05/31 10:58:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "upload" 动作.' in D:\wamp\www\phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(271): CController->missingAction('upload')
+#1 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/upload
+---
+2013/05/31 10:58:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "upload" 动作.' in D:\wamp\www\phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(271): CController->missingAction('upload')
+#1 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/upload
+---
+2013/05/31 10:58:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "upload" 动作.' in D:\wamp\www\phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(271): CController->missingAction('upload')
+#1 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/upload
+---
+2013/05/31 10:58:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "upload" 动作.' in D:\wamp\www\phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(271): CController->missingAction('upload')
+#1 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/upload
+---
+2013/05/31 10:58:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "upload" 动作.' in D:\wamp\www\phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(271): CController->missingAction('upload')
+#1 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/upload
+---
+2013/05/31 10:59:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "upload" 动作.' in D:\wamp\www\phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(271): CController->missingAction('upload')
+#1 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/upload
+---
+2013/05/31 11:00:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "upload" 动作.' in D:\wamp\www\phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(271): CController->missingAction('upload')
+#1 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/upload
+---
+2013/05/31 11:00:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "upload" 动作.' in D:\wamp\www\phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(271): CController->missingAction('upload')
+#1 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/upload
+---
+2013/05/31 11:00:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "upload" 动作.' in D:\wamp\www\phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(271): CController->missingAction('upload')
+#1 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/upload
+---
+2013/05/31 11:00:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "upload" 动作.' in D:\wamp\www\phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(271): CController->missingAction('upload')
+#1 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/upload
+---
+2013/05/31 11:00:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "upload" 动作.' in D:\wamp\www\phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(271): CController->missingAction('upload')
+#1 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/upload
+---
+2013/05/31 11:00:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "upload" 动作.' in D:\wamp\www\phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(271): CController->missingAction('upload')
+#1 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/upload
+---
+2013/05/31 11:00:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "upload" 动作.' in D:\wamp\www\phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(271): CController->missingAction('upload')
+#1 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/upload
+---
+2013/05/31 11:00:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "upload" 动作.' in D:\wamp\www\phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(271): CController->missingAction('upload')
+#1 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/upload
+---
+2013/05/31 11:00:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "upload" 动作.' in D:\wamp\www\phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(271): CController->missingAction('upload')
+#1 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/upload
+---
+2013/05/31 11:00:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "upload" 动作.' in D:\wamp\www\phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(271): CController->missingAction('upload')
+#1 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/upload
+---
+2013/05/31 11:00:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "upload" 动作.' in D:\wamp\www\phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(271): CController->missingAction('upload')
+#1 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/upload
+---
+2013/05/31 11:00:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "upload" 动作.' in D:\wamp\www\phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(271): CController->missingAction('upload')
+#1 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/Upload')
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/Upload
+---
+2013/05/31 11:00:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "upload" 动作.' in D:\wamp\www\phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(271): CController->missingAction('upload')
+#1 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/Upload')
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/Upload
+---
+2013/05/31 14:36:05 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection 无法开启数据库连线: SQLSTATE[42000] [1049] Unknown database 'phpexcel'' in D:\wamp\www\phpexcel\framework\db\CDbConnection.php:383
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbConnection.php(332): CDbConnection->open()
+#1 D:\wamp\www\phpexcel\framework\db\CDbConnection.php(310): CDbConnection->setActive(true)
+#2 D:\wamp\www\phpexcel\framework\base\CModule.php(388): CDbConnection->init()
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(431): CModule->getComponent('db')
+#4 D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php(618): CApplication->getDb()
+#5 D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php(2266): CActiveRecord->getDbConnection()
+#6 D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php(382): CActiveRecordMetaData->__construct(Object(UpFile))
+#7 D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php(397): CActiveRecord::model('UpFile')
+#8 D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php(78): CActiveRecord->getMetaData()
+#9 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(72): CActiveRecord->__construct()
+#10 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#11 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#12 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#13 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#15 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#16 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/phpexcel/site/upload
+---
+2013/05/31 14:49:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "test" 动作.' in D:\wamp\www\phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(271): CController->missingAction('test')
+#1 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('test')
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/test')
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/test
+---
+2013/05/31 14:49:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "test" 动作.' in D:\wamp\www\phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(271): CController->missingAction('test')
+#1 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('test')
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/test')
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/test
+---
+2013/05/31 15:34:09 [error] [exception.CException] exception 'CException' with message '属性 "UpFile.filename" 未被定义.' in D:\wamp\www\phpexcel\framework\base\CComponent.php:174
+Stack trace:
+#0 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(78): CComponent->__set('filename', '????????????_04...')
+#1 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#2 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#3 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#6 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#7 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/phpexcel/site/upload
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/upload
+---
+2013/05/31 15:34:31 [error] [exception.CException] exception 'CException' with message '属性 "UpFile.fileName" 未被定义.' in D:\wamp\www\phpexcel\framework\base\CComponent.php:174
+Stack trace:
+#0 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(78): CComponent->__set('fileName', '????????????_04...')
+#1 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#2 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#3 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#6 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#7 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/phpexcel/site/upload
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/upload
+---
+2013/05/31 15:34:58 [error] [exception.CException] exception 'CException' with message '属性 "UpFile.fileType" 未被定义.' in D:\wamp\www\phpexcel\framework\base\CComponent.php:174
+Stack trace:
+#0 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(79): CComponent->__set('fileType', 'jpg')
+#1 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#2 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#3 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#6 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#7 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/phpexcel/site/upload
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/upload
+---
+2013/05/31 15:36:06 [error] [exception.CException] exception 'CException' with message '属性 "UpFile.attribute" 未被定义.' in D:\wamp\www\phpexcel\framework\base\CComponent.php:131
+Stack trace:
+#0 D:\wamp\www\phpexcel\protected\models\UpFile.php(58): CComponent->__get('attribute')
+#1 D:\wamp\www\phpexcel\framework\validators\CInlineValidator.php(43): UpFile->validateFileSize('fileSize', Array)
+#2 D:\wamp\www\phpexcel\framework\validators\CValidator.php(197): CInlineValidator->validateAttribute(Object(UpFile), 'fileSize')
+#3 D:\wamp\www\phpexcel\framework\base\CModel.php(158): CValidator->validate(Object(UpFile), NULL)
+#4 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(81): CModel->validate()
+#5 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#8 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#10 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#11 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#12 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#13 {main}
+REQUEST_URI=/phpexcel/site/upload
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/upload
+---
+2013/05/31 16:10:57 [error] [exception.CException] exception 'CException' with message '属性 "CRangeValidator.0" 未被定义.' in D:\wamp\www\phpexcel\framework\base\CComponent.php:174
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\validators\CValidator.php(174): CComponent->__set('0', Array)
+#1 D:\wamp\www\phpexcel\framework\base\CModel.php(285): CValidator::createValidator('in', Object(UpFile), 'fileType', Array)
+#2 D:\wamp\www\phpexcel\framework\base\CModel.php(259): CModel->createValidators()
+#3 D:\wamp\www\phpexcel\framework\base\CModel.php(157): CModel->getValidators()
+#4 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(81): CModel->validate()
+#5 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#8 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#10 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#11 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#12 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#13 {main}
+REQUEST_URI=/phpexcel/site/upload
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/upload
+---
+2013/05/31 16:13:20 [error] [exception.CException] exception 'CException' with message 'UpFile and its behaviors do not have a method or closure named "save".' in D:\wamp\www\phpexcel\framework\base\CComponent.php:266
+Stack trace:
+#0 [internal function]: CComponent->__call('save', Array)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(82): UpFile->save()
+#2 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#3 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#7 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#8 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/phpexcel/site/upload
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/upload
+---
+2013/05/31 17:47:13 [error] [php] move_uploaded_file(/phpexcel/protected/data/开发需求书-与中国人力资源网-20121212.xlsx) [<a href='function.move-uploaded-file'>function.move-uploaded-file</a>]: failed to open stream: No such file or directory (D:\wamp\www\phpexcel\framework\web\CUploadedFile.php:197)
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#1 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#2 D:\wamp\www\phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#3 D:\wamp\www\phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#4 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#5 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#6 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#7 D:\wamp\www\phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/site/upload
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (89)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/05/31 17:48:49 [error] [php] move_uploaded_file(D:\wamp\www\phpexcel\protected\controllers\SiteController.php/protected/data/授权操作及代理维护免责声明.doc) [<a href='function.move-uploaded-file'>function.move-uploaded-file</a>]: failed to open stream: No such file or directory (D:\wamp\www\phpexcel\framework\web\CUploadedFile.php:197)
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#1 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#2 D:\wamp\www\phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#3 D:\wamp\www\phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#4 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#5 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#6 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#7 D:\wamp\www\phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/site/upload
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (90)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/05/31 17:53:19 [error] [php] move_uploaded_file(D:\wamp\www\phpexcel\protected/data/授权操作及代理维护免责声明.doc) [<a href='function.move-uploaded-file'>function.move-uploaded-file</a>]: failed to open stream: Invalid argument (D:\wamp\www\phpexcel\framework\web\CUploadedFile.php:197)
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#1 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#2 D:\wamp\www\phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#3 D:\wamp\www\phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#4 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#5 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#6 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#7 D:\wamp\www\phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/site/upload
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (91)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/05/31 17:54:06 [error] [php] move_uploaded_file(D:\wamp\www\phpexcel\protected\data\授权操作及代理维护免责声明.doc) [<a href='function.move-uploaded-file'>function.move-uploaded-file</a>]: failed to open stream: Invalid argument (D:\wamp\www\phpexcel\framework\web\CUploadedFile.php:197)
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#1 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#2 D:\wamp\www\phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#3 D:\wamp\www\phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#4 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#5 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#6 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#7 D:\wamp\www\phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/site/upload
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (91)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/05/31 17:55:02 [error] [php] move_uploaded_file(D:\wamp\www\phpexcel\protected\data\授权操作及代理维护免责声明.doc) [<a href='function.move-uploaded-file'>function.move-uploaded-file</a>]: failed to open stream: Invalid argument (D:\wamp\www\phpexcel\framework\web\CUploadedFile.php:197)
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#1 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#2 D:\wamp\www\phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#3 D:\wamp\www\phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#4 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#5 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#6 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#7 D:\wamp\www\phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/site/upload
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (91)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/05/31 17:55:22 [error] [php] move_uploaded_file(D:/wamp/www/phpexcel/protected/data/授权操作及代理维护免责声明.doc) [<a href='function.move-uploaded-file'>function.move-uploaded-file</a>]: failed to open stream: Invalid argument (D:\wamp\www\phpexcel\framework\web\CUploadedFile.php:197)
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#1 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#2 D:\wamp\www\phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#3 D:\wamp\www\phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#4 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#5 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#6 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#7 D:\wamp\www\phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/site/upload
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (91)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/05/31 17:56:20 [error] [php] move_uploaded_file(D:/wamp/www/phpexcel/protected/data/授权操作及代理维护免责声明.doc) [<a href='function.move-uploaded-file'>function.move-uploaded-file</a>]: failed to open stream: Invalid argument (D:\wamp\www\phpexcel\framework\web\CUploadedFile.php:197)
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#1 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#2 D:\wamp\www\phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#3 D:\wamp\www\phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#4 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#5 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#6 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#7 D:\wamp\www\phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/site/upload
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (91)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/05/31 17:57:15 [error] [php] move_uploaded_file(D:/wamp/www/phpexcel/protected授权操作及代理维护免责声明.doc) [<a href='function.move-uploaded-file'>function.move-uploaded-file</a>]: failed to open stream: Invalid argument (D:\wamp\www\phpexcel\framework\web\CUploadedFile.php:197)
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#1 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#2 D:\wamp\www\phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#3 D:\wamp\www\phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#4 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#5 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#6 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#7 D:\wamp\www\phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/site/upload
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (91)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/05/31 17:57:28 [error] [php] move_uploaded_file(D:/wamp/www/phpexcel/protected/授权操作及代理维护免责声明.doc) [<a href='function.move-uploaded-file'>function.move-uploaded-file</a>]: failed to open stream: Invalid argument (D:\wamp\www\phpexcel\framework\web\CUploadedFile.php:197)
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#1 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#2 D:\wamp\www\phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#3 D:\wamp\www\phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#4 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#5 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#6 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#7 D:\wamp\www\phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/site/upload
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (91)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/05/31 17:58:28 [error] [php] move_uploaded_file(D:/wamp/www/授权操作及代理维护免责声明.doc) [<a href='function.move-uploaded-file'>function.move-uploaded-file</a>]: failed to open stream: Invalid argument (D:\wamp\www\phpexcel\framework\web\CUploadedFile.php:197)
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#1 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#2 D:\wamp\www\phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#3 D:\wamp\www\phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#4 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#5 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#6 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#7 D:\wamp\www\phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/site/upload
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (91)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/05/31 17:58:48 [error] [php] move_uploaded_file(D:\wamp\www\授权操作及代理维护免责声明.doc) [<a href='function.move-uploaded-file'>function.move-uploaded-file</a>]: failed to open stream: Invalid argument (D:\wamp\www\phpexcel\framework\web\CUploadedFile.php:197)
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#1 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#2 D:\wamp\www\phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#3 D:\wamp\www\phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#4 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#5 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#6 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#7 D:\wamp\www\phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/site/upload
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (91)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/05/31 17:59:00 [error] [php] move_uploaded_file(D:/wamp/www/授权操作及代理维护免责声明.doc) [<a href='function.move-uploaded-file'>function.move-uploaded-file</a>]: failed to open stream: Invalid argument (D:\wamp\www\phpexcel\framework\web\CUploadedFile.php:197)
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#1 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#2 D:\wamp\www\phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#3 D:\wamp\www\phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#4 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#5 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#6 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#7 D:\wamp\www\phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/site/upload
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (91)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/05/31 18:09:47 [error] [exception.CException] exception 'CException' with message '属性 "UpFile." 未被定义.' in D:\wamp\www\phpexcel\framework\base\CComponent.php:131
+Stack trace:
+#0 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(77): CComponent->__get('')
+#1 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#2 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#3 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#6 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#7 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/phpexcel/site/upload
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/upload
+---
+2013/05/31 18:10:03 [error] [php] Missing argument 2 for CModel::addError(), called in D:\wamp\www\phpexcel\protected\controllers\SiteController.php on line 77 and defined (D:\wamp\www\phpexcel\framework\base\CModel.php:379)
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#1 D:\wamp\www\phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#2 D:\wamp\www\phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#3 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#4 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#5 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\wamp\www\phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/site/upload
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (77)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/05/31 18:12:27 [error] [exception.CException] exception 'CException' with message '请先选择一个文件' in D:\wamp\www\phpexcel\protected\controllers\SiteController.php:77
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#1 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#2 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#3 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#4 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#5 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#6 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#7 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#8 {main}
+REQUEST_URI=/phpexcel/site/upload
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/upload
+---
+2013/05/31 18:13:22 [error] [exception.CException] exception 'CException' with message '请先选择一个文件' in D:\wamp\www\phpexcel\protected\controllers\SiteController.php:77
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#1 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#2 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#3 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#4 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#5 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#6 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#7 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#8 {main}
+REQUEST_URI=/phpexcel/site/upload
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/upload
+---
+2013/05/31 18:16:16 [error] [exception.CException] exception 'CException' with message '请先选择一个文件' in D:\wamp\www\phpexcel\protected\controllers\SiteController.php:78
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#1 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#2 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#3 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#4 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#5 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#6 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#7 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#8 {main}
+REQUEST_URI=/phpexcel/site/upload
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/upload
+---
+2013/05/31 18:17:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "site" 动作.' in D:\wamp\www\phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(271): CController->missingAction('site')
+#1 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('site')
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/site/uploa...')
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/site/upload
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/upload
+---
+2013/05/31 18:17:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "site" 动作.' in D:\wamp\www\phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(271): CController->missingAction('site')
+#1 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('site')
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/site/uploa...')
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/site/upload
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/upload
+---
+2013/05/31 18:18:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "site" 动作.' in D:\wamp\www\phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(271): CController->missingAction('site')
+#1 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('site')
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/site/uploa...')
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/site/upload
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/upload
+---
+2013/05/31 18:21:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "site" 动作.' in D:\wamp\www\phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(271): CController->missingAction('site')
+#1 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('site')
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/site/uploa...')
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/site/upload
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/upload
+---
+2013/05/31 18:22:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "site" 动作.' in D:\wamp\www\phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(271): CController->missingAction('site')
+#1 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('site')
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/site/index')
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/site/index
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/upload
+---
+2013/05/31 18:23:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "site" 动作.' in D:\wamp\www\phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(271): CController->missingAction('site')
+#1 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('site')
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/site/uploa...')
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/site/upload
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/upload
+---

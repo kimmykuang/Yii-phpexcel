@@ -2,24 +2,6 @@
 
 class SiteController extends Controller
 {
-	/**
-	 * Declares class-based actions.
-	 */
-	public function actions()
-	{
-		return array(
-			// captcha action renders the CAPTCHA image displayed on the contact page
-			'captcha'=>array(
-				'class'=>'CCaptchaAction',
-				'backColor'=>0xFFFFFF,
-			),
-			// page action renders "static" pages stored under 'protected/views/site/pages'
-			// They can be accessed via: index.php?r=site/page&view=FileName
-			'page'=>array(
-				'class'=>'CViewAction',
-			),
-		);
-	}
 	
 	/**
 	 * This is the default 'index' action that is invoked
@@ -81,73 +63,66 @@ class SiteController extends Controller
 		spl_autoload_register(array('YiiBase','autoload'));
 		$this->render('index');
 	}
-
-	/**
-	 * This is the action to handle external exceptions.
+	
+	/*
+	 * 处理上传excel文件
 	 */
-	public function actionError()
-	{
-	    if($error=Yii::app()->errorHandler->error)
-	    {
-	    	if(Yii::app()->request->isAjaxRequest)
-	    		echo $error['message'];
-	    	else
-	        	$this->render('error', $error);
-	    }
-	}
-
-	/**
-	 * Displays the contact page
-	 */
-	public function actionContact()
-	{
-		$model=new ContactForm;
-		if(isset($_POST['ContactForm']))
-		{
-			$model->attributes=$_POST['ContactForm'];
-			if($model->validate())
-			{
-				$headers="From: {$model->email}\r\nReply-To: {$model->email}";
-				mail(Yii::app()->params['adminEmail'],$model->subject,$model->body,$headers);
-				Yii::app()->user->setFlash('contact','Thank you for contacting us. We will respond to you as soon as possible.');
-				$this->refresh();
+	public function actionUpload(){
+		//加载模型
+		$model = new UpFile();
+		
+		if(isset($_POST['UpFile'])){
+			
+			//获取上传文件对象
+			$tmpFile = CUploadedFile::getInstance($model,'excelfile');
+			
+			if(empty($tmpFile)){
+				//这里需要使用一个更好地错误提示，同时前端也做一个检验用户是否提交文件
+				$this->redirect('upload',array('model'=>$model));
+				//exit;
 			}
+			
+			//获取文件的基本信息
+			$model->fileName = mb_convert_encoding($tmpFile->name,'gbk','UTF-8');  //跨平台的字符集考虑，待修改
+			
+			$model->fileType = $tmpFile->extensionName;
+
+			$model->fileSize = $tmpFile->size;
+			
+			$baseUrl =Yii::app()->basePath;
+			
+			$model->filePath = $baseUrl.Yii::app()->params['uploadPath'].$model->fileName;
+			//echo $model->filePath;exit;
+			
+			//验证文件信息
+			if($model->validate()){
+				//将临时文件转存
+				if($tmpFile->saveAs($model->filePath)){
+					
+					//文件信息存入数据库中
+					//$model->save();
+					//引入application.vendors.PHPExcel第三方库
+					Yii::import('application.vendors.*');
+					spl_autoload_unregister(array('YiiBase','autoload'));
+					require_once 'PHPExcel/PHPExcel.php';
+					//对转存后的文件进行处理
+						
+					
+					
+					//re-register in Yii
+					spl_autoload_register(array('YiiBase','autoload'));
+					
+					//显示上传成功
+					$this->redirect('upload',array('model',$model));
+				}
+			}
+				
 		}
-		$this->render('contact',array('model'=>$model));
+		
+		$this->render('upload',array('model'=>$model));
+		
 	}
+	
 
-	/**
-	 * Displays the login page
-	 */
-	public function actionLogin()
-	{
-		$model=new LoginForm;
 
-		// if it is ajax validation request
-		if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
-		{
-			echo CActiveForm::validate($model);
-			Yii::app()->end();
-		}
-
-		// collect user input data
-		if(isset($_POST['LoginForm']))
-		{
-			$model->attributes=$_POST['LoginForm'];
-			// validate user input and redirect to the previous page if valid
-			if($model->validate() && $model->login())
-				$this->redirect(Yii::app()->user->returnUrl);
-		}
-		// display the login form
-		$this->render('login',array('model'=>$model));
-	}
-
-	/**
-	 * Logs out the current user and redirect to homepage.
-	 */
-	public function actionLogout()
-	{
-		Yii::app()->user->logout();
-		$this->redirect(Yii::app()->homeUrl);
-	}
 }
