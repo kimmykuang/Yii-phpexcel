@@ -106,7 +106,7 @@ class SiteController extends Controller
 					spl_autoload_unregister(array('YiiBase','autoload'));
 					require_once 'PHPExcel/PHPExcel.php';
 					//对转存后的文件进行处理
-						
+					
 					
 					
 					//re-register in Yii
@@ -123,6 +123,12 @@ class SiteController extends Controller
 		
 	}
 	
-
+	/**
+	 * 初始化数据库
+	 */
+	public function actionInitDB(){
+		//这里可以用yii dao来初始化数据库
+	}
+	
 
 }

@@ -871,3 +871,156 @@ Stack trace:
 REQUEST_URI=/phpexcel/site/site/upload
 HTTP_REFERER=http://127.0.0.1/phpexcel/site/upload
 ---
+2013/06/01 15:33:26 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection 无法开启数据库连线: SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: YES)' in D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\CDbConnection.php:383
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\CDbConnection.php(332): CDbConnection->open()
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\CDbConnection.php(310): CDbConnection->setActive(true)
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CModule.php(388): CDbConnection->init()
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(431): CModule->getComponent('db')
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(618): CApplication->getDb()
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(2266): CActiveRecord->getDbConnection()
+#6 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(382): CActiveRecordMetaData->__construct(Object(UpFile))
+#7 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(397): CActiveRecord::model('UpFile')
+#8 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(78): CActiveRecord->getMetaData()
+#9 D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php(130): CActiveRecord->__construct()
+#10 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionInitDB()
+#11 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#12 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#13 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): CController->run('initdb')
+#15 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/initdb')
+#16 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/initdb
+---
+2013/06/01 15:34:22 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection 无法开启数据库连线: SQLSTATE[42000] [1049] Unknown database 'phpexcel'' in D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\CDbConnection.php:383
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\CDbConnection.php(332): CDbConnection->open()
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\CDbConnection.php(310): CDbConnection->setActive(true)
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CModule.php(388): CDbConnection->init()
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(431): CModule->getComponent('db')
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(618): CApplication->getDb()
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(2266): CActiveRecord->getDbConnection()
+#6 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(382): CActiveRecordMetaData->__construct(Object(UpFile))
+#7 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(397): CActiveRecord::model('UpFile')
+#8 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(78): CActiveRecord->getMetaData()
+#9 D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php(130): CActiveRecord->__construct()
+#10 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionInitDB()
+#11 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#12 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#13 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): CController->run('initdb')
+#15 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/initdb')
+#16 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/initdb
+---
+2013/06/01 15:35:20 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.kexcel_filetable' doesn't exist. The SQL statement executed was: SHOW COLUMNS FROM `kexcel_filetable`.
+in D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php (130)
+in D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php (13)
+2013/06/01 15:35:20 [error] [exception.CDbException] exception 'CDbException' with message '数据库中无法找到 active record class "UpFile" 对应的 table "{{filetable}}".' in D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php:2267
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(382): CActiveRecordMetaData->__construct(Object(UpFile))
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(397): CActiveRecord::model('UpFile')
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(78): CActiveRecord->getMetaData()
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php(130): CActiveRecord->__construct()
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionInitDB()
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): CController->run('initdb')
+#9 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/initdb')
+#10 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/initdb
+---
+2013/06/01 15:36:13 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.kexcel_filetable' doesn't exist. The SQL statement executed was: SHOW COLUMNS FROM `kexcel_filetable`.
+in D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php (130)
+in D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php (13)
+2013/06/01 15:36:13 [error] [exception.CDbException] exception 'CDbException' with message '数据库中无法找到 active record class "UpFile" 对应的 table "{{filetable}}".' in D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php:2267
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(382): CActiveRecordMetaData->__construct(Object(UpFile))
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(397): CActiveRecord::model('UpFile')
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(78): CActiveRecord->getMetaData()
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php(130): CActiveRecord->__construct()
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionInitDB()
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): CController->run('initdb')
+#9 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/initdb')
+#10 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/initdb
+---
+2013/06/01 15:36:14 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.kexcel_filetable' doesn't exist. The SQL statement executed was: SHOW COLUMNS FROM `kexcel_filetable`.
+in D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php (130)
+in D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php (13)
+2013/06/01 15:36:14 [error] [exception.CDbException] exception 'CDbException' with message '数据库中无法找到 active record class "UpFile" 对应的 table "{{filetable}}".' in D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php:2267
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(382): CActiveRecordMetaData->__construct(Object(UpFile))
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(397): CActiveRecord::model('UpFile')
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(78): CActiveRecord->getMetaData()
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php(130): CActiveRecord->__construct()
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionInitDB()
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): CController->run('initdb')
+#9 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/initdb')
+#10 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/initdb
+---
+2013/06/01 15:36:15 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.kexcel_filetable' doesn't exist. The SQL statement executed was: SHOW COLUMNS FROM `kexcel_filetable`.
+in D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php (130)
+in D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php (13)
+2013/06/01 15:36:15 [error] [exception.CDbException] exception 'CDbException' with message '数据库中无法找到 active record class "UpFile" 对应的 table "{{filetable}}".' in D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php:2267
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(382): CActiveRecordMetaData->__construct(Object(UpFile))
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(397): CActiveRecord::model('UpFile')
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(78): CActiveRecord->getMetaData()
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php(130): CActiveRecord->__construct()
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionInitDB()
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): CController->run('initdb')
+#9 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/initdb')
+#10 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/initdb
+---
+2013/06/01 16:18:44 [error] [exception.CException] exception 'CException' with message '属性 "UpFile.db" 未被定义.' in D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CComponent.php:131
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(145): CComponent->__get('db')
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php(131): CActiveRecord->__get('db')
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionInitDB()
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): CController->run('initdb')
+#7 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/initdb')
+#8 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/initdb
+---
+2013/06/01 17:24:04 [error] [php] Wrong parameter count for var_dump() (D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php:131)
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/initdb
+in D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php (131)
+in D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php (13)

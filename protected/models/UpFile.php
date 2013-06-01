@@ -5,7 +5,7 @@
 
 //建立好数据库后使用CActiveRecord
 //需要在某个action中初始化数据库
-class UpFile extends CFormModel{
+class UpFile extends CActiveRecord{
 	
 	public $fileName;
 	public $fileId;
@@ -35,7 +35,7 @@ class UpFile extends CFormModel{
 	public function tableName()
 	{
 		//@return prefix_tablename
-		return '{{filetable}}';
+		return '{{tables}}';
 	}
 	
 	/**

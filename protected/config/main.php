@@ -68,9 +68,12 @@ return array(
 			'connectionString' => 'mysql:host=localhost;dbname=phpexcel',
 			'emulatePrepare' => true,
 			'username' => 'root',
-			'password' => 'xiucai5880',
+			'password' => 'sh54laobao',
 			'charset' => 'gbk',
-			'tablePrefix'=>'kexcel_',
+			'tablePrefix'=>'excel_',
+			//让捆绑的变量显示出来
+   			'enableProfiling' => YII_DEBUG,
+   			'enableParamLogging' =>YII_DEBUG,
 		),
 		
 		'errorHandler'=>array(
@@ -85,11 +88,15 @@ return array(
 					'levels'=>'error, warning',
 				),
 				// uncomment the following to show log messages on web pages
-				/*
+				
+				
 				array(
 					'class'=>'CWebLogRoute',
+					//添加的内容
+     				'levels' =>'trace',
+     				'categories' => 'system.db*',
 				),
-				*/
+				
 			),
 		),
 	),
