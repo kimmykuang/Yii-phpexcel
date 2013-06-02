@@ -140,11 +140,10 @@ class SiteController extends Controller
 				CREATE DATABASE IF NOT EXISTS `$this->excel_db` DEFAULT CHARACTER SET gbk COLLATE gbk_chinese_ci;
 				CREATE TABLE `$this->excel_db`.`$this->excel_table` (
   				`ID` int(10) NOT NULL auto_increment,
-  				`filename` varchar(25) NOT NULL,
-  				`tablename` varchar(25) NOT NULL,
- 				`col_num` int(11) NOT NULL,
-  				`row_num` int(10) default '0',
-  				`create_time` varchar(18) NOT NULL default '0000-00-00 00:00',
+  				`fileName` varchar(25) NOT NULL,
+  				`tableName` varchar(25) NOT NULL,
+  				`filePath` varchar(50) NOT NULL,
+  				`uploadTime` varchar(18) NOT NULL default '0000-00-00 00:00',
   				`is_delete` int(2) NOT NULL default '0',
   				PRIMARY KEY  (`ID`)
 				) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARACTER SET gbk COLLATE gbk_chinese_ci;

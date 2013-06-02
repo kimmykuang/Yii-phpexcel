@@ -76,7 +76,7 @@ class UpFile extends CActiveRecord{
 	 * 验证规则：文件的大小
 	 */
 	public function validateFileSize($attribute,$params){
-		if($this->attributes['fileSize'] > $params['maxsize']){
+		if($this->fileSize > $params['maxsize']){
 			$this->addError($attribute, '文件大小不能超过'.self::MAX_FILE_SIZE/1024/1024);
 		}
 		return true;

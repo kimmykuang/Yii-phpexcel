@@ -1193,3 +1193,19 @@ Stack trace:
 REQUEST_URI=/phpexcel/Yii-phpexcel/index.php/site/initdb
 in D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php (159)
 in D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php (13)
+2013/06/02 22:40:49 [error] [php] Undefined index:  fileSize (D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\models\UpFile.php:79)
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CModel.php(158): CInlineValidator->validate()
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php(101): UpFile->validate()
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#6 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#7 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#8 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/upload
+in D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\models\UpFile.php (79)
+in D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php (101)
+in D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php (13)
