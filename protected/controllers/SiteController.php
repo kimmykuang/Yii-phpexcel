@@ -2,7 +2,10 @@
 
 class SiteController extends Controller
 {
-	
+	//
+	private $excel_db = 'phpexcel';
+	private $excel_table = 'excel_tables';
+	private $excel_sheet = 'excel_sheets';
 	/**
 	 * This is the default 'index' action that is invoked
 	 * when an action is not explicitly requested by users.
@@ -127,7 +130,46 @@ class SiteController extends Controller
 	 * 初始化数据库
 	 */
 	public function actionInitDB(){
+		//header("Content-Type:text/html;charset=utf-8");
 		//这里可以用yii dao来初始化数据库
+		//yii dao 允许一条sql语句执行多次query
+		
+		$conn = Yii::app()->db; //继承自CDbConnection类，connectString来自配置文件/config/main.php
+		
+		$sql = "DROP DATABASE IF EXISTS `$this->excel_db`;
+				CREATE DATABASE IF NOT EXISTS `$this->excel_db` DEFAULT CHARACTER SET gbk COLLATE gbk_chinese_ci;
+				CREATE TABLE `$this->excel_db`.`$this->excel_table` (
+  				`ID` int(10) NOT NULL auto_increment,
+  				`filename` varchar(25) NOT NULL,
+  				`tablename` varchar(25) NOT NULL,
+ 				`col_num` int(11) NOT NULL,
+  				`row_num` int(10) default '0',
+  				`create_time` varchar(18) NOT NULL default '0000-00-00 00:00',
+  				`is_delete` int(2) NOT NULL default '0',
+  				PRIMARY KEY  (`ID`)
+				) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARACTER SET gbk COLLATE gbk_chinese_ci;
+				CREATE TABLE `$this->excel_db`.`$this->excel_sheet` (
+  				`ID` int(10) NOT NULL auto_increment,
+  				`tableID` int(10) NOT NULL,
+  				`cname` varchar(25) NOT NULL,
+  				`fname` varchar(25) NOT NULL,
+  				PRIMARY KEY  (`ID`)
+				) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARACTER SET gbk COLLATE gbk_chinese_ci;";
+		//var_dump($sql)exit;
+		
+		try {
+			$command = $conn->createCommand($sql);  //继承自CDbCommand,准备执行sql语句的命令
+			$command->execute();  //执行no-query sql
+		} catch (Exception $e) {
+			echo "初始化数据库出错:","<br />";
+			print_r($e->getMessage());
+			exit();
+		}
+		
+		
+		//$result = $command->queryAll();  //执行会返回若干行数据的sql语句，成功返回一个CDbDataReader实例，就是一个结果集
+		//var_dump($result);
+		
 	}
 	
 
