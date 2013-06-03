@@ -1209,3 +1209,84 @@ REQUEST_URI=/phpexcel/Yii-phpexcel/site/upload
 in D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\models\UpFile.php (79)
 in D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php (101)
 in D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php (13)
+2013/06/03 10:08:45 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection 无法开启数据库连线: SQLSTATE[42000] [1049] Unknown database 'phpexcel'' in D:\wamp\www\phpexcel\framework\db\CDbConnection.php:383
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbConnection.php(332): CDbConnection->open()
+#1 D:\wamp\www\phpexcel\framework\db\CDbConnection.php(310): CDbConnection->setActive(true)
+#2 D:\wamp\www\phpexcel\framework\base\CModule.php(388): CDbConnection->init()
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(431): CModule->getComponent('db')
+#4 D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php(618): CApplication->getDb()
+#5 D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php(2266): CActiveRecord->getDbConnection()
+#6 D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php(382): CActiveRecordMetaData->__construct(Object(UpFile))
+#7 D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php(397): CActiveRecord::model('UpFile')
+#8 D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php(78): CActiveRecord->getMetaData()
+#9 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(75): CActiveRecord->__construct()
+#10 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#11 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#12 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#13 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#15 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#16 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/phpexcel/site/upload
+---
+2013/06/03 10:09:22 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection 无法开启数据库连线: SQLSTATE[42000] [1049] Unknown database 'phpexcel'' in D:\wamp\www\phpexcel\framework\db\CDbConnection.php:383
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbConnection.php(332): CDbConnection->open()
+#1 D:\wamp\www\phpexcel\framework\db\CDbConnection.php(310): CDbConnection->setActive(true)
+#2 D:\wamp\www\phpexcel\framework\base\CModule.php(388): CDbConnection->init()
+#3 D:\wamp\www\phpexcel\framework\base\CModule.php(104): CModule->getComponent('db')
+#4 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(137): CModule->__get('db')
+#5 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionInitDB()
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#8 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('initdb')
+#10 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/initdb')
+#11 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#12 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#13 {main}
+REQUEST_URI=/phpexcel/site/initdb
+---
+2013/06/03 10:43:19 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_tables' doesn't exist. The SQL statement executed was: SHOW COLUMNS FROM `excel_tables`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (76)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/03 10:43:19 [error] [exception.CDbException] exception 'CDbException' with message '数据库中无法找到 active record class "UpFile" 对应的 table "{{tables}}".' in D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php:2267
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php(382): CActiveRecordMetaData->__construct(Object(UpFile))
+#1 D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php(397): CActiveRecord::model('UpFile')
+#2 D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php(78): CActiveRecord->getMetaData()
+#3 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(76): CActiveRecord->__construct()
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/upload
+---
+2013/06/03 10:48:17 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_tables' doesn't exist. The SQL statement executed was: SHOW COLUMNS FROM `excel_tables`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (76)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/03 10:48:17 [error] [exception.CDbException] exception 'CDbException' with message '数据库中无法找到 active record class "UpFile" 对应的 table "{{tables}}".' in D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php:2267
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php(382): CActiveRecordMetaData->__construct(Object(UpFile))
+#1 D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php(397): CActiveRecord::model('UpFile')
+#2 D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php(78): CActiveRecord->getMetaData()
+#3 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(76): CActiveRecord->__construct()
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/upload
+---

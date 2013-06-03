@@ -2,10 +2,12 @@
 
 class SiteController extends Controller
 {
-	//
+	
 	private $excel_db = 'phpexcel';
-	private $excel_table = 'excel_tables';
-	private $excel_sheet = 'excel_sheets';
+	private $excel_files = 'excel_files';
+	private $excel_sheets = 'excel_sheets';
+	private $excel_columns = 'excel_columns';
+	
 	/**
 	 * This is the default 'index' action that is invoked
 	 * when an action is not explicitly requested by users.
@@ -138,23 +140,31 @@ class SiteController extends Controller
 		
 		$sql = "DROP DATABASE IF EXISTS `$this->excel_db`;
 				CREATE DATABASE IF NOT EXISTS `$this->excel_db` DEFAULT CHARACTER SET gbk COLLATE gbk_chinese_ci;
-				CREATE TABLE `$this->excel_db`.`$this->excel_table` (
+				CREATE TABLE `$this->excel_db`.`$this->excel_files` (
   				`ID` int(10) NOT NULL auto_increment,
-  				`fileName` varchar(25) NOT NULL,
-  				`tableName` varchar(25) NOT NULL,
+  				`fileName` nvarchar(50) NOT NULL,
   				`filePath` varchar(50) NOT NULL,
   				`uploadTime` varchar(18) NOT NULL default '0000-00-00 00:00',
-  				`is_delete` int(2) NOT NULL default '0',
+  				`userIp` varchar(16) NOT NULL default '0.0.0.0',
+  				`fileType` varchar(5) NOT NULL default 'xlsx',
+  				`lastModifyTime` varchar(18) NOT NULL default '0000-00-00 00:00',
+  				`lastModifyUserIp` varchar(16) NOT NULL default '0.0.0.0',
   				PRIMARY KEY  (`ID`)
 				) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARACTER SET gbk COLLATE gbk_chinese_ci;
-				CREATE TABLE `$this->excel_db`.`$this->excel_sheet` (
+				CREATE TABLE `$this->excel_db`.`$this->excel_sheets` (
+  				`ID` int(10) NOT NULL auto_increment,
+  				`fileID` int(10) NOT NULL,
+  				`sheetTitle` nvarchar(50) NOT NULL,
+  				`sheetTableName` varchar(25) NOT NULL,
+  				PRIMARY KEY  (`ID`)
+				) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARACTER SET gbk COLLATE gbk_chinese_ci;
+				CREATE TABLE `$this->excel_db`.`$this->excel_columns` (
   				`ID` int(10) NOT NULL auto_increment,
   				`tableID` int(10) NOT NULL,
-  				`cname` varchar(25) NOT NULL,
-  				`fname` varchar(25) NOT NULL,
+  				`columnTitle` nvarchar(50) NOT NULL,
+  				`columnName` varchar(25) NOT NULL,
   				PRIMARY KEY  (`ID`)
 				) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARACTER SET gbk COLLATE gbk_chinese_ci;";
-		//var_dump($sql)exit;
 		
 		try {
 			$command = $conn->createCommand($sql);  //继承自CDbCommand,准备执行sql语句的命令

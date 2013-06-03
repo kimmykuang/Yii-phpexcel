@@ -8,7 +8,7 @@
 class UpFile extends CActiveRecord{
 	
 	public $fileName;
-	public $fileId;
+	public $ID;
 	public $uploadTime;
 	public $filePath;
 	public $userIp;
@@ -35,7 +35,7 @@ class UpFile extends CActiveRecord{
 	public function tableName()
 	{
 		//@return prefix_tablename
-		return '{{tables}}';
+		return '{{files}}';
 	}
 	
 	/**
@@ -103,7 +103,7 @@ class UpFile extends CActiveRecord{
 	{
 		return array(
 			'fileName'=>'文件名',
-			'fileId'=>'文件ID',
+			'ID'=>'文件ID',
 			'uploadTime'=>'上传时间',
 			'filePath'=>'文件路径',
 			'userIp'=>'上传者的IP',
