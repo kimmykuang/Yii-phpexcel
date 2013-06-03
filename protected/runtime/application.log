@@ -1633,3 +1633,65 @@ Stack trace:
 REQUEST_URI=/phpexcel/site/upload
 HTTP_REFERER=http://127.0.0.1/phpexcel/site/upload
 ---
+2013/06/03 14:34:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Á≥ªÁªüÊó†Ê≥ïÊâæÂà∞ËØ∑Ê±ÇÁöÑ "idnex" Âä®‰Ωú.' in D:\wamp\www\phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(271): CController->missingAction('idnex')
+#1 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('idnex')
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/idnex')
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/idnex
+---
+2013/06/03 16:16:54 [error] [php] move_uploaded_file(D:\wamp\www\phpexcel\protected\data\ø™∑¢–Ë«Û È-”Î÷–π˙»À¡¶◊ ‘¥Õ¯-20121212.xlsx) [<a href='function.move-uploaded-file'>function.move-uploaded-file</a>]: failed to open stream: Permission denied (D:\wamp\www\phpexcel\framework\web\CUploadedFile.php:197)
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#1 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#2 D:\wamp\www\phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#3 D:\wamp\www\phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#4 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#5 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#6 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#7 D:\wamp\www\phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/site/upload
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (104)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/03 16:18:04 [error] [php] move_uploaded_file(D:\wamp\www\phpexcel\protected\data\ø™∑¢–Ë«Û È-”Î÷–π˙»À¡¶◊ ‘¥Õ¯-20121212.xlsx) [<a href='function.move-uploaded-file'>function.move-uploaded-file</a>]: failed to open stream: Permission denied (D:\wamp\www\phpexcel\framework\web\CUploadedFile.php:197)
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#1 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#2 D:\wamp\www\phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#3 D:\wamp\www\phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#4 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#5 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#6 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#7 D:\wamp\www\phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/site/upload
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (104)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/03 17:00:51 [error] [php] Missing argument 1 for PHPExcel_Reader_Excel2007::listWorksheetNames(), called in D:\wamp\www\phpexcel\protected\controllers\SiteController.php on line 124 and defined (D:\wamp\www\phpexcel\protected\vendors\PHPExcel\PHPExcel\Reader\Excel2007.php:444)
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#1 D:\wamp\www\phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#2 D:\wamp\www\phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#3 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#4 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#5 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\wamp\www\phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/site/upload
+in D:\wamp\www\phpexcel\protected\vendors\PHPExcel\PHPExcel\Reader\Excel2007.php (444)
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (124)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/03 17:09:57 [error] [php] move_uploaded_file(D:\wamp\www\phpexcel\protected\data\test.xlsx) [<a href='function.move-uploaded-file'>function.move-uploaded-file</a>]: failed to open stream: Permission denied (D:\wamp\www\phpexcel\framework\web\CUploadedFile.php:197)
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#1 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#2 D:\wamp\www\phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#3 D:\wamp\www\phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#4 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#5 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#6 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#7 D:\wamp\www\phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/site/upload
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (104)
+in D:\wamp\www\phpexcel\index.php (13)

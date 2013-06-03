@@ -101,21 +101,67 @@ class SiteController extends Controller
 			//验证文件信息
 			if($model->validate()){
 				//将临时文件转存
-				if($tmpFile->saveAs($model->filePath)){
+				if($tmpFile->saveAs($model->filePath) && $model->save()){
 					
-					//文件信息存入数据库中
-					//var_dump($model->attributes);exit;
-					$model->save();
-					exit;
 					//引入application.vendors.PHPExcel第三方库
 					Yii::import('application.vendors.*');
 					spl_autoload_unregister(array('YiiBase','autoload'));
 					require_once 'PHPExcel/PHPExcel.php';
+					
 					//对转存后的文件进行处理
+					$file = $model->getAttribute('filePath');
 					
+					if(!file_exists($file)){
+						//这里不能使用Yii的CException或者CHTTPException类，因为Yii的autoload已经被unregister了，会报找不到类的错误
+						throw new Exception('file not exists!');
+					}
 					
+					//兼容Excel5和Excel7
+					$excelReader = new PHPExcel_Reader_Excel2007();
+        			if(!$excelReader->canRead($file)) {
+        				$excelReader = new PHPExcel_Reader_Excel5();
+        			}
+        			//在load整个文件之前就读取所有worksheets的名字，使用了PHP_ZIP扩展
+        			$sheetNames = $excelReader->listWorksheetNames($file);
+					//load整个文件，这里是一下子把文件读入到内存
+					$objPHPExcel = $excelReader->load($file);
+					$s = microtime(1);
+					$sheetCount = count($sheetNames);
+					for ($c=0;$c<=$sheetCount;$c++){
+						
+						$rows = array();
+						$currentSheet = $objPHPExcel->getSheet($c);
+						$row_num = $currentSheet->getHighestRow();
+						$col_num = PHPExcel_Cell::columnIndexFromString($currentSheet->getHighestColumn());
+						
+						//读取每个worksheet的第一列，作为表的column
+						for ($j = 1;$j<=$col_num;$j++){
+							$columns[$j] = $currentSheet->getCellByColumnAndRow($j,1)->getValue();
+						}	
+						$columns = $this->trimArray($columns);
+						
+						//若列为空则表示空工作薄，跳过当前循环继续下一个循环
+						if(empty($columns)){
+							continue;
+						}
+						
+						//对每个worksheet，应该考虑大量数据对于内存的使用与释放
+						for ($i=1;$i<=$row_num;$i++){
+							for ($j=1;$j<=$col_num;$j++){
+								$address = $j.$i;
+								$rows[$i][$j] = $currentSheet->getCell($address)->getFormattedValue();
+							}
+						}
+						
+						//comment
+						echo $c,"<br/>";
+						var_dump($rows);
+						
+						unset($rows);
+						unset($currentSheet);
+					}
 					
-					//re-register in Yii
+					//re-register autoload in Yii
 					spl_autoload_register(array('YiiBase','autoload'));
 					
 					//显示上传成功
@@ -182,5 +228,22 @@ class SiteController extends Controller
 		
 	}
 	
+	/**
+	 * PHPExcel取excel文件的列时会取到空列，使用这个函数清理下
+	 * @return Array():返回不为空的那些列名
+	 * 当返回的数组是一个空时，说明当前这个worksheet是空的
+	 */
+	public function trimArray($columns){
+		if(empty($columns)){
+			return $columns;
+		}
+		if(is_array($columns)){
+			foreach ($columns as $key=>$value){
+				if($value == null)
+					unset($columns[$key]);
+			}
+			return $columns;
+		}else return array();
+	}
 
 }
