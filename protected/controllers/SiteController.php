@@ -74,9 +74,8 @@ class SiteController extends Controller
 	 */
 	public function actionUpload(){
 		//加载模型
-		$model = new UpFile();
-		
-		if(isset($_POST['UpFile'])){
+		$model = new File();
+		if(isset($_POST['File'])){
 			
 			//获取上传文件对象
 			$tmpFile = CUploadedFile::getInstance($model,'excelfile');
@@ -88,15 +87,15 @@ class SiteController extends Controller
 			}
 			
 			//获取文件的基本信息
-			$model->fileName = mb_convert_encoding($tmpFile->name,'gbk','UTF-8');  //跨平台的字符集考虑，待修改
+			$model->setAttribute('fileName',mb_convert_encoding($tmpFile->name,'gbk','UTF-8'));
 			
-			$model->fileType = $tmpFile->extensionName;
+			$model->setAttribute('fileType',$tmpFile->extensionName);
 
 			$model->fileSize = $tmpFile->size;
 			
 			$baseUrl =Yii::app()->basePath;
 			
-			$model->filePath = $baseUrl.Yii::app()->params['uploadPath'].$model->fileName;
+			$model->setAttribute('filePath',$baseUrl.Yii::app()->params['uploadPath'].$model->getAttribute('fileName'));
 			//echo $model->filePath;exit;
 			
 			//验证文件信息
@@ -105,7 +104,9 @@ class SiteController extends Controller
 				if($tmpFile->saveAs($model->filePath)){
 					
 					//文件信息存入数据库中
-					//$model->save();
+					//var_dump($model->attributes);exit;
+					$model->save();
+					exit;
 					//引入application.vendors.PHPExcel第三方库
 					Yii::import('application.vendors.*');
 					spl_autoload_unregister(array('YiiBase','autoload'));
@@ -143,11 +144,11 @@ class SiteController extends Controller
 				CREATE TABLE `$this->excel_db`.`$this->excel_files` (
   				`ID` int(10) NOT NULL auto_increment,
   				`fileName` nvarchar(50) NOT NULL,
-  				`filePath` varchar(50) NOT NULL,
-  				`uploadTime` varchar(18) NOT NULL default '0000-00-00 00:00',
+  				`filePath` nvarchar(100) NOT NULL,
+  				`uploadTime` varchar(22) NOT NULL default '0000-00-00 00:00',
   				`userIp` varchar(16) NOT NULL default '0.0.0.0',
   				`fileType` varchar(5) NOT NULL default 'xlsx',
-  				`lastModifyTime` varchar(18) NOT NULL default '0000-00-00 00:00',
+  				`lastModifyTime` varchar(22) NOT NULL default '0000-00-00 00:00',
   				`lastModifyUserIp` varchar(16) NOT NULL default '0.0.0.0',
   				PRIMARY KEY  (`ID`)
 				) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARACTER SET gbk COLLATE gbk_chinese_ci;

@@ -3,20 +3,12 @@
  * ActiveRecord for upload file model
  */
 
-//建立好数据库后使用CActiveRecord
-//需要在某个action中初始化数据库
-class UpFile extends CActiveRecord{
-	
-	public $fileName;
+class Column extends CActiveRecord{
+
 	public $ID;
-	public $uploadTime;
-	public $filePath;
-	public $userIp;
-	public $lastModifyTime;
-	public $lastModifyUserIp;
-	public $fileType;
-	public $fileSize;
-	const MAX_FILE_SIZE = 52428800;  //50MB,这里是字节数
+	public $tableID;
+	public $columnTitle;
+	public $columnName;
 	
 	/**
 	 * Returns the static model of the specified AR class.
@@ -25,7 +17,6 @@ class UpFile extends CActiveRecord{
 	 */
 	public static function model($className=__CLASS__)
 	{
-		//use like this : Example::model()->xxx
 		return parent::model($className);
 	}
 	
@@ -35,7 +26,7 @@ class UpFile extends CActiveRecord{
 	public function tableName()
 	{
 		//@return prefix_tablename
-		return '{{files}}';
+		return '{{columns}}';
 	}
 	
 	/**
@@ -44,12 +35,7 @@ class UpFile extends CActiveRecord{
 	 */
 	public function rules(){
 		return array(
-			//required attributes
-			array('fileName,fileType,fileSize','required'),
-			//file extension should be xls or xlsx
-			array('fileType','in','range'=>array('xls','xlsx'),'message'=>'只接受.xls或者.xlsx为后缀名的Excel文件'),
-			//uplaod file size should not bigger than MAX_FILE_SIZE
-			array('fileSize','validateFileSize','maxsize'=>self::MAX_FILE_SIZE),
+			
 		);
 	}
 	
@@ -58,7 +44,6 @@ class UpFile extends CActiveRecord{
 	 * @see CModel::beforeValidate()
 	 */
 	public function beforeValidate(){
-		//var_dump($this->attributes);exit;
 		return true;
 	}
 	
@@ -68,20 +53,8 @@ class UpFile extends CActiveRecord{
 	 * @see CModel::afterValidate()
 	 */
 	public function afterValidate(){
-		//var_dump($this->attributes);exit;
 		return true;
 	}
-	
-	/**
-	 * 验证规则：文件的大小
-	 */
-	public function validateFileSize($attribute,$params){
-		if($this->fileSize > $params['maxsize']){
-			$this->addError($attribute, '文件大小不能超过'.self::MAX_FILE_SIZE/1024/1024);
-		}
-		return true;
-	}
-	
 	
 	/**
 	 * @return array relational rules.
@@ -101,15 +74,11 @@ class UpFile extends CActiveRecord{
 	 */
 	public function attributeLabels()
 	{
-		return array(
-			'fileName'=>'文件名',
-			'ID'=>'文件ID',
-			'uploadTime'=>'上传时间',
-			'filePath'=>'文件路径',
-			'userIp'=>'上传者的IP',
-			'fileType'=>'文件后缀名',
-			'lastModifyTime'=>'最近一次修改时间',
-			'lastModifyUserIp'=>'最近一次修改的用户IP',
+		return array(	
+			'ID'=>'字段ID',
+			'tableID'=>'工作薄表ID',
+			'columnTitle'=>'列名',
+			'columnName'=>'字段名',
 		);
 	}
 	
@@ -119,9 +88,7 @@ class UpFile extends CActiveRecord{
 	public function beforeSave()
 	{
 		parent::beforeSave();
-		$this->lastModifyTime = $this->uploadTime = date('Y-m-d H:i:s',time());
-		$this->lastModifyUserIp = $this->userIp = Yii::app()->request->userHostAddress;
-		var_dump($this->attributes);exit;
+		//do something here
 		return true;
 	}
 	
@@ -131,9 +98,7 @@ class UpFile extends CActiveRecord{
 	public function afterSave()
 	{
 		parent::afterSave();
-		
 		//do something
-		
 		return true;
 	}
 }

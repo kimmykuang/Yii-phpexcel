@@ -5,8 +5,9 @@
 
 //建立好数据库后使用CActiveRecord
 //需要在某个action中初始化数据库
-class UpFile extends CActiveRecord{
+class File extends CActiveRecord{
 	
+	/*
 	public $fileName;
 	public $ID;
 	public $uploadTime;
@@ -15,6 +16,7 @@ class UpFile extends CActiveRecord{
 	public $lastModifyTime;
 	public $lastModifyUserIp;
 	public $fileType;
+	*/
 	public $fileSize;
 	const MAX_FILE_SIZE = 52428800;  //50MB,这里是字节数
 	
@@ -46,6 +48,8 @@ class UpFile extends CActiveRecord{
 		return array(
 			//required attributes
 			array('fileName,fileType,fileSize','required'),
+			//file name max length
+			array('fileName','length','max'=>50),
 			//file extension should be xls or xlsx
 			array('fileType','in','range'=>array('xls','xlsx'),'message'=>'只接受.xls或者.xlsx为后缀名的Excel文件'),
 			//uplaod file size should not bigger than MAX_FILE_SIZE
@@ -119,9 +123,12 @@ class UpFile extends CActiveRecord{
 	public function beforeSave()
 	{
 		parent::beforeSave();
-		$this->lastModifyTime = $this->uploadTime = date('Y-m-d H:i:s',time());
-		$this->lastModifyUserIp = $this->userIp = Yii::app()->request->userHostAddress;
-		var_dump($this->attributes);exit;
+		$t = date('Y-m-d H:i',time());
+		$this->setAttribute('lastModifyTime',$t);
+		$this->setAttribute('uploadTime',$t);
+		$this->setAttribute('lastModifyUserIp',Yii::app()->request->userHostAddress);
+		$this->setAttribute('userIp',Yii::app()->request->userHostAddress);
+		//var_dump($this->attributes);exit;
 		return true;
 	}
 	

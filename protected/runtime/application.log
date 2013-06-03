@@ -1290,3 +1290,346 @@ Stack trace:
 #12 {main}
 REQUEST_URI=/phpexcel/site/upload
 ---
+2013/06/03 11:01:00 [error] [php] YiiBase::include(UpFile.php) [<a href='function.YiiBase-include'>function.YiiBase-include</a>]: failed to open stream: No such file or directory (D:\wamp\www\phpexcel\framework\YiiBase.php:418)
+Stack trace:
+#0 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(77): spl_autoload_call()
+#1 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#2 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 D:\wamp\www\phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#5 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#6 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#7 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 D:\wamp\www\phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/site/upload
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (77)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/03 11:40:33 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1406 Data too long for column 'filePath' at row 1. The SQL statement executed was: INSERT INTO `excel_files` (`fileName`, `filePath`, `uploadTime`, `userIp`, `fileType`, `lastModifyTime`, `lastModifyUserIp`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6). Bound with :yp0='开发需求书-与中国人力资源网-20121212.xlsx', :yp1='D:\\wamp\\www\\phpexcel\\protected\\data\\开发需求书-与中国人力资源网-20121212.xlsx', :yp2='2013-06-03 11:40:33', :yp3='127.0.0.1', :yp4='xlsx', :yp5='2013-06-03 11:40:33', :yp6='127.0.0.1'.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (108)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/03 11:40:33 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 鏃犳硶鎵ц SQL 璇彞: SQLSTATE[HY000]: General error: 1406 Data too long for column 'filePath' at row 1. The SQL statement executed was: INSERT INTO `excel_files` (`fileName`, `filePath`, `uploadTime`, `userIp`, `fileType`, `lastModifyTime`, `lastModifyUserIp`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6). Bound with :yp0='开发需求书-与中国人力资源网-20121212.xlsx', :yp1='D:\\wamp\\www\\phpexcel\\protected\\data\\开发需求书-与中国人力资源网-20121212.xlsx', :yp2='2013-06-03 11:40:33', :yp3='127.0.0.1', :yp4='xlsx', :yp5='2013-06-03 11:40:33', :yp6='127.0.0.1'' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:354
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php(1017): CDbCommand->execute()
+#1 D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php(790): CActiveRecord->insert(NULL)
+#2 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(108): CActiveRecord->save()
+#3 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#9 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/phpexcel/site/upload
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/upload
+---
+2013/06/03 11:41:22 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1406 Data too long for column 'filePath' at row 1. The SQL statement executed was: INSERT INTO `excel_files` (`fileName`, `filePath`, `uploadTime`, `userIp`, `fileType`, `lastModifyTime`, `lastModifyUserIp`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6). Bound with :yp0='开发需求书-与中国人力资源网-20121212.xlsx', :yp1='D:\\wamp\\www\\phpexcel\\protected\\data\\开发需求书-与中国人力资源网-20121212.xlsx', :yp2='2013-06-03 11:41:22', :yp3='127.0.0.1', :yp4='xlsx', :yp5='2013-06-03 11:41:22', :yp6='127.0.0.1'.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (108)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/03 11:41:22 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 鏃犳硶鎵ц SQL 璇彞: SQLSTATE[HY000]: General error: 1406 Data too long for column 'filePath' at row 1. The SQL statement executed was: INSERT INTO `excel_files` (`fileName`, `filePath`, `uploadTime`, `userIp`, `fileType`, `lastModifyTime`, `lastModifyUserIp`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6). Bound with :yp0='开发需求书-与中国人力资源网-20121212.xlsx', :yp1='D:\\wamp\\www\\phpexcel\\protected\\data\\开发需求书-与中国人力资源网-20121212.xlsx', :yp2='2013-06-03 11:41:22', :yp3='127.0.0.1', :yp4='xlsx', :yp5='2013-06-03 11:41:22', :yp6='127.0.0.1'' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:354
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php(1017): CDbCommand->execute()
+#1 D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php(790): CActiveRecord->insert(NULL)
+#2 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(108): CActiveRecord->save()
+#3 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#9 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/phpexcel/site/upload
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/upload
+---
+2013/06/03 11:43:49 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1406 Data too long for column 'filePath' at row 1. The SQL statement executed was: INSERT INTO `excel_files` (`fileName`, `filePath`, `uploadTime`, `userIp`, `fileType`, `lastModifyTime`, `lastModifyUserIp`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6). Bound with :yp0='开发需求书-与中国人力资源网-20121212.xlsx', :yp1='D:\\wamp\\www\\phpexcel\\protected\\data\\开发需求书-与中国人力资源网-20121212.xlsx', :yp2='2013-06-03 11:43:49', :yp3='127.0.0.1', :yp4='xlsx', :yp5='2013-06-03 11:43:49', :yp6='127.0.0.1'.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (109)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/03 11:43:49 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 鏃犳硶鎵ц SQL 璇彞: SQLSTATE[HY000]: General error: 1406 Data too long for column 'filePath' at row 1. The SQL statement executed was: INSERT INTO `excel_files` (`fileName`, `filePath`, `uploadTime`, `userIp`, `fileType`, `lastModifyTime`, `lastModifyUserIp`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6). Bound with :yp0='开发需求书-与中国人力资源网-20121212.xlsx', :yp1='D:\\wamp\\www\\phpexcel\\protected\\data\\开发需求书-与中国人力资源网-20121212.xlsx', :yp2='2013-06-03 11:43:49', :yp3='127.0.0.1', :yp4='xlsx', :yp5='2013-06-03 11:43:49', :yp6='127.0.0.1'' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:354
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php(1017): CDbCommand->execute()
+#1 D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php(790): CActiveRecord->insert(NULL)
+#2 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(109): CActiveRecord->save()
+#3 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#9 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/phpexcel/site/upload
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/upload
+---
+2013/06/03 11:45:05 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1406 Data too long for column 'filePath' at row 1. The SQL statement executed was: INSERT INTO `excel_files` (`fileName`, `filePath`, `uploadTime`, `userIp`, `fileType`, `lastModifyTime`, `lastModifyUserIp`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6). Bound with :yp0='开发需求书-与中国人力资源网-20121212.xlsx', :yp1='D:\\wamp\\www\\phpexcel\\protected\\data\\开发需求书-与中国人力资源网-20121212.xlsx', :yp2='2013-06-03 11:45:05', :yp3='127.0.0.1', :yp4='xlsx', :yp5='2013-06-03 11:45:05', :yp6='127.0.0.1'.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (109)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/03 11:45:05 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 鏃犳硶鎵ц SQL 璇彞: SQLSTATE[HY000]: General error: 1406 Data too long for column 'filePath' at row 1. The SQL statement executed was: INSERT INTO `excel_files` (`fileName`, `filePath`, `uploadTime`, `userIp`, `fileType`, `lastModifyTime`, `lastModifyUserIp`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6). Bound with :yp0='开发需求书-与中国人力资源网-20121212.xlsx', :yp1='D:\\wamp\\www\\phpexcel\\protected\\data\\开发需求书-与中国人力资源网-20121212.xlsx', :yp2='2013-06-03 11:45:05', :yp3='127.0.0.1', :yp4='xlsx', :yp5='2013-06-03 11:45:05', :yp6='127.0.0.1'' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:354
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php(1017): CDbCommand->execute()
+#1 D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php(790): CActiveRecord->insert(NULL)
+#2 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(109): CActiveRecord->save()
+#3 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#9 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/phpexcel/site/upload
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/upload
+---
+2013/06/03 11:45:17 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1406 Data too long for column 'filePath' at row 1. The SQL statement executed was: INSERT INTO `excel_files` (`fileName`, `filePath`, `uploadTime`, `userIp`, `fileType`, `lastModifyTime`, `lastModifyUserIp`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6). Bound with :yp0='开发需求书-与中国人力资源网-20121212.xlsx', :yp1='D:\\wamp\\www\\phpexcel\\protected\\data\\开发需求书-与中国人力资源网-20121212.xlsx', :yp2='2013-06-03 11:45:17', :yp3='127.0.0.1', :yp4='xlsx', :yp5='2013-06-03 11:45:17', :yp6='127.0.0.1'.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (109)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/03 11:45:17 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 鏃犳硶鎵ц SQL 璇彞: SQLSTATE[HY000]: General error: 1406 Data too long for column 'filePath' at row 1. The SQL statement executed was: INSERT INTO `excel_files` (`fileName`, `filePath`, `uploadTime`, `userIp`, `fileType`, `lastModifyTime`, `lastModifyUserIp`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6). Bound with :yp0='开发需求书-与中国人力资源网-20121212.xlsx', :yp1='D:\\wamp\\www\\phpexcel\\protected\\data\\开发需求书-与中国人力资源网-20121212.xlsx', :yp2='2013-06-03 11:45:17', :yp3='127.0.0.1', :yp4='xlsx', :yp5='2013-06-03 11:45:17', :yp6='127.0.0.1'' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:354
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php(1017): CDbCommand->execute()
+#1 D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php(790): CActiveRecord->insert(NULL)
+#2 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(109): CActiveRecord->save()
+#3 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#9 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/phpexcel/site/upload
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/upload
+---
+2013/06/03 11:48:19 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1406 Data too long for column 'filePath' at row 1. The SQL statement executed was: INSERT INTO `excel_files` (`fileName`, `filePath`, `uploadTime`, `userIp`, `fileType`, `lastModifyTime`, `lastModifyUserIp`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6). Bound with :yp0='开发需求书-与中国人力资源网-20121212.xlsx', :yp1='D:\\wamp\\www\\phpexcel\\protected\\data\\开发需求书-与中国人力资源网-20121212.xlsx', :yp2='2013-06-03 11:48:19', :yp3='127.0.0.1', :yp4='xlsx', :yp5='2013-06-03 11:48:19', :yp6='127.0.0.1'.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (109)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/03 11:48:19 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 鏃犳硶鎵ц SQL 璇彞: SQLSTATE[HY000]: General error: 1406 Data too long for column 'filePath' at row 1. The SQL statement executed was: INSERT INTO `excel_files` (`fileName`, `filePath`, `uploadTime`, `userIp`, `fileType`, `lastModifyTime`, `lastModifyUserIp`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6). Bound with :yp0='开发需求书-与中国人力资源网-20121212.xlsx', :yp1='D:\\wamp\\www\\phpexcel\\protected\\data\\开发需求书-与中国人力资源网-20121212.xlsx', :yp2='2013-06-03 11:48:19', :yp3='127.0.0.1', :yp4='xlsx', :yp5='2013-06-03 11:48:19', :yp6='127.0.0.1'' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:354
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php(1017): CDbCommand->execute()
+#1 D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php(790): CActiveRecord->insert(NULL)
+#2 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(109): CActiveRecord->save()
+#3 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#9 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/phpexcel/site/upload
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/upload
+---
+2013/06/03 11:50:54 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1406 Data too long for column 'filePath' at row 1. The SQL statement executed was: INSERT INTO `excel_files` (`fileName`, `filePath`, `uploadTime`, `userIp`, `fileType`, `lastModifyTime`, `lastModifyUserIp`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6). Bound with :yp0='开发需求书-与中国人力资源网-20121212.xlsx', :yp1='D:\\wamp\\www\\phpexcel\\protected\\data\\开发需求书-与中国人力资源网-20121212.xlsx', :yp2='2013-06-03 11:50:54', :yp3='127.0.0.1', :yp4='xlsx', :yp5='2013-06-03 11:50:54', :yp6='127.0.0.1'.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (109)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/03 11:50:54 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 鏃犳硶鎵ц SQL 璇彞: SQLSTATE[HY000]: General error: 1406 Data too long for column 'filePath' at row 1. The SQL statement executed was: INSERT INTO `excel_files` (`fileName`, `filePath`, `uploadTime`, `userIp`, `fileType`, `lastModifyTime`, `lastModifyUserIp`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6). Bound with :yp0='开发需求书-与中国人力资源网-20121212.xlsx', :yp1='D:\\wamp\\www\\phpexcel\\protected\\data\\开发需求书-与中国人力资源网-20121212.xlsx', :yp2='2013-06-03 11:50:54', :yp3='127.0.0.1', :yp4='xlsx', :yp5='2013-06-03 11:50:54', :yp6='127.0.0.1'' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:354
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php(1017): CDbCommand->execute()
+#1 D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php(790): CActiveRecord->insert(NULL)
+#2 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(109): CActiveRecord->save()
+#3 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#9 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/phpexcel/site/upload
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/upload
+---
+2013/06/03 11:52:50 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1406 Data too long for column 'filePath' at row 1. The SQL statement executed was: INSERT INTO `excel_files` (`fileName`, `filePath`, `uploadTime`, `userIp`, `fileType`, `lastModifyTime`, `lastModifyUserIp`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6). Bound with :yp0='开发需求书-与中国人力资源网-20121212.xlsx', :yp1='D:\\wamp\\www\\phpexcel\\protected\\data\\开发需求书-与中国人力资源网-20121212.xlsx', :yp2='2013-06-03 11:52:50', :yp3='127.0.0.1', :yp4='xlsx', :yp5='2013-06-03 11:52:50', :yp6='127.0.0.1'.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (109)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/03 11:52:50 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 鏃犳硶鎵ц SQL 璇彞: SQLSTATE[HY000]: General error: 1406 Data too long for column 'filePath' at row 1. The SQL statement executed was: INSERT INTO `excel_files` (`fileName`, `filePath`, `uploadTime`, `userIp`, `fileType`, `lastModifyTime`, `lastModifyUserIp`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6). Bound with :yp0='开发需求书-与中国人力资源网-20121212.xlsx', :yp1='D:\\wamp\\www\\phpexcel\\protected\\data\\开发需求书-与中国人力资源网-20121212.xlsx', :yp2='2013-06-03 11:52:50', :yp3='127.0.0.1', :yp4='xlsx', :yp5='2013-06-03 11:52:50', :yp6='127.0.0.1'' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:354
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php(1017): CDbCommand->execute()
+#1 D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php(790): CActiveRecord->insert(NULL)
+#2 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(109): CActiveRecord->save()
+#3 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#9 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/phpexcel/site/upload
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/upload
+---
+2013/06/03 12:00:03 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1364 Field 'fileName' doesn't have a default value. The SQL statement executed was: INSERT INTO `excel_files` (`ID`) VALUES (NULL).
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (109)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/03 12:00:03 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 鏃犳硶鎵ц SQL 璇彞: SQLSTATE[HY000]: General error: 1364 Field 'fileName' doesn't have a default value. The SQL statement executed was: INSERT INTO `excel_files` (`ID`) VALUES (NULL)' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:354
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php(1017): CDbCommand->execute()
+#1 D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php(790): CActiveRecord->insert(Array)
+#2 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(109): CActiveRecord->save(true, Array)
+#3 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#9 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/phpexcel/site/upload
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/upload
+---
+2013/06/03 12:53:26 [error] [php] Object of class CMysqlTableSchema could not be converted to string (D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php:1016)
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#1 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#2 D:\wamp\www\phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#3 D:\wamp\www\phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#4 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#5 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#6 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#7 D:\wamp\www\phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/site/upload
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (109)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/03 13:00:21 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1406 Data too long for column 'filePath' at row 1. The SQL statement executed was: INSERT INTO `excel_files` (`fileName`, `filePath`, `uploadTime`, `userIp`, `fileType`, `lastModifyTime`, `lastModifyUserIp`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6). Bound with :yp0='开发需求书-与中国人力资源网-20121212.xlsx', :yp1='D:\\wamp\\www\\phpexcel\\protected\\data\\开发需求书-与中国人力资源网-20121212.xlsx', :yp2='2013-06-03 13:00:21', :yp3='127.0.0.1', :yp4='xlsx', :yp5='2013-06-03 13:00:21', :yp6='127.0.0.1'.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (109)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/03 13:00:21 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 鏃犳硶鎵ц SQL 璇彞: SQLSTATE[HY000]: General error: 1406 Data too long for column 'filePath' at row 1. The SQL statement executed was: INSERT INTO `excel_files` (`fileName`, `filePath`, `uploadTime`, `userIp`, `fileType`, `lastModifyTime`, `lastModifyUserIp`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6). Bound with :yp0='开发需求书-与中国人力资源网-20121212.xlsx', :yp1='D:\\wamp\\www\\phpexcel\\protected\\data\\开发需求书-与中国人力资源网-20121212.xlsx', :yp2='2013-06-03 13:00:21', :yp3='127.0.0.1', :yp4='xlsx', :yp5='2013-06-03 13:00:21', :yp6='127.0.0.1'' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:354
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php(1019): CDbCommand->execute()
+#1 D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php(790): CActiveRecord->insert(Array)
+#2 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(109): CActiveRecord->save(true, Array)
+#3 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#9 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/phpexcel/site/upload
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/upload
+---
+2013/06/03 13:01:52 [error] [php] Missing argument 1 for CActiveRecord::getAttribute(), called in D:\wamp\www\phpexcel\protected\controllers\SiteController.php on line 108 and defined (D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php:675)
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#1 D:\wamp\www\phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#2 D:\wamp\www\phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#3 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#4 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#5 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\wamp\www\phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/site/upload
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (108)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/03 13:02:14 [error] [php] Illegal offset type in isset or empty (D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php:679)
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#1 D:\wamp\www\phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#2 D:\wamp\www\phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#3 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#4 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#5 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\wamp\www\phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/site/upload
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (108)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/03 13:02:18 [error] [php] Illegal offset type in isset or empty (D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php:679)
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#1 D:\wamp\www\phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#2 D:\wamp\www\phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#3 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#4 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#5 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\wamp\www\phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/site/upload
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (108)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/03 13:09:52 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1406 Data too long for column 'filePath' at row 1. The SQL statement executed was: INSERT INTO `excel_files` (`fileName`, `filePath`, `uploadTime`, `userIp`, `fileType`, `lastModifyTime`, `lastModifyUserIp`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6). Bound with :yp0='开发需求书-与中国人力资源网-20121212.xlsx', :yp1='D:\\wamp\\www\\phpexcel\\protected\\data\\开发需求书-与中国人力资源网-20121212.xlsx', :yp2='2013-06-03 13:09:52', :yp3='127.0.0.1', :yp4='xlsx', :yp5='2013-06-03 13:09:52', :yp6='127.0.0.1'.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (109)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/03 13:09:52 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 鏃犳硶鎵ц SQL 璇彞: SQLSTATE[HY000]: General error: 1406 Data too long for column 'filePath' at row 1. The SQL statement executed was: INSERT INTO `excel_files` (`fileName`, `filePath`, `uploadTime`, `userIp`, `fileType`, `lastModifyTime`, `lastModifyUserIp`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6). Bound with :yp0='开发需求书-与中国人力资源网-20121212.xlsx', :yp1='D:\\wamp\\www\\phpexcel\\protected\\data\\开发需求书-与中国人力资源网-20121212.xlsx', :yp2='2013-06-03 13:09:52', :yp3='127.0.0.1', :yp4='xlsx', :yp5='2013-06-03 13:09:52', :yp6='127.0.0.1'' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:354
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php(1019): CDbCommand->execute()
+#1 D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php(790): CActiveRecord->insert(NULL)
+#2 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(109): CActiveRecord->save()
+#3 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#9 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/phpexcel/site/upload
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/upload
+---
+2013/06/03 13:12:17 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1406 Data too long for column 'filePath' at row 1. The SQL statement executed was: INSERT INTO `excel_files` (`fileName`, `filePath`, `uploadTime`, `userIp`, `fileType`, `lastModifyTime`, `lastModifyUserIp`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6). Bound with :yp0='开发需求书-与中国人力资源网-20121212.xlsx', :yp1='D:\\wamp\\www\\phpexcel\\protected\\data\\开发需求书-与中国人力资源网-20121212.xlsx', :yp2='2013-06-03 13:12:17', :yp3='127.0.0.1', :yp4='xlsx', :yp5='2013-06-03 13:12:17', :yp6='127.0.0.1'.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (109)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/03 13:12:17 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 鏃犳硶鎵ц SQL 璇彞: SQLSTATE[HY000]: General error: 1406 Data too long for column 'filePath' at row 1. The SQL statement executed was: INSERT INTO `excel_files` (`fileName`, `filePath`, `uploadTime`, `userIp`, `fileType`, `lastModifyTime`, `lastModifyUserIp`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6). Bound with :yp0='开发需求书-与中国人力资源网-20121212.xlsx', :yp1='D:\\wamp\\www\\phpexcel\\protected\\data\\开发需求书-与中国人力资源网-20121212.xlsx', :yp2='2013-06-03 13:12:17', :yp3='127.0.0.1', :yp4='xlsx', :yp5='2013-06-03 13:12:17', :yp6='127.0.0.1'' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:355
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php(1019): CDbCommand->execute()
+#1 D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php(790): CActiveRecord->insert(NULL)
+#2 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(109): CActiveRecord->save()
+#3 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#9 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/phpexcel/site/upload
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/upload
+---
+2013/06/03 13:44:21 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1406 Data too long for column 'filePath' at row 1. The SQL statement executed was: INSERT INTO `excel_files` (`fileName`, `filePath`, `uploadTime`, `userIp`, `fileType`, `lastModifyTime`, `lastModifyUserIp`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6). Bound with :yp0='开发需求书-与中国人力资源网-20121212.xlsx', :yp1='D:\\wamp\\www\\phpexcel\\protected\\data\\开发需求书-与中国人力资源网-20121212.xlsx', :yp2='2013-06-03 13:44:21', :yp3='127.0.0.1', :yp4='xlsx', :yp5='2013-06-03 13:44:21', :yp6='127.0.0.1'.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (108)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/03 13:44:21 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 鏃犳硶鎵ц SQL 璇彞: SQLSTATE[HY000]: General error: 1406 Data too long for column 'filePath' at row 1. The SQL statement executed was: INSERT INTO `excel_files` (`fileName`, `filePath`, `uploadTime`, `userIp`, `fileType`, `lastModifyTime`, `lastModifyUserIp`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6). Bound with :yp0='开发需求书-与中国人力资源网-20121212.xlsx', :yp1='D:\\wamp\\www\\phpexcel\\protected\\data\\开发需求书-与中国人力资源网-20121212.xlsx', :yp2='2013-06-03 13:44:21', :yp3='127.0.0.1', :yp4='xlsx', :yp5='2013-06-03 13:44:21', :yp6='127.0.0.1'' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:355
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php(1018): CDbCommand->execute()
+#1 D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php(790): CActiveRecord->insert(NULL)
+#2 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(108): CActiveRecord->save()
+#3 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#9 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/phpexcel/site/upload
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/upload
+---
+2013/06/03 13:48:06 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1406 Data too long for column 'filePath' at row 1. The SQL statement executed was: INSERT INTO `excel_files` (`fileName`, `filePath`, `uploadTime`, `userIp`, `fileType`, `lastModifyTime`, `lastModifyUserIp`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6). Bound with :yp0='开发需求书-与中国人力资源网-20121212.xlsx', :yp1='D:\\wamp\\www\\phpexcel\\protected\\data\\开发需求书-与中国人力资源网-20121212.xlsx', :yp2='2013-06-03 13:48:06', :yp3='127.0.0.1', :yp4='xlsx', :yp5='2013-06-03 13:48:06', :yp6='127.0.0.1'.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (108)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/03 13:48:06 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 鏃犳硶鎵ц SQL 璇彞: SQLSTATE[HY000]: General error: 1406 Data too long for column 'filePath' at row 1. The SQL statement executed was: INSERT INTO `excel_files` (`fileName`, `filePath`, `uploadTime`, `userIp`, `fileType`, `lastModifyTime`, `lastModifyUserIp`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6). Bound with :yp0='开发需求书-与中国人力资源网-20121212.xlsx', :yp1='D:\\wamp\\www\\phpexcel\\protected\\data\\开发需求书-与中国人力资源网-20121212.xlsx', :yp2='2013-06-03 13:48:06', :yp3='127.0.0.1', :yp4='xlsx', :yp5='2013-06-03 13:48:06', :yp6='127.0.0.1'' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:355
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php(1018): CDbCommand->execute()
+#1 D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php(790): CActiveRecord->insert(NULL)
+#2 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(108): CActiveRecord->save()
+#3 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#9 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/phpexcel/site/upload
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/upload
+---

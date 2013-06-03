@@ -191,6 +191,7 @@ class CDbCommandBuilder extends CComponent
 		$values=array();
 		$placeholders=array();
 		$i=0;
+		//var_dump($data);exit;
 		foreach($data as $name=>$value)
 		{
 			if(($column=$table->getColumn($name))!==null && ($value!==null || $column->allowNull))

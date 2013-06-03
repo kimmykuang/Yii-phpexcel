@@ -1014,6 +1014,7 @@ abstract class CActiveRecord extends CModel
 			$builder=$this->getCommandBuilder();
 			$table=$this->getMetaData()->tableSchema;
 			$command=$builder->createInsertCommand($table,$this->getAttributes($attributes));
+			//var_dump($command);exit;
 			if($command->execute())
 			{
 				$primaryKey=$table->primaryKey;
