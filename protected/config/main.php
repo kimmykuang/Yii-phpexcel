@@ -68,13 +68,25 @@ return array(
 			'connectionString' => 'mysql:host=localhost;dbname=phpexcel',
 			'emulatePrepare' => true,
 			'username' => 'root',
-			'password' => 'xiucai5880',
+			'password' => 'sh54laobao',
 			'charset' => 'gbk',
 			'tablePrefix'=>'excel_',
 			//让捆绑的变量显示出来
    			'enableProfiling' => YII_DEBUG,
    			'enableParamLogging' =>YII_DEBUG,
 		),
+		/*
+		'db'=>array(
+			'connectionString' => 'mysql:host=localhost;dbname=phpexcel',
+			'emulatePrepare' => true,
+			'username' => 'root',
+			'password' => 'xiucai5880',
+			'charset' => 'gbk',
+			'tablePrefix'=>'excel_',
+			//让捆绑的变量显示出来
+   			'enableProfiling' => YII_DEBUG,
+   			'enableParamLogging' =>YII_DEBUG,
+		),*/
 		
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors

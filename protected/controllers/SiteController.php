@@ -3,6 +3,7 @@
 class SiteController extends Controller
 {
 	
+	
 	private $excel_db = 'phpexcel';
 	private $excel_files = 'excel_files';
 	private $excel_sheets = 'excel_sheets';
@@ -73,6 +74,8 @@ class SiteController extends Controller
 	 * 处理上传excel文件
 	 */
 	public function actionUpload(){
+		ini_set('display_errors', 1);
+		error_reporting(E_ALL );
 		//加载模型
 		$model = new File();
 		if(isset($_POST['File'])){
@@ -115,47 +118,66 @@ class SiteController extends Controller
 						//这里不能使用Yii的CException或者CHTTPException类，因为Yii的autoload已经被unregister了，会报找不到类的错误
 						throw new Exception('file not exists!');
 					}
-					
+					//页面调试输出头
+					header("Content-Type:text/html;charset=utf-8");
 					//兼容Excel5和Excel7
 					$excelReader = new PHPExcel_Reader_Excel2007();
         			if(!$excelReader->canRead($file)) {
         				$excelReader = new PHPExcel_Reader_Excel5();
         			}
+        			// true: 只读取数据，如果不对文件进行写操作，那么设置为只读模式可以提高读取效率
+        			$excelReader->setReadDataOnly(true);
+        			//设置读编码
+        			//setlocale(LC_ALL, 'zh_CN');
         			//在load整个文件之前就读取所有worksheets的名字，使用了PHP_ZIP扩展
         			$sheetNames = $excelReader->listWorksheetNames($file);
+					//读到的是UTF-8编码的字符串
+        			
 					//load整个文件，这里是一下子把文件读入到内存
 					$objPHPExcel = $excelReader->load($file);
 					$s = microtime(1);
 					$sheetCount = count($sheetNames);
+					
 					for ($c=0;$c<=$sheetCount;$c++){
-						
-						$rows = array();
+						$fields = $rows = $columns = array();
 						$currentSheet = $objPHPExcel->getSheet($c);
 						$row_num = $currentSheet->getHighestRow();
 						$col_num = PHPExcel_Cell::columnIndexFromString($currentSheet->getHighestColumn());
 						
 						//读取每个worksheet的第一列，作为表的column
-						for ($j = 1;$j<=$col_num;$j++){
+						//按数字读列column,是从0开始的
+						for ($j = 0;$j<=$col_num;$j++){
 							$columns[$j] = $currentSheet->getCellByColumnAndRow($j,1)->getValue();
 						}	
+
+						//清理列数组
 						$columns = $this->trimArray($columns);
-						
 						//若列为空则表示空工作薄，跳过当前循环继续下一个循环
 						if(empty($columns)){
 							continue;
 						}
 						
+						//var_dump(mb_detect_encoding($currentSheet->getCellByColumnAndRow(0,1)->getValue()));exit;
+						//var_dump($columns);exit;
+						//根据列名创建数据表
+						
+						foreach ($columns as $column){
+							//汉字取首字母拼音需要gbk编码
+							$fields[$this->pyInit($this->changeEncode('UTF-8','GBK',$column))] = $column;
+						}
+						//var_dump($fields);exit;
+						
+						
 						//对每个worksheet，应该考虑大量数据对于内存的使用与释放
 						for ($i=1;$i<=$row_num;$i++){
 							for ($j=1;$j<=$col_num;$j++){
 								$address = $j.$i;
-								$rows[$i][$j] = $currentSheet->getCell($address)->getFormattedValue();
+								$rows[$i][$j] = $currentSheet->getCell($address)->getValue();
 							}
 						}
 						
 						//comment
-						echo $c,"<br/>";
-						var_dump($rows);
+						
 						
 						unset($rows);
 						unset($currentSheet);
@@ -246,4 +268,81 @@ class SiteController extends Controller
 		}else return array();
 	}
 
+	//获取汉字的首字母，除了汉字以外则直接返回（字母、数字、特殊字符）
+	//$str必须是gbk编码的!
+	function pyInit($str){
+		$restr = '';
+		$i=0;
+		$count=strlen($str);
+		while($i<$count) {
+			$tmp=bin2hex(substr($str,$i,1));
+			if($tmp>='B0'){ //汉字的开始
+				$t=$this->getLetter(hexdec(bin2hex(substr($str,$i,2))));
+				$restr .= sprintf("%c",$t==-1 ? '*' : $t );
+			$i+=2;
+			}
+			else{
+				$restr .= sprintf("%s",substr($str,$i,1));
+				$i++;
+			}
+		}
+		return $restr;
+	}
+	
+	//获取字符ascii码
+	function getLetter($num){
+		$limit = array( //gb2312 拼音排序
+					array(45217,45252), //A
+					array(45253,45760), //B
+					array(45761,46317), //C
+					array(46318,46825), //D
+					array(46826,47009), //E
+					array(47010,47296), //F
+					array(47297,47613), //G
+					array(47614,48118), //H
+					array(0,0),//I
+					array(48119,49061), //J
+					array(49062,49323), //K
+					array(49324,49895), //L
+					array(49896,50370), //M
+					array(50371,50613), //N
+					array(50614,50621), //O
+					array(50622,50905), //P
+					array(50906,51386), //Q
+					array(51387,51445), //R
+					array(51446,52217), //S
+					array(52218,52697), //T
+					array(0,0), //U
+					array(0,0),//V
+					array(52698,52979), //W
+					array(52980,53688), //X
+					array(53689,54480), //Y
+					array(54481,55289), //Z
+				);
+		$char_index=65;
+		foreach($limit as $k=>$v){
+			if($num>=$v[0] && $num<=$v[1]){
+				$char_index+=$k;
+			return $char_index;
+			}
+ 		}
+ 		return -1;
+	}
+	
+	//字符集编码转换 utf8<=>gbk
+	function changeEncode($inCode,$outCode,$input){
+		$outCode=strtolower($outCode);
+		if($outCode == 'gbk' || $outCode == 'gb2312')
+			$outCode='gb2312//IGNORE'; //防止转码出错,忽略不可转字符
+		if(is_array($input)){
+			foreach ($input as $key=>$val){
+				$key=iconv($inCode,$outCode,$key);
+				$output[$key]=$this->changeEncode($inCode,$outCode,$val);
+			}
+			return $output;
+		}else{
+			return iconv($inCode,$outCode,$input);
+		}
+	}
+	
 }
