@@ -64,18 +64,7 @@ return array(
 		*/
 		
 		// uncomment the following to use a MySQL database
-		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=phpexcel',
-			'emulatePrepare' => true,
-			'username' => 'root',
-			'password' => 'sh54laobao',
-			'charset' => 'gbk',
-			'tablePrefix'=>'excel_',
-			//让捆绑的变量显示出来
-   			'enableProfiling' => YII_DEBUG,
-   			'enableParamLogging' =>YII_DEBUG,
-		),
-		/*
+		
 		'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=phpexcel',
 			'emulatePrepare' => true,
@@ -86,7 +75,7 @@ return array(
 			//让捆绑的变量显示出来
    			'enableProfiling' => YII_DEBUG,
    			'enableParamLogging' =>YII_DEBUG,
-		),*/
+		),
 		
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors

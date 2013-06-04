@@ -163,7 +163,7 @@ class SiteController extends Controller
 						
 						foreach ($columns as $column){
 							//汉字取首字母拼音需要gbk编码
-							$fields[$this->pyInit($this->changeEncode('UTF-8','GBK',$column))] = $column;
+							$fields[strtolower($this->pyInit($this->changeEncode('UTF-8','GBK',$column)))] = $column;
 						}
 						//var_dump($fields);exit;
 						
