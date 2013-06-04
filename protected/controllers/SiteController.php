@@ -138,7 +138,8 @@ class SiteController extends Controller
 					$s = microtime(1);
 					$sheetCount = count($sheetNames);
 					
-					for ($c=0;$c<=$sheetCount;$c++){
+					for ($c=0;$c<$sheetCount;$c++){
+						try {
 						$fields = $rows = $columns = array();
 						$currentSheet = $objPHPExcel->getSheet($c);
 						$row_num = $currentSheet->getHighestRow();
@@ -168,24 +169,26 @@ class SiteController extends Controller
 						//var_dump($fields);exit;
 						
 						
-						//对每个worksheet，应该考虑大量数据对于内存的使用与释放
-						for ($i=1;$i<=$row_num;$i++){
-							for ($j=1;$j<=$col_num;$j++){
-								$address = $j.$i;
-								$rows[$i][$j] = $currentSheet->getCell($address)->getValue();
+							//对每个worksheet，应该考虑大量数据对于内存的使用与释放
+							for ($i=1;$i<=$row_num;$i++){
+								for ($j=0;$j<=$col_num;$j++){
+									$rows[$i][$j] = $currentSheet->getCellByColumnAndRow($j,$i)->getValue();
+								}
 							}
+						} catch (Exception $e) {
+							var_dump($e->getMessage());
+							exit;
 						}
 						
-						//comment
 						
-						
+						var_dump($rows);
 						unset($rows);
 						unset($currentSheet);
 					}
-					
+
 					//re-register autoload in Yii
 					spl_autoload_register(array('YiiBase','autoload'));
-					
+	
 					//显示上传成功
 					$this->redirect('upload',array('model',$model));
 				}

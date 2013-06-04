@@ -69,7 +69,7 @@ return array(
 			'connectionString' => 'mysql:host=localhost;dbname=phpexcel',
 			'emulatePrepare' => true,
 			'username' => 'root',
-			'password' => '123456',
+			'password' => 'xiucai5880',
 			'charset' => 'gbk',
 			'tablePrefix'=>'excel_',
 			//让捆绑的变量显示出来
