@@ -250,6 +250,59 @@ class SiteController extends Controller
 		
 	}
 	
+	public function actionDownload(){
+		//ini_set('display_errors', 1);
+		//error_reporting(E_ALL );
+		$filename = "测试.xlsx";
+		$filepath = Yii::getPathOfAlias('application.data').DIRECTORY_SEPARATOR.$filename;
+		
+		Yii::import('application.vendors.*');
+		spl_autoload_unregister(array('YiiBase','autoload'));
+		require_once 'PHPExcel/PHPExcel.php';
+		
+		$objExcel = new PHPExcel();
+		$objWriter = new PHPExcel_Writer_Excel2007($objExcel); // 用于 2007 格式 
+		$objWriter->setOffice2003Compatibility(true); //向下兼容excel2005
+
+		//设置当前的sheet索引，用于后续的内容操作。 
+		//一般只有在使用多个sheet的时候才需要显示调用。 
+		//缺省情况下，PHPExcel会自动创建第一个sheet被设置SheetIndex=0 
+   		$objExcel->setActiveSheetIndex(0);
+
+    	$objActSheet = $objExcel->getActiveSheet();
+
+		//设置当前活动sheet的名称 
+    	$objActSheet->setTitle('测试Sheet');
+    	
+    	//设置单元格内容
+
+		//由PHPExcel根据传入内容自动判断单元格内容类型 
+    	$objActSheet->setCellValue('A1', '字符串内容'); // 字符串内容 
+    	$objActSheet->setCellValue('A2', 26);            // 数值 
+    	$objActSheet->setCellValue('A3', true);          // 布尔值 
+    	//$objActSheet->setCellValue('A4', '=SUM(A2:A2)'); // 公式
+    	
+    	//输出内容
+		//ob_clean();
+   		//$outputFileName = "output.xls"; 
+		//到文件 
+		//$objWriter->save($filepath); 
+		//or 
+		//到浏览器 
+   		header("Content-Type: application/force-download"); 
+   		header("Content-Type: application/octet-stream;charset=UTF-8"); 
+  	 	header("Content-Type: application/download"); 
+   		header('Content-Disposition:inline;filename="'.$filename.'"'); 
+   		header("Content-Transfer-Encoding: binary"); 
+  		header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT"); 
+   		header("Cache-Control: must-revalidate, post-check=0, pre-check=0"); 
+  		header("Pragma: no-cache"); 
+   		$objWriter->save('php://output'); 
+   		
+		//re-register autoload in Yii
+		spl_autoload_register(array('YiiBase','autoload'));
+	}
+	
 	/**
 	 * PHPExcel取excel文件的列时会取到空列，使用这个函数清理下
 	 * @return Array():返回不为空的那些列名
@@ -345,4 +398,45 @@ class SiteController extends Controller
 		}
 	}
 	
+	//发送文件
+	function sendFile($filename,$filepath,$charset = 'UTF-8',$xsend = true,$mimeType = 'application/octet-stream'){
+		// 文件名乱码问题
+		$ua = $_SERVER["HTTP_USER_AGENT"];
+		if (preg_match("/MSIE/", $ua)) 
+		{
+			$filename = urlencode($filename);
+			$filename = str_replace("+", "%20", $filename);// 替换空格
+			$attachmentHeader = "Content-Disposition: attachment; filename=\"{$filename}\"; charset={$charset}";
+	
+		} else if (preg_match("/Firefox/", $ua)) {
+	
+			$attachmentHeader = 'Content-Disposition: attachment; filename*="utf8\'\'' . $filename. '"' ;
+	
+		} else {
+	
+			$attachmentHeader = "Content-Disposition: attachment; filename=\"{$filename}\"; charset={$charset}";
+	
+		}
+
+		$filesize = filesize($filepath);
+
+		//header("Pragma: public"); header("Expires: 0");
+		header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+		header("Content-Type: application/force-download");
+		header("Content-Type: {$mimeType}");
+
+		header($attachmentHeader);
+		header('Pragma: cache');
+		header('Cache-Control: public, must-revalidate, max-age=0');
+
+		if($xsend){
+			//mod_xsendfile模块
+			header("X-Sendfile:".$filepath);
+			exit;
+		}else {
+			header("Content-Length: {$filesize}");
+			readfile($filepath);
+			exit;
+		}
+	}
 }
