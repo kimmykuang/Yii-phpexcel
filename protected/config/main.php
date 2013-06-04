@@ -70,7 +70,7 @@ return array(
 			'emulatePrepare' => true,
 			'username' => 'root',
 			'password' => 'xiucai5880',
-			'charset' => 'gbk',
+			'charset' => 'utf8',
 			'tablePrefix'=>'excel_',
 			//让捆绑的变量显示出来
    			'enableProfiling' => YII_DEBUG,

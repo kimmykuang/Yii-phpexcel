@@ -244,11 +244,14 @@ class CDbCommand extends CComponent
 	 */
 	public function bindParam($name, &$value, $dataType=null, $length=null, $driverOptions=null)
 	{
+		//echo $name,$value;exit;
 		$this->prepare();
 		if($dataType===null)
 			$this->_statement->bindParam($name,$value,$this->_connection->getPdoType(gettype($value)));
-		else if($length===null)
+		else if($length===null){
 			$this->_statement->bindParam($name,$value,$dataType);
+			//var_dump($this);exit;
+		}
 		else if($driverOptions===null)
 			$this->_statement->bindParam($name,$value,$dataType,$length);
 		else

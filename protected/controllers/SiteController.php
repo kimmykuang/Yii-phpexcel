@@ -74,6 +74,8 @@ class SiteController extends Controller
 	 * 处理上传excel文件
 	 */
 	public function actionUpload(){
+		//页面调试输出头
+		header("Content-Type:text/html;charset=utf-8");
 		ini_set('display_errors', 1);
 		error_reporting(E_ALL );
 		//加载模型
@@ -105,7 +107,8 @@ class SiteController extends Controller
 			if($model->validate()){
 				//将临时文件转存
 				if($tmpFile->saveAs($model->filePath) && $model->save()){
-					
+					//fileID
+					$fileID = Yii::app()->db->lastInsertID;
 					//引入application.vendors.PHPExcel第三方库
 					Yii::import('application.vendors.*');
 					spl_autoload_unregister(array('YiiBase','autoload'));
@@ -113,13 +116,11 @@ class SiteController extends Controller
 					
 					//对转存后的文件进行处理
 					$file = $model->getAttribute('filePath');
-					
 					if(!file_exists($file)){
 						//这里不能使用Yii的CException或者CHTTPException类，因为Yii的autoload已经被unregister了，会报找不到类的错误
 						throw new Exception('file not exists!');
 					}
-					//页面调试输出头
-					header("Content-Type:text/html;charset=utf-8");
+					
 					//兼容Excel5和Excel7
 					$excelReader = new PHPExcel_Reader_Excel2007();
         			if(!$excelReader->canRead($file)) {
@@ -141,16 +142,22 @@ class SiteController extends Controller
 					for ($c=0;$c<$sheetCount;$c++){
 						try {
 							$fields = $rows = $columns = array();
+							//当前worksheet
 							$currentSheet = $objPHPExcel->getSheet($c);
+							//当前worksheet的标题
+							$currentSheetTitle = $currentSheet->getTitle();
+							$currentSheetTableName = strtolower($this->pyInit($this->changeEncode("UTF-8", "GBK", $currentSheetTitle)));
+							//行数
 							$row_num = $currentSheet->getHighestRow();
+							//列数
 							$col_num = PHPExcel_Cell::columnIndexFromString($currentSheet->getHighestColumn());
 						
 							//读取每个worksheet的第一列，作为表的column
 							//按数字读列column,是从0开始的
-							for ($j = 0;$j<=$col_num;$j++){
+							for ($j = 0;$j < $col_num;$j++){
 								$columns[$j] = $currentSheet->getCellByColumnAndRow($j,1)->getValue();
-							}	
-
+							}
+							
 							//清理列数组
 							$columns = $this->trimArray($columns);
 							//若列为空则表示空工作薄，跳过当前循环继续下一个循环
@@ -160,29 +167,61 @@ class SiteController extends Controller
 						
 							//var_dump(mb_detect_encoding($currentSheet->getCellByColumnAndRow(0,1)->getValue()));exit;
 							//var_dump($columns);exit;
-							//根据列名创建数据表
 						
 							foreach ($columns as $column){
 								//汉字取首字母拼音需要gbk编码
 								$fields[strtolower($this->pyInit($this->changeEncode('UTF-8','GBK',$column)))] = $column;
 							}
 							//var_dump($fields);exit;
-						
+							
+							//事务开始
+							spl_autoload_register(array('YiiBase','autoload'));
+							$conn = Yii::app()->db;
+							//$conn->active = TRUE;
+							$transaction = $conn->beginTransaction();
+							
+							//插入excel_sheets表
+							$sql1 = "INSERT INTO `$this->excel_sheets` VALUES (null,'$fileID','$currentSheetTitle','$currentSheetTableName')";
+							//插入excel_columns表
+							$sql2 = "INSERT INTO `$this->excel_columns` VALUES (null,'$fileID','$currentSheetTitle','$currentSheetTableName')";
+							//创建数据表
+							$sql3 = "";
+							/*
+							$command->bindValue(":fileID", $fileID,PDO::PARAM_INT);
+							$command->bindValue(":sheetTitle", $currentSheetTitle,PDO::PARAM_STR);
+							$command->bindValue(":sheetTableName", $currentSheetTableName,PDO::PARAM_STR);
+							//echo $command->text;exit;
+							*/
+							try {
+								$conn->createCommand($sql1)->execute();
+								$conn->createCommand($sql2)->execute();
+								$transaction->commit();
+							} catch (Exception $e) {
+								$transaction->rollback();
+								echo "事务出错:","<br />";
+								print_r($e->getMessage());
+								exit();
+							}
+							//事务结束
+							
 						
 							//对每个worksheet，应该考虑大量数据对于内存的使用与释放
 							for ($i=1;$i<=$row_num;$i++){
-								for ($j=0;$j<=$col_num;$j++){
+								for ($j=0;$j<$col_num;$j++){
 									$rows[$i][$j] = $currentSheet->getCellByColumnAndRow($j,$i)->getValue();
 								}
 							}
+							
+							//向数据表插入数据
+							
 						} catch (Exception $e) {
 							var_dump($e->getMessage());
 							exit;
 						}
 						
-						
-						var_dump($rows);
 						unset($rows);
+						unset($fields);
+						unset($columns);
 						unset($currentSheet);
 					}
 
@@ -215,7 +254,7 @@ class SiteController extends Controller
 			$conn = new CDbConnection($dsn,$username,$password); //继承自CDbConnection类，connectString来自配置文件/config/main.php
 			$conn->active = TRUE;  //激活连接
 			$sql = "DROP DATABASE IF EXISTS `$this->excel_db`;
-				CREATE DATABASE IF NOT EXISTS `$this->excel_db` DEFAULT CHARACTER SET gbk COLLATE gbk_chinese_ci;
+				CREATE DATABASE IF NOT EXISTS `$this->excel_db` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 				CREATE TABLE `$this->excel_db`.`$this->excel_files` (
   				`ID` int(10) NOT NULL auto_increment,
   				`fileName` nvarchar(50) NOT NULL,
@@ -226,27 +265,33 @@ class SiteController extends Controller
   				`lastModifyTime` varchar(22) NOT NULL default '0000-00-00 00:00',
   				`lastModifyUserIp` varchar(16) NOT NULL default '0.0.0.0',
   				PRIMARY KEY  (`ID`)
-				) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARACTER SET gbk COLLATE gbk_chinese_ci;
+				) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 				CREATE TABLE `$this->excel_db`.`$this->excel_sheets` (
   				`ID` int(10) NOT NULL auto_increment,
   				`fileID` int(10) NOT NULL,
   				`sheetTitle` nvarchar(50) NOT NULL,
   				`sheetTableName` varchar(25) NOT NULL,
   				PRIMARY KEY  (`ID`)
-				) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARACTER SET gbk COLLATE gbk_chinese_ci;
+				) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 				CREATE TABLE `$this->excel_db`.`$this->excel_columns` (
   				`ID` int(10) NOT NULL auto_increment,
   				`tableID` int(10) NOT NULL,
   				`columnTitle` nvarchar(50) NOT NULL,
   				`columnName` varchar(25) NOT NULL,
   				PRIMARY KEY  (`ID`)
-				) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARACTER SET gbk COLLATE gbk_chinese_ci;";
+				) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;";
 			
-				$command = $conn->createCommand($sql);  //继承自CDbCommand,准备执行sql语句的命令
-				$command->execute();  //执行no-query sql
-				
-				//关闭连接
-				$conn->active = FALSE;
+			//继承自CDbCommand,准备执行sql语句的命令
+			$command = $conn->createCommand($sql);  
+			//执行no-query sql
+			if($command->execute()){
+				echo "init DB success","<br/>","executed sql statement:","<br/>";  
+				echo "<pre>";
+				print_r($command->text);
+				echo "</pre>";
+			}
+			//关闭连接
+			$conn->active = FALSE;
 		} catch (Exception $e) {
 			echo "初始化数据库出错:","<br />";
 			print_r($e->getMessage());
