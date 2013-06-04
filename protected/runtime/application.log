@@ -1775,3 +1775,11 @@ Stack trace:
 #18 {main}
 REQUEST_URI=/phpexcel/site/upload
 ---
+2013/06/04 13:58:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "idnex.php/site/upload"。' in D:\wamp\www\phpexcel\framework\web\CWebApplication.php:280
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('idnex.php/site/...')
+#1 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/phpexcel/idnex.php/site/upload
+---
