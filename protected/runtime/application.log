@@ -1775,6 +1775,7 @@ Stack trace:
 #18 {main}
 REQUEST_URI=/phpexcel/site/upload
 ---
+<<<<<<< HEAD
 2013/06/04 13:58:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "idnex.php/site/upload"。' in D:\wamp\www\phpexcel\framework\web\CWebApplication.php:280
 Stack trace:
 #0 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('idnex.php/site/...')
@@ -1782,4 +1783,132 @@ Stack trace:
 #2 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
 #3 {main}
 REQUEST_URI=/phpexcel/idnex.php/site/upload
+=======
+2013/06/04 13:49:55 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection 无法开启数据库连线: SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: YES)' in E:\WWW\www\phpExcel\Yii-phpexcel\framework\db\CDbConnection.php:383
+Stack trace:
+#0 E:\WWW\www\phpExcel\Yii-phpexcel\framework\db\CDbConnection.php(332): CDbConnection->open()
+#1 E:\WWW\www\phpExcel\Yii-phpexcel\framework\db\CDbConnection.php(310): CDbConnection->setActive(true)
+#2 E:\WWW\www\phpExcel\Yii-phpexcel\framework\base\CModule.php(388): CDbConnection->init()
+#3 E:\WWW\www\phpExcel\Yii-phpexcel\framework\base\CApplication.php(431): CModule->getComponent('db')
+#4 E:\WWW\www\phpExcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(618): CApplication->getDb()
+#5 E:\WWW\www\phpExcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(2267): CActiveRecord->getDbConnection()
+#6 E:\WWW\www\phpExcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(382): CActiveRecordMetaData->__construct(Object(File))
+#7 E:\WWW\www\phpExcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(397): CActiveRecord::model('File')
+#8 E:\WWW\www\phpExcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(78): CActiveRecord->getMetaData()
+#9 E:\WWW\www\phpExcel\Yii-phpexcel\protected\controllers\SiteController.php(80): CActiveRecord->__construct()
+#10 E:\WWW\www\phpExcel\Yii-phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#11 E:\WWW\www\phpExcel\Yii-phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#12 E:\WWW\www\phpExcel\Yii-phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#13 E:\WWW\www\phpExcel\Yii-phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 E:\WWW\www\phpExcel\Yii-phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#15 E:\WWW\www\phpExcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#16 E:\WWW\www\phpExcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 E:\WWW\www\phpExcel\Yii-phpexcel\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/phpExcel/Yii-phpexcel/index.php/site/upload
+---
+2013/06/04 13:50:18 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection 无法开启数据库连线: SQLSTATE[42000] [1049] Unknown database 'phpexcel'' in E:\WWW\www\phpExcel\Yii-phpexcel\framework\db\CDbConnection.php:383
+Stack trace:
+#0 E:\WWW\www\phpExcel\Yii-phpexcel\framework\db\CDbConnection.php(332): CDbConnection->open()
+#1 E:\WWW\www\phpExcel\Yii-phpexcel\framework\db\CDbConnection.php(310): CDbConnection->setActive(true)
+#2 E:\WWW\www\phpExcel\Yii-phpexcel\framework\base\CModule.php(388): CDbConnection->init()
+#3 E:\WWW\www\phpExcel\Yii-phpexcel\framework\base\CApplication.php(431): CModule->getComponent('db')
+#4 E:\WWW\www\phpExcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(618): CApplication->getDb()
+#5 E:\WWW\www\phpExcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(2267): CActiveRecord->getDbConnection()
+#6 E:\WWW\www\phpExcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(382): CActiveRecordMetaData->__construct(Object(File))
+#7 E:\WWW\www\phpExcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(397): CActiveRecord::model('File')
+#8 E:\WWW\www\phpExcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(78): CActiveRecord->getMetaData()
+#9 E:\WWW\www\phpExcel\Yii-phpexcel\protected\controllers\SiteController.php(80): CActiveRecord->__construct()
+#10 E:\WWW\www\phpExcel\Yii-phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#11 E:\WWW\www\phpExcel\Yii-phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#12 E:\WWW\www\phpExcel\Yii-phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#13 E:\WWW\www\phpExcel\Yii-phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 E:\WWW\www\phpExcel\Yii-phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#15 E:\WWW\www\phpExcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#16 E:\WWW\www\phpExcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 E:\WWW\www\phpExcel\Yii-phpexcel\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/phpExcel/Yii-phpexcel/index.php/site/upload
+---
+2013/06/04 13:50:23 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection 无法开启数据库连线: SQLSTATE[42000] [1049] Unknown database 'phpexcel'' in E:\WWW\www\phpExcel\Yii-phpexcel\framework\db\CDbConnection.php:383
+Stack trace:
+#0 E:\WWW\www\phpExcel\Yii-phpexcel\framework\db\CDbConnection.php(332): CDbConnection->open()
+#1 E:\WWW\www\phpExcel\Yii-phpexcel\framework\db\CDbConnection.php(310): CDbConnection->setActive(true)
+#2 E:\WWW\www\phpExcel\Yii-phpexcel\framework\base\CModule.php(388): CDbConnection->init()
+#3 E:\WWW\www\phpExcel\Yii-phpexcel\framework\base\CModule.php(104): CModule->getComponent('db')
+#4 E:\WWW\www\phpExcel\Yii-phpexcel\protected\controllers\SiteController.php(208): CModule->__get('db')
+#5 E:\WWW\www\phpExcel\Yii-phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionInitDB()
+#6 E:\WWW\www\phpExcel\Yii-phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#7 E:\WWW\www\phpExcel\Yii-phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#8 E:\WWW\www\phpExcel\Yii-phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 E:\WWW\www\phpExcel\Yii-phpexcel\framework\web\CWebApplication.php(276): CController->run('initdb')
+#10 E:\WWW\www\phpExcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/initdb')
+#11 E:\WWW\www\phpExcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#12 E:\WWW\www\phpExcel\Yii-phpexcel\index.php(13): CApplication->run()
+#13 {main}
+REQUEST_URI=/phpExcel/Yii-phpexcel/index.php/site/initdb
+---
+2013/06/04 13:51:20 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1109 Unknown table 'excel_files' in information_schema. The SQL statement executed was: SHOW COLUMNS FROM `excel_files`.
+in E:\WWW\www\phpExcel\Yii-phpexcel\protected\controllers\SiteController.php (80)
+in E:\WWW\www\phpExcel\Yii-phpexcel\index.php (13)
+2013/06/04 13:51:20 [error] [exception.CDbException] exception 'CDbException' with message '数据库中无法找到 active record class "File" 对应的 table "{{files}}".' in E:\WWW\www\phpExcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php:2268
+Stack trace:
+#0 E:\WWW\www\phpExcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(382): CActiveRecordMetaData->__construct(Object(File))
+#1 E:\WWW\www\phpExcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(397): CActiveRecord::model('File')
+#2 E:\WWW\www\phpExcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(78): CActiveRecord->getMetaData()
+#3 E:\WWW\www\phpExcel\Yii-phpexcel\protected\controllers\SiteController.php(80): CActiveRecord->__construct()
+#4 E:\WWW\www\phpExcel\Yii-phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#5 E:\WWW\www\phpExcel\Yii-phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 E:\WWW\www\phpExcel\Yii-phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 E:\WWW\www\phpExcel\Yii-phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 E:\WWW\www\phpExcel\Yii-phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#9 E:\WWW\www\phpExcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#10 E:\WWW\www\phpExcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 E:\WWW\www\phpExcel\Yii-phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpExcel/Yii-phpexcel/index.php/site/upload
+---
+2013/06/04 13:53:43 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1109 Unknown table 'excel_files' in information_schema. The SQL statement executed was: SHOW COLUMNS FROM `excel_files`.
+in E:\WWW\www\phpExcel\Yii-phpexcel\protected\controllers\SiteController.php (80)
+in E:\WWW\www\phpExcel\Yii-phpexcel\index.php (13)
+2013/06/04 13:53:43 [error] [exception.CDbException] exception 'CDbException' with message '数据库中无法找到 active record class "File" 对应的 table "{{files}}".' in E:\WWW\www\phpExcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php:2268
+Stack trace:
+#0 E:\WWW\www\phpExcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(382): CActiveRecordMetaData->__construct(Object(File))
+#1 E:\WWW\www\phpExcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(397): CActiveRecord::model('File')
+#2 E:\WWW\www\phpExcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(78): CActiveRecord->getMetaData()
+#3 E:\WWW\www\phpExcel\Yii-phpexcel\protected\controllers\SiteController.php(80): CActiveRecord->__construct()
+#4 E:\WWW\www\phpExcel\Yii-phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#5 E:\WWW\www\phpExcel\Yii-phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 E:\WWW\www\phpExcel\Yii-phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 E:\WWW\www\phpExcel\Yii-phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 E:\WWW\www\phpExcel\Yii-phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#9 E:\WWW\www\phpExcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#10 E:\WWW\www\phpExcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 E:\WWW\www\phpExcel\Yii-phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpExcel/Yii-phpexcel/index.php/site/upload
+---
+2013/06/04 13:54:50 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection 无法开启数据库连线: SQLSTATE[42000] [1049] Unknown database '""'' in E:\WWW\www\phpExcel\Yii-phpexcel\framework\db\CDbConnection.php:383
+Stack trace:
+#0 E:\WWW\www\phpExcel\Yii-phpexcel\framework\db\CDbConnection.php(332): CDbConnection->open()
+#1 E:\WWW\www\phpExcel\Yii-phpexcel\framework\db\CDbConnection.php(310): CDbConnection->setActive(true)
+#2 E:\WWW\www\phpExcel\Yii-phpexcel\framework\base\CModule.php(388): CDbConnection->init()
+#3 E:\WWW\www\phpExcel\Yii-phpexcel\framework\base\CApplication.php(431): CModule->getComponent('db')
+#4 E:\WWW\www\phpExcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(618): CApplication->getDb()
+#5 E:\WWW\www\phpExcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(2267): CActiveRecord->getDbConnection()
+#6 E:\WWW\www\phpExcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(382): CActiveRecordMetaData->__construct(Object(File))
+#7 E:\WWW\www\phpExcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(397): CActiveRecord::model('File')
+#8 E:\WWW\www\phpExcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(78): CActiveRecord->getMetaData()
+#9 E:\WWW\www\phpExcel\Yii-phpexcel\protected\controllers\SiteController.php(80): CActiveRecord->__construct()
+#10 E:\WWW\www\phpExcel\Yii-phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#11 E:\WWW\www\phpExcel\Yii-phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#12 E:\WWW\www\phpExcel\Yii-phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#13 E:\WWW\www\phpExcel\Yii-phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 E:\WWW\www\phpExcel\Yii-phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#15 E:\WWW\www\phpExcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#16 E:\WWW\www\phpExcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 E:\WWW\www\phpExcel\Yii-phpexcel\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/phpExcel/Yii-phpexcel/index.php/site/upload
+>>>>>>> 5201d984e20a1169045237ecf79feb4ce328e9a3
 ---
