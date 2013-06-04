@@ -1940,3 +1940,26 @@ Stack trace:
 REQUEST_URI=/phpexcel/site/upload
 in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (193)
 in D:\wamp\www\phpexcel\index.php (13)
+2013/06/04 23:02:21 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection 无法开启数据库连线: SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: YES)' in D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\CDbConnection.php:383
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\CDbConnection.php(332): CDbConnection->open()
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\CDbConnection.php(310): CDbConnection->setActive(true)
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CModule.php(388): CDbConnection->init()
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(431): CModule->getComponent('db')
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(618): CApplication->getDb()
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(2267): CActiveRecord->getDbConnection()
+#6 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(382): CActiveRecordMetaData->__construct(Object(File))
+#7 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(397): CActiveRecord::model('File')
+#8 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(78): CActiveRecord->getMetaData()
+#9 D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php(82): CActiveRecord->__construct()
+#10 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#11 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#12 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#13 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#15 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#16 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/phpexcel/Yii-phpexcel/index.php/site/upload
+---
