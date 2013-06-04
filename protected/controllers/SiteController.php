@@ -140,33 +140,33 @@ class SiteController extends Controller
 					
 					for ($c=0;$c<$sheetCount;$c++){
 						try {
-						$fields = $rows = $columns = array();
-						$currentSheet = $objPHPExcel->getSheet($c);
-						$row_num = $currentSheet->getHighestRow();
-						$col_num = PHPExcel_Cell::columnIndexFromString($currentSheet->getHighestColumn());
+							$fields = $rows = $columns = array();
+							$currentSheet = $objPHPExcel->getSheet($c);
+							$row_num = $currentSheet->getHighestRow();
+							$col_num = PHPExcel_Cell::columnIndexFromString($currentSheet->getHighestColumn());
 						
-						//读取每个worksheet的第一列，作为表的column
-						//按数字读列column,是从0开始的
-						for ($j = 0;$j<=$col_num;$j++){
-							$columns[$j] = $currentSheet->getCellByColumnAndRow($j,1)->getValue();
-						}	
+							//读取每个worksheet的第一列，作为表的column
+							//按数字读列column,是从0开始的
+							for ($j = 0;$j<=$col_num;$j++){
+								$columns[$j] = $currentSheet->getCellByColumnAndRow($j,1)->getValue();
+							}	
 
-						//清理列数组
-						$columns = $this->trimArray($columns);
-						//若列为空则表示空工作薄，跳过当前循环继续下一个循环
-						if(empty($columns)){
-							continue;
-						}
+							//清理列数组
+							$columns = $this->trimArray($columns);
+							//若列为空则表示空工作薄，跳过当前循环继续下一个循环
+							if(empty($columns)){
+								continue;
+							}
 						
-						//var_dump(mb_detect_encoding($currentSheet->getCellByColumnAndRow(0,1)->getValue()));exit;
-						//var_dump($columns);exit;
-						//根据列名创建数据表
+							//var_dump(mb_detect_encoding($currentSheet->getCellByColumnAndRow(0,1)->getValue()));exit;
+							//var_dump($columns);exit;
+							//根据列名创建数据表
 						
-						foreach ($columns as $column){
-							//汉字取首字母拼音需要gbk编码
-							$fields[strtolower($this->pyInit($this->changeEncode('UTF-8','GBK',$column)))] = $column;
-						}
-						//var_dump($fields);exit;
+							foreach ($columns as $column){
+								//汉字取首字母拼音需要gbk编码
+								$fields[strtolower($this->pyInit($this->changeEncode('UTF-8','GBK',$column)))] = $column;
+							}
+							//var_dump($fields);exit;
 						
 						
 							//对每个worksheet，应该考虑大量数据对于内存的使用与释放
@@ -208,9 +208,13 @@ class SiteController extends Controller
 		//这里可以用yii dao来初始化数据库
 		//yii dao 允许一条sql语句执行多次query
 		
-		$conn = Yii::app()->db; //继承自CDbConnection类，connectString来自配置文件/config/main.php
-		
-		$sql = "DROP DATABASE IF EXISTS `$this->excel_db`;
+		$dsn = 'mysql:host=localhost;dbname=INFORMATION_SCHEMA';
+		$username = 'root';
+		$password = 'xiucai5880';
+		try {
+			$conn = new CDbConnection($dsn,$username,$password); //继承自CDbConnection类，connectString来自配置文件/config/main.php
+			$conn->active = TRUE;  //激活连接
+			$sql = "DROP DATABASE IF EXISTS `$this->excel_db`;
 				CREATE DATABASE IF NOT EXISTS `$this->excel_db` DEFAULT CHARACTER SET gbk COLLATE gbk_chinese_ci;
 				CREATE TABLE `$this->excel_db`.`$this->excel_files` (
   				`ID` int(10) NOT NULL auto_increment,
@@ -237,17 +241,17 @@ class SiteController extends Controller
   				`columnName` varchar(25) NOT NULL,
   				PRIMARY KEY  (`ID`)
 				) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARACTER SET gbk COLLATE gbk_chinese_ci;";
-		
-		try {
-			$command = $conn->createCommand($sql);  //继承自CDbCommand,准备执行sql语句的命令
-			$command->execute();  //执行no-query sql
+			
+				$command = $conn->createCommand($sql);  //继承自CDbCommand,准备执行sql语句的命令
+				$command->execute();  //执行no-query sql
+				
+				//关闭连接
+				$conn->active = FALSE;
 		} catch (Exception $e) {
 			echo "初始化数据库出错:","<br />";
 			print_r($e->getMessage());
 			exit();
-		}
-		
-		
+		}	
 		//$result = $command->queryAll();  //执行会返回若干行数据的sql语句，成功返回一个CDbDataReader实例，就是一个结果集
 		//var_dump($result);
 		
