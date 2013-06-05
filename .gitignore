@@ -1,1 +1,2 @@
-/mtk/ protected/runtime
+/protected/runtime
+*.bak
