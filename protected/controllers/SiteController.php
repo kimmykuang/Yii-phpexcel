@@ -107,8 +107,12 @@ class SiteController extends Controller
 			if($model->validate()){
 				//将临时文件转存
 				if($tmpFile->saveAs($model->filePath) && $model->save()){
+					//yii dao
+					$conn = Yii::app()->db;
+					//tableprefix
+					$prefix = $conn->tablePrefix;
 					//fileID
-					$fileID = Yii::app()->db->lastInsertID;
+					$fileID = $conn->lastInsertID;
 					//引入application.vendors.PHPExcel第三方库
 					Yii::import('application.vendors.*');
 					spl_autoload_unregister(array('YiiBase','autoload'));
@@ -146,7 +150,7 @@ class SiteController extends Controller
 							$currentSheet = $objPHPExcel->getSheet($c);
 							//当前worksheet的标题
 							$currentSheetTitle = $currentSheet->getTitle();
-							$currentSheetTableName = strtolower($this->pyInit($this->changeEncode("UTF-8", "GBK", $currentSheetTitle)));
+							$currentSheetTableName = $prefix.'f'.$fileID.'_s'.$c;
 							//行数
 							$row_num = $currentSheet->getHighestRow();
 							//列数
@@ -160,6 +164,7 @@ class SiteController extends Controller
 							
 							//清理列数组
 							$columns = $this->trimArray($columns);
+							$col_num = count($columns);
 							//若列为空则表示空工作薄，跳过当前循环继续下一个循环
 							if(empty($columns)){
 								continue;
@@ -176,26 +181,29 @@ class SiteController extends Controller
 							
 							//事务开始
 							spl_autoload_register(array('YiiBase','autoload'));
-							$conn = Yii::app()->db;
 							//$conn->active = TRUE;
-							$transaction = $conn->beginTransaction();
-							
-							//插入excel_sheets表
-							$sql1 = "INSERT INTO `$this->excel_sheets` VALUES (null,'$fileID','$currentSheetTitle','$currentSheetTableName')";
-							//插入excel_columns表
-							$sql2 = "INSERT INTO `$this->excel_columns` VALUES (null,'$fileID','$currentSheetTitle','$currentSheetTableName')";
-							//创建数据表
-							$sql3 = "";
-							/*
-							$command->bindValue(":fileID", $fileID,PDO::PARAM_INT);
-							$command->bindValue(":sheetTitle", $currentSheetTitle,PDO::PARAM_STR);
-							$command->bindValue(":sheetTableName", $currentSheetTableName,PDO::PARAM_STR);
-							//echo $command->text;exit;
-							*/
+							$transaction = $conn->beginTransaction();					
 							try {
+																
+								//插入excel_sheets表
+								$sql1 = "INSERT INTO `$this->excel_sheets` VALUES (null,'$fileID','$currentSheetTitle','$currentSheetTableName');";
+								//echo $sql1,"<br/>";
 								$conn->createCommand($sql1)->execute();
+								
+								//插入excel_columns表
+								$sheetID = $conn->lastInsertID;
+								$sql2 = $this->insertCol($sheetID,$fields,$this->excel_columns);
+								//echo $sql2,"<br/>";
 								$conn->createCommand($sql2)->execute();
+															
+								//创建数据表	
+								$sql3 = $this->createDataTable($fields, $currentSheetTableName);
+								//echo $sql3,"<br/>";
+								$conn->createCommand($sql3)->execute();
+														
+								//提交
 								$transaction->commit();
+								//echo "<br/>";
 							} catch (Exception $e) {
 								$transaction->rollback();
 								echo "事务出错:","<br />";
@@ -204,15 +212,19 @@ class SiteController extends Controller
 							}
 							//事务结束
 							
-						
+							//数据处理开始
 							//对每个worksheet，应该考虑大量数据对于内存的使用与释放
-							for ($i=1;$i<=$row_num;$i++){
+							//从第二行开始读取数据
+							for ($i=2;$i<=$row_num;$i++){
 								for ($j=0;$j<$col_num;$j++){
 									$rows[$i][$j] = $currentSheet->getCellByColumnAndRow($j,$i)->getValue();
 								}
 							}
-							
+
 							//向数据表插入数据
+							$sql = $this->insertData($currentSheetTableName,$rows);
+							//var_dump($sql);exit;
+							$conn->createCommand($sql)->execute();
 							
 						} catch (Exception $e) {
 							var_dump($e->getMessage());
@@ -269,13 +281,13 @@ class SiteController extends Controller
 				CREATE TABLE `$this->excel_db`.`$this->excel_sheets` (
   				`ID` int(10) NOT NULL auto_increment,
   				`fileID` int(10) NOT NULL,
-  				`sheetTitle` nvarchar(50) NOT NULL,
-  				`sheetTableName` varchar(25) NOT NULL,
+  				`sheetTitle` nvarchar(70) NOT NULL,
+  				`sheetTableName` varchar(50) NOT NULL,
   				PRIMARY KEY  (`ID`)
 				) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 				CREATE TABLE `$this->excel_db`.`$this->excel_columns` (
   				`ID` int(10) NOT NULL auto_increment,
-  				`tableID` int(10) NOT NULL,
+  				`sheetID` int(10) NOT NULL,
   				`columnTitle` nvarchar(50) NOT NULL,
   				`columnName` varchar(25) NOT NULL,
   				PRIMARY KEY  (`ID`)
@@ -491,4 +503,53 @@ class SiteController extends Controller
 			exit;
 		}
 	}
+	
+	//组装$sql3,将列信息插入kcsv_columns表中
+	public function insertCol($sheetID,$fields,$table){
+		$sheetID = intval($sheetID);
+		$colstr= $comma = "";
+		foreach ($fields as $key=>$val){
+			$colstr .= $comma."(NULL,'$sheetID','$key','$val')";
+			$comma = ",";
+		}
+		//$colstr = substr($colstr,0,-1);
+		//$colstr = rtrim($colstr,",");
+		return "INSERT INTO `$table` VALUES ".$colstr;
+	}
+	
+	//创建数据表
+	public function createDataTable($fields,$table){
+		$colstr = "";
+		//$cstr = '';
+		foreach ($fields as $key=>$val){
+			//$cstr .= '`'.$val.'`,';
+			$colstr .= " ,`".$key."` nvarchar(200)";
+		}
+		//$cstr = rtrim($cstr,',');
+		$sql = "CREATE TABLE IF NOT EXISTS `".$table."` ( `ID` int(10) not null primary key auto_increment ".$colstr." ) ENGINE=InnoDB AUTO_INCREMENT=1 CHARACTER SET utf8 COLLATE utf8_general_ci;";
+		return $sql;
+	}
+	
+	//向数据表中插入数据
+	public function insertData($table,$dataArray){
+		if(empty($dataArray)){
+			return false;
+		}
+		$comma = "";
+		$sql="INSERT INTO `$table` VALUES ";
+		foreach ($dataArray as $dArray){
+			$istr = $comma."(NULL";
+			foreach ($dArray as $data){
+				$istr .= ",'$data'";
+			}
+			$istr .= ")";
+			$sql .= $istr;
+			$comma = ",";
+			$istr = "";
+		}
+		//$sql = rtrim($sql,','); //从字符串末尾去掉指定的字符，默认去除空格
+		//$this->DB->ping();
+		return $sql;
+	}
+								
 }

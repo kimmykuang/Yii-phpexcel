@@ -1940,3 +1940,27 @@ Stack trace:
 REQUEST_URI=/phpexcel/site/upload
 in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (193)
 in D:\wamp\www\phpexcel\index.php (13)
+2013/06/05 14:13:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "init]" 动作.' in D:\wamp\www\phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(271): CController->missingAction('init]')
+#1 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('init]')
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/init]')
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/init]
+---
+2013/06/05 15:43:03 [error] [php] Cannot modify header information - headers already sent by (output started at D:\wamp\www\phpexcel\protected\controllers\SiteController.php:210) (D:\wamp\www\phpexcel\framework\web\CHttpRequest.php:716)
+Stack trace:
+#0 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(245): SiteController->redirect()
+#1 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#2 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 D:\wamp\www\phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#5 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#6 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#7 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 D:\wamp\www\phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/site/upload
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (245)
+in D:\wamp\www\phpexcel\index.php (13)
