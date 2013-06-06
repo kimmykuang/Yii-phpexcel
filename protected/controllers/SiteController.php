@@ -84,15 +84,14 @@ class SiteController extends Controller
 			
 			//获取上传文件对象
 			$tmpFile = CUploadedFile::getInstance($model,'excelfile');
-			
 			if(empty($tmpFile)){
 				//这里需要使用一个更好地错误提示，同时前端也做一个检验用户是否提交文件
 				$this->redirect('upload',array('model'=>$model));
 				//exit;
 			}
-			
+			$newName = time().rand(1,10000).'.'.$tmpFile->extensionName;
 			//获取文件的基本信息
-			$model->setAttribute('fileName',mb_convert_encoding($tmpFile->name,'gbk','UTF-8'));
+			$model->setAttribute('fileTitle',$tmpFile->name);
 			
 			$model->setAttribute('fileType',$tmpFile->extensionName);
 
@@ -100,7 +99,7 @@ class SiteController extends Controller
 			
 			$baseUrl =Yii::app()->basePath;
 			
-			$model->setAttribute('filePath',$baseUrl.Yii::app()->params['uploadPath'].$model->getAttribute('fileName'));
+			$model->setAttribute('filePath',$baseUrl.Yii::app()->params['uploadPath'].$newName);
 			//echo $model->filePath;exit;
 			
 			//验证文件信息
@@ -140,7 +139,6 @@ class SiteController extends Controller
         			
 					//load整个文件，这里是一下子把文件读入到内存
 					$objPHPExcel = $excelReader->load($file);
-					$s = microtime(1);
 					$sheetCount = count($sheetNames);
 					
 					for ($c=0;$c<$sheetCount;$c++){
@@ -175,7 +173,7 @@ class SiteController extends Controller
 						
 							foreach ($columns as $column){
 								//汉字取首字母拼音需要gbk编码
-								$fields[strtolower($this->pyInit($this->changeEncode('UTF-8','GBK',$column)))] = $column;
+								$fields[$this->pyInit($this->changeEncode('UTF-8','GBK',$column))] = $column;
 							}
 							//var_dump($fields);exit;
 							
@@ -252,6 +250,21 @@ class SiteController extends Controller
 	}
 	
 	/**
+	 * 展示所有的excel文件及其下属的worksheets
+	 */
+	public function actionView(){
+		$files = File::model()->with('sheets')->findAll();
+		echo "here is files:","<br/>";
+		foreach ($files as $m){
+			var_dump($m->attributes);
+			echo "here is sheets of this file:","<br/>";
+			foreach ($m->sheets as $sheet){
+				var_dump($sheet->attributes);
+			}
+		}
+	}
+	
+	/**
 	 * 初始化数据库
 	 */
 	public function actionInitDB(){
@@ -269,7 +282,7 @@ class SiteController extends Controller
 				CREATE DATABASE IF NOT EXISTS `$this->excel_db` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 				CREATE TABLE `$this->excel_db`.`$this->excel_files` (
   				`ID` int(10) NOT NULL auto_increment,
-  				`fileName` nvarchar(50) NOT NULL,
+  				`fileTitle` nvarchar(50) NOT NULL,
   				`filePath` nvarchar(100) NOT NULL,
   				`uploadTime` varchar(22) NOT NULL default '0000-00-00 00:00',
   				`userIp` varchar(16) NOT NULL default '0.0.0.0',
@@ -308,11 +321,94 @@ class SiteController extends Controller
 			echo "初始化数据库出错:","<br />";
 			print_r($e->getMessage());
 			exit();
-		}	
+		}
 		//$result = $command->queryAll();  //执行会返回若干行数据的sql语句，成功返回一个CDbDataReader实例，就是一个结果集
 		//var_dump($result);
 		
 	}
+	
+	/**
+	 * 更新title，如果首字母重复则自动更改，同时update 表
+	 * type in (filetitle,sheettitle,columntitle)
+	 * ajax
+	 */
+	public function actionUpdateTitle($id,$title,$type='file'){
+		$types = array('file','sheet','column');
+		if(!in_array($type, $types)){
+			throw new CHttpException(404,'The requested page does not exist.');
+			exit;
+		}
+		$title = mb_convert_encoding($title, "UTF-8","GBK,UTF-8");
+		$field = $type.'Title';
+		switch ($type){
+			case $types[0]:
+				$model = $this->loadFileModel($id);
+				$model->$field = $title;
+				//如果是文件，等到下次有人下载时再更新实际的文件名
+				break;
+			case $types[1]:
+				$model = $this->loadSheetModel($id);
+				$model->$field = $title;
+				//sheetTableName不变
+				break;
+			case $types[2]:
+				$model = $this->loadColumnModel($id);
+				$model->$field = $title;
+				//column的话，改变columnName的值
+				$model->columnName = $this->pyInit($this->changeEncode("UTF-8", "GBK", $title));
+				//ckColumnName:查看在一张table中是否有重复的column name
+				break;
+		}
+		if($model->save()){
+			//更名成功，重新加载datagrid，可以使用在前段使用reload，这里返回flag
+			//$this->redirect(array('view'));
+			echo true;
+			exit;
+		}else{
+			return false;
+			exit;
+		}
+	}
+	
+	/**
+	 * 加载File模型类
+	 */
+	public function loadFileModel($id){
+		$model = File::model()->findByPk($id);
+		if($model===null)
+			throw new CHttpException(404,'The requested page does not exist.');
+		return $model;
+	}
+	
+	/**
+	 * 加载Sheet模型类
+	 */
+	public function loadSheetModel($id){
+		$model = Sheet::model()->findByPk($id);
+		if($model===null)
+			throw new CHttpException(404,'The requested page does not exist.');
+		return $model;
+	}
+	
+	/**
+	 * 加载Column模型类
+	 */
+	public function loadColumnModel($id){
+		$model = Column::model()->findByPk($id);
+		if($model===null)
+			throw new CHttpException(404,'The requested page does not exist.');
+		return $model;
+	}
+	
+	
+	/*
+	public function loadModel($id,$modelname){
+		//$modelname::func()的形式php5.3以后才支持
+		$model = $modelname::model()->findByPk($id);
+		if($model===null)
+			throw new CHttpException(404,'The requested page does not exist.');
+		return $model;
+	}*/
 	
 	public function actionDownload(){
 		//ini_set('display_errors', 1);
@@ -403,7 +499,7 @@ class SiteController extends Controller
 				$i++;
 			}
 		}
-		return $restr;
+		return strtolower($restr);
 	}
 	
 	//获取字符ascii码

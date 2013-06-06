@@ -6,17 +6,7 @@
 //建立好数据库后使用CActiveRecord
 //需要在某个action中初始化数据库
 class File extends CActiveRecord{
-	
-	/*
-	public $fileName;
-	public $ID;
-	public $uploadTime;
-	public $filePath;
-	public $userIp;
-	public $lastModifyTime;
-	public $lastModifyUserIp;
-	public $fileType;
-	*/
+
 	public $fileSize;
 	const MAX_FILE_SIZE = 52428800;  //50MB,这里是字节数
 	
@@ -47,9 +37,9 @@ class File extends CActiveRecord{
 	public function rules(){
 		return array(
 			//required attributes
-			array('fileName,fileType,fileSize','required'),
+			array('fileTitle,fileType,fileSize','required'),
 			//file name max length
-			array('fileName','length','max'=>50),
+			array('fileTitle','length','max'=>50),
 			//file extension should be xls or xlsx
 			array('fileType','in','range'=>array('xls','xlsx'),'message'=>'只接受.xls或者.xlsx为后缀名的Excel文件'),
 			//uplaod file size should not bigger than MAX_FILE_SIZE
@@ -95,6 +85,7 @@ class File extends CActiveRecord{
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'sheets'=>array(self::HAS_MANY,'Sheet','fileID'),
 		);
 	}
 	
@@ -106,7 +97,7 @@ class File extends CActiveRecord{
 	public function attributeLabels()
 	{
 		return array(
-			'fileName'=>'文件名',
+			'fileTitle'=>'文件名',
 			'ID'=>'文件ID',
 			'uploadTime'=>'上传时间',
 			'filePath'=>'文件路径',

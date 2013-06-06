@@ -5,10 +5,12 @@
 
 class Sheet extends CActiveRecord{
 	
+	/*
 	public $ID;
 	public $fileID;
 	public $sheetTitle;
 	public $sheetTableName;
+	*/
 	
 	/**
 	 * Returns the static model of the specified AR class.
@@ -17,7 +19,6 @@ class Sheet extends CActiveRecord{
 	 */
 	public static function model($className=__CLASS__)
 	{
-		//use like this : Example::model()->xxx
 		return parent::model($className);
 	}
 	
@@ -65,6 +66,7 @@ class Sheet extends CActiveRecord{
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'file'=>array(self::BELONGS_TO,'File','ID'),
 		);
 	}
 	
