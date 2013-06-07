@@ -66,7 +66,8 @@ class Sheet extends CActiveRecord{
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'file'=>array(self::BELONGS_TO,'File','ID'),
+			//'file'=>array(self::BELONGS_TO,'File','ID'),
+			'columns'=>array(self::HAS_MANY,'Column','sheetID'),
 		);
 	}
 	

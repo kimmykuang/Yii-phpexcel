@@ -2070,3 +2070,198 @@ Stack trace:
 #16 {main}
 REQUEST_URI=/phpexcel/site/view
 ---
+2013/06/07 10:46:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "login" 动作.' in D:\wamp\www\phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(271): CController->missingAction('login')
+#1 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('login')
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/login')
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/login
+---
+2013/06/07 11:29:12 [error] [exception.CHttpException.400] exception 'CHttpException' with message '您的请求无效。' in D:\wamp\www\phpexcel\framework\web\CController.php:337
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(310): CController->invalidActionParams(Object(CInlineAction))
+#1 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#2 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('download')
+#4 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/download')
+#5 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/phpexcel/site/download.html
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/upload.html
+---
+2013/06/07 17:12:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in D:\wamp\www\phpexcel\protected\controllers\SiteController.php:371
+Stack trace:
+#0 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(410): SiteController->loadFileModel(22)
+#1 [internal function]: SiteController->actionDownload('22')
+#2 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#3 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('download')
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/download')
+#9 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/phpexcel/site/download/22
+---
+2013/06/07 17:21:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in D:\wamp\www\phpexcel\protected\controllers\SiteController.php:371
+Stack trace:
+#0 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(410): SiteController->loadFileModel(22)
+#1 [internal function]: SiteController->actionDownload('22')
+#2 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#3 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('download')
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/download')
+#9 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/phpexcel/site/download/22
+---
+2013/06/07 17:24:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in D:\wamp\www\phpexcel\protected\controllers\SiteController.php:371
+Stack trace:
+#0 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(410): SiteController->loadFileModel(22)
+#1 [internal function]: SiteController->actionDownload('22')
+#2 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#3 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('download')
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/download')
+#9 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/phpexcel/site/download/22
+---
+2013/06/07 17:49:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in D:\wamp\www\phpexcel\protected\controllers\SiteController.php:371
+Stack trace:
+#0 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(410): SiteController->loadFileModel(22)
+#1 [internal function]: SiteController->actionDownload('22')
+#2 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#3 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('download')
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/download')
+#9 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/phpexcel/site/download/22
+---
+2013/06/07 17:51:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in D:\wamp\www\phpexcel\protected\controllers\SiteController.php:371
+Stack trace:
+#0 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(410): SiteController->loadFileModel(22)
+#1 [internal function]: SiteController->actionDownload('22')
+#2 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#3 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('download')
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/download')
+#9 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/phpexcel/site/download/22
+---
+2013/06/07 17:51:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in D:\wamp\www\phpexcel\protected\controllers\SiteController.php:371
+Stack trace:
+#0 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(410): SiteController->loadFileModel(22)
+#1 [internal function]: SiteController->actionDownload('22')
+#2 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#3 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('download')
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/download')
+#9 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/phpexcel/site/download/22
+---
+2013/06/07 17:51:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in D:\wamp\www\phpexcel\protected\controllers\SiteController.php:371
+Stack trace:
+#0 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(410): SiteController->loadFileModel(22)
+#1 [internal function]: SiteController->actionDownload('22')
+#2 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#3 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('download')
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/download')
+#9 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/phpexcel/site/download/22
+---
+2013/06/07 17:51:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in D:\wamp\www\phpexcel\protected\controllers\SiteController.php:371
+Stack trace:
+#0 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(410): SiteController->loadFileModel(22)
+#1 [internal function]: SiteController->actionDownload('22')
+#2 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#3 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('download')
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/download')
+#9 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/phpexcel/site/download/22
+---
+2013/06/07 17:51:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in D:\wamp\www\phpexcel\protected\controllers\SiteController.php:371
+Stack trace:
+#0 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(410): SiteController->loadFileModel(22)
+#1 [internal function]: SiteController->actionDownload('22')
+#2 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#3 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('download')
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/download')
+#9 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/phpexcel/site/download/22
+---
+2013/06/07 17:51:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in D:\wamp\www\phpexcel\protected\controllers\SiteController.php:371
+Stack trace:
+#0 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(410): SiteController->loadFileModel(22)
+#1 [internal function]: SiteController->actionDownload('22')
+#2 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#3 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('download')
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/download')
+#9 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/phpexcel/site/download/22
+---
+2013/06/07 17:51:26 [error] [exception.CHttpException.400] exception 'CHttpException' with message '您的请求无效。' in D:\wamp\www\phpexcel\framework\web\CController.php:337
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(310): CController->invalidActionParams(Object(CInlineAction))
+#1 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#2 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('download')
+#4 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/download')
+#5 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/phpexcel/site/download/
+---

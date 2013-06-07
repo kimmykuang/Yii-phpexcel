@@ -3,6 +3,9 @@
  * Controller is the customized base controller class.
  * All controller classes for this application should extend from this base class.
  */
+
+//定义文件的上传以及下载目录
+defined('FILE_BASE_PATH') or define('FILE_BASE_PATH', Yii::getPathOfAlias('application.data').DIRECTORY_SEPARATOR);
 class Controller extends CController
 {
 	/**

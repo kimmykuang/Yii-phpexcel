@@ -97,9 +97,7 @@ class SiteController extends Controller
 
 			$model->fileSize = $tmpFile->size;
 			
-			$baseUrl =Yii::app()->basePath;
-			
-			$model->setAttribute('filePath',$baseUrl.Yii::app()->params['uploadPath'].$newName);
+			$model->setAttribute('filePath',FILE_BASE_PATH.$newName);
 			//echo $model->filePath;exit;
 			
 			//验证文件信息
@@ -171,9 +169,9 @@ class SiteController extends Controller
 							//var_dump(mb_detect_encoding($currentSheet->getCellByColumnAndRow(0,1)->getValue()));exit;
 							//var_dump($columns);exit;
 						
-							foreach ($columns as $column){
+							foreach ($columns as $key=>$column){
 								//汉字取首字母拼音需要gbk编码
-								$fields[$this->pyInit($this->changeEncode('UTF-8','GBK',$column))] = $column;
+								$fields['c'.$key] = $column;
 							}
 							//var_dump($fields);exit;
 							
@@ -182,6 +180,9 @@ class SiteController extends Controller
 							//$conn->active = TRUE;
 							$transaction = $conn->beginTransaction();					
 							try {
+								/*
+								 * 这里要使用query builder来做，并且对数据进行clean
+								 */
 																
 								//插入excel_sheets表
 								$sql1 = "INSERT INTO `$this->excel_sheets` VALUES (null,'$fileID','$currentSheetTitle','$currentSheetTableName');";
@@ -343,30 +344,21 @@ class SiteController extends Controller
 		switch ($type){
 			case $types[0]:
 				$model = $this->loadFileModel($id);
-				$model->$field = $title;
-				//如果是文件，等到下次有人下载时再更新实际的文件名
 				break;
 			case $types[1]:
 				$model = $this->loadSheetModel($id);
-				$model->$field = $title;
-				//sheetTableName不变
 				break;
 			case $types[2]:
 				$model = $this->loadColumnModel($id);
-				$model->$field = $title;
-				//column的话，改变columnName的值
-				$model->columnName = $this->pyInit($this->changeEncode("UTF-8", "GBK", $title));
-				//ckColumnName:查看在一张table中是否有重复的column name
 				break;
 		}
+		$model->$field = $title;
 		if($model->save()){
 			//更名成功，重新加载datagrid，可以使用在前段使用reload，这里返回flag
 			//$this->redirect(array('view'));
 			echo true;
-			exit;
 		}else{
 			return false;
-			exit;
 		}
 	}
 	
@@ -410,11 +402,18 @@ class SiteController extends Controller
 		return $model;
 	}*/
 	
-	public function actionDownload(){
+	public function actionDownload($id){
 		//ini_set('display_errors', 1);
 		//error_reporting(E_ALL );
-		$filename = "测试.xlsx";
-		$filepath = Yii::getPathOfAlias('application.data').DIRECTORY_SEPARATOR.$filename;
+
+		//获取文件信息
+		$file = $this->loadFileModel(intval($id));
+		$sheets = $file->sheets;
+
+		$filepath = $file->filePath;
+		$filename = $file->fileTitle;
+		
+		$conn = Yii::app()->db;
 		
 		Yii::import('application.vendors.*');
 		spl_autoload_unregister(array('YiiBase','autoload'));
@@ -423,32 +422,59 @@ class SiteController extends Controller
 		$objExcel = new PHPExcel();
 		$objWriter = new PHPExcel_Writer_Excel2007($objExcel); // 用于 2007 格式 
 		$objWriter->setOffice2003Compatibility(true); //向下兼容excel2005
-
-		//设置当前的sheet索引，用于后续的内容操作。 
-		//一般只有在使用多个sheet的时候才需要显示调用。 
-		//缺省情况下，PHPExcel会自动创建第一个sheet被设置SheetIndex=0 
-   		$objExcel->setActiveSheetIndex(0);
-
-    	$objActSheet = $objExcel->getActiveSheet();
-
-		//设置当前活动sheet的名称 
-    	$objActSheet->setTitle('测试Sheet');
-    	
-    	//设置单元格内容
-
-		//由PHPExcel根据传入内容自动判断单元格内容类型 
-    	$objActSheet->setCellValue('A1', '字符串内容'); // 字符串内容 
-    	$objActSheet->setCellValue('A2', 26);            // 数值 
-    	$objActSheet->setCellValue('A3', true);          // 布尔值 
-    	//$objActSheet->setCellValue('A4', '=SUM(A2:A2)'); // 公式
-    	
+		spl_autoload_register(array('YiiBase','autoload'));
+		try {
+		//组装数据
+		foreach ($sheets as $sheetIndex => $sheet){
+			//echo $sheetIndex;
+			$data = $columnArray = array();
+			$selectstr = $comma = "";
+			foreach ($sheet->columns as $column){
+				$columnArray[] = $column->columnName;
+				$selectstr .= $comma.$column->columnTitle;
+				$comma = ",";
+			}
+			//var_dump($title);exit;
+			//从数据表中获取数据
+			$data = $conn->createCommand()->select($selectstr)->from($sheet->sheetTableName)->queryAll();
+			//var_dump($data);exit;
+			spl_autoload_unregister(array('YiiBase','autoload'));
+			
+			//添加一个新的worksheet 
+   			$objActSheet = $objExcel->createSheet($sheetIndex); 
+   			//$objExcel->getSheet(1)->setTitle('测试2');
+			//设置当前活动sheet的名称 
+    		$objActSheet->setTitle($sheet->sheetTitle); 
+    		
+    		//对每个worksheet，设置第一行的列标题
+    		foreach ($columnArray as $k=>$c){
+    			$objActSheet->setCellValueByColumnAndRow($k,1,$c);
+    		}
+    		
+    		//设置单元格内容
+    		$count = count($columnArray);
+			foreach ($data as $k=>$v){
+				for ($i=0;$i<$count;$i++){
+					$objActSheet->setCellValueByColumnAndRow($i,$k+2,$v['c'.$i]);
+				}
+			}
+			
+			//spl_autoload_register(array('YiiBase','autoload'));
+		}
+		}
+		catch (Exception $e){
+			var_dump($e->getMessage());
+			exit;
+		}
+		
     	//输出内容
-		//ob_clean();
+		ob_clean();
    		//$outputFileName = "output.xls"; 
 		//到文件 
 		//$objWriter->save($filepath); 
 		//or 
 		//到浏览器 
+		
    		header("Content-Type: application/force-download"); 
    		header("Content-Type: application/octet-stream;charset=UTF-8"); 
   	 	header("Content-Type: application/download"); 
@@ -461,6 +487,7 @@ class SiteController extends Controller
    		
 		//re-register autoload in Yii
 		spl_autoload_register(array('YiiBase','autoload'));
+		exit;
 	}
 	
 	/**
@@ -479,67 +506,6 @@ class SiteController extends Controller
 			}
 			return $columns;
 		}else return array();
-	}
-
-	//获取汉字的首字母，除了汉字以外则直接返回（字母、数字、特殊字符）
-	//$str必须是gbk编码的!
-	function pyInit($str){
-		$restr = '';
-		$i=0;
-		$count=strlen($str);
-		while($i<$count) {
-			$tmp=bin2hex(substr($str,$i,1));
-			if($tmp>='B0'){ //汉字的开始
-				$t=$this->getLetter(hexdec(bin2hex(substr($str,$i,2))));
-				$restr .= sprintf("%c",$t==-1 ? '*' : $t );
-			$i+=2;
-			}
-			else{
-				$restr .= sprintf("%s",substr($str,$i,1));
-				$i++;
-			}
-		}
-		return strtolower($restr);
-	}
-	
-	//获取字符ascii码
-	function getLetter($num){
-		$limit = array( //gb2312 拼音排序
-					array(45217,45252), //A
-					array(45253,45760), //B
-					array(45761,46317), //C
-					array(46318,46825), //D
-					array(46826,47009), //E
-					array(47010,47296), //F
-					array(47297,47613), //G
-					array(47614,48118), //H
-					array(0,0),//I
-					array(48119,49061), //J
-					array(49062,49323), //K
-					array(49324,49895), //L
-					array(49896,50370), //M
-					array(50371,50613), //N
-					array(50614,50621), //O
-					array(50622,50905), //P
-					array(50906,51386), //Q
-					array(51387,51445), //R
-					array(51446,52217), //S
-					array(52218,52697), //T
-					array(0,0), //U
-					array(0,0),//V
-					array(52698,52979), //W
-					array(52980,53688), //X
-					array(53689,54480), //Y
-					array(54481,55289), //Z
-				);
-		$char_index=65;
-		foreach($limit as $k=>$v){
-			if($num>=$v[0] && $num<=$v[1]){
-				$char_index+=$k;
-			return $char_index;
-			}
- 		}
- 		return -1;
 	}
 	
 	//字符集编码转换 utf8<=>gbk
