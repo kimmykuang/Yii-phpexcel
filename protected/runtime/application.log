@@ -2265,3 +2265,45 @@ Stack trace:
 #7 {main}
 REQUEST_URI=/phpexcel/site/download/
 ---
+2013/06/08 11:31:56 [error] [exception.CHttpException.400] exception 'CHttpException' with message '您的请求无效。' in D:\wamp\www\phpexcel\framework\web\CController.php:337
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(310): CController->invalidActionParams(Object(CInlineAction))
+#1 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#2 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('download')
+#4 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/download')
+#5 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/phpexcel/site/download.html
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/upload
+---
+2013/06/08 11:33:21 [error] [php] filesize() [<a href='function.filesize'>function.filesize</a>]: stat failed for D:\wamp\www\phpexcel\protected\data\13705729037004.xlsx (D:\wamp\www\phpexcel\protected\controllers\SiteController.php:569)
+Stack trace:
+#0 unknown(0): SiteController->actionDownload()
+#1 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs()
+#2 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#3 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#6 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#7 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#8 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 D:\wamp\www\phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/site/download/1
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (569)
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (480)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/08 15:58:17 [error] [exception.CHttpException.400] exception 'CHttpException' with message '您的请求无效。' in D:\wamp\www\phpexcel\framework\web\CController.php:337
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(310): CController->invalidActionParams(Object(CInlineAction))
+#1 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#2 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('download')
+#4 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/download')
+#5 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/phpexcel/site/download.html
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/upload
+---

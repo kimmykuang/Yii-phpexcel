@@ -6,5 +6,5 @@
 <?php echo CHtml::endForm();?>
 <script type="text/javascript">
 //这里检测是否有文件提交
-//onbeforesubmit()
+
 </script>
