@@ -10,70 +10,62 @@ class SiteController extends Controller
 	private $excel_columns = 'excel_columns';
 	
 	/**
-	 * This is the default 'index' action that is invoked
-	 * when an action is not explicitly requested by users.
+	 * 
+	 * default action 
+	 * @return $treeList:树形列表
+	 * 
 	 */
 	public function actionIndex()
 	{
-		$str = array('id' => 1,
-				 'text' => "根",
-				 'children' => array(
-				 	array(
-				 		'id' => 11,
-				 		'text' => "hr",
-				 		'state' => "closed",
-				 		'children' => array(
-				 				array(
-				 				'id' => 111,
-				 				'text' => "Sheet1"
-				 				)
-				 			)
-						),
-				 	array(
-				 		'id' => 12,
-				 		'text' => "test",
-				 		'children' => array(
-				 			array(
-				 				'id' => 121,
-				 				'text' => "Sheet1"
-				 				),
-				 			array(
-				 				'id' => 122,
-				 				'text' => "上海浦东康桥工业区"
-				 				),
-				 			array(
-				 				'id' => 123,
-				 				'text' =>	 "上海张江高科技园"
-				 				)
-				 			)
-				 		),
-				 	array(
-				 		'id' => 13,
-				 		'text' => "测试",
-				 		'state' => "closed",
-				 		'children' => array(
-				 			array(
-				 				'id' => 131,
-				 				'text' => "测试Sheet"
-				 				)
-				 			)
-				 		),
-				 	array(
-				 		'id' => 14,
-				 		'text' => "开发需求书与中国人力资源网-20121212",
-				 		'state' => "closed",
-				 		'children' => array(
-				 			array(
-								'id' => 141,
-				 				'text' => "开发需求书"
-				 				)
-				 			)
-				 		)
-				)
+		$dyData = $dyCols = $treeArray = array();
+		$files = File::model()->findAll();
+		
+		// <!-- start tree list -->
+		//treeList只允许有一个root节点，不允许几个同级的root节点
+		$treeArray['id'] = 1;
+		$treeArray['text'] = 'All Documents';
+		$i = 0;
+		foreach ($files as $file){
+			$i++;
+			$j = 0;
+			$children_file = array();
+			$children_file['id'] = $treeArray['id'].$i;
+			$children_file['text'] = $file->fileTitle;
+			$children_file['attributes'] = array('data-id'=>$file->ID);
+			foreach ($file->sheets as $sheet){
+				$j++;
+				$children_file['children'][] = array(
+					'id'=>$children_file['id'].$j,
+					'text'=>$sheet->sheetTitle,
+					'attributes'=>array('data-id'=>$sheet->ID),
+				);
+			}
+			$treeArray['children'][] = $children_file;
+		}
+		$treeList = '['.json_encode($treeArray).']';
+		// <!-- end tree list -->
+		
+		// <!-- start dyCols -->
+		$worksheet = $files[0]->sheets[1];
+		$dyCols = array(
+			array('fieldName'=>'productid','fieldText'=>'产品编号','fieldStyle'=>array('width'=>'80px')),
+			array('fieldName'=>'productname','fieldText'=>'产品名字','fieldStyle'=>array('width'=>'80px')),
+			array('fieldName'=>'listprice','fieldText'=>'价格','fieldStyle'=>array('width'=>'80px')),
+			array('fieldName'=>'status','fieldText'=>'库存状态','fieldStyle'=>array('width'=>'80px')),
 			);
-
-		$test = '['.json_encode($str).']';
-		$this->render('index',array('test'=>$test));
+		// <!-- end dyCols -->
+		
+		// <!-- start dyData -->
+		$dyData = array(
+			
+		);
+		// <!-- end dyData -->
+		
+		$this->render('index',array(
+			'treeList'=>$treeList,
+			'dyCols'=>$dyCols,
+			'dyData'=>$dyData,
+		));
 	}
 	
 	/*

@@ -12,12 +12,11 @@ $this->pageTitle=Yii::app()->name;
 		});
 		*/
 		$(document).ready(function(){
-			var test = <?php echo $test;?>;
+			var treeList = <?php echo $treeList;?>;
             $('#list').datagrid({
 				 iconCls:'icon-ok',
 				 collapsible:false,//是否可折叠的 
-				 fit: true,//自动大小 
-				 url:'<?php echo Yii::app()->request->baseUrl; ?>/protected/data/datagrid_data1.json',
+				 fit: true,//自动大小
 				 pagination:true,
 				 rownumbers:true,
 				 toolbar:'#tb',
@@ -26,11 +25,11 @@ $this->pageTitle=Yii::app()->name;
                  striped:true,
                  nowrap:true,
 
-			})
+			});
 
             $('#tree').tree({
                 animate:true,
-                dnd:true,
+                //dnd:true,
                 onContextMenu :function(e,node){
                     e.preventDefault();
                     $(this).tree('select',node.target);
@@ -61,8 +60,11 @@ $this->pageTitle=Yii::app()->name;
 
                 }
                 
-            })
-            $('#tree').tree('loadData',test);
+            });
+            //动态加载树列表
+            $('#tree').tree('loadData',treeList);
+            //动态加载datagrid数据
+            $('#list').datagrid('loadData',<?php echo $dyData;?>);
             
             /*
 			var p = $('#list').datagrid('getPager');
@@ -104,7 +106,7 @@ $this->pageTitle=Yii::app()->name;
         function expand(){  
             var node = $('#tree').tree('getSelected');  
             $('#tree').tree('expand',node.target);  
-        }  
+        } 
 </script>
 <center>
     <!--布局控件-->
@@ -123,60 +125,39 @@ $this->pageTitle=Yii::app()->name;
                 <div onclick="collapse()">收起</div>  
             </div><!--tree的节点右键操作--> 
         </div>  
-          
+         
+        <!-- datagrid -->
         <div data-options="region:'center',title:'Sheet数据',iconCls:'icon-ok'"> 
-                    <!--<table id = "list" class="easyui-datagrid"  pagination="true"
-                            data-options="
-                            	url:'<?php echo Yii::app()->request->baseUrl; ?>/datagrid_data1.json',
-                            	singleSelect:true,
-                            	fit:false,
-                            	fitColumns:true,
-                            	rownumbers:true,
-                            	singleSelect:true,
-                            	toolbar:'#tb'
-                           	"> --> 
+                    
                     <table id= 'list'>
                         <thead>  
-                            <tr>  
-                                <th data-options="field:'itemid'" width="80">Item ID</th>  
-                                <th data-options="field:'productid'" width="100">Product ID</th>  
-                                <th data-options="field:'listprice',align:'right'" width="80">List Price</th>  
-                                <th data-options="field:'unitcost',align:'right'" width="80">Unit Cost</th>  
-                                <th data-options="field:'attr1'" width="150">Attribute</th>  
-                                <th data-options="field:'status',align:'center'" width="50">Status</th>  
+                            <tr> 
+                            	<?php foreach ($dyCols as $col):?> 
+                                <th data-options="field:<?php echo $col->fieldName?>" style="<?php foreach ($col->fieldStyle as $key=>$value){echo $key.'='.$value;}?>"><?php echo $col->fieldText;?></th>
+                                <?php endforeach;?>
                             </tr>  
                         </thead>  
                     </table> 
                     <div id="tb" style="padding:5px;height:auto">  
-                            <!--操作按钮--> 
+                           
         					<div style="margin-bottom:5px">  
         					    <a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="false">新增</a> 
          					    <a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="false">编辑</a>  
                                 <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="false">删除</a>
                                 <a href="#" class="easyui-linkbutton" iconCls="icon-save" plain="false">下载</a>
         					</div> 
-        					<!--筛选区域--> 
+        					 
         					<div>  
           					 	SheetName: <input style="width:80px">  
-           						<!--CreateDate: <input class="easyui-datebox" style="width:80px">-->
-            					<!--所属Excel:-->
-            					<!--combobox绑定json数据-->
-                                <!--
-            					 <input class="easyui-combobox"   
-            						name="excel"  
-            						data-options="  
-                    					url:'<?php echo Yii::app()->request->baseUrl; ?>/tree1.php',  
-                    					valueField:'id',  
-                    					textField:'text',  
-                    					panelHeight:'auto'  
-            					 ">
-                                -->
         					    <a href="javascript:alert('search');" class="easyui-linkbutton" iconCls="icon-search">Search</a>  
     					    </div>  
    					</div> 
-        </div> <!--中部center结束-->     
-    </div> <!--layout结束-->
-     <!--dlg1对应tree右键的编辑按钮-->
+        </div> 
+        <!--中部center结束-->     
+    </div> 
+    <!--layout结束-->
+    
+    <!--dlg1对应tree右键的编辑按钮-->
     <div id="dlg1" class="easyui-dialog" style="width:300px;height:180px;padding:10px 20px"  
             closed="true" buttons="#dlg-buttons"> 
             <center>
@@ -191,9 +172,12 @@ $this->pageTitle=Yii::app()->name;
                     </tr>
                 </table> 
             </center>
-    </div>   <!--dlg1结束-->
+    </div>   
+    <!--dlg1结束-->
+    
+    <!--dlg1的操作按钮-->
     <div id="dlg-buttons">  
         <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-ok" onclick="saveNodeInfo()">Save</a>  
         <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg1').dialog('close')">Cancel</a>  
-    </div> <!--dlg1的操作按钮-->
+    </div> 
 </center>
