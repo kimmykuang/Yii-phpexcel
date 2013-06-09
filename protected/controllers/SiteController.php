@@ -15,59 +15,65 @@ class SiteController extends Controller
 	 */
 	public function actionIndex()
 	{
-		//modify
-		set_time_limit(0);
-		//ini_set('memory_limit', '512M');
-		Yii::import('application.vendors.*');
-		//echo Yii::getPathOfAlias('application.vendors');exit;
-		//解除Yii的自动加载，与PHPExcel自带的autoload冲突
-		spl_autoload_unregister(array('YiiBase','autoload'));
-		require_once 'PHPExcel/PHPExcel.php';
-		$filepath = Yii::getPathOfAlias('application.data').DIRECTORY_SEPARATOR.'test.xlsx';
-		if(!file_exists($filepath)){
-			throw new Exception('file not exists!');
-		}
-		$objPHPExcel = PHPExcel_IOFactory::load($filepath);
-		$s = microtime(1);
-		//$sheetData = $objPHPExcel->getSheet(2)->toArray(null,true,true,true);var_dump($sheetData);echo microtime(1)-$s;exit;
-		$sheetCount = $objPHPExcel->getSheetCount();	
-		for ($c=0;$c<=$sheetCount;$c++){
-			ob_start();
-			$currentSheetID = $c;
-			$currentSheet = $objPHPExcel->getSheet($currentSheetID);
-			$row_num = $currentSheet->getHighestRow();
-			$col_num = $currentSheet->getHighestColumn();
-			$rows = array();
-			for ($i=1;$i<=$row_num;$i++){
-				for ($j='A';$j<$col_num;$j++){
-					$address = $j.$i;
-					$rows[$i][$j] = $currentSheet->getCell($address)->getFormattedValue();
-				}
-			}
-			if($rows != null){
-				var_dump($en_str = JSON_ENCODE($rows));
-				$de_arr = JSON_DECODE($en_str,true);  //加上第二个参数true表示将JSON对象强制转化为关联数组
-				var_dump($de_arr);
-				exit;
-			}
-			//comment
-			echo $c,"<br/>";
-			var_dump($rows);
-			ob_end_flush();
-			unset($rows);
-			unset($currentSheet);
-		}
-		spl_autoload_register(array('YiiBase','autoload'));
-		//var_dump($sheetArray);
-		//var_dump($rows);echo microtime(1)-$s;
-		//$sheets = $objPHPExcel->getSheetNames();
-		exit;
-		// renders the view file 'protected/views/site/index.php'
-		// using the default layout 'protected/views/layouts/main.php'
-		
-		//重新注册Yii的autoload
-		spl_autoload_register(array('YiiBase','autoload'));
-		$this->render('index');
+		$str = array('id' => 1,
+				 'text' => "根",
+				 'children' => array(
+				 	array(
+				 		'id' => 11,
+				 		'text' => "hr",
+				 		'state' => "closed",
+				 		'children' => array(
+				 				array(
+				 				'id' => 111,
+				 				'text' => "Sheet1"
+				 				)
+				 			)
+						),
+				 	array(
+				 		'id' => 12,
+				 		'text' => "test",
+				 		'children' => array(
+				 			array(
+				 				'id' => 121,
+				 				'text' => "Sheet1"
+				 				),
+				 			array(
+				 				'id' => 122,
+				 				'text' => "上海浦东康桥工业区"
+				 				),
+				 			array(
+				 				'id' => 123,
+				 				'text' =>	 "上海张江高科技园"
+				 				)
+				 			)
+				 		),
+				 	array(
+				 		'id' => 13,
+				 		'text' => "测试",
+				 		'state' => "closed",
+				 		'children' => array(
+				 			array(
+				 				'id' => 131,
+				 				'text' => "测试Sheet"
+				 				)
+				 			)
+				 		),
+				 	array(
+				 		'id' => 14,
+				 		'text' => "开发需求书与中国人力资源网-20121212",
+				 		'state' => "closed",
+				 		'children' => array(
+				 			array(
+								'id' => 141,
+				 				'text' => "开发需求书"
+				 				)
+				 			)
+				 		)
+				)
+			);
+
+		$test = '['.json_encode($str).']';
+		$this->render('index',array('test'=>$test));
 	}
 	
 	/*

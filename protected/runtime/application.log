@@ -2307,3 +2307,75 @@ Stack trace:
 REQUEST_URI=/phpexcel/site/download.html
 HTTP_REFERER=http://127.0.0.1/phpexcel/site/upload
 ---
+2013/06/09 10:47:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "css/screen1.css"。' in D:\wamp\www\phpexcel\framework\web\CWebApplication.php:280
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('css/screen1.css')
+#1 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/phpexcel/css/screen1.css
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/index
+---
+2013/06/09 10:48:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "css/screen1.css"。' in D:\wamp\www\phpexcel\framework\web\CWebApplication.php:280
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('css/screen1.css')
+#1 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/phpexcel/css/screen1.css
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/index
+---
+2013/06/09 10:49:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "css/screen1.css"。' in D:\wamp\www\phpexcel\framework\web\CWebApplication.php:280
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('css/screen1.css')
+#1 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/phpexcel/css/screen1.css
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/index
+---
+2013/06/09 10:50:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "css/screen1.css"。' in D:\wamp\www\phpexcel\framework\web\CWebApplication.php:280
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('css/screen1.css')
+#1 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/phpexcel/css/screen1.css
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/index
+---
+2013/06/09 10:51:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "css/screen1.css"。' in D:\wamp\www\phpexcel\framework\web\CWebApplication.php:280
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('css/screen1.css')
+#1 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/phpexcel/css/screen1.css
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/index
+---
+2013/06/09 10:53:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "css/screen1.css"。' in D:\wamp\www\phpexcel\framework\web\CWebApplication.php:280
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('css/screen1.css')
+#1 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/phpexcel/css/screen1.css
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/index
+---
+2013/06/09 10:54:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "css/screen1.css"。' in D:\wamp\www\phpexcel\framework\web\CWebApplication.php:280
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('css/screen1.css')
+#1 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/phpexcel/css/screen1.css
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/index
+---
+2013/06/09 10:54:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "css/screen1.css"。' in D:\wamp\www\phpexcel\framework\web\CWebApplication.php:280
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('css/screen1.css')
+#1 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/phpexcel/css/screen1.css
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/index
+---

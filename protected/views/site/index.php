@@ -12,7 +12,7 @@ $this->pageTitle=Yii::app()->name;
 		});
 		*/
 		$(document).ready(function(){
-			
+			var test = <?php echo $test;?>;
             $('#list').datagrid({
 				 iconCls:'icon-ok',
 				 collapsible:false,//是否可折叠的 
@@ -29,7 +29,6 @@ $this->pageTitle=Yii::app()->name;
 			})
 
             $('#tree').tree({
-                url:'<?php echo Yii::app()->request->baseUrl; ?>/protected/controllers/tree.php',
                 animate:true,
                 dnd:true,
                 onContextMenu :function(e,node){
@@ -63,6 +62,8 @@ $this->pageTitle=Yii::app()->name;
                 }
                 
             })
+            $('#tree').tree('loadData',test);
+            
             /*
 			var p = $('#list').datagrid('getPager');
 			$(p).pagination({
@@ -75,8 +76,6 @@ $this->pageTitle=Yii::app()->name;
             */
 
 		})
-
-
 
 </script>
 <script type="text/javascript"> <!--tree节点右键方法-->
@@ -93,6 +92,7 @@ $this->pageTitle=Yii::app()->name;
 
         function remove(){
             var node = $('#tree').tree('getSelected');
+            alert(node);
             if (confirm("你真的确定要删除吗?")) {
                   $('#tree').tree('remove', node.target);
             }; 

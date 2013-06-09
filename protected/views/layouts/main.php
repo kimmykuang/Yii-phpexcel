@@ -6,7 +6,7 @@
 	<meta name="language" content="en" />
 	
 	<!-- blueprint CSS framework -->
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/screen1.css" media="screen, projection" />
+	<!-- <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/screen1.css" media="screen, projection" />  -->
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/print.css" media="print" />
 	<!--[if lt IE 8]>
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css" media="screen, projection" />
@@ -14,11 +14,12 @@
 
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
-    <link rel="stylesheet" type="text/css" href="<?php echo Yii::getPathOfAlias('application.vendors'); ?>/easyui/css/easyui.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo Yii::getPathOfAlias('application.vendors'); ?>/easyui/css/icon.css"> 
-    <script type="text/javascript" src="<?php echo Yii::getPathOfAlias('application.vendors'); ?>/easyui/js/jquery.min.js"></script>
-    <script type="text/javascript" src="<?php echo Yii::getPathOfAlias('application.vendors'); ?>/easyui/js/jquery.easyui.min.js"></script>
-    <script type="text/javascript" src="<?php echo Yii::getPathOfAlias('application.vendors'); ?>/easyui/js/easyui-lang-zh_CN.js"></script>
+	
+    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/protected/vendors/easyui/css/easyui.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/protected/vendors/easyui/css/icon.css" /> 
+    <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/protected/vendors/easyui/js/jquery.min.js"></script>
+    <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/protected/vendors/easyui/js/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/protected/vendors/easyui/js/easyui-lang-zh_CN.js"></script>
 	<title><?php echo CHtml::encode(iconv('gbk','utf-8',$this->pageTitle)); ?></title>
 	
 </head>
