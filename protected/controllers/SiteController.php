@@ -12,16 +12,14 @@ class SiteController extends Controller
 	/**
 	 * 
 	 * default action 
-	 * @return $treeList:树形列表
 	 * 
 	 */
 	public function actionIndex()
 	{
 		$dyData = $dyCols = $treeArray = array();
 		$files = File::model()->findAll();
-		
+		$sheetTitle = 'Yii-PHPExcel首页';
 		// <!-- start tree list -->
-		//treeList只允许有一个root节点，不允许几个同级的root节点
 		$treeArray['id'] = 1;
 		$treeArray['text'] = 'All Documents';
 		$i = 0;
@@ -48,22 +46,29 @@ class SiteController extends Controller
 		// <!-- start dyCols -->
 		$worksheet = $files[0]->sheets[1];
 		$dyCols = array(
-			array('fieldName'=>'productid','fieldText'=>'产品编号','fieldStyle'=>array('width'=>'80px')),
-			array('fieldName'=>'productname','fieldText'=>'产品名字','fieldStyle'=>array('width'=>'80px')),
-			array('fieldName'=>'listprice','fieldText'=>'价格','fieldStyle'=>array('width'=>'80px')),
-			array('fieldName'=>'status','fieldText'=>'库存状态','fieldStyle'=>array('width'=>'80px')),
-			);
+			array('field'=>'productid','title'=>'产品编号','width'=>80),
+			array('field'=>'productname','title'=>'产品名字','width'=>80),
+			array('field'=>'listprice','title'=>'价格','width'=>80),
+			array('field'=>'status','title'=>'库存状态','width'=>80),
+		);
+		$columns = '['.json_encode($dyCols).']';
 		// <!-- end dyCols -->
 		
 		// <!-- start dyData -->
-		$dyData = array(
-			
-		);
+		$dyData['page'] = 1;
+		$dyData['total'] = 10;
+		for ($i=0;$i<10;$i++){
+			$dyData['rows'][] = array('productid'=>$i,'productname'=>'名字'.$i,'listprice'=>10,'status'=>1);
+		}
 		// <!-- end dyData -->
+
+		$dyData = json_encode($dyData);
+		
 		
 		$this->render('index',array(
 			'treeList'=>$treeList,
-			'dyCols'=>$dyCols,
+			'sheetTitle'=>$sheetTitle,
+			'columns'=>$columns,
 			'dyData'=>$dyData,
 		));
 	}

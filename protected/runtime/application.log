@@ -2396,3 +2396,132 @@ REQUEST_URI=/phpexcel/site
 in D:\wamp\www\phpexcel\protected\views\site\index.php (135)
 in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (57)
 in D:\wamp\www\phpexcel\index.php (13)
+2013/06/13 09:55:48 [error] [php] Invalid argument supplied for foreach() (D:\wamp\www\phpexcel\protected\views\site\index.php:136)
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(874): SiteController->renderFile()
+#1 D:\wamp\www\phpexcel\framework\web\CController.php(786): SiteController->renderPartial()
+#2 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(68): SiteController->render()
+#3 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#7 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#9 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\wamp\www\phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/site/index
+in D:\wamp\www\phpexcel\protected\views\site\index.php (136)
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (68)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/13 10:16:40 [error] [php] Invalid argument supplied for foreach() (D:\wamp\www\phpexcel\protected\views\site\index.php:136)
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(874): SiteController->renderFile()
+#1 D:\wamp\www\phpexcel\framework\web\CController.php(786): SiteController->renderPartial()
+#2 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(69): SiteController->render()
+#3 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#7 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#9 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\wamp\www\phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/site/index
+in D:\wamp\www\phpexcel\protected\views\site\index.php (136)
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (69)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/13 10:16:42 [error] [php] Invalid argument supplied for foreach() (D:\wamp\www\phpexcel\protected\views\site\index.php:136)
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(874): SiteController->renderFile()
+#1 D:\wamp\www\phpexcel\framework\web\CController.php(786): SiteController->renderPartial()
+#2 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(69): SiteController->render()
+#3 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#7 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#9 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\wamp\www\phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/site/index
+in D:\wamp\www\phpexcel\protected\views\site\index.php (136)
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (69)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/13 10:18:07 [error] [php] Invalid argument supplied for foreach() (D:\wamp\www\phpexcel\protected\views\site\index.php:134)
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(874): SiteController->renderFile()
+#1 D:\wamp\www\phpexcel\framework\web\CController.php(786): SiteController->renderPartial()
+#2 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(69): SiteController->render()
+#3 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#7 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#9 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\wamp\www\phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/site/index
+in D:\wamp\www\phpexcel\protected\views\site\index.php (134)
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (69)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/13 11:42:53 [error] [php] Invalid argument supplied for foreach() (D:\wamp\www\phpexcel\protected\views\site\index.php:19)
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(874): SiteController->renderFile()
+#1 D:\wamp\www\phpexcel\framework\web\CController.php(786): SiteController->renderPartial()
+#2 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(72): SiteController->render()
+#3 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#7 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#9 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\wamp\www\phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/site/index
+in D:\wamp\www\phpexcel\protected\views\site\index.php (19)
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (72)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/13 16:57:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "login" 动作.' in D:\wamp\www\phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(271): CController->missingAction('login')
+#1 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('login')
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/login')
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/login.html
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/index
+---
+2013/06/13 16:57:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "page" 动作.' in D:\wamp\www\phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(271): CController->missingAction('page')
+#1 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('page')
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/page')
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/page.html?view=about
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/index
+---
+2013/06/13 17:14:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "site" 动作.' in D:\wamp\www\phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(271): CController->missingAction('site')
+#1 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('site')
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/site/uploa...')
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/site/upload
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/
+---
+2013/06/13 17:15:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "site" 动作.' in D:\wamp\www\phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(271): CController->missingAction('site')
+#1 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('site')
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/site/uploa...')
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/site/upload
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/
+---

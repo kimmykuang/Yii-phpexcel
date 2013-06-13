@@ -99,25 +99,29 @@ $this->pageTitle=Yii::app()->name;
         <div data-options="region:'west',split:true" title="Excel文件结构" style="width:180px;">  
             <ul id="tree"></ul><!--tree控件-->
             <div id="mm" class="easyui-menu" style="width:120px;">  
-                <div onclick="check()" data-options="iconCls:'icon-search'">查看工作薄</div>
-                <div onclick="edit()" data-options="iconCls:'icon-edit'">重命名工作薄</div> 
-                <div onclick="remove()" data-options="iconCls:'icon-remove'">删除工作薄</div>  
+                <div onclick="check()" data-options="iconCls:'icon-search'">查看</div>
+                <div onclick="edit()" data-options="iconCls:'icon-edit'">编辑</div> 
+                <div onclick="remove()" data-options="iconCls:'icon-remove'">移除</div>  
                 <div class="menu-sep"></div>  
-                <div onclick="expand()">导出工作薄</div>  
+                <div onclick="expand()">展开</div>  
                 <div onclick="collapse()">收起</div>  
             </div><!--tree的节点右键操作--> 
         </div>  
          
         <!-- datagrid -->
-        <div data-options="region:'center',title:'<?=$sheetTitle?>',iconCls:'icon-ok'"> 
+        <div data-options="region:'center',title:'Sheet数据',iconCls:'icon-ok'"> 
         	<table id= 'list' class="easyui-datagrid"></table> 
             <div id="tb" style="padding:5px;height:auto">   
         		<div style="margin-bottom:5px">  
-        			<a href="#" class="easyui-linkbutton" iconCls="icon-add" plain=true>新增</a> 
-         			<a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain=true>编辑</a>  
-                    <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain=true>删除</a>
-                    <a href="#" class="easyui-linkbutton" iconCls="icon-save" plain=true>导出当前工作薄</a>
+        			<a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="false">新增</a> 
+         			<a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="false">编辑</a>  
+                    <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="false">删除</a>
+                    <a href="#" class="easyui-linkbutton" iconCls="icon-save" plain="false">导出当前工作薄</a>
         		</div> 	 
+        		<div>  
+          			SheetName: <input style="width:80px">  
+        			<a href="javascript:alert('search');" class="easyui-linkbutton" iconCls="icon-search">Search</a>  
+    			</div>  
    			</div> 
         </div> 
         <!--中部center结束-->     
