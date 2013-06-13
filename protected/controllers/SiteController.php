@@ -73,7 +73,29 @@ class SiteController extends Controller
 	/**
 	 * Ajax读取sheet数据
 	 */
-	public function actionReadSheet($id){
+	public function actionReadSheet(){
+		if(Yii::app()->request->isAjaxRequest){
+			// <!-- start dyCols -->
+		$dyCols = array(
+			array('field'=>'productid','title'=>'产品编号','width'=>80),
+			array('field'=>'productname','title'=>'产品名字','width'=>80),
+			array('field'=>'listprice','title'=>'价格','width'=>80),
+			array('field'=>'status','title'=>'库存状态','width'=>80),
+		);
+		$columns = '['.json_encode($dyCols).']';
+		// <!-- end dyCols -->
+		
+		// <!-- start dyData -->
+		$dyData['page'] = 1;
+		$dyData['total'] = 10;
+		for ($i=0;$i<10;$i++){
+			$dyData['rows'][] = array('productid'=>$i,'productname'=>'名字'.$i,'listprice'=>10,'status'=>1);
+		}
+		$dyData = json_encode($dyData);
+		// <!-- end dyData -->
+			$this->renderPartial('_datagrid',array('columns'=>$columns,'dyData'=>$dyData));
+			exit;
+		}
 		$dyCols = $dyData = array();
 		$sheet = $this->loadSheetModel($id);
 		//$sheetTitle = $sheet->sheetTitle;
@@ -304,7 +326,7 @@ class SiteController extends Controller
 		
 		$dsn = 'mysql:host=localhost;dbname=INFORMATION_SCHEMA';
 		$username = 'root';
-		$password = 'sh54laobao';
+		$password = 'xiucai5880';
 		try {
 			$conn = new CDbConnection($dsn,$username,$password); //继承自CDbConnection类，connectString来自配置文件/config/main.php
 			$conn->active = TRUE;  //激活连接

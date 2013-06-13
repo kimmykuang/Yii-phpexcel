@@ -20,7 +20,7 @@
     <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/protected/vendors/easyui/js/jquery.min.js"></script>
     <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/protected/vendors/easyui/js/jquery.easyui.min.js"></script>
     <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/protected/vendors/easyui/js/easyui-lang-zh_CN.js"></script>
-	<title><?php echo CHtml::encode(iconv('gbk','utf-8',$this->pageTitle)); ?></title>
+	<title><?php echo CHtml::encode(iconv('gbk','utf-8',Yii::app()->name)); ?></title>
 	
 </head>
 
