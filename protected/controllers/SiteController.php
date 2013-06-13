@@ -44,7 +44,6 @@ class SiteController extends Controller
 		// <!-- end tree list -->
 		
 		// <!-- start dyCols -->
-		$worksheet = $files[0]->sheets[1];
 		$dyCols = array(
 			array('field'=>'productid','title'=>'产品编号','width'=>80),
 			array('field'=>'productname','title'=>'产品名字','width'=>80),
@@ -60,11 +59,9 @@ class SiteController extends Controller
 		for ($i=0;$i<10;$i++){
 			$dyData['rows'][] = array('productid'=>$i,'productname'=>'名字'.$i,'listprice'=>10,'status'=>1);
 		}
+		$dyData = json_encode($dyData);
 		// <!-- end dyData -->
 
-		$dyData = json_encode($dyData);
-		
-		
 		$this->render('index',array(
 			'treeList'=>$treeList,
 			'sheetTitle'=>$sheetTitle,
@@ -73,7 +70,36 @@ class SiteController extends Controller
 		));
 	}
 	
-	/*
+	/**
+	 * Ajax读取sheet数据
+	 */
+	public function actionReadSheet($id){
+		$dyCols = $dyData = array();
+		$sheet = $this->loadSheetModel($id);
+		//$sheetTitle = $sheet->sheetTitle;
+		
+		// <!-- start dyCols -->
+		$dyCols = array(
+			array('field'=>'productid','title'=>'产品编号','width'=>80),
+			array('field'=>'productname','title'=>'产品名字','width'=>80),
+			array('field'=>'listprice','title'=>'价格','width'=>80),
+			array('field'=>'status','title'=>'库存状态','width'=>80),
+		);
+		$columns = '['.json_encode($dyCols).']';
+		// <!-- end dyCols -->
+		
+		//get pageIndex and pageSize then get data
+		// <!-- start dyData -->
+		$dyData['page'] = 1;
+		$dyData['total'] = 10;
+		for ($i=0;$i<10;$i++){
+			$dyData['rows'][] = array('productid'=>$i,'productname'=>'名字'.$i,'listprice'=>10,'status'=>1);
+		}
+		$dyData = json_encode($dyData);
+		// <!-- end dyData -->
+	}
+	
+	/**
 	 * 处理上传excel文件
 	 */
 	public function actionUpload(){
@@ -278,7 +304,7 @@ class SiteController extends Controller
 		
 		$dsn = 'mysql:host=localhost;dbname=INFORMATION_SCHEMA';
 		$username = 'root';
-		$password = 'xiucai5880';
+		$password = 'sh54laobao';
 		try {
 			$conn = new CDbConnection($dsn,$username,$password); //继承自CDbConnection类，connectString来自配置文件/config/main.php
 			$conn->active = TRUE;  //激活连接
@@ -501,9 +527,20 @@ class SiteController extends Controller
 	}
 	
 	/**
-	 * 
+	 * 下载单独一个worksheet，使用csv作为格式,比较快速
+	 */
+	public function actionWriteSheet($id){
+		$sheet = $this->loadSheetModel($id);
+		$tablename = $sheet->sheetTableName;
+		$filename = $sheet->sheetTitle;
+		//使用load data into outfile将数据放入一个csv文件中
+		
+	}
+	
+	/**
 	 * datagrid对数据的CRUD操作，Ajax方式
 	 * 操作数据后，需要更新File的lastModifyTime和lastModifyUserIp
+	 * reload tree list
 	 */
 	public function actionCRUD(){
 		

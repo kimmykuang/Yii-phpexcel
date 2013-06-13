@@ -2525,3 +2525,85 @@ Stack trace:
 REQUEST_URI=/phpexcel/site/site/upload
 HTTP_REFERER=http://127.0.0.1/phpexcel/site/
 ---
+2013/06/13 23:37:17 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection 无法开启数据库连线: SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: YES)' in D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\CDbConnection.php:383
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\CDbConnection.php(332): CDbConnection->open()
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\CDbConnection.php(310): CDbConnection->setActive(true)
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CModule.php(388): CDbConnection->init()
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(431): CModule->getComponent('db')
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(618): CApplication->getDb()
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(2267): CActiveRecord->getDbConnection()
+#6 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(382): CActiveRecordMetaData->__construct(Object(File))
+#7 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(397): CActiveRecord::model('File')
+#8 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(78): CActiveRecord->getMetaData()
+#9 D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php(96): CActiveRecord->__construct()
+#10 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpload()
+#11 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#12 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#13 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): CController->run('upload')
+#15 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upload')
+#16 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/phpexcel/Yii-phpexcel/index.php/site/upload
+---
+2013/06/13 23:37:21 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection 无法开启数据库连线: SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: YES)' in D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\CDbConnection.php:383
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\CDbConnection.php(332): CDbConnection->open()
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\CDbConnection.php(310): CDbConnection->setActive(true)
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CModule.php(388): CDbConnection->init()
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(431): CModule->getComponent('db')
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(618): CApplication->getDb()
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(2267): CActiveRecord->getDbConnection()
+#6 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(382): CActiveRecordMetaData->__construct(Object(File))
+#7 D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\models\File.php(21): CActiveRecord::model('File')
+#8 D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php(20): File::model()
+#9 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#10 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#11 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#12 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): CController->run('index')
+#14 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/index')
+#15 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/phpexcel/Yii-phpexcel/index.php/site/index
+---
+2013/06/13 23:37:43 [error] [exception.CException] exception 'CException' with message '属性 "File.fileTitle" 未被定义.' in D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CComponent.php:131
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(145): CComponent->__get('fileTitle')
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php(31): CActiveRecord->__get('fileTitle')
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): CController->run('index')
+#7 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/index')
+#8 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/phpexcel/Yii-phpexcel/index.php/site/index
+---
+2013/06/13 23:38:49 [error] [php] Undefined offset:  0 (D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php:47)
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/Yii-phpexcel/index.php/site/index
+in D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php (47)
+in D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php (13)
+2013/06/13 23:38:55 [error] [php] Undefined offset:  0 (D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php:47)
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/Yii-phpexcel/index.php/site/index
+in D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php (47)
+in D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php (13)
