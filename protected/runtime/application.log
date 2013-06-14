@@ -2904,3 +2904,22 @@ Stack trace:
 REQUEST_URI=/phpexcel/Yii-phpexcel/site/readsheet.html
 in D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php (81)
 in D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php (13)
+2013/06/14 12:00:01 [error] [exception.CException] exception 'CException' with message 'SiteController 无法找到请求的视图 "_index".' in D:\wamp\www\phpexcel\framework\web\CController.php:883
+Stack trace:
+#0 D:\wamp\www\phpexcel\protected\views\site\index.php(90): CController->renderPartial('_index')
+#1 D:\wamp\www\phpexcel\framework\web\CBaseController.php(127): require('D:\wamp\www\php...')
+#2 D:\wamp\www\phpexcel\framework\web\CBaseController.php(96): CBaseController->renderInternal('D:\wamp\www\php...', Array, true)
+#3 D:\wamp\www\phpexcel\framework\web\CController.php(874): CBaseController->renderFile('D:\wamp\www\php...', Array, true)
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(786): CController->renderPartial('index', Array, true)
+#5 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(70): CController->render('index', Array)
+#6 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#8 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#9 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('')
+#11 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site')
+#12 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#13 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/phpexcel/site/
+---
