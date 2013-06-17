@@ -31,9 +31,11 @@ $('#tree').tree({
  							},
 
                          });
-                	}
-                   
+                	}    
                 },
+                onDblClick:function(node){
+                    $('#list').datagrid('reload');  //reload the datagrid after data changed
+                 },
             });
 //动态加载树列表
 $('#tree').tree('loadData',treeList);
@@ -46,7 +48,7 @@ $('#tree').tree('loadData',treeList);
         function edit(){
             var t = $('#tree');
             var node = t.tree('getSelected');
-            $('#dlg1').dialog('open').dialog('setTitle','XXX信息');
+            $('#dlg1').dialog('open').dialog('setTitle','修改工作薄名称');
         }
 
         function remove(){

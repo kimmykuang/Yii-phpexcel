@@ -2923,3 +2923,23 @@ Stack trace:
 #14 {main}
 REQUEST_URI=/phpexcel/site/
 ---
+2013/06/17 16:53:19 [error] [exception.CDbException] exception 'CDbException' with message 'The DB query must contain the "from" portion.' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:555
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(161): CDbCommand->buildQuery(Array)
+#1 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(478): CDbCommand->getText()
+#2 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(395): CDbCommand->queryInternal('fetchAll', Array, Array)
+#3 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(90): CDbCommand->queryAll()
+#4 [internal function]: SiteController->actionReadSheet('7')
+#5 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#6 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#8 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#9 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('readsheet')
+#11 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/readsheet')
+#12 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#13 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/phpexcel/site/readsheet/7
+HTTP_REFERER=http://127.0.0.1/phpexcel/site
+---

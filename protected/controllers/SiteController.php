@@ -44,31 +44,10 @@ class SiteController extends Controller
 		}
 		$treeList = '['.json_encode($treeArray).']';
 		// <!-- end tree list -->
-		
-		// <!-- start dyCols -->
-		$dyCols = array(
-			array('field'=>'productid','title'=>'产品编号','width'=>80),
-			array('field'=>'productname','title'=>'产品名字','width'=>80),
-			array('field'=>'listprice','title'=>'价格','width'=>80),
-			array('field'=>'status','title'=>'库存状态','width'=>80),
-		);
-		$columns = '['.json_encode($dyCols).']';
-		// <!-- end dyCols -->
-		
-		// <!-- start dyData -->
-		$dyData['page'] = 1;
-		$dyData['total'] = 10;
-		for ($i=0;$i<10;$i++){
-			$dyData['rows'][] = array('productid'=>$i,'productname'=>'名字'.$i,'listprice'=>10,'status'=>1);
-		}
-		$dyData = json_encode($dyData);
-		// <!-- end dyData -->
 
 		$this->render('index',array(
 			'treeList'=>$treeList,
 			'sheetTitle'=>$sheetTitle,
-			'columns'=>$columns,
-			'dyData'=>$dyData,
 		));
 	}
 	
@@ -76,51 +55,41 @@ class SiteController extends Controller
 	 * Ajax读取sheet数据
 	 */
 	public function actionReadSheet($id){
+		
 		if(Yii::app()->request->isAjaxRequest){
+			//判断是第一次加载数据还是分页
+			//第一次加载则page=1 and rows=10
+			//否则根据page and rows来取数据
+			$sheet = $this->loadSheetModel($id);
+			$dyCols = $dyData = array();
+			$colstr = $comma = '';
 			// <!-- start dyCols -->
-		$dyCols = array(
-			array('field'=>'productid','title'=>'产品编号','width'=>80),
-			array('field'=>'productname','title'=>'产品名字','width'=>80),
-			array('field'=>'listprice','title'=>'价格','width'=>80),
-			array('field'=>'status','title'=>'库存状态','width'=>80),
-		);
+			foreach ($sheet->columns as $column){
+				$colstr .= $comma.$column->columnTitle;
+				$dyCols[] = array(
+					'field' => $column->columnTitle,
+					'title' => $column->columnName,
+					//'width' =>80,
+				);
+				$comma = ',';
+			}	
 		$columns = '['.json_encode($dyCols).']';
 		// <!-- end dyCols -->
 		
 		// <!-- start dyData -->
-		$dyData['page'] = 1;
-		$dyData['total'] = 10;
-		for ($i=0;$i<10;$i++){
-			$dyData['rows'][] = array('productid'=>$i,'productname'=>'名字'.$i,'listprice'=>10,'status'=>1);
+		$table = $sheet->sheetTableName;
+		$conn = Yii::app()->db;
+		$results = $conn->createCommand()->select($colstr)->from($table)->queryAll();
+		foreach ($results as $result){
+			$dyData['rows'][] = $result;
 		}
+		$dyData['page'] = 1;
+		$dyData['total'] = count($results);
 		$dyData = json_encode($dyData);
 		// <!-- end dyData -->
 			$this->renderPartial('_datagrid',array('columns'=>$columns,'dyData'=>$dyData));
 			exit;
 		}
-		$dyCols = $dyData = array();
-		$sheet = $this->loadSheetModel($id);
-		//$sheetTitle = $sheet->sheetTitle;
-		
-		// <!-- start dyCols -->
-		$dyCols = array(
-			array('field'=>'productid','title'=>'产品编号','width'=>80),
-			array('field'=>'productname','title'=>'产品名字','width'=>80),
-			array('field'=>'listprice','title'=>'价格','width'=>80),
-			array('field'=>'status','title'=>'库存状态','width'=>80),
-		);
-		$columns = '['.json_encode($dyCols).']';
-		// <!-- end dyCols -->
-		
-		//get pageIndex and pageSize then get data
-		// <!-- start dyData -->
-		$dyData['page'] = 1;
-		$dyData['total'] = 10;
-		for ($i=0;$i<10;$i++){
-			$dyData['rows'][] = array('productid'=>$i,'productname'=>'名字'.$i,'listprice'=>10,'status'=>1);
-		}
-		$dyData = json_encode($dyData);
-		// <!-- end dyData -->
 	}
 	
 	/**
