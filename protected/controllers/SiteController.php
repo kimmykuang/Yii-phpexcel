@@ -36,7 +36,7 @@ class SiteController extends Controller
 				$children_file['children'][] = array(
 					'id'=>$children_file['id'].$j,
 					'text'=>$sheet->sheetTitle,
-					'attributes'=>array('url'=>'site/readsheet/'.$sheet->ID),
+					'attributes'=>array('url'=>Yii::app()->createUrl('site/readsheet',array('id'=>$sheet->ID))),  //不要硬编码url
 				);
 			}
 			$children_file['attributes'] = array('url'=>'');

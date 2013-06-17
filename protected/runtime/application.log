@@ -2943,3 +2943,69 @@ Stack trace:
 REQUEST_URI=/phpexcel/site/readsheet/7
 HTTP_REFERER=http://127.0.0.1/phpexcel/site
 ---
+2013/06/17 21:35:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "site" 动作.' in D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(271): CController->missingAction('site')
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): CController->run('site')
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/site/reads...')
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/site/readsheet/6
+HTTP_REFERER=http://127.0.0.1/phpexcel/Yii-phpexcel/site/
+---
+2013/06/17 21:35:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "site" 动作.' in D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(271): CController->missingAction('site')
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): CController->run('site')
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/site/reads...')
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/site/readsheet/6
+HTTP_REFERER=http://127.0.0.1/phpexcel/Yii-phpexcel/site/
+---
+2013/06/17 21:35:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "site" 动作.' in D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(271): CController->missingAction('site')
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): CController->run('site')
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/site/reads...')
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/site/readsheet/6
+HTTP_REFERER=http://127.0.0.1/phpexcel/Yii-phpexcel/site/
+---
+2013/06/17 21:36:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "site" 动作.' in D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(271): CController->missingAction('site')
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): CController->run('site')
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/site/reads...')
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/site/readsheet/5
+HTTP_REFERER=http://127.0.0.1/phpexcel/Yii-phpexcel/site/
+---
+2013/06/17 21:36:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "site" 动作.' in D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(271): CController->missingAction('site')
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): CController->run('site')
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/site/reads...')
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/site/readsheet/6
+HTTP_REFERER=http://127.0.0.1/phpexcel/Yii-phpexcel/site/
+---
+2013/06/17 21:36:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "site" 动作.' in D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(271): CController->missingAction('site')
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): CController->run('site')
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/site/reads...')
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/site/readsheet/5
+HTTP_REFERER=http://127.0.0.1/phpexcel/Yii-phpexcel/site/
+---
