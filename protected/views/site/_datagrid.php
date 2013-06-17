@@ -1,13 +1,4 @@
-        	<table id= 'list' class="easyui-datagrid"></table> 
-            <div id="tb" style="padding:5px;height:auto">   
-        		<div style="margin-bottom:5px">  
-        			<a href="#" class="easyui-linkbutton" iconCls="icon-add" plain=true>新增</a> 
-         			<a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain=true>编辑</a>  
-                    <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain=true>删除</a>
-                    <a href="#" class="easyui-linkbutton" iconCls="icon-save" plain=true>导出当前工作薄</a>
-        		</div> 	 
-   			</div>
-   			<script type="text/javascript">
+             			<script type="text/javascript">
 		
 
 			

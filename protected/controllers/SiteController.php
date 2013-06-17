@@ -22,6 +22,7 @@ class SiteController extends Controller
 		// <!-- start tree list -->
 		$treeArray['id'] = 1;
 		$treeArray['text'] = 'All Documents';
+		$treeArray['attributes'] = array('url'=>'');
 		$i = 0;
 		foreach ($files as $file){
 			$i++;
@@ -29,15 +30,16 @@ class SiteController extends Controller
 			$children_file = array();
 			$children_file['id'] = $treeArray['id'].$i;
 			$children_file['text'] = $file->fileTitle;
-			$children_file['attributes'] = array('data-id'=>$file->ID);
+			
 			foreach ($file->sheets as $sheet){
 				$j++;
 				$children_file['children'][] = array(
 					'id'=>$children_file['id'].$j,
 					'text'=>$sheet->sheetTitle,
-					'attributes'=>array('data-id'=>$sheet->ID),
+					'attributes'=>array('url'=>'site/readsheet/'.$sheet->ID),
 				);
 			}
+			$children_file['attributes'] = array('url'=>'');
 			$treeArray['children'][] = $children_file;
 		}
 		$treeList = '['.json_encode($treeArray).']';
@@ -73,7 +75,7 @@ class SiteController extends Controller
 	/**
 	 * Ajax读取sheet数据
 	 */
-	public function actionReadSheet(){
+	public function actionReadSheet($id){
 		if(Yii::app()->request->isAjaxRequest){
 			// <!-- start dyCols -->
 		$dyCols = array(

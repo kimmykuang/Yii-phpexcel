@@ -19,25 +19,20 @@ $('#tree').tree({
                     top: e.pageY  
                     });
                 },
-                
-                //onClick:function(node){
-                    //alert(node.text);
-                   // var sheetname = node.text;
-                   // alert(sheetname);
-                    //alert($('#list').datagrid('options').url); //获取easyui控件的属性值
-
-               // },
-                onDblClick:function(node){
-                
-                    $.ajax({
+                onClick:function(node){
+                	if(node.attributes['url'] !== ''){
+                	 var url = node.attributes['url'];
+               		 $.ajax({
                         type:'post',
                         data:{text:node.text},
-						url:'<?=Yii::app()->createUrl('site/readsheet')?>',
-						success:function(data,textStatus){
-							$('.center').html('').append(data);
-							},
+ 						url:url,
+ 						success:function(data,textStatus){
+ 							$('#datagrid_view').html('').append(data);
+ 							},
 
-                        });
+                         });
+                	}
+                   
                 },
             });
 //动态加载树列表
@@ -87,7 +82,20 @@ $('#tree').tree('loadData',treeList);
          
         <!-- datagrid -->
         <div data-options="region:'center',title:'<?=$sheetTitle?>',iconCls:'icon-ok'" class="center"> 
-        	<?php $this->renderPartial('_index')?>
+        	
+        		<div id="tb" style="padding:5px;height:auto">   
+        			<div style="margin-bottom:5px">  
+        				<a href="#" class="easyui-linkbutton" iconCls="icon-add" plain=true>新增</a> 
+         				<a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain=true>编辑</a>  
+                   	 <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain=true>删除</a>
+                    	<a href="#" class="easyui-linkbutton" iconCls="icon-save" plain=true>导出当前工作薄</a>
+        			</div> 	 
+   				</div>
+   				<table id= 'list' class="easyui-datagrid"></table>
+   			
+   			<div id="datagrid_view">
+   				<?php $this->renderPartial('_index');?>
+   			</div>
         </div> 
         <!--中部center结束-->     
     </div> 
