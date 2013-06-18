@@ -363,24 +363,37 @@ class SiteController extends Controller
 	 * type in (filetitle,sheettitle,columntitle)
 	 * ajax
 	 */
-	public function actionUpdateTitle($id,$title,$type='file'){
-		$types = array('file','sheet','column');
-		if(!in_array($type, $types)){
-			throw new CHttpException(404,'The requested page does not exist.');
-			exit;
+	public function actionUpdateTitle(){
+			$id = intval($_POST['id']);
+			//$title = mb_convert_encoding($_POST['title'], "UTF-8","GBK,UTF-8");
+			$title = $_POST['title'];
+			$type = $_POST['type'];
+			/*
+			$types = array('file','sheet','column');
+			if(!in_array($type, $types)){
+				throw new CHttpException(404,'The requested page does not exist.');
+				exit;
+			}
+			*/
+			//$field = $type.'Title';
+			$model = $this->loadSheetModel($id);
+			/*
+			if(method_exists($this, $method_name='load'.ucfirst($type).'Model')){
+				$model = call_user_func(array($this,$method_name),$id);
+			}
+			*/
+			
+			//$model->$field = $title;
+			$model->sheetTitle = $title;
+			//if($model->validate() && $model->save()){
+			if($model->save()){
+				//更名成功，重新加载datagrid，可以使用在前段使用reload，这里返回flag
+				return true;
+			}else{
+				return false;
+			}
 		}
-		$title = mb_convert_encoding($title, "UTF-8","GBK,UTF-8");
-		$field = $type.'Title';
-		$model = call_user_func(array($this,'load'.ucfirst($type).'Model'),$id);
-		$model->$field = $title;
-		if($model->validate() && $model->save()){
-			//更名成功，重新加载datagrid，可以使用在前段使用reload，这里返回flag
-			//$this->redirect(array('view'));
-			echo true;
-		}else{
-			return false;
-		}
-	}
+	
 	
 	/**
 	 * 加载File模型类

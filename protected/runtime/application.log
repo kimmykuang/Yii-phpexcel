@@ -3045,3 +3045,253 @@ Stack trace:
 REQUEST_URI=/phpexcel/site/readsheet.html/6
 HTTP_REFERER=http://127.0.0.1/phpexcel/site
 ---
+2013/06/18 23:54:46 [error] [php] Undefined index:  title (D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php:368)
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/UpdateTitle.html
+in D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php (368)
+in D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php (13)
+2013/06/18 23:55:52 [error] [php] Undefined index:  title (D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php:368)
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/UpdateTitle.html
+in D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php (368)
+in D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php (13)
+2013/06/18 23:57:05 [error] [php] Undefined index:  title (D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php:368)
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/UpdateTitle.html
+in D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php (368)
+in D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php (13)
+2013/06/18 23:58:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php:403
+Stack trace:
+#0 [internal function]: SiteController->loadSheetModel(0)
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php(376): call_user_func(Array, 0)
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpdateTitle()
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): CController->run('updatetitle')
+#7 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/UpdateTitl...')
+#8 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/UpdateTitle.html
+HTTP_REFERER=http://127.0.0.1/phpexcel/Yii-phpexcel/
+---
+2013/06/18 23:59:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php:404
+Stack trace:
+#0 [internal function]: SiteController->loadSheetModel(0)
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php(377): call_user_func(Array, 0)
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpdateTitle()
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): CController->run('updatetitle')
+#7 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/UpdateTitl...')
+#8 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/UpdateTitle.html
+HTTP_REFERER=http://127.0.0.1/phpexcel/Yii-phpexcel/
+---
+2013/06/19 00:00:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php:404
+Stack trace:
+#0 [internal function]: SiteController->loadSheetModel(0)
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php(377): call_user_func(Array, 0)
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpdateTitle()
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): CController->run('updatetitle')
+#7 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/UpdateTitl...')
+#8 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/UpdateTitle.html
+HTTP_REFERER=http://127.0.0.1/phpexcel/Yii-phpexcel/
+---
+2013/06/19 00:00:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php:404
+Stack trace:
+#0 [internal function]: SiteController->loadSheetModel(0)
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php(377): call_user_func(Array, 0)
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpdateTitle()
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): CController->run('updatetitle')
+#7 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/UpdateTitl...')
+#8 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/UpdateTitle.html
+HTTP_REFERER=http://127.0.0.1/phpexcel/Yii-phpexcel/
+---
+2013/06/19 00:01:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php:405
+Stack trace:
+#0 [internal function]: SiteController->loadSheetModel(0)
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php(377): call_user_func(Array, 0)
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpdateTitle()
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): CController->run('updatetitle')
+#7 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/UpdateTitl...')
+#8 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/UpdateTitle.html
+HTTP_REFERER=http://127.0.0.1/phpexcel/Yii-phpexcel/
+---
+2013/06/19 00:02:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php:405
+Stack trace:
+#0 [internal function]: SiteController->loadSheetModel(0)
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php(377): call_user_func(Array, 0)
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpdateTitle()
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): CController->run('updatetitle')
+#7 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/UpdateTitl...')
+#8 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/UpdateTitle.html
+HTTP_REFERER=http://127.0.0.1/phpexcel/Yii-phpexcel/
+---
+2013/06/19 00:07:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php:408
+Stack trace:
+#0 [internal function]: SiteController->loadSheetModel(0)
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php(378): call_user_func(Array, 0)
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpdateTitle()
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): CController->run('updatetitle')
+#7 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/UpdateTitl...')
+#8 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/UpdateTitle.html
+HTTP_REFERER=http://127.0.0.1/phpexcel/Yii-phpexcel/
+---
+2013/06/19 00:08:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php:409
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php(379): SiteController->loadSheetModel(0)
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpdateTitle()
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): CController->run('updatetitle')
+#6 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/UpdateTitl...')
+#7 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/UpdateTitle.html
+HTTP_REFERER=http://127.0.0.1/phpexcel/Yii-phpexcel/
+---
+2013/06/19 00:09:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php:420
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php(377): SiteController->loadColumnModel(0)
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpdateTitle()
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): CController->run('updatetitle')
+#6 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/UpdateTitl...')
+#7 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/UpdateTitle.html
+HTTP_REFERER=http://127.0.0.1/phpexcel/Yii-phpexcel/
+---
+2013/06/19 00:09:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php:421
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php(377): SiteController->loadColumnModel(0)
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpdateTitle()
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): CController->run('updatetitle')
+#6 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/UpdateTitl...')
+#7 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/UpdateTitle.html
+HTTP_REFERER=http://127.0.0.1/phpexcel/Yii-phpexcel/
+---
+2013/06/19 00:10:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php:422
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php(377): SiteController->loadColumnModel(0)
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpdateTitle()
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): CController->run('updatetitle')
+#6 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/UpdateTitl...')
+#7 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/UpdateTitle.html
+HTTP_REFERER=http://127.0.0.1/phpexcel/Yii-phpexcel/
+---
+2013/06/19 00:11:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php:412
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php(377): SiteController->loadSheetModel(0)
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpdateTitle()
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): CController->run('updatetitle')
+#6 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/UpdateTitl...')
+#7 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/UpdateTitle.html
+HTTP_REFERER=http://127.0.0.1/phpexcel/Yii-phpexcel/
+---
+2013/06/19 00:14:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php:414
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php(379): SiteController->loadSheetModel(0)
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpdateTitle()
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): CController->run('updatetitle')
+#6 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/UpdateTitl...')
+#7 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/UpdateTitle.html
+HTTP_REFERER=http://127.0.0.1/phpexcel/Yii-phpexcel/
+---
+2013/06/19 00:16:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php:414
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php(379): SiteController->loadSheetModel(0)
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpdateTitle()
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): CController->run('updatetitle')
+#6 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/updatetitl...')
+#7 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/updatetitle.html
+HTTP_REFERER=http://127.0.0.1/phpexcel/Yii-phpexcel/
+---

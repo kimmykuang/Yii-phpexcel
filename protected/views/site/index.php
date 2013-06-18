@@ -89,15 +89,17 @@ $('#tree').tree({
                 </div>
                 <div class="treefmItem">
                 	<label>New Name:</label>
-                	<input type="text" name="newSheetName" class="easyui-validatebox" required="true" />
+                	<input type="text" name="title" class="easyui-validatebox" required="true" />
                 </div>
+                <input type="hidden" name="type" id="type" value="sheet" />
+                <input type="hidden" name="id" id="id" value="" />
             </form>
     </div>   
     <!--dlg1结束-->
     
     <!--dlg1的操作按钮-->
     <div id="dlg-buttons">  
-        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-ok" onclick="saveNodeInfo()">Save</a>  
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-ok" onclick="saveTreeForm()">Save</a>  
         <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg1').dialog('close')">Cancel</a>  
     </div> 
 </center>
@@ -106,24 +108,27 @@ var url;
 function check(){
 	var t = $('#tree');
 	var node = t.tree('getSelected');
-	url = node.attributes['url'];
-	$.ajax({
-  		type:'post',
-   		data:{text:node.text},
-	   		url:url,
-	   		success:function(data,textStatus){
-	      		$('#datagrid_view').html('').append(data);
-	      		$('#list').datagrid('getPager').pagination('select', 1);	// select the second page
-   		},
-	});
+	if(node.attributes['sheetID'] !== ''){
+    	
+			url = '<?php echo Yii::app()->createUrl('site/readsheet');?>';
+			$.ajax({
+      		type:'post',
+       		data:{id:node.attributes['sheetID']},
+		   		url:url,
+		   		success:function(data,textStatus){
+		      		$('#datagrid_view').html('').append(data);
+		      		$('#list').datagrid('getPager').pagination('select', 1);	// select the second page
+       		},
+		});  
+	}
 }
         
 function edit(){
 	var t = $('#tree');
 	var node = t.tree('getSelected');
-	$('#dlg1').dialog('open').children('#treefm').form('clear');
+	$('#dlg1').dialog('open').children('#treefm').form('clear').children('#id').val(node.attributes['sheetID']);
 	$('#oldSheetName').text(node.text);
-	url = '<?=Yii::app()->createUrl('site/UpdateTitle')?>';
+	url = '<?=Yii::app()->createUrl('site/updatetitle')?>';
 }
 
 function remove(){
@@ -133,7 +138,26 @@ function remove(){
 		t.tree('remove', node.target);
 	}
 }
-        
+
+function saveTreeForm(){
+	$('#treefm').form('submit',{
+			url:url,
+			onSubmit:function(){
+				return $(this).form('validate');
+			},
+			success:function(result){
+				//alert(result);
+				var result = eval('('+result+')');
+				if(result === false){
+					$.message.show({title:'Error',msg:'rename sheet title fail,please try again.'});
+				}else{
+					$('#dlg1').dialog('close');
+					$('#tree').tree('reload');
+				}
+			}
+		}
+	);
+}
 
 function newItem(){
 	
