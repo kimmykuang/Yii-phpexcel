@@ -22,7 +22,7 @@ class SiteController extends Controller
 		// <!-- start tree list -->
 		$treeArray['id'] = 1;
 		$treeArray['text'] = 'All Documents';
-		$treeArray['attributes'] = array('url'=>'');
+		$treeArray['attributes'] = array('sheetID'=>'');
 		$i = 0;
 		foreach ($files as $file){
 			$i++;
@@ -36,10 +36,10 @@ class SiteController extends Controller
 				$children_file['children'][] = array(
 					'id'=>$children_file['id'].$j,
 					'text'=>$sheet->sheetTitle,
-					'attributes'=>array('url'=>Yii::app()->createUrl('site/readsheet',array('id'=>$sheet->ID))),  //不要硬编码url
+					'attributes'=>array('sheetID'=>$sheet->ID),  //不要硬编码url
 				);
 			}
-			$children_file['attributes'] = array('url'=>'');
+			$children_file['attributes'] = array('sheetID'=>'');
 			$treeArray['children'][] = $children_file;
 		}
 		$treeList = '['.json_encode($treeArray).']';
@@ -54,42 +54,50 @@ class SiteController extends Controller
 	/**
 	 * Ajax读取sheet数据
 	 */
-	public function actionReadSheet($id){
+	public function actionReadSheet(){
 		
 		if(Yii::app()->request->isAjaxRequest){
-			//判断是第一次加载数据还是分页
-			//第一次加载则page=1 and rows=10
-			//否则根据page and rows来取数据
+			$id = intval($_POST['id']);
 			$sheet = $this->loadSheetModel($id);
-			$dyCols = $dyData = array();
-			$colstr = $comma = '';
+			$table = $sheet->sheetTableName;
+			$dyCols = array();
 			// <!-- start dyCols -->
 			foreach ($sheet->columns as $column){
-				$colstr .= $comma.$column->columnTitle;
 				$dyCols[] = array(
 					'field' => $column->columnTitle,
 					'title' => $column->columnName,
 					//'width' =>80,
 				);
-				$comma = ',';
-			}	
-		$columns = '['.json_encode($dyCols).']';
-		// <!-- end dyCols -->
-		
-		// <!-- start dyData -->
-		$table = $sheet->sheetTableName;
-		$conn = Yii::app()->db;
-		$results = $conn->createCommand()->select($colstr)->from($table)->queryAll();
-		foreach ($results as $result){
-			$dyData['rows'][] = $result;
+			}
+			$columns = '['.json_encode($dyCols).']';
+			// <!-- end dyCols -->
+			$_POST['page'] = $_POST['rows'] = 0;
+			$this->renderPartial('_datagrid',array('columns'=>$columns,'id'=>$id,'table'=>$table));
+			//exit;
 		}
-		$dyData['page'] = 1;
-		$dyData['total'] = count($results);
+	}
+	
+	/**
+	 * 为datagrid提供数据源
+	 */
+	public function actionDataProvider($id,$table){
+		$page = isset($_POST['page'])?intval($_POST['page']):1;
+		$rows = isset($_POST['rows'])?intval($_POST['rows']):10;
+		$dyData = array();
+		// <!-- start dyData -->
+		$conn = Yii::app()->db;
+		$count = $conn->createCommand()->select('COUNT(*)')->from($table)->queryScalar();
+		$startIndex = ($page-1)*$rows;
+		$dataReader = $conn->createCommand()->select()->from($table)->limit($rows,$startIndex)->query();
+		//$dataReader->readAll() //返回所有结果集到数组
+		while (($row=$dataReader->read()) !== FALSE){
+			$dyData['rows'][] = $row;
+		}
+		$dyData['total'] = intval($count);
 		$dyData = json_encode($dyData);
 		// <!-- end dyData -->
-			$this->renderPartial('_datagrid',array('columns'=>$columns,'dyData'=>$dyData));
-			exit;
-		}
+		echo $dyData;
+		exit;
 	}
 	
 	/**

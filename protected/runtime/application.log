@@ -3009,3 +3009,39 @@ Stack trace:
 REQUEST_URI=/phpexcel/Yii-phpexcel/site/site/readsheet/5
 HTTP_REFERER=http://127.0.0.1/phpexcel/Yii-phpexcel/site/
 ---
+2013/06/18 11:42:15 [error] [php] Wrong parameter count for var_dump() (D:\wamp\www\phpexcel\protected\controllers\SiteController.php:86)
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs()
+#1 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#2 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 D:\wamp\www\phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#5 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#6 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#7 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 D:\wamp\www\phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/site/readsheet/4.html
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (86)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/18 17:36:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "readsheet.html" 动作.' in D:\wamp\www\phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(271): CController->missingAction('readsheet.html')
+#1 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('readsheet.html')
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/readsheet....')
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/readsheet.html/3
+HTTP_REFERER=http://127.0.0.1/phpexcel/site
+---
+2013/06/18 17:36:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "readsheet.html" 动作.' in D:\wamp\www\phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(271): CController->missingAction('readsheet.html')
+#1 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('readsheet.html')
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/readsheet....')
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/readsheet.html/6
+HTTP_REFERER=http://127.0.0.1/phpexcel/site
+---
