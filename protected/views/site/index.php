@@ -89,7 +89,7 @@ $('#tree').tree({
                 </div>
                 <div class="treefmItem">
                 	<label>New Name:</label>
-                	<input type="text" name="title" class="easyui-validatebox" required="true" />
+                	<input type="text" name="title" id="title" class="easyui-validatebox" required="true" />
                 </div>
                 <input type="hidden" name="type" id="type" value="sheet" />
                 <input type="hidden" name="id" id="sheetid" value="" />
@@ -150,13 +150,10 @@ function saveTreeForm(){
 		data:$('#treefm').serialize(),
 		type:'POST',
 		success:function(data){
-			//alert(data);
-			//var data = eval('('+data+')');
-			//alert(data);
-			if(data == 'success'){
+			if(data){
 				$('#dlg1').dialog('close');
 				//$('#tree').tree('reload');  //tree可以reload的条件是有url提供数据源或者直接重写reload方法，异步去后台再次读取数据后loadData
-				
+				$('#tree').tree('update',$('#tree').tree('getSelected'));
 			}else{
 				$.messager.alert('Error','rename sheet name fail,please try again.');
 			}

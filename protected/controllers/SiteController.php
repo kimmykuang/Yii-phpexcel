@@ -385,11 +385,11 @@ class SiteController extends Controller
 			$model->$field = $title;
 			//$model->sheetTitle = $title;
 			if($model->validate() && $model->save()){
-				echo $flag='success';exit;
+				echo json_encode(array('flag'=>TRUE));
 			}else{
-				echo $flag='fail';exit;
+				echo json_encode(array('flag'=>FALSE));
 			}
-			
+			exit;
 		}
 	
 	
