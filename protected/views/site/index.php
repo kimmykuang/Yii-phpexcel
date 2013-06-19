@@ -82,7 +82,7 @@ $('#tree').tree({
     
     <!--tree右键的编辑按钮-->
     <div id="dlg1" class="easyui-dialog" style="width:300px;height:180px;padding:10px 20px" closed="true" buttons="#dlg-buttons" title="修改工作薄名称"> 
-            <form id="treefm" method="post">
+            <form id="treefm" method="post" action="">
                 <div class="treefmItem">
                 	<label>Old Name:</label>
                 	<label id="oldSheetName"></label>
@@ -92,7 +92,7 @@ $('#tree').tree({
                 	<input type="text" name="title" class="easyui-validatebox" required="true" />
                 </div>
                 <input type="hidden" name="type" id="type" value="sheet" />
-                <input type="hidden" name="id" id="id" value="" />
+                <input type="hidden" name="id" id="sheetid" value="" />
             </form>
     </div>   
     <!--dlg1结束-->
@@ -126,9 +126,14 @@ function check(){
 function edit(){
 	var t = $('#tree');
 	var node = t.tree('getSelected');
-	$('#dlg1').dialog('open').children('#treefm').form('clear').children('#id').val(node.attributes['sheetID']);
-	$('#oldSheetName').text(node.text);
-	url = '<?=Yii::app()->createUrl('site/updatetitle')?>';
+	if(node.attributes['sheetID'] !== ''){
+		$('#dlg1').dialog('open').children('#treefm').form('clear');
+		$('#sheetid').val(node.attributes['sheetID']);
+		$('#oldSheetName').text(node.text);
+		url = '<?=Yii::app()->createUrl('site/updatetitle')?>';
+	}else{
+		$.messager.alert('提示','只能重命名工作薄');
+	}
 }
 
 function remove(){
@@ -140,23 +145,23 @@ function remove(){
 }
 
 function saveTreeForm(){
-	$('#treefm').form('submit',{
-			url:url,
-			onSubmit:function(){
-				return $(this).form('validate');
-			},
-			success:function(result){
-				//alert(result);
-				var result = eval('('+result+')');
-				if(result === false){
-					$.message.show({title:'Error',msg:'rename sheet title fail,please try again.'});
-				}else{
-					$('#dlg1').dialog('close');
-					$('#tree').tree('reload');
-				}
+	$.ajax({
+		url:url,
+		data:$('#treefm').serialize(),
+		type:'POST',
+		success:function(data){
+			//alert(data);
+			//var data = eval('('+data+')');
+			//alert(data);
+			if(data == 'success'){
+				$('#dlg1').dialog('close');
+				//$('#tree').tree('reload');  //tree可以reload的条件是有url提供数据源或者直接重写reload方法，异步去后台再次读取数据后loadData
+				
+			}else{
+				$.messager.alert('Error','rename sheet name fail,please try again.');
 			}
-		}
-	);
+		},
+	});
 }
 
 function newItem(){

@@ -36,7 +36,7 @@ class SiteController extends Controller
 				$children_file['children'][] = array(
 					'id'=>$children_file['id'].$j,
 					'text'=>$sheet->sheetTitle,
-					'attributes'=>array('sheetID'=>$sheet->ID),  //不要硬编码url
+					'attributes'=>array('sheetID'=>$sheet->ID),
 				);
 			}
 			$children_file['attributes'] = array('sheetID'=>'');
@@ -365,33 +365,31 @@ class SiteController extends Controller
 	 */
 	public function actionUpdateTitle(){
 			$id = intval($_POST['id']);
-			//$title = mb_convert_encoding($_POST['title'], "UTF-8","GBK,UTF-8");
-			$title = $_POST['title'];
+			$title = $_POST['title'];  //这里需要做一下后台check，返回errorMsg
 			$type = $_POST['type'];
-			/*
+			
 			$types = array('file','sheet','column');
 			if(!in_array($type, $types)){
 				throw new CHttpException(404,'The requested page does not exist.');
 				exit;
 			}
-			*/
-			//$field = $type.'Title';
-			$model = $this->loadSheetModel($id);
-			/*
+			
+			$field = $type.'Title';
+			//$model = $this->loadSheetModel($id);
+			
 			if(method_exists($this, $method_name='load'.ucfirst($type).'Model')){
 				$model = call_user_func(array($this,$method_name),$id);
 			}
-			*/
 			
-			//$model->$field = $title;
-			$model->sheetTitle = $title;
-			//if($model->validate() && $model->save()){
-			if($model->save()){
-				//更名成功，重新加载datagrid，可以使用在前段使用reload，这里返回flag
-				return true;
+			
+			$model->$field = $title;
+			//$model->sheetTitle = $title;
+			if($model->validate() && $model->save()){
+				echo $flag='success';exit;
 			}else{
-				return false;
+				echo $flag='fail';exit;
 			}
+			
 		}
 	
 	
