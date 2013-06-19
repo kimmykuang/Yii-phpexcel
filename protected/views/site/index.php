@@ -152,8 +152,11 @@ function saveTreeForm(){
 		success:function(data){
 			if(data){
 				$('#dlg1').dialog('close');
-				//$('#tree').tree('reload');  //tree可以reload的条件是有url提供数据源或者直接重写reload方法，异步去后台再次读取数据后loadData
-				$('#tree').tree('update',$('#tree').tree('getSelected'));
+				var node = $('#tree').tree('getSelected');
+				$('#tree').tree('update',{
+					target:node.target,
+					text:$('#title').val(),
+				});
 			}else{
 				$.messager.alert('Error','rename sheet name fail,please try again.');
 			}
