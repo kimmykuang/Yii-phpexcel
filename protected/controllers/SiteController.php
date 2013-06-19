@@ -271,7 +271,7 @@ class SiteController extends Controller
 					spl_autoload_register(array('YiiBase','autoload'));
 	
 					//显示上传成功
-					$this->redirect('upload',array('model',$model));
+					//$this->actionIndex();
 				}
 			}
 		}
@@ -550,12 +550,61 @@ class SiteController extends Controller
 	}
 	
 	/**
+	 * @param ac:操作类型，insert | update | delete
+	 * @param id:主键
 	 * datagrid对数据的CRUD操作，Ajax方式
 	 * 操作数据后，需要更新File的lastModifyTime和lastModifyUserIp
-	 * reload tree list
+	 * reload datagrid
 	 */
-	public function actionCRUD(){
-		
+	public function actionCRUD($ac,$id,$type){
+		$types = array('file','sheet','column','data');
+		$actions = array('insert','update','delete');
+		if(!in_array($ac,$actions) || !in_array($type,$types)){
+			throw new CHttpException(404,'The requested page does not exist.');
+			exit;
+		}
+
+		$id = intval($id);
+		switch($type){
+			case 'data':
+				$sheet = $this->loadSheetModel($id);
+				$table = $sheet->sheetTableName;
+				
+				break;
+			default:
+				$model = call_user_func(array($this,'load'.ucfirst($type).'Model'),$id);
+				break;
+		}
+	}
+	
+	/**
+	 * 
+	 * 删除worksheet
+	 * 使用cdbcommand->transaction事务控制删除流程:删除关联columns->删除数据表->删除关联sheets表中记录
+	 * @param int $id (sheetID)
+	 */
+	public function actionDeleteSheet($id){
+		$id = intval($id);
+		$conn = Yii::app()->db;
+		$sheet = $this->loadSheetModel($id);
+		$transaction = $conn->beginTransaction();
+		try {
+			$command = $conn->createCommand();
+			$command->delete(($this->excel_columns),'sheetID=:sheetID',array(':sheetID'=>$sheet->ID));
+			//echo $command->text;exit;
+			$command->dropTable($sheet->sheetTableName);
+			//echo $command->text;exit;
+			$command->delete($this->excel_sheets,'ID=:ID',array(':ID'=>$id));
+			//echo $command->text;exit;
+			$transaction->commit();
+		} catch (CDbException $e) {
+			$transaction->rollback();
+			echo "<pre>";
+			print_r($e->getMessage());
+			echo "</pre>";
+			exit;
+		}
+		echo true;exit;
 	}
 	
 	/**

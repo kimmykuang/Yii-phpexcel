@@ -3377,3 +3377,1262 @@ Stack trace:
 #17 {main}
 REQUEST_URI=/phpexcel/Yii-phpexcel/index.php/site/
 ---
+2013/06/19 16:43:26 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s4' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s4`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (89)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/19 16:43:26 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s4' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s4`' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:533
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(430): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(89): CDbCommand->queryScalar()
+#2 [internal function]: SiteController->actionDataProvider('4', 'excel_f1_s4')
+#3 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dataprovid...')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/dataprovider/4.html?table=excel_f1_s4
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/
+---
+2013/06/19 16:43:26 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s4' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s4`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (89)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/19 16:43:26 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s4' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s4`' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:533
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(430): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(89): CDbCommand->queryScalar()
+#2 [internal function]: SiteController->actionDataProvider('4', 'excel_f1_s4')
+#3 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dataprovid...')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/dataprovider/4.html?table=excel_f1_s4
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/
+---
+2013/06/19 16:44:45 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s16' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s16`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (89)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/19 16:44:45 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s16' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s16`' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:533
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(430): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(89): CDbCommand->queryScalar()
+#2 [internal function]: SiteController->actionDataProvider('16', 'excel_f1_s16')
+#3 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dataprovid...')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/dataprovider/16.html?table=excel_f1_s16
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/
+---
+2013/06/19 16:44:45 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s16' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s16`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (89)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/19 16:44:45 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s16' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s16`' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:533
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(430): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(89): CDbCommand->queryScalar()
+#2 [internal function]: SiteController->actionDataProvider('16', 'excel_f1_s16')
+#3 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dataprovid...')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/dataprovider/16.html?table=excel_f1_s16
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/
+---
+2013/06/19 16:44:48 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s16' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s16`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (89)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/19 16:44:48 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s16' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s16`' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:533
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(430): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(89): CDbCommand->queryScalar()
+#2 [internal function]: SiteController->actionDataProvider('16', 'excel_f1_s16')
+#3 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dataprovid...')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/dataprovider/16.html?table=excel_f1_s16
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/
+---
+2013/06/19 16:44:48 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s16' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s16`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (89)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/19 16:44:48 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s16' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s16`' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:533
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(430): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(89): CDbCommand->queryScalar()
+#2 [internal function]: SiteController->actionDataProvider('16', 'excel_f1_s16')
+#3 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dataprovid...')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/dataprovider/16.html?table=excel_f1_s16
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/
+---
+2013/06/19 16:45:09 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s16' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s16`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (89)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/19 16:45:09 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s16' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s16`' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:533
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(430): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(89): CDbCommand->queryScalar()
+#2 [internal function]: SiteController->actionDataProvider('16', 'excel_f1_s16')
+#3 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dataprovid...')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/dataprovider/16.html?table=excel_f1_s16
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/
+---
+2013/06/19 16:45:09 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s16' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s16`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (89)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/19 16:45:09 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s16' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s16`' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:533
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(430): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(89): CDbCommand->queryScalar()
+#2 [internal function]: SiteController->actionDataProvider('16', 'excel_f1_s16')
+#3 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dataprovid...')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/dataprovider/16.html?table=excel_f1_s16
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/
+---
+2013/06/19 16:45:25 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s8' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s8`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (89)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/19 16:45:25 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s8' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s8`' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:533
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(430): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(89): CDbCommand->queryScalar()
+#2 [internal function]: SiteController->actionDataProvider('8', 'excel_f1_s8')
+#3 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dataprovid...')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/dataprovider/8.html?table=excel_f1_s8
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/
+---
+2013/06/19 16:45:25 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s8' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s8`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (89)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/19 16:45:25 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s8' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s8`' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:533
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(430): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(89): CDbCommand->queryScalar()
+#2 [internal function]: SiteController->actionDataProvider('8', 'excel_f1_s8')
+#3 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dataprovid...')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/dataprovider/8.html?table=excel_f1_s8
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/
+---
+2013/06/19 16:45:54 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s10' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s10`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (89)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/19 16:45:54 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s10' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s10`' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:533
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(430): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(89): CDbCommand->queryScalar()
+#2 [internal function]: SiteController->actionDataProvider('10', 'excel_f1_s10')
+#3 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dataprovid...')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/dataprovider/10.html?table=excel_f1_s10
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/
+---
+2013/06/19 16:45:54 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s10' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s10`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (89)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/19 16:45:54 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s10' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s10`' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:533
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(430): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(89): CDbCommand->queryScalar()
+#2 [internal function]: SiteController->actionDataProvider('10', 'excel_f1_s10')
+#3 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dataprovid...')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/dataprovider/10.html?table=excel_f1_s10
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/
+---
+2013/06/19 16:47:50 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s2' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s2`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (89)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/19 16:47:50 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s2' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s2`' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:533
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(430): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(89): CDbCommand->queryScalar()
+#2 [internal function]: SiteController->actionDataProvider('2', 'excel_f1_s2')
+#3 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dataprovid...')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/dataprovider/2.html?table=excel_f1_s2
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/
+---
+2013/06/19 16:47:49 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s2' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s2`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (89)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/19 16:47:49 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s2' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s2`' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:533
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(430): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(89): CDbCommand->queryScalar()
+#2 [internal function]: SiteController->actionDataProvider('2', 'excel_f1_s2')
+#3 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dataprovid...')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/dataprovider/2.html?table=excel_f1_s2
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/
+---
+2013/06/19 16:47:56 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s2' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s2`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (89)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/19 16:47:56 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s2' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s2`' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:533
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(430): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(89): CDbCommand->queryScalar()
+#2 [internal function]: SiteController->actionDataProvider('2', 'excel_f1_s2')
+#3 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dataprovid...')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/dataprovider/2.html?table=excel_f1_s2
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/
+---
+2013/06/19 16:47:56 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s2' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s2`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (89)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/19 16:47:56 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s2' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s2`' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:533
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(430): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(89): CDbCommand->queryScalar()
+#2 [internal function]: SiteController->actionDataProvider('2', 'excel_f1_s2')
+#3 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dataprovid...')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/dataprovider/2.html?table=excel_f1_s2
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/
+---
+2013/06/19 16:52:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "up"。' in D:\wamp\www\phpexcel\framework\web\CWebApplication.php:280
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('up')
+#1 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/phpexcel/up
+---
+2013/06/19 16:52:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "upload"。' in D:\wamp\www\phpexcel\framework\web\CWebApplication.php:280
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('upload')
+#1 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/phpexcel/upload
+---
+2013/06/19 16:53:54 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f3_s0' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f3_s0`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (89)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/19 16:53:54 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f3_s0' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f3_s0`' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:533
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(430): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(89): CDbCommand->queryScalar()
+#2 [internal function]: SiteController->actionDataProvider('18', 'excel_f3_s0')
+#3 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dataprovid...')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/dataprovider/18.html?table=excel_f3_s0
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/index
+---
+2013/06/19 16:53:54 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f3_s0' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f3_s0`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (89)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/19 16:53:54 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f3_s0' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f3_s0`' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:533
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(430): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(89): CDbCommand->queryScalar()
+#2 [internal function]: SiteController->actionDataProvider('18', 'excel_f3_s0')
+#3 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dataprovid...')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/dataprovider/18.html?table=excel_f3_s0
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/index
+---
+2013/06/19 16:54:44 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f3_s0' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f3_s0`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (89)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/19 16:54:44 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f3_s0' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f3_s0`' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:533
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(430): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(89): CDbCommand->queryScalar()
+#2 [internal function]: SiteController->actionDataProvider('18', 'excel_f3_s0')
+#3 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dataprovid...')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/dataprovider/18.html?table=excel_f3_s0
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/index
+---
+2013/06/19 16:54:44 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f3_s0' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f3_s0`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (89)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/19 16:54:44 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f3_s0' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f3_s0`' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:533
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(430): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(89): CDbCommand->queryScalar()
+#2 [internal function]: SiteController->actionDataProvider('18', 'excel_f3_s0')
+#3 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dataprovid...')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/dataprovider/18.html?table=excel_f3_s0
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/index
+---
+2013/06/19 16:54:45 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f3_s0' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f3_s0`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (89)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/19 16:54:45 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f3_s0' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f3_s0`' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:533
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(430): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(89): CDbCommand->queryScalar()
+#2 [internal function]: SiteController->actionDataProvider('18', 'excel_f3_s0')
+#3 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dataprovid...')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/dataprovider/18.html?table=excel_f3_s0
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/index
+---
+2013/06/19 16:54:50 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f2_s0' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f2_s0`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (89)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/19 16:54:50 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f2_s0' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f2_s0`' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:533
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(430): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(89): CDbCommand->queryScalar()
+#2 [internal function]: SiteController->actionDataProvider('17', 'excel_f2_s0')
+#3 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dataprovid...')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/dataprovider/17.html?table=excel_f2_s0
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/index
+---
+2013/06/19 16:55:16 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s16' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s16`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (89)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/19 16:55:16 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s16' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s16`' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:533
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(430): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(89): CDbCommand->queryScalar()
+#2 [internal function]: SiteController->actionDataProvider('16', 'excel_f1_s16')
+#3 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dataprovid...')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/dataprovider/16.html?table=excel_f1_s16
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/index
+---
+2013/06/19 16:56:31 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f3_s0' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f3_s0`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (89)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/19 16:56:31 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f3_s0' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f3_s0`' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:533
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(430): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(89): CDbCommand->queryScalar()
+#2 [internal function]: SiteController->actionDataProvider('18', 'excel_f3_s0')
+#3 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dataprovid...')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/dataprovider/18.html?table=excel_f3_s0
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/index
+---
+2013/06/19 16:56:30 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f3_s0' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f3_s0`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (89)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/19 16:56:30 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f3_s0' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f3_s0`' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:533
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(430): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(89): CDbCommand->queryScalar()
+#2 [internal function]: SiteController->actionDataProvider('18', 'excel_f3_s0')
+#3 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dataprovid...')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/dataprovider/18.html?table=excel_f3_s0
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/index
+---
+2013/06/19 16:57:14 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f2_s0' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f2_s0`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (89)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/19 16:57:14 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f2_s0' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f2_s0`' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:533
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(430): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(89): CDbCommand->queryScalar()
+#2 [internal function]: SiteController->actionDataProvider('17', 'excel_f2_s0')
+#3 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dataprovid...')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/dataprovider/17.html?table=excel_f2_s0
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/index
+---
+2013/06/19 16:57:14 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f2_s0' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f2_s0`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (89)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/19 16:57:14 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f2_s0' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f2_s0`' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:533
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(430): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(89): CDbCommand->queryScalar()
+#2 [internal function]: SiteController->actionDataProvider('17', 'excel_f2_s0')
+#3 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dataprovid...')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/dataprovider/17.html?table=excel_f2_s0
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/index
+---
+2013/06/19 16:58:30 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f2_s0' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f2_s0`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (89)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/19 16:58:30 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f2_s0' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f2_s0`' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:533
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(430): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(89): CDbCommand->queryScalar()
+#2 [internal function]: SiteController->actionDataProvider('17', 'excel_f2_s0')
+#3 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dataprovid...')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/dataprovider/17.html?table=excel_f2_s0
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/index
+---
+2013/06/19 16:58:30 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f2_s0' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f2_s0`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (89)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/19 16:58:30 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f2_s0' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f2_s0`' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:533
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(430): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(89): CDbCommand->queryScalar()
+#2 [internal function]: SiteController->actionDataProvider('17', 'excel_f2_s0')
+#3 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dataprovid...')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/dataprovider/17.html?table=excel_f2_s0
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/index
+---
+2013/06/19 16:58:47 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s16' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s16`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (89)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/19 16:58:47 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s16' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s16`' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:533
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(430): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(89): CDbCommand->queryScalar()
+#2 [internal function]: SiteController->actionDataProvider('16', 'excel_f1_s16')
+#3 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dataprovid...')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/dataprovider/16.html?table=excel_f1_s16
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/index
+---
+2013/06/19 16:58:47 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s16' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s16`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (89)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/19 16:58:47 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s16' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s16`' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:533
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(430): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(89): CDbCommand->queryScalar()
+#2 [internal function]: SiteController->actionDataProvider('16', 'excel_f1_s16')
+#3 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dataprovid...')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/dataprovider/16.html?table=excel_f1_s16
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/index
+---
+2013/06/19 16:59:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in D:\wamp\www\phpexcel\protected\controllers\SiteController.php:412
+Stack trace:
+#0 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(589): SiteController->loadSheetModel(0)
+#1 [internal function]: SiteController->actionDeleteSheet('')
+#2 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#3 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('deletesheet')
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/deleteshee...')
+#9 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/phpexcel/site/deletesheet.html?id=
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/index
+---
+2013/06/19 16:59:45 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s16' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s16`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (89)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/19 16:59:45 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s16' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s16`' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:533
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(430): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(89): CDbCommand->queryScalar()
+#2 [internal function]: SiteController->actionDataProvider('16', 'excel_f1_s16')
+#3 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dataprovid...')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/dataprovider/16.html?table=excel_f1_s16
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/index
+---
+2013/06/19 16:59:45 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s16' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s16`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (89)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/19 16:59:45 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s16' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s16`' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:533
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(430): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(89): CDbCommand->queryScalar()
+#2 [internal function]: SiteController->actionDataProvider('16', 'excel_f1_s16')
+#3 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dataprovid...')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/dataprovider/16.html?table=excel_f1_s16
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/index
+---
+2013/06/19 16:59:47 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f2_s0' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f2_s0`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (89)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/19 16:59:47 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f2_s0' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f2_s0`' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:533
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(430): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(89): CDbCommand->queryScalar()
+#2 [internal function]: SiteController->actionDataProvider('17', 'excel_f2_s0')
+#3 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dataprovid...')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/dataprovider/17.html?table=excel_f2_s0
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/index
+---
+2013/06/19 16:59:47 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f2_s0' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f2_s0`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (89)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/19 16:59:47 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f2_s0' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f2_s0`' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:533
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(430): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(89): CDbCommand->queryScalar()
+#2 [internal function]: SiteController->actionDataProvider('17', 'excel_f2_s0')
+#3 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dataprovid...')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/dataprovider/17.html?table=excel_f2_s0
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/index
+---
+2013/06/19 16:59:48 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f3_s0' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f3_s0`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (89)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/19 16:59:48 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f3_s0' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f3_s0`' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:533
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(430): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(89): CDbCommand->queryScalar()
+#2 [internal function]: SiteController->actionDataProvider('18', 'excel_f3_s0')
+#3 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dataprovid...')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/dataprovider/18.html?table=excel_f3_s0
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/index
+---
+2013/06/19 16:59:48 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f3_s0' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f3_s0`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (89)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/19 16:59:48 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f3_s0' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f3_s0`' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:533
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(430): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(89): CDbCommand->queryScalar()
+#2 [internal function]: SiteController->actionDataProvider('18', 'excel_f3_s0')
+#3 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dataprovid...')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/dataprovider/18.html?table=excel_f3_s0
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/index
+---
+2013/06/19 17:00:28 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f2_s0' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f2_s0`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (89)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/19 17:00:28 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f2_s0' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f2_s0`' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:533
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(430): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(89): CDbCommand->queryScalar()
+#2 [internal function]: SiteController->actionDataProvider('17', 'excel_f2_s0')
+#3 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dataprovid...')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/dataprovider/17.html?table=excel_f2_s0
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/index
+---
+2013/06/19 17:00:28 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f2_s0' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f2_s0`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (89)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/19 17:00:28 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f2_s0' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f2_s0`' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:533
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(430): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(89): CDbCommand->queryScalar()
+#2 [internal function]: SiteController->actionDataProvider('17', 'excel_f2_s0')
+#3 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dataprovid...')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/dataprovider/17.html?table=excel_f2_s0
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/index
+---
+2013/06/19 17:00:38 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f3_s0' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f3_s0`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (89)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/19 17:00:38 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f3_s0' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f3_s0`' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:533
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(430): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(89): CDbCommand->queryScalar()
+#2 [internal function]: SiteController->actionDataProvider('18', 'excel_f3_s0')
+#3 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dataprovid...')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/dataprovider/18.html?table=excel_f3_s0
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/index
+---
+2013/06/19 17:00:38 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f3_s0' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f3_s0`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (89)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/19 17:00:38 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f3_s0' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f3_s0`' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:533
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(430): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(89): CDbCommand->queryScalar()
+#2 [internal function]: SiteController->actionDataProvider('18', 'excel_f3_s0')
+#3 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dataprovid...')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/dataprovider/18.html?table=excel_f3_s0
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/index
+---
+2013/06/19 17:01:17 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f2_s0' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f2_s0`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (89)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/19 17:01:17 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f2_s0' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f2_s0`' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:533
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(430): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(89): CDbCommand->queryScalar()
+#2 [internal function]: SiteController->actionDataProvider('17', 'excel_f2_s0')
+#3 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dataprovid...')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/dataprovider/17.html?table=excel_f2_s0
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/index
+---
+2013/06/19 17:01:17 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f2_s0' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f2_s0`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (89)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/19 17:01:17 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f2_s0' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f2_s0`' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:533
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(430): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(89): CDbCommand->queryScalar()
+#2 [internal function]: SiteController->actionDataProvider('17', 'excel_f2_s0')
+#3 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dataprovid...')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/dataprovider/17.html?table=excel_f2_s0
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/index
+---
+2013/06/19 17:02:01 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f3_s0' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f3_s0`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (89)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/19 17:02:01 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f3_s0' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f3_s0`' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:533
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(430): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(89): CDbCommand->queryScalar()
+#2 [internal function]: SiteController->actionDataProvider('18', 'excel_f3_s0')
+#3 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dataprovid...')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/dataprovider/18.html?table=excel_f3_s0
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/index
+---
+2013/06/19 17:02:01 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f3_s0' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f3_s0`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (89)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/19 17:02:01 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f3_s0' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f3_s0`' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:533
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(430): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(89): CDbCommand->queryScalar()
+#2 [internal function]: SiteController->actionDataProvider('18', 'excel_f3_s0')
+#3 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dataprovid...')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/dataprovider/18.html?table=excel_f3_s0
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/index
+---
+2013/06/19 17:02:13 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s16' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s16`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (89)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/19 17:02:13 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s16' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s16`' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:533
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(430): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(89): CDbCommand->queryScalar()
+#2 [internal function]: SiteController->actionDataProvider('16', 'excel_f1_s16')
+#3 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dataprovid...')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/dataprovider/16.html?table=excel_f1_s16
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/index
+---
+2013/06/19 17:02:13 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s16' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s16`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (89)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/19 17:02:13 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s16' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s16`' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:533
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(430): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(89): CDbCommand->queryScalar()
+#2 [internal function]: SiteController->actionDataProvider('16', 'excel_f1_s16')
+#3 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dataprovid...')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/dataprovider/16.html?table=excel_f1_s16
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/index
+---
+2013/06/19 17:02:17 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s16' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s16`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (89)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/19 17:02:17 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s16' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s16`' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:533
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(430): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(89): CDbCommand->queryScalar()
+#2 [internal function]: SiteController->actionDataProvider('16', 'excel_f1_s16')
+#3 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dataprovid...')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/dataprovider/16.html?table=excel_f1_s16
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/index
+---
+2013/06/19 17:02:17 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s16' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s16`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (89)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/19 17:02:17 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s16' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s16`' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:533
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(430): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(89): CDbCommand->queryScalar()
+#2 [internal function]: SiteController->actionDataProvider('16', 'excel_f1_s16')
+#3 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dataprovid...')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/dataprovider/16.html?table=excel_f1_s16
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/index
+---
+2013/06/19 17:02:23 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s16' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s16`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (89)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/19 17:02:23 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s16' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s16`' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:533
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(430): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(89): CDbCommand->queryScalar()
+#2 [internal function]: SiteController->actionDataProvider('16', 'excel_f1_s16')
+#3 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dataprovid...')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/dataprovider/16.html?table=excel_f1_s16
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/index
+---
+2013/06/19 17:02:23 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s16' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s16`.
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (89)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/19 17:02:23 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phpexcel.excel_f1_s16' doesn't exist. The SQL statement executed was: SELECT COUNT(*)
+FROM `excel_f1_s16`' in D:\wamp\www\phpexcel\framework\db\CDbCommand.php:533
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbCommand.php(430): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(89): CDbCommand->queryScalar()
+#2 [internal function]: SiteController->actionDataProvider('16', 'excel_f1_s16')
+#3 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dataprovid...')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/site/dataprovider/16.html?table=excel_f1_s16
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/index
+---
+2013/06/19 17:29:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in D:\wamp\www\phpexcel\protected\controllers\SiteController.php:412
+Stack trace:
+#0 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(589): SiteController->loadSheetModel(1)
+#1 [internal function]: SiteController->actionDeleteSheet('1')
+#2 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#3 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('deletesheet')
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/deleteshee...')
+#9 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/phpexcel/site/deletesheet.html?id=1
+HTTP_REFERER=http://10.1.83.46/phpexcel/site/
+---
+2013/06/19 17:29:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in D:\wamp\www\phpexcel\protected\controllers\SiteController.php:412
+Stack trace:
+#0 [internal function]: SiteController->loadSheetModel(1)
+#1 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(381): call_user_func(Array, 1)
+#2 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpdateTitle()
+#3 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('updatetitle')
+#7 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/updatetitl...')
+#8 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/phpexcel/site/updatetitle.html
+HTTP_REFERER=http://10.1.83.46/phpexcel/site/
+---
+2013/06/19 17:36:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "init" 动作.' in D:\wamp\www\phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(271): CController->missingAction('init')
+#1 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('init')
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/init')
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/init
+---
+2013/06/19 17:36:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "upl" 动作.' in D:\wamp\www\phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(271): CController->missingAction('upl')
+#1 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('upl')
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/upl')
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/upl
+---

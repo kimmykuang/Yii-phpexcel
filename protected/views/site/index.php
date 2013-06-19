@@ -11,15 +11,7 @@ var treeList = <?php echo $treeList;?>;
 $('#tree').tree({
        			animate:true,
                 //dnd:true,
-                onContextMenu :function(e,node){
-                    e.preventDefault();
-                    $(this).tree('select',node.target);
-                    $('#mm').menu('show',{  
-                    left: e.pageX,  
-                    top: e.pageY  
-                    });
-                },
-                onClick:function(node){
+                onDblClick:function(node){
                 	if(node.attributes['sheetID'] !== ''){
                     	
                 		var url = '<?php echo Yii::app()->createUrl('site/readsheet');?>';
@@ -34,9 +26,6 @@ $('#tree').tree({
                 		});  
                 	}
                 },
-                onDblClick:function(node){
-                    $('#list').datagrid('reload');  //reload the datagrid after data changed
-                 },
             });
 	//动态加载树列表
 	$('#tree').tree('loadData',treeList);
@@ -50,13 +39,6 @@ $('#tree').tree({
 		<!--tree控件-->    
         <div data-options="region:'west',split:true" title="Excel文件结构" style="width:180px;">
             <ul id="tree"></ul>
-            <!--tree的节点右键操作--> 
-            <div id="mm" class="easyui-menu" style="width:120px;">  
-                <div onclick="check()" data-options="iconCls:'icon-search'">查看工作薄</div>
-                <div onclick="edit()" data-options="iconCls:'icon-edit'">重命名工作薄</div> 
-                <div onclick="remove()" data-options="iconCls:'icon-remove'">删除工作薄</div>  
-                <div class="menu-sep"></div>
-            </div>
         </div>  
          
         <!-- datagrid -->
@@ -64,10 +46,13 @@ $('#tree').tree({
         	
         		<div id="tb" style="padding:5px;height:auto">   
         			<div style="margin-bottom:5px">  
-        				<a href="#" class="easyui-linkbutton" iconCls="icon-add" plain=true onclick="newItem()">新增</a> 
-         				<a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain=true onclick="editItem()">编辑</a>  
-                   	 <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain=true onclick="removeItem()">删除</a>
+        				<a href="#" class="easyui-linkbutton" iconCls="icon-reload" plain=true onclick="reloadSheet()">刷新</a>
+        				<a href="#" class="easyui-linkbutton" iconCls="icon-add" plain=true onclick="newItem()">新增条目</a> 
+         				<a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain=true onclick="editItem()">编辑条目</a>  
+                   	 	<a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain=true onclick="removeItem()">删除条目</a>
                     	<a href="#" class="easyui-linkbutton" iconCls="icon-save" plain=true onclick="exportSheet()">导出当前工作薄</a>
+                    	<a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain=true onclick="renameSheet()">重命名工作薄</a>
+                    	<a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain=true onclick="removeSheet()">删除当前工作薄</a>
         			</div> 	 
    				</div>
    				<table id= 'list' class="easyui-datagrid"></table>
@@ -105,45 +90,52 @@ $('#tree').tree({
 </center>
 <script type="text/javascript">
 var url;
-function check(){
-	var t = $('#tree');
-	var node = t.tree('getSelected');
-	if(node.attributes['sheetID'] !== ''){
-    	
-			url = '<?php echo Yii::app()->createUrl('site/readsheet');?>';
-			$.ajax({
-      		type:'post',
-       		data:{id:node.attributes['sheetID']},
-		   		url:url,
-		   		success:function(data,textStatus){
-		      		$('#datagrid_view').html('').append(data);
-		      		$('#list').datagrid('getPager').pagination('select', 1);	// select the second page
-       		},
-		});  
-	}
+//刷新当前工作薄
+function reloadSheet(){
+	$('#list').datagrid('reload');
 }
-        
-function edit(){
+//重命名工作薄
+function renameSheet(){
 	var t = $('#tree');
 	var node = t.tree('getSelected');
-	if(node.attributes['sheetID'] !== ''){
-		$('#dlg1').dialog('open').children('#treefm').form('clear');
-		$('#sheetid').val(node.attributes['sheetID']);
-		$('#oldSheetName').text(node.text);
-		url = '<?=Yii::app()->createUrl('site/updatetitle')?>';
+	if(node){
+		if(node.attributes['sheetID'] !== ''){
+			$('#dlg1').dialog('open').children('#treefm').form('clear');
+			$('#sheetid').val(node.attributes['sheetID']);
+			$('#oldSheetName').text(node.text);
+			url = '<?=Yii::app()->createUrl('site/updatetitle')?>';
+		}
 	}else{
-		$.messager.alert('提示','只能重命名工作薄');
+		$.messager.alert('消息提示','请先选择一个工作薄');
 	}
 }
-
-function remove(){
+//删除当前工作薄
+function removeSheet(){
 	var t = $('#tree');
 	var node = t.tree('getSelected');
-	if (confirm("你真的确定要删除吗?")) {
-		t.tree('remove', node.target);
-	}
+	if(node){
+		if(t.tree('isLeaf',node.target)){
+			$.messager.confirm('确认提示','确认删除当前工作薄:'+node.text+' 吗？一旦删除，将无法恢复数据',function(r){
+				if(r){
+					$("<div class=\"datagrid-mask\"></div>").css({display:"block",width:"100%",height:$(window).height()}).appendTo("body"); 
+					$("<div class=\"datagrid-mask-msg\"></div>").html("正在处理，请稍候。。。").appendTo("body").css({display:"block",left:($(document.body).outerWidth(true) - 190) / 2,top:($(window).height() - 45) / 2}); 
+					//url = '<?=Yii::app()->createUrl('site/deletesheet');?>'+'?id='+node.attributes['sheetID'];
+					//$.post(url,function(result){
+						//if(result){
+							//t.tree('remove',node.target);
+							//$.messager.alert('消息提示','您已经删除了工作薄：'+node.text,'info',function(){
+								//location.reload();
+							//});
+						//}
+					//});
+				}
+			});
+		}
+	}else{
+		$.messager.alert('消息提示','请先选择一个工作薄');
+	}	
 }
-
+//待重构代码
 function saveTreeForm(){
 	$.ajax({
 		url:url,
@@ -163,15 +155,15 @@ function saveTreeForm(){
 		},
 	});
 }
-
+//新增数据
 function newItem(){
 	
 }
-
+//编辑数据
 function editItem(){
 	
 }
-
+//删除一条数据
 function removeItem(){
 	
 }
