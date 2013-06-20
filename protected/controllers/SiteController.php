@@ -66,12 +66,10 @@ class SiteController extends Controller
 				$dyCols[] = array(
 					'field' => $column->columnTitle,
 					'title' => $column->columnName,
-					//'width' =>80,
 				);
 			}
 			$columns = '['.json_encode($dyCols).']';
 			// <!-- end dyCols -->
-			$_POST['page'] = $_POST['rows'] = 0;
 			$this->renderPartial('_datagrid',array('columns'=>$columns,'id'=>$id,'table'=>$table));
 			//exit;
 		}
@@ -550,37 +548,73 @@ class SiteController extends Controller
 	}
 	
 	/**
-	 * @param ac:操作类型，insert | update | delete
-	 * @param id:主键
-	 * datagrid对数据的CRUD操作，Ajax方式
-	 * 操作数据后，需要更新File的lastModifyTime和lastModifyUserIp
-	 * reload datagrid
+	 * 数据表的增，删，改
+	 * 数据表的数据操作必须都是事务型的
+	 * @param int $id:data id
+	 * @param int $sheetID:sheet id
+	 * @param string @ac:array('insert','update','delete')
 	 */
-	public function actionCRUD($ac,$id,$type){
-		$types = array('file','sheet','column','data');
+	public function actionCRUD($id,$sheetID,$ac){
+		
 		$actions = array('insert','update','delete');
-		if(!in_array($ac,$actions) || !in_array($type,$types)){
+		if(!in_array($ac,$actions)){
 			throw new CHttpException(404,'The requested page does not exist.');
 			exit;
 		}
-
 		$id = intval($id);
-		switch($type){
-			case 'data':
-				$sheet = $this->loadSheetModel($id);
-				$table = $sheet->sheetTableName;
-				
+		$sheetID = intval($sheetID);
+		$sheet = $this->loadSheetModel($sheetID);
+		$conn = Yii::app()->db;
+		$transaction = $conn->beginTransaction();
+		switch ($ac){
+			case 'delete':	
+				try {
+					$conn->createCommand()->delete($sheet->sheetTableName,'ID=:id',array(':id'=>$id));
+					$transaction->commit();
+					echo json_encode(array('flag'=>true));
+				} catch (CDbException $e) {
+					$transaction->rollback();
+					echo "<pre>";
+					print_r($e->getMessage());
+					echo "</pre>";
+				}
 				break;
-			default:
-				$model = call_user_func(array($this,'load'.ucfirst($type).'Model'),$id);
+			case 'insert':
+				if(isset($_POST['colData'])){
+					try {
+						$conn->createCommand()->insert($sheet->sheetTableName, $_POST['colData']);
+						$transaction->commit();
+						echo json_encode(array('flag'=>true));
+					} catch (CDbException $e) {
+						$transaction->rollback();
+						echo "<pre>";
+						print_r($e->getMessage());
+						echo "</pre>";
+					}
+				}
+				break;
+			case 'update':
+				if(isset($_POST['colData'])){
+					try {
+						$conn->createCommand()->update($sheet->sheetTableName, $_POST['colData'],'ID=:id',array(':id'=>$id));
+						$transaction->commit();
+						echo json_encode(array('flag'=>true));
+					} catch (CDbException $e) {
+						$transaction->rollback();
+						echo "<pre>";
+						print_r($e->getMessage());
+						echo "</pre>";
+					}
+				}
 				break;
 		}
+		exit;
 	}
 	
 	/**
 	 * 
 	 * 删除worksheet
-	 * 使用cdbcommand->transaction事务控制删除流程:删除关联columns->删除数据表->删除关联sheets表中记录
+	 * 事务控制删除流程:删除关联columns->删除数据表->删除关联sheets表中记录
 	 * @param int $id (sheetID)
 	 */
 	public function actionDeleteSheet($id){
@@ -591,11 +625,8 @@ class SiteController extends Controller
 		try {
 			$command = $conn->createCommand();
 			$command->delete(($this->excel_columns),'sheetID=:sheetID',array(':sheetID'=>$sheet->ID));
-			//echo $command->text;exit;
 			$command->dropTable($sheet->sheetTableName);
-			//echo $command->text;exit;
 			$command->delete($this->excel_sheets,'ID=:ID',array(':ID'=>$id));
-			//echo $command->text;exit;
 			$transaction->commit();
 		} catch (CDbException $e) {
 			$transaction->rollback();
@@ -606,6 +637,7 @@ class SiteController extends Controller
 		}
 		echo true;exit;
 	}
+	
 	
 	/**
 	 * PHPExcel取excel文件的列时会取到空列，使用这个函数清理下
