@@ -89,7 +89,7 @@ $('#tree').tree({
                 	<label>New Name:</label>
                 	<input type="text" name="title" id="title" class="easyui-validatebox" required="true" />
                 </div>
-                <input type="hidden" name="type" id="type" value="sheet" />
+                <input type="hidden" name="type" value="sheet" id="type" />
                 <input type="hidden" name="id" id="sheetid" value="" />
             </form>
     </div>   
@@ -125,7 +125,8 @@ function renameSheet(){
 	var node = t.tree('getSelected');
 	if(node){
 		if(node.attributes['sheetID'] !== ''){
-			$('#treefm').form('clear').parents('#dlg1').dialog('open');
+			$('#treefm #title').val('');
+			$('#dlg1').dialog('open');
 			$('#sheetid').val(node.attributes['sheetID']);
 			$('#oldSheetName').text(node.text);
 			url = '<?=Yii::app()->createUrl('site/updatetitle')?>';
@@ -207,7 +208,7 @@ function editItem(){
 				opt['colData['+i+']'] = row[i];
 			}
 			$('#datafm').form('load',opt);
-			url = '<?php echo Yii::app()->createUrl('site/crud');?>'+'?id=0&ac=insert&sheetID='+node.attributes['sheetID'];
+			url = '<?php echo Yii::app()->createUrl('site/crud');?>'+'?id='+row.ID+'&ac=update&sheetID='+node.attributes['sheetID'];
 		}
 	}else{
 		$.messager.alert('消息提示','请先选择一个工作薄!');
