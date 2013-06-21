@@ -15,7 +15,14 @@
                  striped:true,
                  nowrap:true,
                  columns:eval(columns),
-                 url:'<?php echo Yii::app()->createUrl('site/dataprovider',array('id'=>$id,'table'=>$table));?>',
+                 url:'<?php echo Yii::app()->createUrl('site/dataprovider',array('id'=>$id));?>',
+                 onLoadSuccess:function(data){
+                     if(eval(data.total) == 0){
+                         //$('.datagrid-btable').find('tbody').append("<tr><td>没有数据</td></tr>");
+                     }else{
+                         $(this).datagrid('selectRow',0);
+                     }
+                 },
                
 			});
             

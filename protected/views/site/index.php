@@ -216,7 +216,26 @@ function editItem(){
 }
 //删除一条数据
 function removeItem(){
-	
+	var t = $('#tree');
+	var node = t.tree('getSelected');
+	var row = $('#list').datagrid('getSelected');
+	if(node && t.tree('isLeaf',node.target)){
+		if(row){
+			$.messager.confirm('确认提示','确定要删除该条数据吗？',function(r){
+				if(r){
+					url = '<?php echo Yii::app()->createUrl('site/crud');?>'+'?id='+row.ID+'&ac=delete&sheetID='+node.attributes['sheetID'];
+					$.post(url,function(result){
+						if(result){
+							$('#list').datagrid('reload');
+							$.messager.alert('消息提示','数据删除成功');
+						}
+					});
+				}
+			});
+		}
+	}else{
+		$.messager.alert('消息提示','请先选择一个工作薄!');
+	}
 }
 //异步提交数据表单
 function saveDataForm(){

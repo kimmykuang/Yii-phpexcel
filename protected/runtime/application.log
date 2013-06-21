@@ -4675,3 +4675,66 @@ Stack trace:
 REQUEST_URI=/phpexcel/Yii-phpexcel/site/updatetitle.html
 HTTP_REFERER=http://127.0.0.1/phpexcel/Yii-phpexcel/index.php/site/
 ---
+2013/06/21 16:50:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in D:\wamp\www\phpexcel\protected\controllers\SiteController.php:373
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionUpdateTitle()
+#1 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#2 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#3 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#4 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('updatetitle')
+#5 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/updatetitl...')
+#6 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#7 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#8 {main}
+REQUEST_URI=/phpexcel/site/updatetitle
+---
+2013/06/21 16:52:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "loadfilemodel" 动作.' in D:\wamp\www\phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(271): CController->missingAction('loadfilemodel')
+#1 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('loadfilemodel')
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/loadfilemo...')
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/loadfilemodel
+---
+2013/06/21 16:53:30 [error] [exception.CHttpException.400] exception 'CHttpException' with message '您的请求无效。' in D:\wamp\www\phpexcel\framework\web\CController.php:337
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(310): CController->invalidActionParams(Object(CInlineAction))
+#1 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#2 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#4 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/DataProvid...')
+#5 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/phpexcel/site/DataProvider
+---
+2013/06/21 17:29:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in D:\wamp\www\phpexcel\protected\controllers\SiteController.php:420
+Stack trace:
+#0 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(85): SiteController->loadSheetModel(19)
+#1 [internal function]: SiteController->actionDataProvider('19')
+#2 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#3 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('dataprovider')
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dataprovid...')
+#9 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/phpexcel/site/dataprovider/19
+---
+2013/06/21 17:30:47 [error] [exception.CHttpException.400] exception 'CHttpException' with message '您的请求无效。' in D:\wamp\www\phpexcel\framework\web\CController.php:337
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(310): CController->invalidActionParams(Object(CInlineAction))
+#1 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#2 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('writesheet')
+#4 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/WriteSheet')
+#5 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/phpexcel/site/WriteSheet
+---

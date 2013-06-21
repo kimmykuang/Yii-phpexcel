@@ -70,24 +70,30 @@ class SiteController extends Controller
 			}
 			$columns = '['.json_encode($dyCols).']';
 			// <!-- end dyCols -->
-			$this->renderPartial('_datagrid',array('columns'=>$columns,'id'=>$id,'table'=>$table));
+			$this->renderPartial('_datagrid',array('columns'=>$columns,'id'=>$id));
 			//exit;
+		}else{
+			$this->redirect('index');
 		}
 	}
 	
 	/**
 	 * 为datagrid提供数据源
 	 */
-	public function actionDataProvider($id,$table){
+	public function actionDataProvider($id){
+		$id = intval($id);
+		$sheet = $this->loadSheetModel($id);
 		$page = isset($_POST['page'])?intval($_POST['page']):1;
 		$rows = isset($_POST['rows'])?intval($_POST['rows']):10;
 		$dyData = array();
+		$dyData['rows'] = array();
 		// <!-- start dyData -->
 		$conn = Yii::app()->db;
-		$count = $conn->createCommand()->select('COUNT(*)')->from($table)->queryScalar();
+		$count = $conn->createCommand()->select('COUNT(*)')->from($sheet->sheetTableName)->queryScalar();
 		$startIndex = ($page-1)*$rows;
-		$dataReader = $conn->createCommand()->select()->from($table)->limit($rows,$startIndex)->query();
+		$dataReader = $conn->createCommand()->select()->from($sheet->sheetTableName)->limit($rows,$startIndex)->query();
 		//$dataReader->readAll() //返回所有结果集到数组
+		
 		while (($row=$dataReader->read()) !== FALSE){
 			$dyData['rows'][] = $row;
 		}
@@ -362,6 +368,7 @@ class SiteController extends Controller
 	 * ajax
 	 */
 	public function actionUpdateTitle(){
+		if(Yii::app()->request->isAjaxRequest){
 			$id = intval($_POST['id']);
 			$title = $_POST['title'];  //这里需要做一下后台check，返回errorMsg
 			$type = $_POST['type'];
@@ -388,7 +395,10 @@ class SiteController extends Controller
 				echo json_encode(array('flag'=>FALSE));
 			}
 			exit;
+		}else{
+			$this->redirect('index');
 		}
+	}
 	
 	
 	/**
@@ -540,11 +550,19 @@ class SiteController extends Controller
 	 * 下载单独一个worksheet，使用csv作为格式,比较快速
 	 */
 	public function actionWriteSheet($id){
+		$id = intval($id);
 		$sheet = $this->loadSheetModel($id);
 		$tablename = $sheet->sheetTableName;
 		$filename = $sheet->sheetTitle;
+		$filepath = Yii::getPathOfAlias('application.data').DIRECTORY_SEPARATOR.$filename.'.csv';
+		$wherestr = '1;';
+		$colstr = 'convert(`c0` USING GBK),convert(`c1` USING GBK),convert(`c2` USING GBK)';
 		//使用load data into outfile将数据放入一个csv文件中
-		
+		$sql = 'SELECT '.$colstr.' INTO OUTFILE \''.$filepath.'\' FIELDS TERMINATED BY \',\' ENCLOSED BY \'\' LINES TERMINATED BY \''.PHP_EOL.'\' from `'.$tablename.'` WHERE '.$wherestr;
+		//文件路径斜杠错误 :应该是/，如果是\windows\xx的话，会有\转义的错误
+		//echo $sql;exit;
+		$conn = Yii::app()->db;
+		$conn->createCommand($sql)->execute();
 	}
 	
 	/**
