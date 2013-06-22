@@ -57,7 +57,7 @@ $('#tree').tree({
         <!-- datagrid -->
         <div data-options="region:'center',title:'<?=$sheetTitle?>'" class="center"> 
         	
-        		<div id="tb" style="padding:5px;height:auto">   
+        		<div id="tb" style="padding:5px;height:auto;display:none;">   
         			<div style="margin-bottom:5px">  
         				<a href="javascript:void(0);" class="easyui-linkbutton" iconCls="icon-reload" plain=true onclick="reloadSheet()">刷新</a>
         				<a href="javascript:void(0);" class="easyui-linkbutton" iconCls="icon-add" plain=true onclick="newItem()">新增条目</a> 

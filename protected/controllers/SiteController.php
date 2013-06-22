@@ -73,7 +73,7 @@ class SiteController extends Controller
 			$this->renderPartial('_datagrid',array('columns'=>$columns,'id'=>$id));
 			//exit;
 		}else{
-			$this->redirect('index');
+			$this->redirect(array('site/index'));
 		}
 	}
 	
@@ -123,7 +123,7 @@ class SiteController extends Controller
 			$tmpFile = CUploadedFile::getInstance($model,'excelfile');
 			if(empty($tmpFile)){
 				//这里需要使用一个更好地错误提示，同时前端也做一个检验用户是否提交文件
-				$this->redirect('upload',array('model'=>$model));
+				$this->redirect(array('site/upload','model'=>$model));
 				//exit;
 			}
 			$newName = time().rand(1,10000).'.'.$tmpFile->extensionName;
@@ -396,7 +396,7 @@ class SiteController extends Controller
 			}
 			exit;
 		}else{
-			$this->redirect('index');
+			$this->redirect(array('site/index'));
 		}
 	}
 	
@@ -454,8 +454,8 @@ class SiteController extends Controller
     	//清空输出缓存
 		ob_clean();
 		//输出到浏览器 
-		$xsend = $this->ckApacheModule('mod_xsendfile');
-		$this->sendFile($filename, $filepath,'UTF-8',$xsend);
+		
+		$this->sendFile($filename, $filepath,'UTF-8');
 		/*
    		header("Content-Type: application/force-download"); 
    		header("Content-Type: application/octet-stream;charset=UTF-8"); 
@@ -549,12 +549,13 @@ class SiteController extends Controller
 	/**
 	 * 下载单独一个worksheet，使用csv作为格式,比较快速
 	 */
-	public function actionWriteSheet($id){
+	public function actionDownloadSheet($id){
 		$id = intval($id);
 		$sheet = $this->loadSheetModel($id);
 		$tablename = $sheet->sheetTableName;
 		$filename = $sheet->sheetTitle;
 		$filepath = Yii::getPathOfAlias('application.data').DIRECTORY_SEPARATOR.$filename.'.csv';
+		$filepath = preg_replace('/\\\\/', '/', $filepath);
 		$wherestr = '1;';
 		$colstr = 'convert(`c0` USING GBK),convert(`c1` USING GBK),convert(`c2` USING GBK)';
 		//使用load data into outfile将数据放入一个csv文件中
@@ -636,24 +637,28 @@ class SiteController extends Controller
 	 * @param int $id (sheetID)
 	 */
 	public function actionDeleteSheet($id){
-		$id = intval($id);
-		$conn = Yii::app()->db;
-		$sheet = $this->loadSheetModel($id);
-		$transaction = $conn->beginTransaction();
-		try {
-			$command = $conn->createCommand();
-			$command->delete(($this->excel_columns),'sheetID=:sheetID',array(':sheetID'=>$sheet->ID));
-			$command->dropTable($sheet->sheetTableName);
-			$command->delete($this->excel_sheets,'ID=:ID',array(':ID'=>$id));
-			$transaction->commit();
-		} catch (CDbException $e) {
-			$transaction->rollback();
-			echo "<pre>";
-			print_r($e->getMessage());
-			echo "</pre>";
-			exit;
+		if(Yii::app()->request->isAjaxRequest){
+			$id = intval($id);
+			$conn = Yii::app()->db;
+			$sheet = $this->loadSheetModel($id);
+			$transaction = $conn->beginTransaction();
+			try {
+				$command = $conn->createCommand();
+				$command->delete(($this->excel_columns),'sheetID=:sheetID',array(':sheetID'=>$sheet->ID));
+				$command->dropTable($sheet->sheetTableName);
+				$command->delete($this->excel_sheets,'ID=:ID',array(':ID'=>$id));
+				$transaction->commit();
+			} catch (CDbException $e) {
+				$transaction->rollback();
+				echo "<pre>";
+				print_r($e->getMessage());
+				echo "</pre>";
+				exit;
+			}
+			echo true;exit;
+		}else{
+			$this->redirect(array('site/index'));
 		}
-		echo true;exit;
 	}
 	
 	
@@ -701,7 +706,7 @@ class SiteController extends Controller
 	}
 	
 	//发送文件
-	function sendFile($filename,$filepath,$charset = 'UTF-8',$xsend = true,$mimeType = 'application/octet-stream'){
+	function sendFile($filename,$filepath,$charset = 'UTF-8',$mimeType = 'application/octet-stream'){
 		// 文件名乱码问题
 		$ua = $_SERVER["HTTP_USER_AGENT"];
 		if (preg_match("/MSIE/", $ua)) 
@@ -730,9 +735,10 @@ class SiteController extends Controller
 		header($attachmentHeader);
 		header('Pragma: cache');
 		header('Cache-Control: public, must-revalidate, max-age=0');
-
+		
+		//mod_xsendfile
+		$xsend = $this->ckApacheModule('mod_xsendfile');
 		if($xsend){
-			//mod_xsendfile模块
 			header("X-Sendfile:".$filepath);
 			exit;
 		}else {

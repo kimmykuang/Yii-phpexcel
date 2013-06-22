@@ -4738,3 +4738,318 @@ Stack trace:
 #7 {main}
 REQUEST_URI=/phpexcel/site/WriteSheet
 ---
+2013/06/22 11:12:41 [error] [exception.CException] exception 'CException' with message '属性 "File.sheetTableName" 未被定义.' in D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CComponent.php:131
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\db\ar\CActiveRecord.php(145): CComponent->__get('sheetTableName')
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php(555): CActiveRecord->__get('sheetTableName')
+#2 [internal function]: SiteController->actionDownloadSheet('1')
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): CController->run('downloadsheet')
+#9 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/downloadsh...')
+#10 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/downloadsheet/1
+---
+2013/06/22 11:12:52 [error] [php] Undefined variable: filename (D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php:557)
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#6 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#7 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/downloadsheet/1
+in D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php (557)
+in D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php (13)
+2013/06/22 11:18:01 [error] [exception.CHttpException.400] exception 'CHttpException' with message '您的请求无效。' in D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php:337
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(310): CController->invalidActionParams(Object(CInlineAction))
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): CController->run('deletesheet')
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/deleteshee...')
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/deletesheet/index
+---
+2013/06/22 11:18:09 [error] [exception.CHttpException.400] exception 'CHttpException' with message '您的请求无效。' in D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php:337
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(310): CController->invalidActionParams(Object(CInlineAction))
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): CController->run('deletesheet')
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/deleteshee...')
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/deletesheet/index
+---
+2013/06/22 11:18:31 [error] [exception.CHttpException.400] exception 'CHttpException' with message '您的请求无效。' in D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php:337
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(310): CController->invalidActionParams(Object(CInlineAction))
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): CController->run('deletesheet')
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/deleteshee...')
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/deletesheet/index
+---
+2013/06/22 11:18:33 [error] [exception.CHttpException.400] exception 'CHttpException' with message '您的请求无效。' in D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php:337
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(310): CController->invalidActionParams(Object(CInlineAction))
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): CController->run('deletesheet')
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/deleteshee...')
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/deletesheet/index
+---
+2013/06/22 11:18:35 [error] [exception.CHttpException.400] exception 'CHttpException' with message '您的请求无效。' in D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php:337
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(310): CController->invalidActionParams(Object(CInlineAction))
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): CController->run('deletesheet')
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/deleteshee...')
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/deletesheet/index
+---
+2013/06/22 11:19:16 [error] [exception.CHttpException.400] exception 'CHttpException' with message '您的请求无效。' in D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php:337
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(310): CController->invalidActionParams(Object(CInlineAction))
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): CController->run('deletesheet')
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/deleteshee...')
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/deletesheet/index
+---
+2013/06/22 11:19:17 [error] [exception.CHttpException.400] exception 'CHttpException' with message '您的请求无效。' in D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php:337
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(310): CController->invalidActionParams(Object(CInlineAction))
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): CController->run('deletesheet')
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/deleteshee...')
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/deletesheet/index
+---
+2013/06/22 11:19:19 [error] [exception.CHttpException.400] exception 'CHttpException' with message '您的请求无效。' in D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php:337
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(310): CController->invalidActionParams(Object(CInlineAction))
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): CController->run('deletesheet')
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/deleteshee...')
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/deletesheet/index
+---
+2013/06/22 11:20:55 [error] [exception.CHttpException.400] exception 'CHttpException' with message '您的请求无效。' in D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php:337
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(310): CController->invalidActionParams(Object(CInlineAction))
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): CController->run('deletesheet')
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/deleteshee...')
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/deletesheet/index
+---
+2013/06/22 11:21:00 [error] [exception.CHttpException.400] exception 'CHttpException' with message '您的请求无效。' in D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php:337
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(310): CController->invalidActionParams(Object(CInlineAction))
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): CController->run('deletesheet')
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/deleteshee...')
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/deletesheet/index
+---
+2013/06/22 11:21:03 [error] [exception.CHttpException.400] exception 'CHttpException' with message '您的请求无效。' in D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php:337
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(310): CController->invalidActionParams(Object(CInlineAction))
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): CController->run('deletesheet')
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/deleteshee...')
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/deletesheet/index
+---
+2013/06/22 11:26:25 [error] [php] Undefined variable: filpath (D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php:558)
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#6 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#7 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/downloadsheet/1
+in D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php (558)
+in D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php (13)
+2013/06/22 11:31:41 [error] [php] preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Delimiter must not be alphanumeric or backslash (D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php:558)
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs()
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#6 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#7 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/downloadsheet/1
+in D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php (558)
+in D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php (13)
+2013/06/22 11:32:09 [error] [php] preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Delimiter must not be alphanumeric or backslash (D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php:558)
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs()
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#6 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#7 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/downloadsheet/1
+in D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php (558)
+in D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php (13)
+2013/06/22 11:33:10 [error] [php] preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Delimiter must not be alphanumeric or backslash (D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php:558)
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs()
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#6 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#7 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/downloadsheet/1
+in D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php (558)
+in D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php (13)
+2013/06/22 11:33:19 [error] [php] preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: No ending delimiter '/' found (D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php:558)
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs()
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#6 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#7 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/downloadsheet/1
+in D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php (558)
+in D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php (13)
+2013/06/22 11:39:56 [error] [php] preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Delimiter must not be alphanumeric or backslash (D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php:559)
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs()
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#6 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#7 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/downloadsheet/1
+in D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php (559)
+in D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php (13)
+2013/06/22 12:05:47 [error] [php] preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Delimiter must not be alphanumeric or backslash (D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php:559)
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs()
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#6 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#7 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/downloadsheet/1
+in D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php (559)
+in D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php (13)
+2013/06/22 12:05:52 [error] [php] preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Delimiter must not be alphanumeric or backslash (D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php:559)
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs()
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#6 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#7 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/downloadsheet/1
+in D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php (559)
+in D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php (13)
+2013/06/22 12:06:32 [error] [php] preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Delimiter must not be alphanumeric or backslash (D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php:559)
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs()
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#6 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#7 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/downloadsheet/1
+in D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php (559)
+in D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php (13)
+2013/06/22 12:07:23 [error] [php] preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Delimiter must not be alphanumeric or backslash (D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php:559)
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs()
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#6 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#7 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/downloadsheet/1
+in D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php (559)
+in D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php (13)
+2013/06/22 12:07:58 [error] [php] preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Delimiter must not be alphanumeric or backslash (D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php:559)
+Stack trace:
+#0 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs()
+#1 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#2 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#4 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#5 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#6 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#7 D:\wamp\www\html\phpexcel\Yii-phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/Yii-phpexcel/site/downloadsheet/1
+in D:\wamp\www\html\phpexcel\Yii-phpexcel\protected\controllers\SiteController.php (559)
+in D:\wamp\www\html\phpexcel\Yii-phpexcel\index.php (13)
