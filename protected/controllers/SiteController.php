@@ -555,7 +555,7 @@ class SiteController extends Controller
 		$tablename = $sheet->sheetTableName;
 		$filename = $sheet->sheetTitle;
 		$filepath = Yii::getPathOfAlias('application.data').DIRECTORY_SEPARATOR.$filename.'.csv';
-		$filepath = preg_replace('/\\\\/', '/', $filepath);
+		$filepath = preg_replace('/\\\\/', '/', $filepath); // $pattern 和 $replacement 是 php 的字符串, 经过转义后, 是两个反斜杠, 再经过正则表达式引擎后才被认为是一个原文反斜线
 		$wherestr = '1;';
 		$colstr = 'convert(`c0` USING GBK),convert(`c1` USING GBK),convert(`c2` USING GBK)';
 		//使用load data into outfile将数据放入一个csv文件中
