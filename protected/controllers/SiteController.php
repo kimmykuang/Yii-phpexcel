@@ -446,16 +446,35 @@ class SiteController extends Controller
 	 * 文件下载
 	 * @param numeric $id
 	 */
-	public function actionDownload($id){
-	
-		$file_info = $this->actionCreateFile($id);
-		$filename = $file_info[0];
-		$filepath = $file_info[1];
+	public function actionDownload($id,$type='file'){
+		//header("Content-Type:text/html;charset=utf-8");
+		//$type = 'sheet';
+		$id = intval($id);
+		if($type == 'file'){
+			$file = $this->loadFileModel($id);
+			$filename = $file->fileTitle;
+			$filepath = $file->filePath;
+			$sheets = $file->sheets;
+		}elseif ($type == 'sheet'){
+			$sheet = $this->loadSheetModel($id);
+			$sheets[0] = $sheet;
+			$ext = 'xlsx';
+			$filename = $sheet->sheetTitle.'.'.$ext;
+			$filename = $this->changeEncode('UTF-8', 'GBK', $filename);
+			$filepath = FILE_BASE_PATH.$filename;
+			//echo mb_detect_encoding($filepath);exit;
+			
+			//$filepath = Yii::getPathOfAlias('application.data').DIRECTORY_SEPARATOR.$filename;
+			//preg_replace的参数不允许是单独一个反斜杠\，所以要是 /\/
+			$filepath = preg_replace('/\\\\/', '/', $filepath); // '\\\\' 是 php 的字符串, 经过转义后, 是两个反斜杠, 再经过正则表达式引擎后才被认为是一个原文反斜线
+			//echo $filepath;exit;
+		}
+		$this->actionCreateFile($sheets,$filepath);
     	//清空输出缓存
 		ob_clean();
 		//输出到浏览器 
-		
-		$this->sendFile($filename, $filepath,'UTF-8');
+		$charset = 'UTF-8';
+		$this->sendFile($filename, $filepath,$charset);
 		/*
    		header("Content-Type: application/force-download"); 
    		header("Content-Type: application/octet-stream;charset=UTF-8"); 
@@ -476,17 +495,10 @@ class SiteController extends Controller
 	 * 在服务器目录下创建文件
 	 * @param numeric $id
 	 */
-	public function actionCreateFile($id){
-		
-		//获取文件信息
-		$file = $this->loadFileModel($id);
-		$filename = $file->fileTitle;
-		$filepath = $file->filePath;
+	public function actionCreateFile($sheets,$filepath){
+		//var_dump($sheets);exit;
 		//yii dao
 		$conn = Yii::app()->db;
-		
-		//判断是否需要重新生成文件
-		if($file->uploadTime !== $file->lastModifyTime || !file_exists($filepath)){
 			
 			Yii::import('application.vendors.*');
 			spl_autoload_unregister(array('YiiBase','autoload'));
@@ -497,10 +509,10 @@ class SiteController extends Controller
 			$objWriter->setOffice2003Compatibility(true); //向下兼容excel2005
 			spl_autoload_register(array('YiiBase','autoload'));
 			
-			try {
+			
 				//组装数据
-				foreach ($file->sheets as $sheetIndex => $sheet){
-					//echo $sheetIndex;
+			foreach ($sheets as $sheetIndex => $sheet){
+				try {
 					$data = $columnArray = array();
 					$selectstr = $comma = "";
 					foreach ($sheet->columns as $column){
@@ -508,12 +520,11 @@ class SiteController extends Controller
 						$selectstr .= $comma.$column->columnTitle;
 						$comma = ",";
 					}
-					//var_dump($title);exit;
+					//var_dump($columnArray);exit;
 					//从数据表中获取数据
 					$data = $conn->createCommand()->select($selectstr)->from($sheet->sheetTableName)->queryAll();
 					//var_dump($data);exit;
-					spl_autoload_unregister(array('YiiBase','autoload'));
-			
+					//spl_autoload_unregister(array('YiiBase','autoload'));			
 					//添加一个新的worksheet 
    					$objActSheet = $objExcel->createSheet($sheetIndex); 
 					//设置当前活动sheet的名称 
@@ -532,38 +543,36 @@ class SiteController extends Controller
 						}
 					}
 				}
+				catch (Exception $e){
+					var_dump($e->getMessage());
+					exit;
+				}
 			}
-			catch (Exception $e){
-				var_dump($e->getMessage());
-				exit;
-			}
+			
+			
 			//清空输出缓存
 			ob_clean(); 
 			//覆盖文件 
-			$objWriter->save($filepath);
-		}
-		spl_autoload_register(array('YiiBase','autoload'));
-		return array($filename,$filepath);
-	}
-	
-	/**
-	 * 下载单独一个worksheet，使用csv作为格式,比较快速
-	 */
-	public function actionDownloadSheet($id){
-		$id = intval($id);
-		$sheet = $this->loadSheetModel($id);
-		$tablename = $sheet->sheetTableName;
-		$filename = $sheet->sheetTitle;
-		$filepath = Yii::getPathOfAlias('application.data').DIRECTORY_SEPARATOR.$filename.'.csv';
-		$filepath = preg_replace('/\\\\/', '/', $filepath); // $pattern 和 $replacement 是 php 的字符串, 经过转义后, 是两个反斜杠, 再经过正则表达式引擎后才被认为是一个原文反斜线
-		$wherestr = '1;';
-		$colstr = 'convert(`c0` USING GBK),convert(`c1` USING GBK),convert(`c2` USING GBK)';
-		//使用load data into outfile将数据放入一个csv文件中
-		$sql = 'SELECT '.$colstr.' INTO OUTFILE \''.$filepath.'\' FIELDS TERMINATED BY \',\' ENCLOSED BY \'\' LINES TERMINATED BY \''.PHP_EOL.'\' from `'.$tablename.'` WHERE '.$wherestr;
-		//文件路径斜杠错误 :应该是/，如果是\windows\xx的话，会有\转义的错误
-		//echo $sql;exit;
-		$conn = Yii::app()->db;
-		$conn->createCommand($sql)->execute();
+			//echo $filepath;exit;
+			//$filepath = $this->changeEncode('UTF-8', 'GBK', $filepath);
+			if(is_writeable($filepath)){
+				$objWriter->save($filepath);
+			}else{
+				echo 1222;exit;
+			}
+		/*
+   		header("Content-Type: application/force-download"); 
+   		header("Content-Type: application/octet-stream;charset=UTF-8"); 
+  	 	header("Content-Type: application/download"); 
+   		header('Content-Disposition:inline;filename="'.'test11.csv'.'"'); 
+   		header("Content-Transfer-Encoding: binary"); 
+  		header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT"); 
+   		header("Cache-Control: must-revalidate, post-check=0, pre-check=0"); 
+  		header("Pragma: no-cache"); 
+   		$objWriter->save('php://output'); 
+   		*/
+		
+		//spl_autoload_register(array('YiiBase','autoload'));
 	}
 	
 	/**

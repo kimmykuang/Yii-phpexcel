@@ -249,8 +249,14 @@ function saveDataForm(){
 		},	
 	});
 }
+//导出当前工作薄
 function exportSheet(){
-	
+	var t = $('#tree');
+	var node = t.tree('getSelected');
+	if(node && t.tree('isLeaf',node.target)){
+		var id = node.attributes['sheetID'];
+		//url = 
+	}
 }
 </script>
 <style>
