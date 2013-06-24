@@ -250,12 +250,14 @@ function saveDataForm(){
 	});
 }
 //导出当前工作薄
-function exportSheet(){
+function exportSheet(obj){
+	//alert(obj);
 	var t = $('#tree');
 	var node = t.tree('getSelected');
 	if(node && t.tree('isLeaf',node.target)){
 		var id = node.attributes['sheetID'];
-		//url = 
+		url = '<?php echo Yii::app()->createUrl('site/download');?>'+'?id='+id+'&type=sheet';
+		window.open(url,'newwindow');
 	}
 }
 </script>

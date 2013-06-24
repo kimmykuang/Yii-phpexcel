@@ -448,7 +448,6 @@ class SiteController extends Controller
 	 */
 	public function actionDownload($id,$type='file'){
 		//header("Content-Type:text/html;charset=utf-8");
-		//$type = 'sheet';
 		$id = intval($id);
 		if($type == 'file'){
 			$file = $this->loadFileModel($id);
@@ -460,33 +459,23 @@ class SiteController extends Controller
 			$sheets[0] = $sheet;
 			$ext = 'xlsx';
 			$filename = $sheet->sheetTitle.'.'.$ext;
-			$filename = $this->changeEncode('UTF-8', 'GBK', $filename);
 			$filepath = FILE_BASE_PATH.$filename;
-			//echo mb_detect_encoding($filepath);exit;
 			
 			//$filepath = Yii::getPathOfAlias('application.data').DIRECTORY_SEPARATOR.$filename;
 			//preg_replace的参数不允许是单独一个反斜杠\，所以要是 /\/
-			$filepath = preg_replace('/\\\\/', '/', $filepath); // '\\\\' 是 php 的字符串, 经过转义后, 是两个反斜杠, 再经过正则表达式引擎后才被认为是一个原文反斜线
+			//$filepath = preg_replace('/\\\\/', '/', $filepath); // '\\\\' 是 php 的字符串, 经过转义后, 是两个反斜杠, 再经过正则表达式引擎后才被认为是一个原文反斜线
 			//echo $filepath;exit;
+		}
+		//兼容win环境
+		if(strtolower(substr(PHP_OS,0,3)) === 'win'){
+			$fileNameCharset = 'GBK';
+			$filepath = $this->changeEncode('UTF-8', $fileNameCharset, $filepath);
 		}
 		$this->actionCreateFile($sheets,$filepath);
     	//清空输出缓存
 		ob_clean();
 		//输出到浏览器 
-		$charset = 'UTF-8';
-		$this->sendFile($filename, $filepath,$charset);
-		/*
-   		header("Content-Type: application/force-download"); 
-   		header("Content-Type: application/octet-stream;charset=UTF-8"); 
-  	 	header("Content-Type: application/download"); 
-   		header('Content-Disposition:inline;filename="'.$filename.'"'); 
-   		header("Content-Transfer-Encoding: binary"); 
-  		header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT"); 
-   		header("Cache-Control: must-revalidate, post-check=0, pre-check=0"); 
-  		header("Pragma: no-cache"); 
-   		$objWriter->save('php://output'); 
-   		*/
-		
+		$this->sendFile($filename, $filepath,$fileNameCharset);		
 		exit;
 	}
 	
@@ -496,83 +485,56 @@ class SiteController extends Controller
 	 * @param numeric $id
 	 */
 	public function actionCreateFile($sheets,$filepath){
-		//var_dump($sheets);exit;
-		//yii dao
 		$conn = Yii::app()->db;
+		$phpexcelFilePath = Yii::getPathOfAlias('application.vendors.PHPExcel');
+		require_once $phpexcelFilePath.DIRECTORY_SEPARATOR.'PHPExcel.php';
 			
-			Yii::import('application.vendors.*');
-			spl_autoload_unregister(array('YiiBase','autoload'));
-			require_once 'PHPExcel/PHPExcel.php';
-			
-			$objExcel = new PHPExcel();
-			$objWriter = new PHPExcel_Writer_Excel2007($objExcel); // 用于 2007 格式 
-			$objWriter->setOffice2003Compatibility(true); //向下兼容excel2005
-			spl_autoload_register(array('YiiBase','autoload'));
-			
-			
-				//组装数据
-			foreach ($sheets as $sheetIndex => $sheet){
-				try {
-					$data = $columnArray = array();
-					$selectstr = $comma = "";
-					foreach ($sheet->columns as $column){
-						$columnArray[] = $column->columnName;
-						$selectstr .= $comma.$column->columnTitle;
-						$comma = ",";
-					}
-					//var_dump($columnArray);exit;
-					//从数据表中获取数据
-					$data = $conn->createCommand()->select($selectstr)->from($sheet->sheetTableName)->queryAll();
-					//var_dump($data);exit;
-					//spl_autoload_unregister(array('YiiBase','autoload'));			
-					//添加一个新的worksheet 
-   					$objActSheet = $objExcel->createSheet($sheetIndex); 
-					//设置当前活动sheet的名称 
-    				$objActSheet->setTitle($sheet->sheetTitle); 
+		$objExcel = new PHPExcel();
+		$objWriter = new PHPExcel_Writer_Excel2007($objExcel); // 用于 2007 格式 
+		$objWriter->setOffice2003Compatibility(true); //向下兼容excel2005
+						
+		//组装数据
+		foreach ($sheets as $sheetIndex => $sheet){
+			try {
+				spl_autoload_register(array('YiiBase','autoload'));
+				$data = $columnArray = array();
+				$selectstr = $comma = "";
+				foreach ($sheet->columns as $column){
+					$columnArray[] = $column->columnName;
+					$selectstr .= $comma.$column->columnTitle;
+					$comma = ",";
+				}
+				//var_dump($columnArray);exit;
+				//从数据表中获取数据
+				$data = $conn->createCommand()->select($selectstr)->from($sheet->sheetTableName)->queryAll();
+				//var_dump($data);exit;
+				//添加一个新的worksheet 
+   				$objActSheet = $objExcel->createSheet($sheetIndex); 
+				//设置当前活动sheet的名称 
+    			$objActSheet->setTitle($sheet->sheetTitle); 
     		
-    				//对每个worksheet，设置第一行的列标题
-    				foreach ($columnArray as $k=>$c){
-    					$objActSheet->setCellValueByColumnAndRow($k,1,$c);
-    				}
+    			//对每个worksheet，设置第一行的列标题
+    			foreach ($columnArray as $k=>$c){
+    				$objActSheet->setCellValueByColumnAndRow($k,1,$c);
+    			}
     		
-    				//设置单元格内容
-    				$count = count($columnArray);
-					foreach ($data as $k=>$v){
-						for ($i=0;$i<$count;$i++){
-							$objActSheet->setCellValueByColumnAndRow($i,$k+2,$v['c'.$i]);
-						}
+    			//设置单元格内容
+    			$count = count($columnArray);
+				foreach ($data as $k=>$v){
+					for ($i=0;$i<$count;$i++){
+						$objActSheet->setCellValueByColumnAndRow($i,$k+2,$v['c'.$i]);
 					}
 				}
-				catch (Exception $e){
-					var_dump($e->getMessage());
-					exit;
-				}
 			}
-			
-			
-			//清空输出缓存
-			ob_clean(); 
-			//覆盖文件 
-			//echo $filepath;exit;
-			//$filepath = $this->changeEncode('UTF-8', 'GBK', $filepath);
-			if(is_writeable($filepath)){
-				$objWriter->save($filepath);
-			}else{
-				echo 1222;exit;
+			catch (Exception $e){
+				var_dump($e->getMessage());
+				exit;
 			}
-		/*
-   		header("Content-Type: application/force-download"); 
-   		header("Content-Type: application/octet-stream;charset=UTF-8"); 
-  	 	header("Content-Type: application/download"); 
-   		header('Content-Disposition:inline;filename="'.'test11.csv'.'"'); 
-   		header("Content-Transfer-Encoding: binary"); 
-  		header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT"); 
-   		header("Cache-Control: must-revalidate, post-check=0, pre-check=0"); 
-  		header("Pragma: no-cache"); 
-   		$objWriter->save('php://output'); 
-   		*/
-		
-		//spl_autoload_register(array('YiiBase','autoload'));
+		}
+		//清空输出缓存
+		ob_clean(); 
+		//覆盖文件 
+		$objWriter->save($filepath);
 	}
 	
 	/**
@@ -749,11 +711,9 @@ class SiteController extends Controller
 		$xsend = $this->ckApacheModule('mod_xsendfile');
 		if($xsend){
 			header("X-Sendfile:".$filepath);
-			exit;
 		}else {
 			header("Content-Length: {$filesize}");
 			readfile($filepath);
-			exit;
 		}
 	}
 	

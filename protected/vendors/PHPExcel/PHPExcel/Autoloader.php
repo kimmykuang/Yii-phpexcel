@@ -24,7 +24,7 @@
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt    LGPL
  * @version    1.7.8, 2012-10-12
  */
-
+spl_autoload_unregister(array('YiiBase','autoload'));
 PHPExcel_Autoloader::Register();
 //	As we always try to run the autoloader before anything else, we can use it to do a few
 //		simple checks and initialisations
@@ -34,7 +34,7 @@ if (ini_get('mbstring.func_overload') & 2) {
     throw new Exception('Multibyte function overloading in PHP must be disabled for string functions (2).');
 }
 PHPExcel_Shared_String::buildCharacterSets();
-
+spl_autoload_register(array('YiiBase','autoload'));
 
 /**
  * PHPExcel_Autoloader
@@ -67,13 +67,14 @@ class PHPExcel_Autoloader
 	public static function Load($pClassName){
 		if ((class_exists($pClassName,FALSE)) || (strpos($pClassName, 'PHPExcel') !== 0)) {
 			//	Either already loaded, or not a PHPExcel class request
+			
 			return FALSE;
 		}
 
 		$pClassFilePath = PHPEXCEL_ROOT .
 						  str_replace('_',DIRECTORY_SEPARATOR,$pClassName) .
 						  '.php';
-
+						  
 		if ((file_exists($pClassFilePath) === false) || (is_readable($pClassFilePath) === false)) {
 			//	Can't load
 			return FALSE;

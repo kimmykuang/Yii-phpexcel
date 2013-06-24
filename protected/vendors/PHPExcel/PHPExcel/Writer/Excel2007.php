@@ -209,7 +209,7 @@ class PHPExcel_Writer_Excel2007 implements PHPExcel_Writer_IWriter
 			}
 
 			$saveDebugLog = PHPExcel_Calculation::getInstance()->writeDebugLog;
-			PHPExcel_Calculation::getInstance()->writeDebugLog = false;
+			//PHPExcel_Calculation::getInstance()->writeDebugLog = false;
 			$saveDateReturnType = PHPExcel_Calculation_Functions::getReturnDateType();
 			PHPExcel_Calculation_Functions::setReturnDateType(PHPExcel_Calculation_Functions::RETURNDATE_EXCEL);
 
@@ -372,12 +372,12 @@ class PHPExcel_Writer_Excel2007 implements PHPExcel_Writer_IWriter
 
 			PHPExcel_Calculation_Functions::setReturnDateType($saveDateReturnType);
 			PHPExcel_Calculation::getInstance()->writeDebugLog = $saveDebugLog;
-
+			//var_dump($objZip);exit;
+			
 			// Close file
 			if ($objZip->close() === false) {
 				throw new Exception("Could not close zip file $pFilename.");
 			}
-
 			// If a temporary file was used, copy it to the correct file stream
 			if ($originalFilename != $pFilename) {
 				if (copy($pFilename, $originalFilename) === false) {
@@ -385,6 +385,7 @@ class PHPExcel_Writer_Excel2007 implements PHPExcel_Writer_IWriter
 				}
 				@unlink($pFilename);
 			}
+			
 		} else {
 			throw new Exception("PHPExcel object unassigned.");
 		}
