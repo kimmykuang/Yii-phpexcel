@@ -66,30 +66,34 @@ class SiteController extends Controller
 				$dyCols[] = array(
 					'field' => $column->columnTitle,
 					'title' => $column->columnName,
-					//'width' =>80,
 				);
 			}
 			$columns = '['.json_encode($dyCols).']';
 			// <!-- end dyCols -->
-			$_POST['page'] = $_POST['rows'] = 0;
-			$this->renderPartial('_datagrid',array('columns'=>$columns,'id'=>$id,'table'=>$table));
+			$this->renderPartial('_datagrid',array('columns'=>$columns,'id'=>$id));
 			//exit;
+		}else{
+			$this->redirect(array('site/index'));
 		}
 	}
 	
 	/**
 	 * 为datagrid提供数据源
 	 */
-	public function actionDataProvider($id,$table){
+	public function actionDataProvider($id){
+		$id = intval($id);
+		$sheet = $this->loadSheetModel($id);
 		$page = isset($_POST['page'])?intval($_POST['page']):1;
 		$rows = isset($_POST['rows'])?intval($_POST['rows']):10;
 		$dyData = array();
+		$dyData['rows'] = array();
 		// <!-- start dyData -->
 		$conn = Yii::app()->db;
-		$count = $conn->createCommand()->select('COUNT(*)')->from($table)->queryScalar();
+		$count = $conn->createCommand()->select('COUNT(*)')->from($sheet->sheetTableName)->queryScalar();
 		$startIndex = ($page-1)*$rows;
-		$dataReader = $conn->createCommand()->select()->from($table)->limit($rows,$startIndex)->query();
+		$dataReader = $conn->createCommand()->select()->from($sheet->sheetTableName)->limit($rows,$startIndex)->query();
 		//$dataReader->readAll() //返回所有结果集到数组
+		
 		while (($row=$dataReader->read()) !== FALSE){
 			$dyData['rows'][] = $row;
 		}
@@ -119,7 +123,7 @@ class SiteController extends Controller
 			$tmpFile = CUploadedFile::getInstance($model,'excelfile');
 			if(empty($tmpFile)){
 				//这里需要使用一个更好地错误提示，同时前端也做一个检验用户是否提交文件
-				$this->redirect('upload',array('model'=>$model));
+				$this->redirect(array('site/upload','model'=>$model));
 				//exit;
 			}
 			$newName = time().rand(1,10000).'.'.$tmpFile->extensionName;
@@ -364,6 +368,7 @@ class SiteController extends Controller
 	 * ajax
 	 */
 	public function actionUpdateTitle(){
+		if(Yii::app()->request->isAjaxRequest){
 			$id = intval($_POST['id']);
 			$title = $_POST['title'];  //这里需要做一下后台check，返回errorMsg
 			$type = $_POST['type'];
@@ -390,7 +395,10 @@ class SiteController extends Controller
 				echo json_encode(array('flag'=>FALSE));
 			}
 			exit;
+		}else{
+			$this->redirect(array('site/index'));
 		}
+	}
 	
 	
 	/**
@@ -438,16 +446,35 @@ class SiteController extends Controller
 	 * 文件下载
 	 * @param numeric $id
 	 */
-	public function actionDownload($id){
-	
-		$file_info = $this->actionCreateFile($id);
-		$filename = $file_info[0];
-		$filepath = $file_info[1];
+	public function actionDownload($id,$type='file'){
+		//header("Content-Type:text/html;charset=utf-8");
+		//$type = 'sheet';
+		$id = intval($id);
+		if($type == 'file'){
+			$file = $this->loadFileModel($id);
+			$filename = $file->fileTitle;
+			$filepath = $file->filePath;
+			$sheets = $file->sheets;
+		}elseif ($type == 'sheet'){
+			$sheet = $this->loadSheetModel($id);
+			$sheets[0] = $sheet;
+			$ext = 'xlsx';
+			$filename = $sheet->sheetTitle.'.'.$ext;
+			$filename = $this->changeEncode('UTF-8', 'GBK', $filename);
+			$filepath = FILE_BASE_PATH.$filename;
+			//echo mb_detect_encoding($filepath);exit;
+			
+			//$filepath = Yii::getPathOfAlias('application.data').DIRECTORY_SEPARATOR.$filename;
+			//preg_replace的参数不允许是单独一个反斜杠\，所以要是 /\/
+			$filepath = preg_replace('/\\\\/', '/', $filepath); // '\\\\' 是 php 的字符串, 经过转义后, 是两个反斜杠, 再经过正则表达式引擎后才被认为是一个原文反斜线
+			//echo $filepath;exit;
+		}
+		$this->actionCreateFile($sheets,$filepath);
     	//清空输出缓存
 		ob_clean();
 		//输出到浏览器 
-		$xsend = $this->ckApacheModule('mod_xsendfile');
-		$this->sendFile($filename, $filepath,'UTF-8',$xsend);
+		$charset = 'UTF-8';
+		$this->sendFile($filename, $filepath,$charset);
 		/*
    		header("Content-Type: application/force-download"); 
    		header("Content-Type: application/octet-stream;charset=UTF-8"); 
@@ -468,17 +495,10 @@ class SiteController extends Controller
 	 * 在服务器目录下创建文件
 	 * @param numeric $id
 	 */
-	public function actionCreateFile($id){
-		
-		//获取文件信息
-		$file = $this->loadFileModel($id);
-		$filename = $file->fileTitle;
-		$filepath = $file->filePath;
+	public function actionCreateFile($sheets,$filepath){
+		//var_dump($sheets);exit;
 		//yii dao
 		$conn = Yii::app()->db;
-		
-		//判断是否需要重新生成文件
-		if($file->uploadTime !== $file->lastModifyTime || !file_exists($filepath)){
 			
 			Yii::import('application.vendors.*');
 			spl_autoload_unregister(array('YiiBase','autoload'));
@@ -489,10 +509,10 @@ class SiteController extends Controller
 			$objWriter->setOffice2003Compatibility(true); //向下兼容excel2005
 			spl_autoload_register(array('YiiBase','autoload'));
 			
-			try {
+			
 				//组装数据
-				foreach ($file->sheets as $sheetIndex => $sheet){
-					//echo $sheetIndex;
+			foreach ($sheets as $sheetIndex => $sheet){
+				try {
 					$data = $columnArray = array();
 					$selectstr = $comma = "";
 					foreach ($sheet->columns as $column){
@@ -500,12 +520,11 @@ class SiteController extends Controller
 						$selectstr .= $comma.$column->columnTitle;
 						$comma = ",";
 					}
-					//var_dump($title);exit;
+					//var_dump($columnArray);exit;
 					//从数据表中获取数据
 					$data = $conn->createCommand()->select($selectstr)->from($sheet->sheetTableName)->queryAll();
 					//var_dump($data);exit;
-					spl_autoload_unregister(array('YiiBase','autoload'));
-			
+					//spl_autoload_unregister(array('YiiBase','autoload'));			
 					//添加一个新的worksheet 
    					$objActSheet = $objExcel->createSheet($sheetIndex); 
 					//设置当前活动sheet的名称 
@@ -524,88 +543,133 @@ class SiteController extends Controller
 						}
 					}
 				}
+				catch (Exception $e){
+					var_dump($e->getMessage());
+					exit;
+				}
 			}
-			catch (Exception $e){
-				var_dump($e->getMessage());
-				exit;
-			}
+			
+			
 			//清空输出缓存
 			ob_clean(); 
 			//覆盖文件 
-			$objWriter->save($filepath);
-		}
-		spl_autoload_register(array('YiiBase','autoload'));
-		return array($filename,$filepath);
-	}
-	
-	/**
-	 * 下载单独一个worksheet，使用csv作为格式,比较快速
-	 */
-	public function actionWriteSheet($id){
-		$sheet = $this->loadSheetModel($id);
-		$tablename = $sheet->sheetTableName;
-		$filename = $sheet->sheetTitle;
-		//使用load data into outfile将数据放入一个csv文件中
+			//echo $filepath;exit;
+			//$filepath = $this->changeEncode('UTF-8', 'GBK', $filepath);
+			if(is_writeable($filepath)){
+				$objWriter->save($filepath);
+			}else{
+				echo 1222;exit;
+			}
+		/*
+   		header("Content-Type: application/force-download"); 
+   		header("Content-Type: application/octet-stream;charset=UTF-8"); 
+  	 	header("Content-Type: application/download"); 
+   		header('Content-Disposition:inline;filename="'.'test11.csv'.'"'); 
+   		header("Content-Transfer-Encoding: binary"); 
+  		header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT"); 
+   		header("Cache-Control: must-revalidate, post-check=0, pre-check=0"); 
+  		header("Pragma: no-cache"); 
+   		$objWriter->save('php://output'); 
+   		*/
 		
+		//spl_autoload_register(array('YiiBase','autoload'));
 	}
 	
 	/**
-	 * @param ac:操作类型，insert | update | delete
-	 * @param id:主键
-	 * datagrid对数据的CRUD操作，Ajax方式
-	 * 操作数据后，需要更新File的lastModifyTime和lastModifyUserIp
-	 * reload datagrid
+	 * 数据表的增，删，改
+	 * 数据表的数据操作必须都是事务型的
+	 * @param int $id:data id
+	 * @param int $sheetID:sheet id
+	 * @param string @ac:array('insert','update','delete')
 	 */
-	public function actionCRUD($ac,$id,$type){
-		$types = array('file','sheet','column','data');
+	public function actionCRUD($id,$sheetID,$ac){
+		
 		$actions = array('insert','update','delete');
-		if(!in_array($ac,$actions) || !in_array($type,$types)){
+		if(!in_array($ac,$actions)){
 			throw new CHttpException(404,'The requested page does not exist.');
 			exit;
 		}
-
 		$id = intval($id);
-		switch($type){
-			case 'data':
-				$sheet = $this->loadSheetModel($id);
-				$table = $sheet->sheetTableName;
-				
+		$sheetID = intval($sheetID);
+		$sheet = $this->loadSheetModel($sheetID);
+		$conn = Yii::app()->db;
+		$transaction = $conn->beginTransaction();
+		switch ($ac){
+			case 'delete':	
+				try {
+					$conn->createCommand()->delete($sheet->sheetTableName,'ID=:id',array(':id'=>$id));
+					$transaction->commit();
+					echo json_encode(array('flag'=>true));
+				} catch (CDbException $e) {
+					$transaction->rollback();
+					echo "<pre>";
+					print_r($e->getMessage());
+					echo "</pre>";
+				}
 				break;
-			default:
-				$model = call_user_func(array($this,'load'.ucfirst($type).'Model'),$id);
+			case 'insert':
+				if(isset($_POST['colData'])){
+					try {
+						$conn->createCommand()->insert($sheet->sheetTableName, $_POST['colData']);
+						$transaction->commit();
+						echo json_encode(array('flag'=>true));
+					} catch (CDbException $e) {
+						$transaction->rollback();
+						echo "<pre>";
+						print_r($e->getMessage());
+						echo "</pre>";
+					}
+				}
+				break;
+			case 'update':
+				if(isset($_POST['colData'])){
+					try {
+						$conn->createCommand()->update($sheet->sheetTableName, $_POST['colData'],'ID=:id',array(':id'=>$id));
+						$transaction->commit();
+						echo json_encode(array('flag'=>true));
+					} catch (CDbException $e) {
+						$transaction->rollback();
+						echo "<pre>";
+						print_r($e->getMessage());
+						echo "</pre>";
+					}
+				}
 				break;
 		}
+		exit;
 	}
 	
 	/**
 	 * 
 	 * 删除worksheet
-	 * 使用cdbcommand->transaction事务控制删除流程:删除关联columns->删除数据表->删除关联sheets表中记录
+	 * 事务控制删除流程:删除关联columns->删除数据表->删除关联sheets表中记录
 	 * @param int $id (sheetID)
 	 */
 	public function actionDeleteSheet($id){
-		$id = intval($id);
-		$conn = Yii::app()->db;
-		$sheet = $this->loadSheetModel($id);
-		$transaction = $conn->beginTransaction();
-		try {
-			$command = $conn->createCommand();
-			$command->delete(($this->excel_columns),'sheetID=:sheetID',array(':sheetID'=>$sheet->ID));
-			//echo $command->text;exit;
-			$command->dropTable($sheet->sheetTableName);
-			//echo $command->text;exit;
-			$command->delete($this->excel_sheets,'ID=:ID',array(':ID'=>$id));
-			//echo $command->text;exit;
-			$transaction->commit();
-		} catch (CDbException $e) {
-			$transaction->rollback();
-			echo "<pre>";
-			print_r($e->getMessage());
-			echo "</pre>";
-			exit;
+		if(Yii::app()->request->isAjaxRequest){
+			$id = intval($id);
+			$conn = Yii::app()->db;
+			$sheet = $this->loadSheetModel($id);
+			$transaction = $conn->beginTransaction();
+			try {
+				$command = $conn->createCommand();
+				$command->delete(($this->excel_columns),'sheetID=:sheetID',array(':sheetID'=>$sheet->ID));
+				$command->dropTable($sheet->sheetTableName);
+				$command->delete($this->excel_sheets,'ID=:ID',array(':ID'=>$id));
+				$transaction->commit();
+			} catch (CDbException $e) {
+				$transaction->rollback();
+				echo "<pre>";
+				print_r($e->getMessage());
+				echo "</pre>";
+				exit;
+			}
+			echo true;exit;
+		}else{
+			$this->redirect(array('site/index'));
 		}
-		echo true;exit;
 	}
+	
 	
 	/**
 	 * PHPExcel取excel文件的列时会取到空列，使用这个函数清理下
@@ -651,7 +715,7 @@ class SiteController extends Controller
 	}
 	
 	//发送文件
-	function sendFile($filename,$filepath,$charset = 'UTF-8',$xsend = true,$mimeType = 'application/octet-stream'){
+	function sendFile($filename,$filepath,$charset = 'UTF-8',$mimeType = 'application/octet-stream'){
 		// 文件名乱码问题
 		$ua = $_SERVER["HTTP_USER_AGENT"];
 		if (preg_match("/MSIE/", $ua)) 
@@ -680,9 +744,10 @@ class SiteController extends Controller
 		header($attachmentHeader);
 		header('Pragma: cache');
 		header('Cache-Control: public, must-revalidate, max-age=0');
-
+		
+		//mod_xsendfile
+		$xsend = $this->ckApacheModule('mod_xsendfile');
 		if($xsend){
-			//mod_xsendfile模块
 			header("X-Sendfile:".$filepath);
 			exit;
 		}else {
