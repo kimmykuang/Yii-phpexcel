@@ -83,6 +83,7 @@ class PHPExcel_Shared_ZipArchive
      */
 	public function close()
 	{
+		//$this->_zip->privCloseFd();
 	}
 
 

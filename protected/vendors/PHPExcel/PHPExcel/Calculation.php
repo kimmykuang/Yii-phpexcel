@@ -178,7 +178,7 @@ class PHPExcel_Calculation {
 	 * @var boolean
 	 *
 	 */
-	public $writeDebugLog = false;
+	public $writeDebugLog = true;
 
 	/**
 	 * Flag to determine whether a debug log should be echoed by the calculation engine
@@ -190,7 +190,7 @@ class PHPExcel_Calculation {
 	 * @var boolean
 	 *
 	 */
-	public $echoDebugLog = false;
+	public $echoDebugLog = true;
 
 
 	/**
