@@ -97,7 +97,7 @@ $('#tree').tree({
     
     <!--dlg1的操作按钮-->
     <div id="dlg1-buttons">  
-        <a href="javascript:void(0);" class="easyui-linkbutton" iconCls="icon-ok" onclick="saveTreeForm()">Save</a>  
+        <a href="javascript:void(0);" class="easyui-linkbutton" iconCls="icon-ok" onclick="saveTreeForm(this)">Save</a>  
         <a href="javascript:void(0);" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg1').dialog('close')">Cancel</a>  
     </div> 
     
@@ -161,7 +161,7 @@ function removeSheet(){
 		$.messager.alert('消息提示','请先选择一个工作薄');
 	}
 }
-//待重构代码
+
 function saveTreeForm(){
 	$.ajax({
 		url:url,
@@ -176,7 +176,7 @@ function saveTreeForm(){
 					text:$('#title').val(),
 				});
 			}else{
-				$.messager.alert('Error','rename sheet name fail,please try again.');
+				$.messager.alert('消息提示','重命名工作薄出错，请刷新页面后重新操作');
 			}
 		},
 	});

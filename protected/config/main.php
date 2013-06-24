@@ -107,7 +107,6 @@ return array(
 	'params'=>array(
 		// this is used in contact page
 		'adminEmail'=>'webmaster@example.com',
-		'uploadPath'=>'\data\\',
-		'downloadPath'=>'\data\\', //Yii::app()->params['uploadPath']
+		'excel_db'=>'\data\\', //Yii::app()->params['uploadPath']
 	),
 );
