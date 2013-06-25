@@ -6106,3 +6106,310 @@ Stack trace:
 #15 {main}
 REQUEST_URI=/phpexcel/
 ---
+2013/06/25 15:00:15 [error] [exception.CException] exception 'CException' with message 'InstallController 无法找到请求的视图 "install".' in D:\wamp\www\phpexcel\framework\web\CController.php:883
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(786): CController->renderPartial('install', NULL, true)
+#1 D:\wamp\www\phpexcel\protected\controllers\InstallController.php(17): CController->render('install')
+#2 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): InstallController->actionIndex()
+#3 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('')
+#7 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('install')
+#8 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/phpexcel/install
+---
+2013/06/25 15:06:26 [error] [exception.CException] exception 'CException' with message 'InstallController 无法找到请求的视图 "install".' in D:\wamp\www\phpexcel\framework\web\CController.php:883
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(786): CController->renderPartial('install', NULL, true)
+#1 D:\wamp\www\phpexcel\protected\controllers\InstallController.php(17): CController->render('install')
+#2 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): InstallController->actionIndex()
+#3 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('')
+#7 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('install')
+#8 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/phpexcel/install
+---
+2013/06/25 15:06:30 [error] [exception.CException] exception 'CException' with message 'InstallController 无法找到请求的视图 "install".' in D:\wamp\www\phpexcel\framework\web\CController.php:883
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(786): CController->renderPartial('install', NULL, true)
+#1 D:\wamp\www\phpexcel\protected\controllers\InstallController.php(17): CController->render('install')
+#2 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): InstallController->actionIndex()
+#3 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('')
+#7 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('install')
+#8 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/phpexcel/install
+---
+2013/06/25 15:06:32 [error] [exception.CException] exception 'CException' with message 'InstallController 无法找到请求的视图 "install".' in D:\wamp\www\phpexcel\framework\web\CController.php:883
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(786): CController->renderPartial('install', NULL, true)
+#1 D:\wamp\www\phpexcel\protected\controllers\InstallController.php(17): CController->render('install')
+#2 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): InstallController->actionIndex()
+#3 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('')
+#7 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('install')
+#8 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/phpexcel/install
+---
+2013/06/25 15:06:43 [error] [exception.CException] exception 'CException' with message 'InstallController 无法找到请求的视图 "install".' in D:\wamp\www\phpexcel\framework\web\CController.php:883
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(786): CController->renderPartial('install', NULL, true)
+#1 D:\wamp\www\phpexcel\protected\controllers\InstallController.php(17): CController->render('install')
+#2 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): InstallController->actionIndex()
+#3 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('')
+#7 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('install')
+#8 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/phpexcel/install
+---
+2013/06/25 15:06:58 [error] [exception.CException] exception 'CException' with message 'InstallController 无法找到请求的视图 "install".' in D:\wamp\www\phpexcel\framework\web\CController.php:883
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(786): CController->renderPartial('install', NULL, true)
+#1 D:\wamp\www\phpexcel\protected\controllers\InstallController.php(17): CController->render('install')
+#2 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): InstallController->actionIndex()
+#3 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('')
+#7 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('install')
+#8 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/phpexcel/install
+---
+2013/06/25 16:28:39 [error] [exception.CException] exception 'CException' with message '属性 "CActiveForm.class" 未被定义.' in D:\wamp\www\phpexcel\framework\base\CComponent.php:174
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CWidgetFactory.php(162): CComponent->__set('class', 'dform')
+#1 D:\wamp\www\phpexcel\framework\web\CBaseController.php(147): CWidgetFactory->createWidget(Object(InstallController), 'CActiveForm', Array)
+#2 D:\wamp\www\phpexcel\framework\web\CBaseController.php(190): CBaseController->createWidget('CActiveForm', Array)
+#3 D:\wamp\www\phpexcel\protected\views\install\install.php(12): CBaseController->beginWidget('CActiveForm', Array)
+#4 D:\wamp\www\phpexcel\framework\web\CBaseController.php(127): require('D:\wamp\www\php...')
+#5 D:\wamp\www\phpexcel\framework\web\CBaseController.php(96): CBaseController->renderInternal('D:\wamp\www\php...', Array, true)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(874): CBaseController->renderFile('D:\wamp\www\php...', Array, true)
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(786): CController->renderPartial('install', Array, true)
+#8 D:\wamp\www\phpexcel\protected\controllers\InstallController.php(21): CController->render('install', Array)
+#9 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): InstallController->actionIndex()
+#10 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#11 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#12 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('')
+#14 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('install')
+#15 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/phpexcel/install
+---
+2013/06/25 16:28:49 [error] [php] Object of class CActiveForm could not be converted to string (D:\wamp\www\phpexcel\protected\views\install\install.php:12)
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(874): InstallController->renderFile()
+#1 D:\wamp\www\phpexcel\framework\web\CController.php(786): InstallController->renderPartial()
+#2 D:\wamp\www\phpexcel\protected\controllers\InstallController.php(21): InstallController->render()
+#3 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): InstallController->actionIndex()
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(287): InstallController->runAction()
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(266): InstallController->runActionWithFilters()
+#7 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): InstallController->run()
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#9 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\wamp\www\phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/install
+in D:\wamp\www\phpexcel\protected\views\install\install.php (12)
+in D:\wamp\www\phpexcel\protected\controllers\InstallController.php (21)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/25 16:32:40 [error] [php] Object of class CActiveForm could not be converted to string (D:\wamp\www\phpexcel\protected\views\install\install.php:12)
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(874): InstallController->renderFile()
+#1 D:\wamp\www\phpexcel\framework\web\CController.php(786): InstallController->renderPartial()
+#2 D:\wamp\www\phpexcel\protected\controllers\InstallController.php(21): InstallController->render()
+#3 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): InstallController->actionIndex()
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(287): InstallController->runAction()
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(266): InstallController->runActionWithFilters()
+#7 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): InstallController->run()
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#9 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\wamp\www\phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/install
+in D:\wamp\www\phpexcel\protected\views\install\install.php (12)
+in D:\wamp\www\phpexcel\protected\controllers\InstallController.php (21)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/25 16:32:43 [error] [php] Object of class CActiveForm could not be converted to string (D:\wamp\www\phpexcel\protected\views\install\install.php:12)
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(874): InstallController->renderFile()
+#1 D:\wamp\www\phpexcel\framework\web\CController.php(786): InstallController->renderPartial()
+#2 D:\wamp\www\phpexcel\protected\controllers\InstallController.php(21): InstallController->render()
+#3 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): InstallController->actionIndex()
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(287): InstallController->runAction()
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(266): InstallController->runActionWithFilters()
+#7 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): InstallController->run()
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#9 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\wamp\www\phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/install
+in D:\wamp\www\phpexcel\protected\views\install\install.php (12)
+in D:\wamp\www\phpexcel\protected\controllers\InstallController.php (21)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/25 16:51:23 [error] [exception.CException] exception 'CException' with message '属性 "CActiveForm.htmlOption" 未被定义.' in D:\wamp\www\phpexcel\framework\base\CComponent.php:174
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CWidgetFactory.php(162): CComponent->__set('htmlOption', Array)
+#1 D:\wamp\www\phpexcel\framework\web\CBaseController.php(147): CWidgetFactory->createWidget(Object(InstallController), 'CActiveForm', Array)
+#2 D:\wamp\www\phpexcel\framework\web\CBaseController.php(190): CBaseController->createWidget('CActiveForm', Array)
+#3 D:\wamp\www\phpexcel\protected\views\install\install.php(13): CBaseController->beginWidget('CActiveForm', Array)
+#4 D:\wamp\www\phpexcel\framework\web\CBaseController.php(127): require('D:\wamp\www\php...')
+#5 D:\wamp\www\phpexcel\framework\web\CBaseController.php(96): CBaseController->renderInternal('D:\wamp\www\php...', Array, true)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(874): CBaseController->renderFile('D:\wamp\www\php...', Array, true)
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(786): CController->renderPartial('install', Array, true)
+#8 D:\wamp\www\phpexcel\protected\controllers\InstallController.php(21): CController->render('install', Array)
+#9 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): InstallController->actionIndex()
+#10 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#11 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#12 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('')
+#14 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('install')
+#15 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/phpexcel/install
+---
+2013/06/25 17:13:30 [error] [exception.CHttpException.400] exception 'CHttpException' with message '您的请求无效。' in D:\wamp\www\phpexcel\framework\web\CController.php:337
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(310): CController->invalidActionParams(Object(CInlineAction))
+#1 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#2 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('initdb')
+#4 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('install/initdb')
+#5 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/phpexcel/install/initdb.html?configs%5Bdbhost%5D=localhost&configs%5Bdbuser%5D=root&configs%5Bdbpwd%5D=1&configs%5Bdbname%5D=phpexcel&configs%5Btable_sheets%5D=excel_sheets&configs%5Btable_files%5D=excel_files&configs%5Btable_columns%5D=excel_columns
+HTTP_REFERER=http://127.0.0.1/phpexcel/install
+---
+2013/06/25 17:15:18 [error] [exception.CHttpException.400] exception 'CHttpException' with message '您的请求无效。' in D:\wamp\www\phpexcel\framework\web\CController.php:337
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(310): CController->invalidActionParams(Object(CInlineAction))
+#1 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#2 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('initdb')
+#4 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('install/initdb')
+#5 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/phpexcel/install/initdb.html?configs%5Bdbhost%5D=localhost&configs%5Bdbuser%5D=root&configs%5Bdbpwd%5D=1&configs%5Bdbname%5D=phpexcel&configs%5Btable_sheets%5D=excel_sheets&configs%5Btable_files%5D=excel_files&configs%5Btable_columns%5D=excel_columns
+HTTP_REFERER=http://127.0.0.1/phpexcel/install
+---
+2013/06/25 17:17:02 [error] [exception.CHttpException.400] exception 'CHttpException' with message '您的请求无效。' in D:\wamp\www\phpexcel\framework\web\CController.php:337
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(310): CController->invalidActionParams(Object(CInlineAction))
+#1 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#2 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('initdb')
+#4 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('install/initdb')
+#5 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/phpexcel/install/initdb.html?configs%5Bdbhost%5D=localhost&configs%5Bdbuser%5D=root&configs%5Bdbpwd%5D=1&configs%5Bdbname%5D=phpexcel&configs%5Btable_sheets%5D=excel_sheets&configs%5Btable_files%5D=excel_files&configs%5Btable_columns%5D=excel_columns
+HTTP_REFERER=http://127.0.0.1/phpexcel/install
+---
+2013/06/25 17:17:07 [error] [exception.CHttpException.400] exception 'CHttpException' with message '您的请求无效。' in D:\wamp\www\phpexcel\framework\web\CController.php:337
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(310): CController->invalidActionParams(Object(CInlineAction))
+#1 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#2 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('initdb')
+#4 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('install/initdb')
+#5 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/phpexcel/install/initdb.html?configs%5Bdbhost%5D=localhost&configs%5Bdbuser%5D=root&configs%5Bdbpwd%5D=1&configs%5Bdbname%5D=phpexcel&configs%5Btable_sheets%5D=excel_sheets&configs%5Btable_files%5D=excel_files&configs%5Btable_columns%5D=excel_columns
+HTTP_REFERER=http://127.0.0.1/phpexcel/install
+---
+2013/06/25 17:50:46 [error] [php] SiteController::require(D:\wamp\www\phpexcel\protected\extensionsphpexcel_config.php) [<a href='function.SiteController-require'>function.SiteController-require</a>]: failed to open stream: No such file or directory (D:\wamp\www\phpexcel\protected\controllers\SiteController.php:14)
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#1 D:\wamp\www\phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#2 D:\wamp\www\phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#3 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#4 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#5 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\wamp\www\phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/site/index.html
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (14)
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (14)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/25 17:51:15 [error] [php] SiteController::require(D:\wamp\www\phpexcel\protected\extensions\phpexcel_config.php) [<a href='function.SiteController-require'>function.SiteController-require</a>]: failed to open stream: No such file or directory (D:\wamp\www\phpexcel\protected\controllers\SiteController.php:14)
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#1 D:\wamp\www\phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#2 D:\wamp\www\phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#3 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#4 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#5 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\wamp\www\phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/site/index.html
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (14)
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (14)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/25 17:58:10 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection 无法开启数据库连线: SQLSTATE[42000] [1049] Unknown database 'phpexcel'' in D:\wamp\www\phpexcel\framework\db\CDbConnection.php:383
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbConnection.php(332): CDbConnection->open()
+#1 D:\wamp\www\phpexcel\framework\db\CDbConnection.php(310): CDbConnection->setActive(true)
+#2 D:\wamp\www\phpexcel\framework\base\CModule.php(388): CDbConnection->init()
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(431): CModule->getComponent('db')
+#4 D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php(618): CApplication->getDb()
+#5 D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php(2267): CActiveRecord->getDbConnection()
+#6 D:\wamp\www\phpexcel\framework\db\ar\CActiveRecord.php(382): CActiveRecordMetaData->__construct(Object(File))
+#7 D:\wamp\www\phpexcel\protected\models\File.php(21): CActiveRecord::model('File')
+#8 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(14): File::model()
+#9 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#10 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#11 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#12 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('index')
+#14 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/index')
+#15 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/phpexcel/site/index.html
+HTTP_REFERER=http://127.0.0.1/phpexcel/install
+---
+2013/06/25 18:04:00 [error] [php] Object of class CDbConnection could not be converted to string (D:\wamp\www\phpexcel\protected\controllers\SiteController.php:14)
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#1 D:\wamp\www\phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#3 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#4 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\wamp\www\phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/site/index.html
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (14)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/25 18:07:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "initdb" 动作.' in D:\wamp\www\phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(271): CController->missingAction('initdb')
+#1 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('initdb')
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/initdb')
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/initdb
+---
