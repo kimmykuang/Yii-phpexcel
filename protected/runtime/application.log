@@ -6106,3 +6106,284 @@ Stack trace:
 #15 {main}
 REQUEST_URI=/phpexcel/
 ---
+2013/06/25 10:28:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "index1.php"。' in E:\WWW\www\phpExcel\framework\web\CWebApplication.php:280
+Stack trace:
+#0 E:\WWW\www\phpExcel\framework\web\CWebApplication.php(135): CWebApplication->runController('index1.php')
+#1 E:\WWW\www\phpExcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 E:\WWW\www\phpExcel\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/phpExcel/index1.php
+---
+2013/06/25 13:39:29 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\windows\TEMP\#sql_7b4_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `excel_sheets`.
+in E:\WWW\www\phpExcel\protected\controllers\SiteController.php (73)
+in E:\WWW\www\phpExcel\index.php (13)
+2013/06/25 13:39:29 [error] [exception.CDbException] exception 'CDbException' with message '数据库中无法找到 active record class "Sheet" 对应的 table "{{sheets}}".' in E:\WWW\www\phpExcel\framework\db\ar\CActiveRecord.php:2268
+Stack trace:
+#0 E:\WWW\www\phpExcel\framework\db\ar\CActiveRecord.php(382): CActiveRecordMetaData->__construct(Object(Sheet))
+#1 E:\WWW\www\phpExcel\framework\db\ar\CActiveFinder.php(219): CActiveRecord::model('Sheet')
+#2 E:\WWW\www\phpExcel\framework\db\ar\CActiveFinder.php(49): CActiveFinder->buildJoinTree(Object(CJoinElement), 'sheets')
+#3 E:\WWW\www\phpExcel\framework\db\ar\CActiveRecord.php(271): CActiveFinder->__construct(Object(File), 'sheets')
+#4 E:\WWW\www\phpExcel\framework\db\ar\CActiveRecord.php(143): CActiveRecord->getRelated('sheets')
+#5 E:\WWW\www\phpExcel\protected\controllers\SiteController.php(73): CActiveRecord->__get('sheets')
+#6 E:\WWW\www\phpExcel\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex1()
+#7 E:\WWW\www\phpExcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#8 E:\WWW\www\phpExcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#9 E:\WWW\www\phpExcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 E:\WWW\www\phpExcel\framework\web\CWebApplication.php(276): CController->run('index1')
+#11 E:\WWW\www\phpExcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/index1')
+#12 E:\WWW\www\phpExcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#13 E:\WWW\www\phpExcel\index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/phpExcel/index.php/site/index1
+---
+2013/06/25 13:41:04 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\windows\TEMP\#sql_7b4_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `excel_sheets`.
+in E:\WWW\www\phpExcel\protected\controllers\SiteController.php (73)
+in E:\WWW\www\phpExcel\index.php (13)
+2013/06/25 13:41:04 [error] [exception.CDbException] exception 'CDbException' with message '数据库中无法找到 active record class "Sheet" 对应的 table "{{sheets}}".' in E:\WWW\www\phpExcel\framework\db\ar\CActiveRecord.php:2268
+Stack trace:
+#0 E:\WWW\www\phpExcel\framework\db\ar\CActiveRecord.php(382): CActiveRecordMetaData->__construct(Object(Sheet))
+#1 E:\WWW\www\phpExcel\framework\db\ar\CActiveFinder.php(219): CActiveRecord::model('Sheet')
+#2 E:\WWW\www\phpExcel\framework\db\ar\CActiveFinder.php(49): CActiveFinder->buildJoinTree(Object(CJoinElement), 'sheets')
+#3 E:\WWW\www\phpExcel\framework\db\ar\CActiveRecord.php(271): CActiveFinder->__construct(Object(File), 'sheets')
+#4 E:\WWW\www\phpExcel\framework\db\ar\CActiveRecord.php(143): CActiveRecord->getRelated('sheets')
+#5 E:\WWW\www\phpExcel\protected\controllers\SiteController.php(73): CActiveRecord->__get('sheets')
+#6 E:\WWW\www\phpExcel\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex1()
+#7 E:\WWW\www\phpExcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#8 E:\WWW\www\phpExcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#9 E:\WWW\www\phpExcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 E:\WWW\www\phpExcel\framework\web\CWebApplication.php(276): CController->run('index1')
+#11 E:\WWW\www\phpExcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/index1')
+#12 E:\WWW\www\phpExcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#13 E:\WWW\www\phpExcel\index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/phpExcel/index.php/site/index1
+---
+2013/06/25 13:41:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "datagrid_data1.json"。' in E:\WWW\www\phpExcel\framework\web\CWebApplication.php:280
+Stack trace:
+#0 E:\WWW\www\phpExcel\framework\web\CWebApplication.php(135): CWebApplication->runController('datagrid_data1....')
+#1 E:\WWW\www\phpExcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 E:\WWW\www\phpExcel\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/phpExcel/datagrid_data1.json
+HTTP_REFERER=http://localhost/phpExcel/index.php/site/index1
+---
+2013/06/25 13:41:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "datagrid_data1.json"。' in E:\WWW\www\phpExcel\framework\web\CWebApplication.php:280
+Stack trace:
+#0 E:\WWW\www\phpExcel\framework\web\CWebApplication.php(135): CWebApplication->runController('datagrid_data1....')
+#1 E:\WWW\www\phpExcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 E:\WWW\www\phpExcel\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/phpExcel/datagrid_data1.json
+HTTP_REFERER=http://localhost/phpExcel/index.php/site/index1
+---
+2013/06/25 13:41:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "datagrid_data1.json"。' in E:\WWW\www\phpExcel\framework\web\CWebApplication.php:280
+Stack trace:
+#0 E:\WWW\www\phpExcel\framework\web\CWebApplication.php(135): CWebApplication->runController('datagrid_data1....')
+#1 E:\WWW\www\phpExcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 E:\WWW\www\phpExcel\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/phpExcel/datagrid_data1.json
+HTTP_REFERER=http://localhost/phpExcel/index.php/site/index1
+---
+2013/06/25 13:42:02 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\windows\TEMP\#sql_7b4_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `excel_sheets`.
+in E:\WWW\www\phpExcel\protected\controllers\SiteController.php (73)
+in E:\WWW\www\phpExcel\index.php (13)
+2013/06/25 13:42:02 [error] [exception.CDbException] exception 'CDbException' with message '数据库中无法找到 active record class "Sheet" 对应的 table "{{sheets}}".' in E:\WWW\www\phpExcel\framework\db\ar\CActiveRecord.php:2268
+Stack trace:
+#0 E:\WWW\www\phpExcel\framework\db\ar\CActiveRecord.php(382): CActiveRecordMetaData->__construct(Object(Sheet))
+#1 E:\WWW\www\phpExcel\framework\db\ar\CActiveFinder.php(219): CActiveRecord::model('Sheet')
+#2 E:\WWW\www\phpExcel\framework\db\ar\CActiveFinder.php(49): CActiveFinder->buildJoinTree(Object(CJoinElement), 'sheets')
+#3 E:\WWW\www\phpExcel\framework\db\ar\CActiveRecord.php(271): CActiveFinder->__construct(Object(File), 'sheets')
+#4 E:\WWW\www\phpExcel\framework\db\ar\CActiveRecord.php(143): CActiveRecord->getRelated('sheets')
+#5 E:\WWW\www\phpExcel\protected\controllers\SiteController.php(73): CActiveRecord->__get('sheets')
+#6 E:\WWW\www\phpExcel\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex1()
+#7 E:\WWW\www\phpExcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#8 E:\WWW\www\phpExcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#9 E:\WWW\www\phpExcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 E:\WWW\www\phpExcel\framework\web\CWebApplication.php(276): CController->run('index1')
+#11 E:\WWW\www\phpExcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/index1')
+#12 E:\WWW\www\phpExcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#13 E:\WWW\www\phpExcel\index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/phpExcel/index.php/site/index1
+---
+2013/06/25 13:42:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "datagrid_data1.json"。' in E:\WWW\www\phpExcel\framework\web\CWebApplication.php:280
+Stack trace:
+#0 E:\WWW\www\phpExcel\framework\web\CWebApplication.php(135): CWebApplication->runController('datagrid_data1....')
+#1 E:\WWW\www\phpExcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 E:\WWW\www\phpExcel\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/phpExcel/datagrid_data1.json
+HTTP_REFERER=http://localhost/phpExcel/index.php/site/index1
+---
+2013/06/25 13:42:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "datagrid_data1.json"。' in E:\WWW\www\phpExcel\framework\web\CWebApplication.php:280
+Stack trace:
+#0 E:\WWW\www\phpExcel\framework\web\CWebApplication.php(135): CWebApplication->runController('datagrid_data1....')
+#1 E:\WWW\www\phpExcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 E:\WWW\www\phpExcel\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/phpExcel/datagrid_data1.json
+HTTP_REFERER=http://localhost/phpExcel/index.php/site/index1
+---
+2013/06/25 13:43:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "datagrid_data1.json"。' in E:\WWW\www\phpExcel\framework\web\CWebApplication.php:280
+Stack trace:
+#0 E:\WWW\www\phpExcel\framework\web\CWebApplication.php(135): CWebApplication->runController('datagrid_data1....')
+#1 E:\WWW\www\phpExcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 E:\WWW\www\phpExcel\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/phpExcel/datagrid_data1.json
+HTTP_REFERER=http://localhost/phpExcel/index.php/site/index1
+---
+2013/06/25 13:43:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "datagrid_data1.json"。' in E:\WWW\www\phpExcel\framework\web\CWebApplication.php:280
+Stack trace:
+#0 E:\WWW\www\phpExcel\framework\web\CWebApplication.php(135): CWebApplication->runController('datagrid_data1....')
+#1 E:\WWW\www\phpExcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 E:\WWW\www\phpExcel\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/phpExcel/datagrid_data1.json
+HTTP_REFERER=http://localhost/phpExcel/index.php/site/index1
+---
+2013/06/25 13:44:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "datagrid_data1.json"。' in E:\WWW\www\phpExcel\framework\web\CWebApplication.php:280
+Stack trace:
+#0 E:\WWW\www\phpExcel\framework\web\CWebApplication.php(135): CWebApplication->runController('datagrid_data1....')
+#1 E:\WWW\www\phpExcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 E:\WWW\www\phpExcel\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/phpExcel/datagrid_data1.json
+HTTP_REFERER=http://localhost/phpExcel/index.php/site/index1
+---
+2013/06/25 13:44:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "datagrid_data1.json"。' in E:\WWW\www\phpExcel\framework\web\CWebApplication.php:280
+Stack trace:
+#0 E:\WWW\www\phpExcel\framework\web\CWebApplication.php(135): CWebApplication->runController('datagrid_data1....')
+#1 E:\WWW\www\phpExcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 E:\WWW\www\phpExcel\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/phpExcel/datagrid_data1.json
+HTTP_REFERER=http://localhost/phpExcel/index.php/site/index1
+---
+2013/06/25 13:48:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "datagrid_data1.json"。' in E:\WWW\www\phpExcel\framework\web\CWebApplication.php:280
+Stack trace:
+#0 E:\WWW\www\phpExcel\framework\web\CWebApplication.php(135): CWebApplication->runController('datagrid_data1....')
+#1 E:\WWW\www\phpExcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 E:\WWW\www\phpExcel\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/phpExcel/datagrid_data1.json
+HTTP_REFERER=http://localhost/phpExcel/index.php/site/index1
+---
+2013/06/25 13:49:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "datagrid_data1.json"。' in E:\WWW\www\phpExcel\framework\web\CWebApplication.php:280
+Stack trace:
+#0 E:\WWW\www\phpExcel\framework\web\CWebApplication.php(135): CWebApplication->runController('datagrid_data1....')
+#1 E:\WWW\www\phpExcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 E:\WWW\www\phpExcel\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/phpExcel/datagrid_data1.json
+HTTP_REFERER=http://localhost/phpExcel/index.php/site/index1
+---
+2013/06/25 14:11:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "datagrid_data1.json"。' in E:\WWW\www\phpExcel\framework\web\CWebApplication.php:280
+Stack trace:
+#0 E:\WWW\www\phpExcel\framework\web\CWebApplication.php(135): CWebApplication->runController('datagrid_data1....')
+#1 E:\WWW\www\phpExcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 E:\WWW\www\phpExcel\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/phpExcel/datagrid_data1.json
+HTTP_REFERER=http://localhost/phpExcel/index.php/site/index1
+---
+2013/06/25 14:24:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "datagrid_data1.json"。' in E:\WWW\www\phpExcel\framework\web\CWebApplication.php:280
+Stack trace:
+#0 E:\WWW\www\phpExcel\framework\web\CWebApplication.php(135): CWebApplication->runController('datagrid_data1....')
+#1 E:\WWW\www\phpExcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 E:\WWW\www\phpExcel\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/phpExcel/datagrid_data1.json
+HTTP_REFERER=http://localhost/phpExcel/index.php/site/index1
+---
+2013/06/25 14:29:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "datagrid_data1.json"。' in E:\WWW\www\phpExcel\framework\web\CWebApplication.php:280
+Stack trace:
+#0 E:\WWW\www\phpExcel\framework\web\CWebApplication.php(135): CWebApplication->runController('datagrid_data1....')
+#1 E:\WWW\www\phpExcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 E:\WWW\www\phpExcel\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/phpExcel/datagrid_data1.json
+HTTP_REFERER=http://localhost/phpExcel/index.php/site/index1
+---
+2013/06/25 14:29:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "datagrid_data1.json"。' in E:\WWW\www\phpExcel\framework\web\CWebApplication.php:280
+Stack trace:
+#0 E:\WWW\www\phpExcel\framework\web\CWebApplication.php(135): CWebApplication->runController('datagrid_data1....')
+#1 E:\WWW\www\phpExcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 E:\WWW\www\phpExcel\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/phpExcel/datagrid_data1.json
+HTTP_REFERER=http://localhost/phpExcel/index.php/site/index1
+---
+2013/06/25 14:30:26 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\windows\TEMP\#sql_7b4_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `excel_sheets`.
+in E:\WWW\www\phpExcel\protected\controllers\SiteController.php (73)
+in E:\WWW\www\phpExcel\index.php (13)
+2013/06/25 14:30:26 [error] [exception.CDbException] exception 'CDbException' with message '数据库中无法找到 active record class "Sheet" 对应的 table "{{sheets}}".' in E:\WWW\www\phpExcel\framework\db\ar\CActiveRecord.php:2268
+Stack trace:
+#0 E:\WWW\www\phpExcel\framework\db\ar\CActiveRecord.php(382): CActiveRecordMetaData->__construct(Object(Sheet))
+#1 E:\WWW\www\phpExcel\framework\db\ar\CActiveFinder.php(219): CActiveRecord::model('Sheet')
+#2 E:\WWW\www\phpExcel\framework\db\ar\CActiveFinder.php(49): CActiveFinder->buildJoinTree(Object(CJoinElement), 'sheets')
+#3 E:\WWW\www\phpExcel\framework\db\ar\CActiveRecord.php(271): CActiveFinder->__construct(Object(File), 'sheets')
+#4 E:\WWW\www\phpExcel\framework\db\ar\CActiveRecord.php(143): CActiveRecord->getRelated('sheets')
+#5 E:\WWW\www\phpExcel\protected\controllers\SiteController.php(73): CActiveRecord->__get('sheets')
+#6 E:\WWW\www\phpExcel\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex1()
+#7 E:\WWW\www\phpExcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#8 E:\WWW\www\phpExcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#9 E:\WWW\www\phpExcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 E:\WWW\www\phpExcel\framework\web\CWebApplication.php(276): CController->run('index1')
+#11 E:\WWW\www\phpExcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/index1')
+#12 E:\WWW\www\phpExcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#13 E:\WWW\www\phpExcel\index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/phpExcel/site/index1
+---
+2013/06/25 14:30:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "datagrid_data1.json"。' in E:\WWW\www\phpExcel\framework\web\CWebApplication.php:280
+Stack trace:
+#0 E:\WWW\www\phpExcel\framework\web\CWebApplication.php(135): CWebApplication->runController('datagrid_data1....')
+#1 E:\WWW\www\phpExcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 E:\WWW\www\phpExcel\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/phpExcel/datagrid_data1.json
+HTTP_REFERER=http://localhost/phpExcel/site/index1
+---
+2013/06/25 14:31:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "datagrid_data1.json"。' in E:\WWW\www\phpExcel\framework\web\CWebApplication.php:280
+Stack trace:
+#0 E:\WWW\www\phpExcel\framework\web\CWebApplication.php(135): CWebApplication->runController('datagrid_data1....')
+#1 E:\WWW\www\phpExcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 E:\WWW\www\phpExcel\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/phpExcel/datagrid_data1.json
+HTTP_REFERER=http://localhost/phpExcel/site/index1
+---
+2013/06/25 14:33:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "datagrid_data1.json"。' in E:\WWW\www\phpExcel\framework\web\CWebApplication.php:280
+Stack trace:
+#0 E:\WWW\www\phpExcel\framework\web\CWebApplication.php(135): CWebApplication->runController('datagrid_data1....')
+#1 E:\WWW\www\phpExcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 E:\WWW\www\phpExcel\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/phpExcel/datagrid_data1.json
+HTTP_REFERER=http://localhost/phpExcel/site/index1
+---
+2013/06/25 14:36:23 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\windows\TEMP\#sql_7b4_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `excel_columns`.
+in E:\WWW\www\phpExcel\protected\controllers\SiteController.php (104)
+in E:\WWW\www\phpExcel\index.php (13)
+2013/06/25 14:36:23 [error] [exception.CDbException] exception 'CDbException' with message '数据库中无法找到 active record class "Column" 对应的 table "{{columns}}".' in E:\WWW\www\phpExcel\framework\db\ar\CActiveRecord.php:2268
+Stack trace:
+#0 E:\WWW\www\phpExcel\framework\db\ar\CActiveRecord.php(382): CActiveRecordMetaData->__construct(Object(Column))
+#1 E:\WWW\www\phpExcel\framework\db\ar\CActiveFinder.php(219): CActiveRecord::model('Column')
+#2 E:\WWW\www\phpExcel\framework\db\ar\CActiveFinder.php(49): CActiveFinder->buildJoinTree(Object(CJoinElement), 'columns')
+#3 E:\WWW\www\phpExcel\framework\db\ar\CActiveRecord.php(271): CActiveFinder->__construct(Object(Sheet), 'columns')
+#4 E:\WWW\www\phpExcel\framework\db\ar\CActiveRecord.php(143): CActiveRecord->getRelated('columns')
+#5 E:\WWW\www\phpExcel\protected\controllers\SiteController.php(104): CActiveRecord->__get('columns')
+#6 E:\WWW\www\phpExcel\framework\web\actions\CInlineAction.php(50): SiteController->actionReadSheet()
+#7 E:\WWW\www\phpExcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#8 E:\WWW\www\phpExcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#9 E:\WWW\www\phpExcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 E:\WWW\www\phpExcel\framework\web\CWebApplication.php(276): CController->run('readsheet')
+#11 E:\WWW\www\phpExcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/readsheet')
+#12 E:\WWW\www\phpExcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#13 E:\WWW\www\phpExcel\index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/phpExcel/site/readsheet.html
+HTTP_REFERER=http://localhost/phpExcel/site/index.html
+---

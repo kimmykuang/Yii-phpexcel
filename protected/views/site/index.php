@@ -7,8 +7,9 @@ $this->pageTitle=Yii::app()->name;
 <!--tree-->
 <script type="text/javascript"> 
 $(document).ready(function(){
-var treeList = <?php echo $treeList;?>;
-$('#tree').tree({
+	$('#content').before($('.easyui-layout')).remove();
+	var treeList = <?php echo $treeList;?>;
+	$('#tree').tree({
        			animate:true,
                 //dnd:true,
                 onClick:function(node){
@@ -45,9 +46,32 @@ $('#tree').tree({
 });
 
 </script>
+<script type="text/javascript">
+	$(window).resize(function() {
+		$('#list').datagrid('resize');
+    	var width = $(this).width();
+    	var height = $(this).height();
+    	//alert(height);
+    	height = height * 0.8;
+    	//alert(height);
+    	$('#layout').height(height);
+
+	});
+	//table下td各宽度 tdW
+
+	//宽度相加获得整体宽  tableW
+
+	//计算出td对于table的比例%
+
+	//table父级width boxW
+
+	//比较boxW和tableW
+
+	//boxW>tableW 按照比例导入td宽度
+</script>
 <center>
     <!--布局控件-->
-	<div class="easyui-layout" style="width:1200px;height:500px;">
+	<div id="layout" class="easyui-layout" fit="true" style="width:100%;height:500px;">
 	
 		<!--tree控件-->    
         <div data-options="region:'west',split:true" title="Excel文件结构" style="width:180px;">
@@ -68,7 +92,7 @@ $('#tree').tree({
                     	<a href="javascript:void(0);" class="easyui-linkbutton" iconCls="icon-cancel" plain=true onclick="removeSheet()">删除当前工作薄</a>
         			</div> 	 
    				</div>
-   				<table id= 'list' class="easyui-datagrid"></table>
+   				<table id= 'list' class="easyui-datagrid" data-options="fit:true,fitColumns:true" style="minwidth:500px"></table>
    			
    			<div id="datagrid_view">
    				<?php $this->renderPartial('_index');?>

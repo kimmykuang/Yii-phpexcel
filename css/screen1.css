@@ -1,0 +1,12 @@
+/* reset.css */
+html {margin:0;padding:0;border:0;}
+body {line-height:1.5;background:white;}
+table {border-collapse:separate;border-spacing:0;}
+caption, th, td {text-align:left;font-weight:normal;float:none !important;}
+table, th, td {vertical-align:middle;}
+blockquote:before, blockquote:after, q:before, q:after {content:'';}
+blockquote, q {quotes:"" "";}
+a img {border:none;}
+:focus {outline:0;}
+/*.container {width:1250px;margin:0 auto;}*/
+.container {width:100%;margin:0 auto;}

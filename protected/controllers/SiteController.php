@@ -50,7 +50,46 @@ class SiteController extends Controller
 			'sheetTitle'=>$sheetTitle,
 		));
 	}
-	
+	/**
+	 * 测试布局用的action:index1
+	 */
+	public function actionIndex1()
+	{
+		$dyData = $dyCols = $treeArray = array();
+		$files = File::model()->findAll();
+		$sheetTitle = 'Yii-PHPExcel首页';
+		// <!-- start tree list -->
+		$treeArray['id'] = 1;
+		$treeArray['text'] = 'All Documents';
+		$treeArray['attributes'] = array('sheetID'=>'');
+		$i = 0;
+		foreach ($files as $file){
+			$i++;
+			$j = 0;
+			$children_file = array();
+			$children_file['id'] = $treeArray['id'].$i;
+			$children_file['text'] = $file->fileTitle;
+			
+			foreach ($file->sheets as $sheet){
+				$j++;
+				$children_file['children'][] = array(
+					'id'=>$children_file['id'].$j,
+					'text'=>$sheet->sheetTitle,
+					'attributes'=>array('sheetID'=>$sheet->ID),
+				);
+			}
+			$children_file['attributes'] = array('sheetID'=>'');
+			$treeArray['children'][] = $children_file;
+		}
+		$treeList = '['.json_encode($treeArray).']';
+		// <!-- end tree list -->
+
+		$this->render('index1',array(
+			'treeList'=>$treeList,
+			'sheetTitle'=>$sheetTitle,
+		));
+	}
+
 	/**
 	 * Ajax读取sheet数据
 	 */
