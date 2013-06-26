@@ -1,13 +1,7 @@
 <?php
 
 class SiteController extends Controller
-{
-	
-	
-	private $excel_db = 'phpexcel';
-	private $excel_files = 'excel_files';
-	private $excel_sheets = 'excel_sheets';
-	private $excel_columns = 'excel_columns';
+{	
 	
 	/**
 	 * 
@@ -253,15 +247,19 @@ class SiteController extends Controller
 							spl_autoload_register(array('YiiBase','autoload'));
 							$transaction = $conn->beginTransaction();					
 							try {
-																
+								$configFilePath = Yii::getPathOfAlias('ext').'phpexcel_config.php';
+								require($configFilePath);
+								
+								$table_sheets = $configs['excel_sheets'];	
+								$table_columns = $configs['excel_columns'];	
 								//插入excel_sheets表
-								$sql1 = "INSERT INTO `$this->excel_sheets` VALUES (null,'$fileID','$currentSheetTitle','$currentSheetTableName');";
+								$sql1 = "INSERT INTO `$table_sheets` VALUES (null,'$fileID','$currentSheetTitle','$currentSheetTableName');";
 								//echo $sql1,"<br/>";
 								$conn->createCommand($sql1)->execute();
 								
 								//插入excel_columns表
 								$sheetID = $conn->lastInsertID;
-								$sql2 = $this->insertCol($sheetID,$fields,$this->excel_columns);
+								$sql2 = $this->insertCol($sheetID,$fields,$table_columns);
 								//echo $sql2,"<br/>";
 								$conn->createCommand($sql2)->execute();
 															
@@ -336,69 +334,6 @@ class SiteController extends Controller
 				var_dump($sheet->attributes);
 			}
 		}
-	}
-	
-	/**
-	 * 初始化数据库
-	 */
-	public function actionInitDB(){
-		//header("Content-Type:text/html;charset=utf-8");
-		//这里可以用yii dao来初始化数据库
-		//yii dao 允许一条sql语句执行多次query
-		
-		$dsn = 'mysql:host=localhost;dbname=INFORMATION_SCHEMA';
-		$username = 'root';
-		$password = 'xiucai5880';
-		try {
-			$conn = new CDbConnection($dsn,$username,$password); //继承自CDbConnection类，connectString来自配置文件/config/main.php
-			$conn->active = TRUE;  //激活连接
-			$sql = "DROP DATABASE IF EXISTS `$this->excel_db`;
-				CREATE DATABASE IF NOT EXISTS `$this->excel_db` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-				CREATE TABLE `$this->excel_db`.`$this->excel_files` (
-  				`ID` int(10) NOT NULL auto_increment,
-  				`fileTitle` nvarchar(50) NOT NULL,
-  				`filePath` nvarchar(100) NOT NULL,
-  				`uploadTime` varchar(22) NOT NULL default '0000-00-00 00:00',
-  				`userIp` varchar(16) NOT NULL default '0.0.0.0',
-  				`fileType` varchar(5) NOT NULL default 'xlsx',
-  				`lastModifyTime` varchar(22) NOT NULL default '0000-00-00 00:00',
-  				`lastModifyUserIp` varchar(16) NOT NULL default '0.0.0.0',
-  				PRIMARY KEY  (`ID`)
-				) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-				CREATE TABLE `$this->excel_db`.`$this->excel_sheets` (
-  				`ID` int(10) NOT NULL auto_increment,
-  				`fileID` int(10) NOT NULL,
-  				`sheetTitle` nvarchar(70) NOT NULL,
-  				`sheetTableName` varchar(50) NOT NULL,
-  				PRIMARY KEY  (`ID`)
-				) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-				CREATE TABLE `$this->excel_db`.`$this->excel_columns` (
-  				`ID` int(10) NOT NULL auto_increment,
-  				`sheetID` int(10) NOT NULL,
-  				`columnTitle` nvarchar(50) NOT NULL,
-  				`columnName` varchar(25) NOT NULL,
-  				PRIMARY KEY  (`ID`)
-				) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;";
-			
-			//继承自CDbCommand,准备执行sql语句的命令
-			$command = $conn->createCommand($sql);  
-			//执行no-query sql
-			if($command->execute()){
-				echo "init DB success","<br/>","executed sql statement:","<br/>";  
-				echo "<pre>";
-				print_r($command->text);
-				echo "</pre>";
-			}
-			//关闭连接
-			$conn->active = FALSE;
-		} catch (Exception $e) {
-			echo "初始化数据库出错:","<br />";
-			print_r($e->getMessage());
-			exit();
-		}
-		//$result = $command->queryAll();  //执行会返回若干行数据的sql语句，成功返回一个CDbDataReader实例，就是一个结果集
-		//var_dump($result);
-		
 	}
 	
 	/**
@@ -648,15 +583,19 @@ class SiteController extends Controller
 	 */
 	public function actionDeleteSheet($id){
 		if(Yii::app()->request->isAjaxRequest){
+			$configFilePath = Yii::getPathOfAlias('ext').'phpexcel_config.php';
+			require($configFilePath);					
+			$table_sheets = $configs['excel_sheets'];	
+			$table_columns = $configs['excel_columns'];	
 			$id = intval($id);
 			$conn = Yii::app()->db;
 			$sheet = $this->loadSheetModel($id);
 			$transaction = $conn->beginTransaction();
 			try {
 				$command = $conn->createCommand();
-				$command->delete(($this->excel_columns),'sheetID=:sheetID',array(':sheetID'=>$sheet->ID));
+				$command->delete(($table_columns),'sheetID=:sheetID',array(':sheetID'=>$sheet->ID));
 				$command->dropTable($sheet->sheetTableName);
-				$command->delete($this->excel_sheets,'ID=:ID',array(':ID'=>$id));
+				$command->delete($table_sheets,'ID=:ID',array(':ID'=>$id));
 				$transaction->commit();
 			} catch (CDbException $e) {
 				$transaction->rollback();

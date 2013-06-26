@@ -7,6 +7,12 @@ $this->pageTitle=Yii::app()->name;
 <!--tree-->
 <script type="text/javascript"> 
 $(document).ready(function(){
+	/**加载完页面后也要约束layout的高度
+	*/
+    //var height = $(window).height();
+    //height = height * 0.8;
+    //$('#layout').height(height);
+
 	$('#content').before($('.easyui-layout')).remove();
 	var treeList = <?php echo $treeList;?>;
 	$('#tree').tree({
@@ -46,17 +52,94 @@ $(document).ready(function(){
 });
 
 </script>
+<!--在线情况右键js代码开始-->
+<script type="text/javascript">
+  $(function(){
+    $('#dg1').datagrid({
+      url: '<?php echo Yii::app()->request->baseUrl; ?>/protected/data/online.json',
+      fitColumns: false,
+      columns:[[
+        {field:'name',title:'登录名',width:100},
+        {field:'time',title:'登录时间',width:100},
+        {field:'ip',title:'IP',width:100}
+      ]],
+      onHeaderContextMenu: function(e, field){
+        e.preventDefault();
+        if (!cmenu){
+          createColumnMenu();
+        }
+        cmenu.menu('show', {
+          left:e.pageX,
+          top:e.pageY
+        });
+      }
+    });
+  });
+  var cmenu;
+  function createColumnMenu(){
+    cmenu = $('<div/>').appendTo('body');
+    cmenu.menu({
+      onClick: function(item){
+        if (item.iconCls == 'icon-ok'){
+          $('#dg1').datagrid('hideColumn', item.name);
+          cmenu.menu('setIcon', {
+            target: item.target,
+            iconCls: 'icon-empty'
+          });
+        } else {
+          $('#dg1').datagrid('showColumn', item.name);
+          cmenu.menu('setIcon', {
+            target: item.target,
+            iconCls: 'icon-ok'
+          });
+        }
+      }
+    });
+    var fields = $('#dg1').datagrid('getColumnFields');
+    for(var i=0; i<fields.length; i++){
+      var field = fields[i];
+      var col = $('#dg1').datagrid('getColumnOption', field);
+      cmenu.menu('appendItem', {
+        text: col.title,
+        name: field,
+        iconCls: 'icon-ok'
+      });
+    }
+  }
+</script> <!--在线情况右键js代码结束-->
+
 <script type="text/javascript">
 	$(window).resize(function() {
-		$('#list').datagrid('resize');
+		//$('#list').datagrid('resize');
     	var width = $(this).width();
     	var height = $(this).height();
     	//alert(height);
     	height = height * 0.8;
     	//alert(height);
+    	//alert($(this).width());
+    	//alert($(this).height());
     	$('#layout').height(height);
-
+    	
 	});
+	$(window).load(function (){
+		var width = $(this).width();
+    	//var height = $(this).height();
+    	//height = height * 0.8;
+    	//alert('浏览器width:'+ $(this).width());
+    	//alert('浏览器height:'+ $(this).height());
+    	//$('#layout').height(height);
+    	$('#layout').width(width);
+    	//alert('west的width:' + $('#west').width());
+    	//alert('east的width:' + $('#east').width());
+    	//alert('center的width:' + $('#center').width());
+    	//alert('west + east + center:' + ($('#west').width() + $('#east').width() + $('#center').width()));
+    	
+    	//var hight = $('#center').width();
+    	//var width = $('#center').height();
+
+    	//$('#panel1').height(hight);
+    	//$('#panel1').width(width);
+	}); 
 	//table下td各宽度 tdW
 
 	//宽度相加获得整体宽  tableW
@@ -71,16 +154,37 @@ $(document).ready(function(){
 </script>
 <center>
     <!--布局控件-->
-	<div id="layout" class="easyui-layout" fit="true" style="width:100%;height:500px;">
+	<div id="layout" class="easyui-layout" fit="true" style="width:100%;height:300px;">
 	
 		<!--tree控件-->    
-        <div data-options="region:'west',split:true" title="Excel文件结构" style="width:180px;">
+        <div id="west" data-options="region:'west',split:true" title="Excel文件结构" style="width:180px;">
             <ul id="tree"></ul>
         </div>  
-         
+        <!--东部east开始-->
+        <div id="east" data-options="region:'east',split:false" style="width:196px;">  
+            <div class="easyui-accordion" data-options="fit:false,border:false,height:240">  
+                <div title="日历" >  
+                    <div id="cc" class="easyui-calendar"  style="margin:auto;width:194px;height:212px"></div>
+                </div>
+                <!--  data-options="width:180"
+                <div title="在线情况" data-options="selected:true" style="padding:10px;">  
+                    content2  
+                </div>  
+                <div title="Title3" style="padding:10px">  
+                    content3  
+                </div>  
+              -->
+            </div>
+            <div class="easyui-accordion" data-options="fit:false,border:false,height:250">
+                <div title="在线情况" >
+                    <table id="dg1" class="easyui-datagrid"  >  
+                    </table>
+                </div>
+            </div>
+        </div>
+
         <!-- datagrid -->
-        <div data-options="region:'center',title:'<?=$sheetTitle?>'" class="center"> 
-        	
+        <div id="center" data-options="region:'center',split:true,title:'<?=$sheetTitle?>'" class="center"> 
         		<div id="tb" style="padding:5px;height:auto;display:none;">   
         			<div style="margin-bottom:5px">  
         				<a href="javascript:void(0);" class="easyui-linkbutton" iconCls="icon-reload" plain=true onclick="reloadSheet()">刷新</a>
@@ -92,7 +196,7 @@ $(document).ready(function(){
                     	<a href="javascript:void(0);" class="easyui-linkbutton" iconCls="icon-cancel" plain=true onclick="removeSheet()">删除当前工作薄</a>
         			</div> 	 
    				</div>
-   				<table id= 'list' class="easyui-datagrid" data-options="fit:true,fitColumns:true" style="minwidth:500px"></table>
+   				<table id= 'list' class="easyui-datagrid"  style="minwidth:500px"></table>
    			
    			<div id="datagrid_view">
    				<?php $this->renderPartial('_index');?>
