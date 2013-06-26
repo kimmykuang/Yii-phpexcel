@@ -703,18 +703,15 @@ class SiteController extends Controller
 	 * @param unknown_type $configs
 	 * @param unknown_type $configFilePath
 	 */
-	public function InitDB(){
+	public function actionInitDB(){
 		
-		$db = $configs['dbname'];
-		$table_files = $configs['table_files'];
-		$table_sheets = $configs['table_sheets'];
-		$table_columns = $configs['table_columns'];
-		$config = WEB_ROOT_PATH.DIRECTORY_SEPARATOR.'protected/config/main.php';
-		$cf = require($config);
-		$username = $cf['components']['db']['username'];
-		$password = $cf['components']['db']['password'];
-		unset($cf);
+		$db = Yii::app()->params['excel_db'];
+		$table_files = Yii::app()->params['excel_files'];
+		$table_sheets = Yii::app()->params['excel_sheets'];
+		$table_columns = Yii::app()->params['excel_columns'];
 		$dsn = 'mysql:host=localhost;dbname=INFORMATION_SCHEMA';
+		$username = 'root';
+		$password = 'xiucai5880';
 		
 		try {
 			$conn = new CDbConnection($dsn,$username,$password); //继承自CDbConnection类，connectString来自配置文件/config/main.php
@@ -760,11 +757,6 @@ class SiteController extends Controller
 			$conn->active = FALSE;
 			$conn = Yii::app()->db;
 			$conn->active = TRUE;
-			//生成配置文件
-			$configStr = '<?php $configs=';
-			$configStr .= var_export($configs,TRUE);
-			$configStr .= ';?>';
-			@file_put_contents($configFilePath,$configStr);
 			
 		} catch (Exception $e) {
 			echo "初始化数据库出错:","<br />";
