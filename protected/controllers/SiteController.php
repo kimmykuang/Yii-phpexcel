@@ -145,7 +145,7 @@ class SiteController extends Controller
 					$file = $model->getAttribute('filePath');
 					//引入application.vendors.PHPExcel第三方库
 					Yii::import('application.vendors.*');
-					spl_autoload_unregister(array('YiiBase','autoload'));
+					
 					require_once 'PHPExcel/PHPExcel.php';
 					
 					// <!-- start file process -->
@@ -205,7 +205,7 @@ class SiteController extends Controller
 							//var_dump($fields);exit;
 							
 							// <!-- start transaction -->
-							spl_autoload_register(array('YiiBase','autoload'));
+							
 							$transaction = $conn->beginTransaction();					
 							try {
 								$configFilePath = Yii::getPathOfAlias('ext').'phpexcel_config.php';
@@ -268,12 +268,9 @@ class SiteController extends Controller
 					}
 					// <!-- end worksheets loop -->
 					// <!-- end file process -->
-					
-					//re-register autoload in Yii
-					spl_autoload_register(array('YiiBase','autoload'));
-	
-					//显示上传成功
-					//$this->actionIndex();
+				
+					//成功跳转
+					$this->redirect(array('site/index'));
 				}
 			}
 		}
@@ -431,7 +428,7 @@ class SiteController extends Controller
 		//组装数据
 		foreach ($sheets as $sheetIndex => $sheet){
 			try {
-				spl_autoload_register(array('YiiBase','autoload'));
+				
 				$data = $columnArray = array();
 				$selectstr = $comma = "";
 				foreach ($sheet->columns as $column){
