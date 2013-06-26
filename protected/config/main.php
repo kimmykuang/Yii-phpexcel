@@ -107,7 +107,7 @@ return array(
 	'params'=>array(
 		// this is used in contact page
 		'adminEmail'=>'webmaster@example.com',
-		'excel_db'=>'phpexcel', //Yii::app()->params['uploadPath']
+		'excel_db'=>'phpexcel', //Yii::app()->params['excel_db']
 		'excel_files'=>'excel_files',
 		'excel_sheets'=>'excel_sheets',
 		'excel_columns'=>'excel_columns',
