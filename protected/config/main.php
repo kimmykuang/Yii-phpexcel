@@ -7,7 +7,7 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'PHP Excel',
+	'name'=>'Yii-PHPExcel',
 	'timeZone'=>'Asia/Shanghai',
 	'language'=>'zh_cn',
 	// preloading 'log' component
@@ -90,14 +90,14 @@ return array(
 				),
 				// uncomment the following to show log messages on web pages
 				
-				
+				/*
 				array(
 					'class'=>'CWebLogRoute',
 					//添加的内容
      				'levels' =>'trace',
      				'categories' => 'system.db*',
 				),
-				
+				*/
 			),
 		),
 	),

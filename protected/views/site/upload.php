@@ -1,7 +1,5 @@
 <?php
-/* @var $this SiteController */
-
-$this->pageTitle=Yii::app()->name;
+$this->pageTitle = CHtml::encode(iconv('gbk','utf-8',Yii::app()->name)).' | '.$pageTitle;
 ?>
 
 

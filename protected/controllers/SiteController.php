@@ -10,11 +10,12 @@ class SiteController extends Controller
 	{
 		$dyData = $dyCols = $treeArray = array();
 		$files = File::model()->findAll();
-		$sheetTitle = 'Yii-PHPExcel首页';
+		$pageTitle = '首页';
 		// <!-- start tree list -->
 		$treeArray['id'] = 1;
 		$treeArray['text'] = 'All Documents';
-		$treeArray['attributes'] = array('sheetID'=>'');
+		$treeArray['attributes'] = array('lvl'=>1,'nodeid'=>0);
+		$treeArray['state'] = 'closed';
 		$i = 0;
 		foreach ($files as $file){
 			$i++;
@@ -22,16 +23,16 @@ class SiteController extends Controller
 			$children_file = array();
 			$children_file['id'] = $treeArray['id'].$i;
 			$children_file['text'] = $file->fileTitle;
-			
+			$children_file['attributes'] = array('lvl'=>2,'nodeid'=>$file->ID);
+			$children_file['state'] = 'closed';
 			foreach ($file->sheets as $sheet){
 				$j++;
 				$children_file['children'][] = array(
 					'id'=>$children_file['id'].$j,
 					'text'=>$sheet->sheetTitle,
-					'attributes'=>array('sheetID'=>$sheet->ID),
+					'attributes'=>array('lvl'=>3,'nodeid'=>$sheet->ID),
 				);
 			}
-			$children_file['attributes'] = array('sheetID'=>'');
 			$treeArray['children'][] = $children_file;
 		}
 		$treeList = '['.json_encode($treeArray).']';
@@ -39,7 +40,7 @@ class SiteController extends Controller
 
 		$this->render('index',array(
 			'treeList'=>$treeList,
-			'sheetTitle'=>$sheetTitle,
+			'pageTitle'=>$pageTitle,
 		));
 	}
 	
@@ -107,6 +108,7 @@ class SiteController extends Controller
 		header("Content-Type:text/html;charset=utf-8");
 		ini_set('display_errors', 1);
 		error_reporting(E_ALL );
+		$pageTitle = '文件上传';
 		//加载模型
 		$model = new File();
 		if(isset($_POST['File'])){
@@ -115,7 +117,7 @@ class SiteController extends Controller
 			$tmpFile = CUploadedFile::getInstance($model,'excelfile');
 			if(empty($tmpFile)){
 				//这里需要使用一个更好地错误提示，同时前端也做一个检验用户是否提交文件
-				$this->redirect(array('site/upload','model'=>$model));
+				$this->redirect(array('site/upload','model'=>$model,'pageTitle'=>$pageTitle));
 				//exit;
 			}
 			$newName = time().rand(1,10000).'.'.$tmpFile->extensionName;
@@ -206,11 +208,9 @@ class SiteController extends Controller
 							
 							$transaction = $conn->beginTransaction();					
 							try {
-								$configFilePath = Yii::getPathOfAlias('ext').'phpexcel_config.php';
-								require($configFilePath);
 								
-								$table_sheets = $configs['excel_sheets'];	
-								$table_columns = $configs['excel_columns'];	
+								$table_sheets = Yii::app()->params['excel_sheets'];	
+								$table_columns = Yii::app()->params['excel_columns'];	
 								//插入excel_sheets表
 								$sql1 = "INSERT INTO `$table_sheets` VALUES (null,'$fileID','$currentSheetTitle','$currentSheetTableName');";
 								//echo $sql1,"<br/>";
@@ -273,7 +273,10 @@ class SiteController extends Controller
 			}
 		}
 		
-		$this->render('upload',array('model'=>$model));
+		$this->render('upload',array(
+			'model'=>$model,
+			'pageTitle'=>$pageTitle,
+		));
 		
 	}
 	
@@ -532,18 +535,15 @@ class SiteController extends Controller
 	}
 	
 	/**
-	 * 
-	 * 删除worksheet
+	 * 假删除,标记不显示,再对冗余数据定时进行清理
 	 * 事务控制删除流程:删除关联columns->删除数据表->删除关联sheets表中记录
-	 * @param int $id (sheetID)
 	 */
-	public function actionDeleteSheet($id){
-		if(Yii::app()->request->isAjaxRequest){
-			$configFilePath = Yii::getPathOfAlias('ext').'phpexcel_config.php';
-			require($configFilePath);					
-			$table_sheets = $configs['excel_sheets'];	
-			$table_columns = $configs['excel_columns'];	
-			$id = intval($id);
+	public function actionDelete(){
+		if(Yii::app()->request->isAjaxRequest){		
+			$table_sheets = Yii::app()->params['excel_sheets'];	
+			$table_columns = Yii::app()->params['excel_columns'];	
+			$id = intval($_POST['id']);
+			$type = $_POST['lvl'];
 			$conn = Yii::app()->db;
 			$sheet = $this->loadSheetModel($id);
 			$transaction = $conn->beginTransaction();
@@ -700,8 +700,6 @@ class SiteController extends Controller
 	/**
 	 * 
 	 * 重置数据库
-	 * @param unknown_type $configs
-	 * @param unknown_type $configFilePath
 	 */
 	public function actionInitDB(){
 		
