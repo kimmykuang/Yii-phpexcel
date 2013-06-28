@@ -4,19 +4,18 @@ class SiteController extends Controller
 {	
 	
 	/**
-	 * 
 	 * default action 
-	 * 
 	 */
 	public function actionIndex()
 	{
 		$dyData = $dyCols = $treeArray = array();
 		$files = File::model()->findAll();
-		$sheetTitle = 'Yii-PHPExcel首页';
+		$pageTitle = '首页';
 		// <!-- start tree list -->
 		$treeArray['id'] = 1;
 		$treeArray['text'] = 'All Documents';
-		$treeArray['attributes'] = array('sheetID'=>'');
+		$treeArray['attributes'] = array('lvl'=>1,'nodeid'=>0);
+		$treeArray['state'] = 'closed';
 		$i = 0;
 		foreach ($files as $file){
 			$i++;
@@ -24,16 +23,16 @@ class SiteController extends Controller
 			$children_file = array();
 			$children_file['id'] = $treeArray['id'].$i;
 			$children_file['text'] = $file->fileTitle;
-			
+			$children_file['attributes'] = array('lvl'=>2,'nodeid'=>$file->ID);
+			$children_file['state'] = 'closed';
 			foreach ($file->sheets as $sheet){
 				$j++;
 				$children_file['children'][] = array(
 					'id'=>$children_file['id'].$j,
 					'text'=>$sheet->sheetTitle,
-					'attributes'=>array('sheetID'=>$sheet->ID),
+					'attributes'=>array('lvl'=>3,'nodeid'=>$sheet->ID),
 				);
 			}
-			$children_file['attributes'] = array('sheetID'=>'');
 			$treeArray['children'][] = $children_file;
 		}
 		$treeList = '['.json_encode($treeArray).']';
@@ -41,7 +40,7 @@ class SiteController extends Controller
 
 		$this->render('index',array(
 			'treeList'=>$treeList,
-			'sheetTitle'=>$sheetTitle,
+			'pageTitle'=>$pageTitle,
 		));
 	}
 	/**
@@ -148,6 +147,7 @@ class SiteController extends Controller
 		header("Content-Type:text/html;charset=utf-8");
 		ini_set('display_errors', 1);
 		error_reporting(E_ALL );
+		$pageTitle = '文件上传';
 		//加载模型
 		$model = new File();
 		if(isset($_POST['File'])){
@@ -156,7 +156,7 @@ class SiteController extends Controller
 			$tmpFile = CUploadedFile::getInstance($model,'excelfile');
 			if(empty($tmpFile)){
 				//这里需要使用一个更好地错误提示，同时前端也做一个检验用户是否提交文件
-				$this->redirect(array('site/upload','model'=>$model));
+				$this->redirect(array('site/upload','model'=>$model,'pageTitle'=>$pageTitle));
 				//exit;
 			}
 			$newName = time().rand(1,10000).'.'.$tmpFile->extensionName;
@@ -184,7 +184,7 @@ class SiteController extends Controller
 					$file = $model->getAttribute('filePath');
 					//引入application.vendors.PHPExcel第三方库
 					Yii::import('application.vendors.*');
-					spl_autoload_unregister(array('YiiBase','autoload'));
+					
 					require_once 'PHPExcel/PHPExcel.php';
 					
 					// <!-- start file process -->
@@ -244,14 +244,12 @@ class SiteController extends Controller
 							//var_dump($fields);exit;
 							
 							// <!-- start transaction -->
-							spl_autoload_register(array('YiiBase','autoload'));
+							
 							$transaction = $conn->beginTransaction();					
 							try {
-								$configFilePath = Yii::getPathOfAlias('ext').'phpexcel_config.php';
-								require($configFilePath);
 								
-								$table_sheets = $configs['excel_sheets'];	
-								$table_columns = $configs['excel_columns'];	
+								$table_sheets = Yii::app()->params['excel_sheets'];	
+								$table_columns = Yii::app()->params['excel_columns'];	
 								//插入excel_sheets表
 								$sql1 = "INSERT INTO `$table_sheets` VALUES (null,'$fileID','$currentSheetTitle','$currentSheetTableName');";
 								//echo $sql1,"<br/>";
@@ -307,17 +305,17 @@ class SiteController extends Controller
 					}
 					// <!-- end worksheets loop -->
 					// <!-- end file process -->
-					
-					//re-register autoload in Yii
-					spl_autoload_register(array('YiiBase','autoload'));
-	
-					//显示上传成功
-					//$this->actionIndex();
+				
+					//成功跳转
+					$this->redirect(array('site/index'));
 				}
 			}
 		}
 		
-		$this->render('upload',array('model'=>$model));
+		$this->render('upload',array(
+			'model'=>$model,
+			'pageTitle'=>$pageTitle,
+		));
 		
 	}
 	
@@ -470,7 +468,7 @@ class SiteController extends Controller
 		//组装数据
 		foreach ($sheets as $sheetIndex => $sheet){
 			try {
-				spl_autoload_register(array('YiiBase','autoload'));
+				
 				$data = $columnArray = array();
 				$selectstr = $comma = "";
 				foreach ($sheet->columns as $column){
@@ -576,18 +574,15 @@ class SiteController extends Controller
 	}
 	
 	/**
-	 * 
-	 * 删除worksheet
+	 * 假删除,标记不显示,再对冗余数据定时进行清理
 	 * 事务控制删除流程:删除关联columns->删除数据表->删除关联sheets表中记录
-	 * @param int $id (sheetID)
 	 */
-	public function actionDeleteSheet($id){
-		if(Yii::app()->request->isAjaxRequest){
-			$configFilePath = Yii::getPathOfAlias('ext').'phpexcel_config.php';
-			require($configFilePath);					
-			$table_sheets = $configs['excel_sheets'];	
-			$table_columns = $configs['excel_columns'];	
-			$id = intval($id);
+	public function actionDelete(){
+		if(Yii::app()->request->isAjaxRequest){		
+			$table_sheets = Yii::app()->params['excel_sheets'];	
+			$table_columns = Yii::app()->params['excel_columns'];	
+			$id = intval($_POST['id']);
+			$type = $_POST['lvl'];
 			$conn = Yii::app()->db;
 			$sheet = $this->loadSheetModel($id);
 			$transaction = $conn->beginTransaction();
@@ -739,6 +734,73 @@ class SiteController extends Controller
 			$istr = "";
 		}
 		return $sql;
+	}
+
+	/**
+	 * 
+	 * 重置数据库
+	 */
+	public function actionInitDB(){
+		
+		$db = Yii::app()->params['excel_db'];
+		$table_files = Yii::app()->params['excel_files'];
+		$table_sheets = Yii::app()->params['excel_sheets'];
+		$table_columns = Yii::app()->params['excel_columns'];
+		$dsn = 'mysql:host=localhost;dbname=INFORMATION_SCHEMA';
+		$username = 'root';
+		$password = 'xiucai5880';
+		
+		try {
+			$conn = new CDbConnection($dsn,$username,$password); //继承自CDbConnection类，connectString来自配置文件/config/main.php
+			$conn->active = TRUE;  //激活连接
+			$sql = "DROP DATABASE IF EXISTS `$db`;
+				CREATE DATABASE IF NOT EXISTS `$db` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+				CREATE TABLE `$db`.`$table_files` (
+  				`ID` int(10) NOT NULL auto_increment,
+  				`fileTitle` nvarchar(50) NOT NULL,
+  				`filePath` nvarchar(100) NOT NULL,
+  				`uploadTime` varchar(22) NOT NULL default '0000-00-00 00:00',
+  				`userIp` varchar(16) NOT NULL default '0.0.0.0',
+  				`fileType` varchar(5) NOT NULL default 'xlsx',
+  				`lastModifyTime` varchar(22) NOT NULL default '0000-00-00 00:00',
+  				`lastModifyUserIp` varchar(16) NOT NULL default '0.0.0.0',
+  				PRIMARY KEY  (`ID`)
+				) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+				CREATE TABLE `$db`.`$table_sheets` (
+  				`ID` int(10) NOT NULL auto_increment,
+  				`fileID` int(10) NOT NULL,
+  				`sheetTitle` nvarchar(70) NOT NULL,
+  				`sheetTableName` varchar(50) NOT NULL,
+  				PRIMARY KEY  (`ID`)
+				) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+				CREATE TABLE `$db`.`$table_columns` (
+  				`ID` int(10) NOT NULL auto_increment,
+  				`sheetID` int(10) NOT NULL,
+  				`columnTitle` nvarchar(50) NOT NULL,
+  				`columnName` varchar(25) NOT NULL,
+  				PRIMARY KEY  (`ID`)
+				) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;";
+			
+			//继承自CDbCommand,准备执行sql语句的命令
+			$command = $conn->createCommand($sql);  
+			//执行no-query sql
+			if($command->execute()){
+				echo "init DB success","<br/>","executed sql statement:","<br/>";  
+				echo "<pre>";
+				print_r($command->text);
+				echo "</pre>";
+			}
+			//关闭连接
+			$conn->active = FALSE;
+			$conn = Yii::app()->db;
+			$conn->active = TRUE;
+			
+		} catch (Exception $e) {
+			echo "初始化数据库出错:","<br />";
+			print_r($e->getMessage());
+			exit();
+		}
+		$this->redirect(array('site/index'));
 	}
 								
 }

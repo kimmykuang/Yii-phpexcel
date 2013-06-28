@@ -6696,3 +6696,197 @@ Stack trace:
 REQUEST_URI=/phpexcel/site/initdb
 >>>>>>> 367c8bcc23b3c2dae43b9ebf0d21e760ea851849
 ---
+2013/06/26 17:06:03 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection 无法开启数据库连线: SQLSTATE[42000] [1049] Unknown database 'phpexcel'' in D:\wamp\www\phpexcel\framework\db\CDbConnection.php:383
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\db\CDbConnection.php(332): CDbConnection->open()
+#1 D:\wamp\www\phpexcel\framework\db\CDbConnection.php(310): CDbConnection->setActive(true)
+#2 D:\wamp\www\phpexcel\framework\base\CModule.php(388): CDbConnection->init()
+#3 D:\wamp\www\phpexcel\framework\base\CModule.php(104): CModule->getComponent('db')
+#4 D:\wamp\www\phpexcel\protected\controllers\InstallController.php(33): CModule->__get('db')
+#5 D:\wamp\www\phpexcel\protected\controllers\InstallController.php(21): InstallController->InitDB(Array, 'D:\wamp\www\php...')
+#6 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): InstallController->actionIndex()
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#8 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#9 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('')
+#11 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('')
+#12 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#13 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/phpexcel/
+HTTP_REFERER=http://127.0.0.1/phpexcel/
+---
+2013/06/26 17:38:10 [error] [exception.CException] exception 'CException' with message 'Yii 应用程序只能被产生一次.' in D:\wamp\www\phpexcel\framework\YiiBase.php:154
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\base\CApplication.php(123): YiiBase::setApplication(Object(CWebApplication))
+#1 D:\wamp\www\phpexcel\framework\YiiBase.php(127): CApplication->__construct('D:\wamp\www\php...')
+#2 D:\wamp\www\phpexcel\framework\YiiBase.php(100): YiiBase::createApplication('CWebApplication', 'D:\wamp\www\php...')
+#3 D:\wamp\www\phpexcel\protected\controllers\InstallController.php(10): YiiBase::createWebApplication('D:\wamp\www\php...')
+#4 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(50): InstallController->actionIndex()
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('')
+#9 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('')
+#10 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/phpexcel/
+---
+2013/06/27 11:11:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "login" 动作.' in D:\wamp\www\phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(271): CController->missingAction('login')
+#1 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('login')
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/login')
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/login.html
+HTTP_REFERER=http://127.0.0.1/phpexcel/
+---
+2013/06/27 11:13:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "page" 动作.' in D:\wamp\www\phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(271): CController->missingAction('page')
+#1 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('page')
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/page')
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/page.html?view=about
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/index.html
+---
+2013/06/27 11:15:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "contact" 动作.' in D:\wamp\www\phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(271): CController->missingAction('contact')
+#1 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('contact')
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/contact')
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/contact.html
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/index.html
+---
+2013/06/27 11:19:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "about" 动作.' in D:\wamp\www\phpexcel\framework\web\CController.php:484
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(271): CController->missingAction('about')
+#1 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('about')
+#2 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/about')
+#3 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/phpexcel/site/about.html
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/upload.html
+---
+2013/06/27 11:33:42 [error] [php] SiteController::require(D:\wamp\www\phpexcel\protected\extensionsphpexcel_config.php) [<a href='function.SiteController-require'>function.SiteController-require</a>]: failed to open stream: No such file or directory (D:\wamp\www\phpexcel\protected\controllers\SiteController.php:211)
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#1 D:\wamp\www\phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#2 D:\wamp\www\phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#3 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#4 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#5 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\wamp\www\phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/site/upload
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (211)
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (211)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/27 11:36:59 [error] [php] SiteController::require(D:\wamp\www\phpexcel\protected\extensionsphpexcel_config.php) [<a href='function.SiteController-require'>function.SiteController-require</a>]: failed to open stream: No such file or directory (D:\wamp\www\phpexcel\protected\controllers\SiteController.php:545)
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs()
+#1 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#2 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 D:\wamp\www\phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#5 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#6 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#7 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 D:\wamp\www\phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/site/deletesheet.html?id=
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (545)
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (545)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/27 11:37:12 [error] [php] SiteController::require(D:\wamp\www\phpexcel\protected\extensionsphpexcel_config.php) [<a href='function.SiteController-require'>function.SiteController-require</a>]: failed to open stream: No such file or directory (D:\wamp\www\phpexcel\protected\controllers\SiteController.php:545)
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs()
+#1 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#2 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 D:\wamp\www\phpexcel\framework\web\CController.php(287): SiteController->runAction()
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#5 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): SiteController->run()
+#6 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#7 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 D:\wamp\www\phpexcel\index.php(13): CWebApplication->run()
+REQUEST_URI=/phpexcel/site/deletesheet.html?id=
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (545)
+in D:\wamp\www\phpexcel\protected\controllers\SiteController.php (545)
+in D:\wamp\www\phpexcel\index.php (13)
+2013/06/27 11:37:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in D:\wamp\www\phpexcel\protected\controllers\SiteController.php:352
+Stack trace:
+#0 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(548): SiteController->loadSheetModel(0)
+#1 [internal function]: SiteController->actionDeleteSheet('')
+#2 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#3 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('deletesheet')
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/deleteshee...')
+#9 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/phpexcel/site/deletesheet.html?id=
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/index.html
+---
+2013/06/27 11:57:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in D:\wamp\www\phpexcel\protected\controllers\SiteController.php:352
+Stack trace:
+#0 D:\wamp\www\phpexcel\protected\controllers\SiteController.php(390): SiteController->loadSheetModel(0)
+#1 [internal function]: SiteController->actionDownload('', 'sheet')
+#2 D:\wamp\www\phpexcel\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#3 D:\wamp\www\phpexcel\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#4 D:\wamp\www\phpexcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#6 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('download')
+#8 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/download')
+#9 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/phpexcel/site/download.html?id=&type=sheet
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/index.html
+---
+2013/06/27 16:44:42 [error] [exception.CHttpException.400] exception 'CHttpException' with message '您的请求无效。' in D:\wamp\www\phpexcel\framework\web\CController.php:337
+Stack trace:
+#0 D:\wamp\www\phpexcel\framework\web\CController.php(310): CController->invalidActionParams(Object(CInlineAction))
+#1 D:\wamp\www\phpexcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#2 D:\wamp\www\phpexcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(276): CController->run('delete')
+#4 D:\wamp\www\phpexcel\framework\web\CWebApplication.php(135): CWebApplication->runController('site/delete')
+#5 D:\wamp\www\phpexcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\wamp\www\phpexcel\index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/phpexcel/site/delete.html
+HTTP_REFERER=http://127.0.0.1/phpexcel/site/index.html
+---
+2013/06/28 11:07:35 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\windows\TEMP\#sql_79c_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `excel_sheets`.
+in E:\WWW\www\phpExcel\protected\controllers\SiteController.php (28)
+in E:\WWW\www\phpExcel\index.php (13)
+2013/06/28 11:07:35 [error] [exception.CDbException] exception 'CDbException' with message '数据库中无法找到 active record class "Sheet" 对应的 table "{{sheets}}".' in E:\WWW\www\phpExcel\framework\db\ar\CActiveRecord.php:2268
+Stack trace:
+#0 E:\WWW\www\phpExcel\framework\db\ar\CActiveRecord.php(382): CActiveRecordMetaData->__construct(Object(Sheet))
+#1 E:\WWW\www\phpExcel\framework\db\ar\CActiveFinder.php(219): CActiveRecord::model('Sheet')
+#2 E:\WWW\www\phpExcel\framework\db\ar\CActiveFinder.php(49): CActiveFinder->buildJoinTree(Object(CJoinElement), 'sheets')
+#3 E:\WWW\www\phpExcel\framework\db\ar\CActiveRecord.php(271): CActiveFinder->__construct(Object(File), 'sheets')
+#4 E:\WWW\www\phpExcel\framework\db\ar\CActiveRecord.php(143): CActiveRecord->getRelated('sheets')
+#5 E:\WWW\www\phpExcel\protected\controllers\SiteController.php(28): CActiveRecord->__get('sheets')
+#6 E:\WWW\www\phpExcel\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#7 E:\WWW\www\phpExcel\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#8 E:\WWW\www\phpExcel\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#9 E:\WWW\www\phpExcel\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 E:\WWW\www\phpExcel\framework\web\CWebApplication.php(276): CController->run('')
+#11 E:\WWW\www\phpExcel\framework\web\CWebApplication.php(135): CWebApplication->runController('')
+#12 E:\WWW\www\phpExcel\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#13 E:\WWW\www\phpExcel\index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/phpExcel/
+HTTP_REFERER=http://localhost/
+---

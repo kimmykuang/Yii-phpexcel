@@ -7,7 +7,7 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'PHP Excel',
+	'name'=>'Yii-PHPExcel',
 	'timeZone'=>'Asia/Shanghai',
 	'language'=>'zh_cn',
 	// preloading 'log' component
@@ -99,7 +99,6 @@ return array(
      				'levels' =>'trace',
      				'categories' => 'system.db*',
 				),
-				
 			),
 		),
 		*/
@@ -111,7 +110,7 @@ return array(
 	'params'=>array(
 		// this is used in contact page
 		'adminEmail'=>'webmaster@example.com',
-		'excel_db'=>'phpexcel', //Yii::app()->params['uploadPath']
+		'excel_db'=>'phpexcel', //Yii::app()->params['excel_db']
 		'excel_files'=>'excel_files',
 		'excel_sheets'=>'excel_sheets',
 		'excel_columns'=>'excel_columns',
