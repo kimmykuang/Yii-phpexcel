@@ -97,7 +97,7 @@ $this->pageTitle = CHtml::encode(iconv('gbk','utf-8',Yii::app()->name)).' | '.$p
         </div>
         
         <!-- datagrid -->
-        <div id="center" data-options="region:'center',split:true,title:'<?=$sheetTitle?>'" class="center"> 
+        <div id="center" data-options="region:'center',split:true" class="center"> 
         		<div id="tb" style="padding:5px;height:auto;display:none;">   
         			<div style="margin-bottom:5px">  
         				<a href="javascript:void(0);" class="easyui-linkbutton" iconCls="icon-reload" plain=true onclick="reloadSheet()">刷新</a>
@@ -326,7 +326,12 @@ function removeItem(){
 				if(r){
 					url = '<?php echo Yii::app()->createUrl('site/crud');?>'+'?id='+row.ID+'&ac=delete&sheetID='+node.attributes['nodeid'];
 					$.post(url,function(result){
-						if(result){
+						var result = eval('('+result+')');
+						if(!result.flag){
+							$.messager.alert('错误提示',result.errorMsg,'info',function(){
+								$('#list').datagrid('reload');
+							});
+						}else{
 							$('#list').datagrid('reload');
 							$.messager.alert('消息提示','数据删除成功');
 						}
@@ -346,7 +351,13 @@ function saveDataForm(){
 	$('#datafm').form('submit',{
 		url:url,
 		success:function(result){
-			if(result){
+			var result = eval('('+result+')');
+			if(!result.flag){
+				$.messager.alert('错误提示',result.errorMsg,'info',function(){
+					$('#dlg2').dialog('close');
+					$('#list').datagrid('reload');
+				});
+			}else{
 				$('#dlg2').dialog('close');
 				$('#list').datagrid('reload');
 			}

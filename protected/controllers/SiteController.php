@@ -87,13 +87,20 @@ class SiteController extends Controller
 		$dyData['rows'] = array();
 		// <!-- start dyData -->
 		$conn = Yii::app()->db;
-		$count = $conn->createCommand()->select('COUNT(*)')->from($sheet->sheetTableName)->queryScalar();
-		$startIndex = ($page-1)*$rows;
-		$dataReader = $conn->createCommand()->select()->from($sheet->sheetTableName)->limit($rows,$startIndex)->query();
-		//$dataReader->readAll() //返回所有结果集到数组
+		try {
+			$count = $conn->createCommand()->select('COUNT(*)')->from($sheet->sheetTableName)->queryScalar();
+			$startIndex = ($page-1)*$rows;
+			$dataReader = $conn->createCommand()->select()->from($sheet->sheetTableName)->limit($rows,$startIndex)->query();
+			//$dataReader->readAll() //返回所有结果集到数组
 		
-		while (($row=$dataReader->read()) !== FALSE){
-			$dyData['rows'][] = $row;
+			while (($row=$dataReader->read()) !== FALSE){
+				$dyData['rows'][] = $row;
+			}
+		} catch (CDbException $e) {
+			$dyData['total'] = 0;
+			$dyData['errorMsg'] = $e->getMessage();
+			$dyData = json_encode($dyData);
+			echo $dyData;exit;
 		}
 		$dyData['total'] = intval($count);
 		$dyData = json_encode($dyData);
@@ -448,56 +455,61 @@ class SiteController extends Controller
 		
 		$actions = array('insert','update','delete');
 		if(!in_array($ac,$actions)){
-			throw new CHttpException(404,'The requested page does not exist.');
+			//throw new CHttpException(404,'The requested page does not exist.');
+			echo json_encode(array('flag'=>FALSE,'errorMsg'=>'请求错误，请重试！'));
 			exit;
 		}
 		$id = intval($id);
 		$sheetID = intval($sheetID);
+		$affected_rows = 0;
 		$sheet = $this->loadSheetModel($sheetID);
 		$conn = Yii::app()->db;
 		$transaction = $conn->beginTransaction();
 		switch ($ac){
 			case 'delete':	
 				try {
-					$conn->createCommand()->delete($sheet->sheetTableName,'ID=:id',array(':id'=>$id));
+					$affected_rows = $conn->createCommand()->delete($sheet->sheetTableName,'ID=:id',array(':id'=>$id));
 					$transaction->commit();
-					echo json_encode(array('flag'=>true));
+					if(empty($affected_rows)){
+						echo json_encode(array('flag'=>FALSE,'errorMsg'=>'数据已经发生变化，请在页面刷新后再操作'));
+						exit;
+					}
 				} catch (CDbException $e) {
 					$transaction->rollback();
-					echo "<pre>";
-					print_r($e->getMessage());
-					echo "</pre>";
+					echo json_encode(array('flag'=>FALSE,'errorMsg'=>$e->getMessage()));
+					exit;
 				}
 				break;
 			case 'insert':
 				if(isset($_POST['colData'])){
 					try {
-						$conn->createCommand()->insert($sheet->sheetTableName, $_POST['colData']);
+						$affected_rows = $conn->createCommand()->insert($sheet->sheetTableName, $_POST['colData']);
 						$transaction->commit();
-						echo json_encode(array('flag'=>true));
+						if(empty($affected_rows)){
+							echo json_encode(array('flag'=>FALSE,'errorMsg'=>'数据已经发生变化，请在页面刷新后再操作'));
+							exit;
+						}
 					} catch (CDbException $e) {
 						$transaction->rollback();
-						echo "<pre>";
-						print_r($e->getMessage());
-						echo "</pre>";
+						echo json_encode(array('flag'=>FALSE,'errorMsg'=>$e->getMessage()));
+						exit;
 					}
 				}
 				break;
 			case 'update':
 				if(isset($_POST['colData'])){
 					try {
-						$conn->createCommand()->update($sheet->sheetTableName, $_POST['colData'],'ID=:id',array(':id'=>$id));
+						$affected_rows = $conn->createCommand()->update($sheet->sheetTableName, $_POST['colData'],'ID=:id',array(':id'=>$id));
 						$transaction->commit();
-						echo json_encode(array('flag'=>true));
 					} catch (CDbException $e) {
 						$transaction->rollback();
-						echo "<pre>";
-						print_r($e->getMessage());
-						echo "</pre>";
+						echo json_encode(array('flag'=>FALSE,'errorMsg'=>$e->getMessage()));
+						exit;
 					}
 				}
 				break;
 		}
+		echo json_encode(array('flag'=>true));
 		exit;
 	}
 	
