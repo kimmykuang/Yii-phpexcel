@@ -8,78 +8,44 @@ class SiteController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dyData = $dyCols = $treeArray = array();
-		$files = File::model()->findAll();
 		$pageTitle = '首页';
-		// <!-- start tree list -->
+		$treeArray = array();
+		$conn = Yii::app()->db;
+		$command = $conn->createCommand();
+		$files = $command->select()->from(Yii::app()->params['excel_files'])->where('`fDelete` = :fDelete',array(':fDelete'=>'0'))->queryAll();
+		$command->reset();
 		$treeArray['id'] = 1;
 		$treeArray['text'] = 'All Documents';
 		$treeArray['attributes'] = array('lvl'=>1,'nodeid'=>0);
-		$treeArray['state'] = 'closed';
+		$treeArray['state'] = 'open';
 		$i = 0;
 		foreach ($files as $file){
 			$i++;
 			$j = 0;
 			$children_file = array();
 			$children_file['id'] = $treeArray['id'].$i;
-			$children_file['text'] = $file->fileTitle;
-			$children_file['attributes'] = array('lvl'=>2,'nodeid'=>$file->ID);
+			$children_file['text'] = $file['fileTitle'];
+			$children_file['attributes'] = array('lvl'=>2,'nodeid'=>$file['ID']);
 			$children_file['state'] = 'closed';
-			foreach ($file->sheets as $sheet){
+			
+			$sheets = $command->select()->from(Yii::app()->params['excel_sheets'])->where(array('and','sDelete=:sDelete','fileID=:fileID'),array(':sDelete'=>'0',':fileID'=>$file['ID']))->queryAll();
+			//$command->reset();
+			
+			foreach ($sheets as $sheet){
 				$j++;
 				$children_file['children'][] = array(
 					'id'=>$children_file['id'].$j,
-					'text'=>$sheet->sheetTitle,
-					'attributes'=>array('lvl'=>3,'nodeid'=>$sheet->ID),
+					'text'=>$sheet['sheetTitle'],
+					'attributes'=>array('lvl'=>3,'nodeid'=>$sheet['ID']),
 				);
 			}
 			$treeArray['children'][] = $children_file;
 		}
 		$treeList = '['.json_encode($treeArray).']';
-		// <!-- end tree list -->
 
 		$this->render('index',array(
 			'treeList'=>$treeList,
 			'pageTitle'=>$pageTitle,
-		));
-	}
-	/**
-	 * 测试布局用的action:index1
-	 */
-	public function actionIndex1()
-	{
-		$dyData = $dyCols = $treeArray = array();
-		$files = File::model()->findAll();
-		$sheetTitle = 'Yii-PHPExcel首页';
-		// <!-- start tree list -->
-		$treeArray['id'] = 1;
-		$treeArray['text'] = 'All Documents';
-		$treeArray['attributes'] = array('sheetID'=>'');
-		$i = 0;
-		foreach ($files as $file){
-			$i++;
-			$j = 0;
-			$children_file = array();
-			$children_file['id'] = $treeArray['id'].$i;
-			$children_file['text'] = $file->fileTitle;
-			
-			foreach ($file->sheets as $sheet){
-				$j++;
-				$children_file['children'][] = array(
-					'id'=>$children_file['id'].$j,
-					'text'=>$sheet->sheetTitle,
-					'attributes'=>array('sheetID'=>$sheet->ID),
-				);
-			}
-			$children_file['attributes'] = array('sheetID'=>'');
-			$treeArray['children'][] = $children_file;
-		}
-		$treeList = '['.json_encode($treeArray).']';
-		// <!-- end tree list -->
-
-		$this->render('index1',array(
-			'treeList'=>$treeList,
-			'sheetTitle'=>$sheetTitle,
 		));
 	}
 
@@ -149,7 +115,7 @@ class SiteController extends Controller
 		error_reporting(E_ALL );
 		$pageTitle = '文件上传';
 		//加载模型
-		$model = new File();
+		$model = new File('create');
 		if(isset($_POST['File'])){
 			
 			//获取上传文件对象
@@ -161,7 +127,7 @@ class SiteController extends Controller
 			}
 			$newName = time().rand(1,10000).'.'.$tmpFile->extensionName;
 			//获取文件的基本信息
-			$model->setAttribute('fileTitle',$tmpFile->name);
+			$model->setAttribute('fileTitle',substr($tmpFile->name,0,strrpos($tmpFile->name, '.')));
 			
 			$model->setAttribute('fileType',$tmpFile->extensionName);
 
@@ -251,7 +217,7 @@ class SiteController extends Controller
 								$table_sheets = Yii::app()->params['excel_sheets'];	
 								$table_columns = Yii::app()->params['excel_columns'];	
 								//插入excel_sheets表
-								$sql1 = "INSERT INTO `$table_sheets` VALUES (null,'$fileID','$currentSheetTitle','$currentSheetTableName');";
+								$sql1 = "INSERT INTO `$table_sheets` VALUES (null,'$fileID','$currentSheetTitle','$currentSheetTableName','0');";
 								//echo $sql1,"<br/>";
 								$conn->createCommand($sql1)->execute();
 								
@@ -316,7 +282,6 @@ class SiteController extends Controller
 			'model'=>$model,
 			'pageTitle'=>$pageTitle,
 		));
-		
 	}
 	
 	/**
@@ -343,67 +308,30 @@ class SiteController extends Controller
 		if(Yii::app()->request->isAjaxRequest){
 			$id = intval($_POST['id']);
 			$title = $_POST['title'];  //这里需要做一下后台check，返回errorMsg
-			$type = $_POST['type'];
-			
-			$types = array('file','sheet','column');
-			if(!in_array($type, $types)){
-				throw new CHttpException(404,'The requested page does not exist.');
-				exit;
-			}
-			
+			$type = intval($_POST['type']);
+			$types = array(2=>'file',3=>'sheet');
+			$type = $types[$type];
 			$field = $type.'Title';
-			//$model = $this->loadSheetModel($id);
-			
 			if(method_exists($this, $method_name='load'.ucfirst($type).'Model')){
 				$model = call_user_func(array($this,$method_name),$id);
 			}
-			
-			
 			$model->$field = $title;
-			//$model->sheetTitle = $title;
-			if($model->validate() && $model->save()){
-				echo json_encode(array('flag'=>TRUE));
-			}else{
-				echo json_encode(array('flag'=>FALSE));
+			try {
+				if($model->save(true)){
+					echo json_encode(array('flag'=>TRUE));
+				}else{
+					echo json_encode(array('flag'=>FALSE,'errorMsg'=>'重命名出现错误，请刷新页面后再重新操作！'));
+				}
+				//var_dump($model->getErrors());exit;
+			} catch (CDbException $e) {
+				echo json_encode(array('flag'=>FALSE,'errorMsg'=>$e->getMessage()));
 			}
 			exit;
 		}else{
 			$this->redirect(array('site/index'));
 		}
 	}
-	
-	
-	/**
-	 * 加载File模型类
-	 */
-	public function loadFileModel($id){
-		$model = File::model()->findByPk($id);
-		if($model===null)
-			throw new CHttpException(404,'The requested page does not exist.');
-		return $model;
-	}
-	
-	/**
-	 * 加载Sheet模型类
-	 */
-	public function loadSheetModel($id){
-		$model = Sheet::model()->findByPk($id);
-		if($model===null)
-			throw new CHttpException(404,'The requested page does not exist.');
-		return $model;
-	}
-	
-	/**
-	 * 加载Column模型类
-	 */
-	public function loadColumnModel($id){
-		$model = Column::model()->findByPk($id);
-		if($model===null)
-			throw new CHttpException(404,'The requested page does not exist.');
-		return $model;
-	}
-	
-	
+
 	/*
 	public function loadModel($id,$modelname){
 		//$modelname::func()的形式php5.3以后才支持
@@ -580,26 +508,39 @@ class SiteController extends Controller
 	public function actionDelete(){
 		if(Yii::app()->request->isAjaxRequest){		
 			$table_sheets = Yii::app()->params['excel_sheets'];	
-			$table_columns = Yii::app()->params['excel_columns'];	
+			$table_files = Yii::app()->params['excel_files'];	
 			$id = intval($_POST['id']);
-			$type = $_POST['lvl'];
-			$conn = Yii::app()->db;
-			$sheet = $this->loadSheetModel($id);
-			$transaction = $conn->beginTransaction();
-			try {
-				$command = $conn->createCommand();
-				$command->delete(($table_columns),'sheetID=:sheetID',array(':sheetID'=>$sheet->ID));
-				$command->dropTable($sheet->sheetTableName);
-				$command->delete($table_sheets,'ID=:ID',array(':ID'=>$id));
-				$transaction->commit();
-			} catch (CDbException $e) {
-				$transaction->rollback();
-				echo "<pre>";
-				print_r($e->getMessage());
-				echo "</pre>";
-				exit;
+			$type = intval($_POST['lvl']);
+			switch ($type){
+				case 1:
+					$table = $table_files;
+					$column = array('fDelete'=>'1');
+					$where = '1';
+					break;
+				case 2:
+					$table = $table_files;
+					$column = array('fDelete'=>'1');
+					$where = 'ID = '.$id;
+					break;
+				case 3:
+					$table = $table_sheets;
+					$column = array('sDelete'=>'1');
+					$where = 'ID = '.$id;
+					break;
 			}
-			echo true;exit;
+			$conn = Yii::app()->db;
+			$command = $conn->createCommand();
+			try {
+				if($command->update($table, $column, $where, array())){
+					echo json_encode(array('flag'=>true));
+				}else {
+					echo json_encode(array('flag'=>false,'errorMsg'=>'删除出现错误，请刷新页面后再重新操作！'));
+				}
+			} catch (CDbException $e) {
+				echo json_encode(array('flag'=>false,'errorMsg'=>$e->getMessage()));
+			}
+			
+			exit;
 		}else{
 			$this->redirect(array('site/index'));
 		}
@@ -764,6 +705,7 @@ class SiteController extends Controller
   				`fileType` varchar(5) NOT NULL default 'xlsx',
   				`lastModifyTime` varchar(22) NOT NULL default '0000-00-00 00:00',
   				`lastModifyUserIp` varchar(16) NOT NULL default '0.0.0.0',
+  				`fDelete` enum('0','1') NOT NULL default '0',
   				PRIMARY KEY  (`ID`)
 				) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 				CREATE TABLE `$db`.`$table_sheets` (
@@ -771,6 +713,7 @@ class SiteController extends Controller
   				`fileID` int(10) NOT NULL,
   				`sheetTitle` nvarchar(70) NOT NULL,
   				`sheetTableName` varchar(50) NOT NULL,
+  				`sDelete` enum('0','1') NOT NULL default '0',
   				PRIMARY KEY  (`ID`)
 				) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 				CREATE TABLE `$db`.`$table_columns` (
@@ -802,5 +745,34 @@ class SiteController extends Controller
 		}
 		$this->redirect(array('site/index'));
 	}
-								
+
+	/**
+	 * 加载File模型类
+	 */
+	public function loadFileModel($id){
+		$model = File::model()->findByPk($id);
+		if($model===null)
+			throw new CHttpException(404,'The requested page does not exist.');
+		return $model;
+	}
+	
+	/**
+	 * 加载Sheet模型类
+	 */
+	public function loadSheetModel($id){
+		$model = Sheet::model()->findByPk($id);
+		if($model===null)
+			throw new CHttpException(404,'The requested page does not exist.');
+		return $model;
+	}
+	
+	/**
+	 * 加载Column模型类
+	 */
+	public function loadColumnModel($id){
+		$model = Column::model()->findByPk($id);
+		if($model===null)
+			throw new CHttpException(404,'The requested page does not exist.');
+		return $model;
+	}
 }

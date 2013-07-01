@@ -37,7 +37,7 @@ class File extends CActiveRecord{
 	public function rules(){
 		return array(
 			//required attributes
-			array('fileTitle,fileType,fileSize','required'),
+			array('fileTitle,fileType,fileSize','required','on'=>'create'),
 			//file name max length
 			array('fileTitle','length','max'=>50),
 			//file extension should be xls or xlsx

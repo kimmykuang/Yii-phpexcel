@@ -1,54 +1,6 @@
 <?php 
 $this->pageTitle = CHtml::encode(iconv('gbk','utf-8',Yii::app()->name)).' | '.$pageTitle;
 ?>
-<!--tree-->
-<script type="text/javascript"> 
-$(document).ready(function(){
-	/**加载完页面后也要约束layout的高度
-	*/
-    //var height = $(window).height();
-    //height = height * 0.8;
-    //$('#layout').height(height);
-
-	$('#content').before($('.easyui-layout')).remove();
-	var treeList = <?php echo $treeList;?>;
-	$('#tree').tree({
-       			animate:true,
-                //dnd:true,
-                onClick:function(node){
-                	if(node.attributes['sheetID'] !== ''){
-                    	$('#dlg1').dialog('close');
-                    	$('#dlg2').dialog('close');
-                    	var dataGrid = $('#list');
-                		var url = '<?php echo Yii::app()->createUrl('site/readsheet');?>';
-               			$.ajax({
-                      		type:'post',
-                       		data:{id:node.attributes['sheetID']},
- 					   		url:url,
- 					   		success:function(data,textStatus){
- 					      		$('#datagrid_view').html('').append(data);
- 					      		dataGrid.datagrid('getPager').pagination('select', 1);
-  					      		//更新dlg2
-  					      		var colList = dataGrid.datagrid('getColumnFields');
-  					      		var colStr = "";
-  					      		for (var i in colList){
-  	  					      		colStr += "<div class='fitem'><label>"+dataGrid.datagrid('getColumnOption',colList[i]).title+":</label><input style='float:right;' name=colData["+colList[i]+"] type='text' /></div>";
-  					      		}
-  					      		$('#datafm').html('').append(colStr);
-                       		},
-                		});  
-                	}
-                },
-                onDblClick:function(node){
-                    var c = $('#list').datagrid('getColumnOption','c0');
-                    var a = $('#list').datagrid('getColumnFields');
-                },
-            });
-	//动态加载树列表
-	$('#tree').tree('loadData',treeList);
-});
-
-</script>
 <!--在线情况右键js代码开始-->
 <script type="text/javascript">
   $(function(){
@@ -105,56 +57,28 @@ $(document).ready(function(){
   }
 </script> <!--在线情况右键js代码结束-->
 
+
 <script type="text/javascript">
 	$(window).resize(function() {
-		//$('#list').datagrid('resize');
     	var width = $(this).width();
     	var height = $(this).height();
-    	//alert(height);
     	height = height * 0.8;
-    	//alert(height);
-    	//alert($(this).width());
-    	//alert($(this).height());
     	$('#layout').height(height);
-    	
 	});
 	$(window).load(function (){
 		var width = $(this).width();
-    	//var height = $(this).height();
-    	//height = height * 0.8;
-    	//alert('浏览器width:'+ $(this).width());
-    	//alert('浏览器height:'+ $(this).height());
-    	//$('#layout').height(height);
+		var height = $(this).height();
     	$('#layout').width(width);
-    	//alert('west的width:' + $('#west').width());
-    	//alert('east的width:' + $('#east').width());
-    	//alert('center的width:' + $('#center').width());
-    	//alert('west + east + center:' + ($('#west').width() + $('#east').width() + $('#center').width()));
-    	
-    	//var hight = $('#center').width();
-    	//var width = $('#center').height();
-
-    	//$('#panel1').height(hight);
-    	//$('#panel1').width(width);
+    	var hight = $('#center').width();
+    	var width = $('#center').height();
 	}); 
-	//table下td各宽度 tdW
-
-	//宽度相加获得整体宽  tableW
-
-	//计算出td对于table的比例%
-
-	//table父级width boxW
-
-	//比较boxW和tableW
-
-	//boxW>tableW 按照比例导入td宽度
 </script>
 <center>
     <!--布局控件-->
 	<div id="layout" class="easyui-layout" fit="true" style="width:100%;height:200px;">
 	
 		<!--tree控件-->    
-        <div id="west" data-options="region:'west',split:true" title="Excel文件结构" style="width:180px;">
+        <div id="west" data-options="region:'west',split:true" title="文件目录" style="width:180px;">
             <ul id="tree"></ul>
         </div> 
         <!--东部east开始-->
@@ -163,45 +87,15 @@ $(document).ready(function(){
                 <div title="日历" >  
                     <div id="cc" class="easyui-calendar"  style="margin:auto;width:194px;height:212px"></div>
                 </div>
-                <!--  data-options="width:180"
-                <div title="在线情况" data-options="selected:true" style="padding:10px;">  
-                    content2  
-                </div>  
-                <div title="Title3" style="padding:10px">  
-                    content3  
-                </div>  
-              -->
             </div>
             <div class="easyui-accordion" data-options="fit:false,border:false,height:250">
                 <div title="在线情况" >
-                    <table id="dg1" class="easyui-datagrid"  >  
+                    <table id="dg1" class="easyui-datagrid">  
                     </table>
                 </div>
             </div>
         </div>
-        <!-- tree右键-sheet -->
-        <div id="menu3" class="easyui-menu">
-        	<div onclick="exportSheet()" data-options="iconCls:'icon-save'" >导出工作薄</div>
-        	<div onclick="renameSheet()" data-options="iconCls:'icon-edit'">重命名工作薄</div>
-        	<div onclick="removeit()" data-options="iconCls:'icon-cancel'">删除工作薄</div>
-        </div>
-        <!-- tree右键-file -->
-        <div id="menu2" class="easyui-menu">
-            <div onclick="" data-options="iconCls:'icon-add'">新建工作薄</div>
-        	<div onclick="removeit()" data-options="iconCls:'icon-cancel'">删除文件</div>
-        	<div onclick="" data-options="iconCls:'icon-remove'">批量删除工作薄</div>
-        	<div class="menu-sep"></div>
-        	<div onclick="expand()">展开</div>
-        	<div onclick="collapse()">收起</div>
-        </div>
-        <!-- tree右键-root -->
-        <div id="menu1" class="easyui-menu">
-        	<div onclick="" data-options="iconCls:'icon-add'">新建文件</div>
-        	<div onclick="removeit()" data-options="iconCls:'icon-cancel'">删除所有文件</div>
-        	<div class="menu-sep"></div>
-        	<div onclick="expand()">展开</div>
-        	<div onclick="collapse()">收起</div>
-        </div>
+        
         <!-- datagrid -->
         <div id="center" data-options="region:'center',split:true,title:'<?=$sheetTitle?>'" class="center"> 
         		<div id="tb" style="padding:5px;height:auto;display:none;">   
@@ -222,8 +116,32 @@ $(document).ready(function(){
     </div> 
     <!--layout结束-->
     
+    <!-- tree右键-sheet -->
+        <div id="menu3" class="easyui-menu">
+        	<div onclick="exportSheet()" data-options="iconCls:'icon-save'" >导出工作薄</div>
+        	<div onclick="renameFile()" data-options="iconCls:'icon-edit'">重命名工作薄</div>
+        	<div onclick="removeit()" data-options="iconCls:'icon-cancel'">删除工作薄</div>
+        </div>
+        <!-- tree右键-file -->
+        <div id="menu2" class="easyui-menu">
+            <div onclick="" data-options="iconCls:'icon-add'">新建工作薄</div>
+            <div onclick="renameFile()" data-options="iconCls:'icon-edit'">重命名文件</div>
+        	<div onclick="removeit()" data-options="iconCls:'icon-cancel'">删除文件</div>
+        	<div onclick="" data-options="iconCls:'icon-remove'">批量删除工作薄</div>
+        	<div class="menu-sep"></div>
+        	<div onclick="expand()">展开</div>
+        	<div onclick="collapse()">收起</div>
+        </div>
+        <!-- tree右键-root -->
+        <div id="menu1" class="easyui-menu">
+        	<div onclick="" data-options="iconCls:'icon-add'">新建文件</div>
+        	<div onclick="removeit()" data-options="iconCls:'icon-cancel'">删除所有文件</div>
+        	<div class="menu-sep"></div>
+        	<div onclick="expandAll()">展开全部</div>
+        	<div onclick="collapseAll()">收起全部</div>
+        </div>
     <!--dlg1-->
-    <div id="dlg1" class="easyui-dialog" style="width:300px;height:180px;padding:10px 20px" closed="true" buttons="#dlg1-buttons" title="修改工作薄名称"> 
+    <div id="dlg1" class="easyui-dialog" style="width:300px;height:180px;padding:10px 20px;top:100%;" closed="true" buttons="#dlg1-buttons" title="修改工作薄名称"> 
             <form id="treefm" method="post" action="">
                 <div class="fitem">
                 	<label>Old Name:</label>
@@ -233,7 +151,7 @@ $(document).ready(function(){
                 	<label>New Name:</label>
                 	<input type="text" name="title" id="title" class="easyui-validatebox" required="true" />
                 </div>
-                <input type="hidden" name="type" value="sheet" id="type" />
+                <input type="hidden" name="type" id="type" value="3" />
                 <input type="hidden" name="id" id="sheetid" value="" />
             </form>
     </div>   
@@ -243,7 +161,7 @@ $(document).ready(function(){
     </div> 
     
     <!-- dlg2 -->
-    <div id="dlg2" class="easyui-dialog" style="width:300px;padding:10px 20px;" closed="true" buttons="#dlg2-buttons" >
+    <div id="dlg2" class="easyui-dialog" style="width:300px;padding:10px 20px;top:100%;" closed="true" buttons="#dlg2-buttons" >
     	<div class="ftitle">数据操作</div>
     	<form id="datafm" method="post" action="">
     		
@@ -257,19 +175,31 @@ $(document).ready(function(){
 </center>
 <script type="text/javascript">
 var url;
-
+var t = $("#tree");
 //展开节点
 function expand(){
-	var t = $("#tree");
+	
 	var node = t.tree('getSelected');
 	t.tree('expand',node.target);
 }
 
+function expandAll(){
+	
+	var node = t.tree('getSelected');
+	t.tree('expandAll',node.target);
+}
+
 //收起节点
 function collapse(){
-	var t = $("#tree");
+	
 	var node = t.tree('getSelected');
 	t.tree('collapse',node.target);	
+}
+
+function collapseAll(){
+	
+	var node = t.tree('getSelected');
+	t.tree('collapseAll',node.target);
 }
 
 //刷新当前工作薄
@@ -278,37 +208,46 @@ function reloadSheet(){
 }
 
 //重命名工作薄
-function renameSheet(){
-	var t = $('#tree');
+function renameFile(){
+	
 	var node = t.tree('getSelected');
-	if(node && node.attributes['lvl'] === 3){
-		$('#treefm #title').val('');
-		$('#dlg1').dialog('open');
-		$('#sheetid').val(node.attributes['nodeid']);
-		$('#oldSheetName').text(node.text);
-		url = '<?=Yii::app()->createUrl('site/updatetitle')?>';
-	}else{
-		$.messager.alert('消息提示','请先选择一个工作薄');
-	}
+	$('#treefm #title').val('');
+	$('#dlg1').dialog('open');
+	$('#treefm #sheetid').val(node.attributes['nodeid']);
+	$('#treefm #type').val(node.attributes['lvl']);
+	$('#oldSheetName').text(node.text);
+	url = '<?=Yii::app()->createUrl('site/updatetitle')?>';
+
 }
 
 //删除文件
 function removeit(){
-	var t = $('#tree');
+	
 	var node = t.tree('getSelected');
 	if(node){
 			var text = (node.text === 'All Documents')?'所有文件':node.text;
-			$.messager.confirm('确认提示','确认删除:'+text+' 吗？如果您选择的是删除文件或者所有文件，那么文件下的所有工作薄也会被删除!',function(r){
+			$.messager.confirm('确认提示','确认删除:'+text+' 吗？如果您选择的是删除文件或者所有文件，那么文件下的所有工作薄都会被删除!',function(r){
 				if(r){
 					url = '<?=Yii::app()->createUrl('site/delete');?>';
 					$.post(url,{id:node.attributes['nodeid'],lvl:node.attributes['lvl']},function(result){
-						if(result){
-							t.tree('remove',node.target);
-							$.messager.alert('消息提示','您已经删除了工作薄：'+node.text,'info',function(){
+						var result = eval('('+result+')');
+						if(result.flag){
+							if(node.attributes['lvl'] == 1){
+								var childs = t.tree('getChildren',node.target);
+								for (var i in childs){
+									t.tree('remove',childs[i].target);
+								}
+							}else t.tree('remove',node.target);
+							$.messager.alert('消息提示','您已经删除了文件：'+node.text,'info',function(){
 								$("<div class=\"datagrid-mask\"></div>").css({display:"block",width:"100%",height:$(window).height()}).appendTo("body"); 
 								$("<div class=\"datagrid-mask-msg\"></div>").html("正在处理，请稍候。。。").appendTo("body").css({display:"block",left:($(document.body).outerWidth(true) - 190) / 2,top:($(window).height() - 45) / 2});
 								location.reload();
 							});
+						}else{
+							$.messager.alert('错误提示',result.errorMsg,'info',function(){
+									location.reload();
+								}
+							);
 						}
 					});
 				}
@@ -324,7 +263,8 @@ function saveTreeForm(){
 		data:$('#treefm').serialize(),
 		type:'POST',
 		success:function(data){
-			if(data){
+			var data = eval('('+data+')');
+			if(data.flag){
 				$('#dlg1').dialog('close');
 				var node = $('#tree').tree('getSelected');
 				$('#tree').tree('update',{
@@ -332,7 +272,7 @@ function saveTreeForm(){
 					text:$('#title').val(),
 				});
 			}else{
-				$.messager.alert('消息提示','重命名工作薄出错，请刷新页面后重新操作');
+				$.messager.alert('消息提示',data.errorMsg);
 			}
 		},
 	});
@@ -340,7 +280,7 @@ function saveTreeForm(){
 
 //新增数据
 function newItem(){
-	var t = $('#tree');
+	
 	var node = t.tree('getSelected');
 	if(node && node.attributes['lvl'] === 3){
 		$('#dlg2').css('height','100%').children().children().css('height','100%');
@@ -353,7 +293,7 @@ function newItem(){
 
 //编辑数据
 function editItem(){
-	var t = $('#tree');
+	
 	var node = t.tree('getSelected');
 	var row = $('#list').datagrid('getSelected');
 	if(node && node.attributes['lvl'] === 3){
@@ -367,6 +307,8 @@ function editItem(){
 			}
 			$('#datafm').form('load',opt);
 			url = '<?php echo Yii::app()->createUrl('site/crud');?>'+'?id='+row.ID+'&ac=update&sheetID='+node.attributes['nodeid'];
+		}else{
+			$.messager.alert('消息提示','请先选择一行');
 		}
 	}else{
 		$.messager.alert('消息提示','请先选择一个工作薄!');
@@ -375,7 +317,7 @@ function editItem(){
 
 //删除一条数据
 function removeItem(){
-	var t = $('#tree');
+	
 	var node = t.tree('getSelected');
 	var row = $('#list').datagrid('getSelected');
 	if(node && node.attributes['lvl'] === 3){
@@ -391,6 +333,8 @@ function removeItem(){
 					});
 				}
 			});
+		}else{
+			$.messager.alert('消息提示','请先选择一行');
 		}
 	}else{
 		$.messager.alert('消息提示','请先选择一个工作薄!');
@@ -412,8 +356,7 @@ function saveDataForm(){
 
 //导出当前工作薄
 function exportSheet(obj){
-	//alert(obj);
-	var t = $('#tree');
+	
 	var node = t.tree('getSelected');
 	if(node && node.attributes['lvl'] === 3){
 		var id = node.attributes['nodeid'];
@@ -456,8 +399,9 @@ $('#tree').tree({
                 }
             },
             onDblClick:function(node){
-                var c = $('#list').datagrid('getColumnOption','c0');
-                var a = $('#list').datagrid('getColumnFields');
+                if(node.attributes['lvl'] == 1 || node.attributes['lvl'] == 2){
+                    $('#tree').tree('toggle',node.target);
+                }
             },
             onContextMenu:function(e,node){
                 e.preventDefault();
