@@ -2,10 +2,7 @@
 
 class SiteController extends Controller
 {	
-	private $excel_db = 'phpexcel';
-	private $excel_files = 'excel_files';
-	private $excel_sheets = 'excel_sheets';
-	private $excel_columns = 'excel_columns';
+	
 	/**
 	 * default action 
 	 */
@@ -300,70 +297,6 @@ class SiteController extends Controller
 	}
 	
 	/**
-	 * 初始化数据库
-	 */
-	public function actionInitDB(){
-		//header("Content-Type:text/html;charset=utf-8");
-		//这里可以用yii dao来初始化数据库
-		//yii dao 允许一条sql语句执行多次query
-		
-		$dsn = 'mysql:host=localhost;dbname=INFORMATION_SCHEMA';
-		$username = 'root';
-		$password = 'xiucai5880';
-		try {
-			$conn = new CDbConnection($dsn,$username,$password); //继承自CDbConnection类，connectString来自配置文件/config/main.php
-			$conn->active = TRUE;  //激活连接
-			$sql = "DROP DATABASE IF EXISTS `$this->excel_db`;
-				CREATE DATABASE IF NOT EXISTS `$this->excel_db` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-				CREATE TABLE `$this->excel_db`.`$this->excel_files` (
-  				`ID` int(10) NOT NULL auto_increment,
-  				`fileTitle` nvarchar(50) NOT NULL,
-  				`filePath` nvarchar(100) NOT NULL,
-  				`uploadTime` varchar(22) NOT NULL default '0000-00-00 00:00',
-  				`userIp` varchar(16) NOT NULL default '0.0.0.0',
-  				`fileType` varchar(5) NOT NULL default 'xlsx',
-  				`lastModifyTime` varchar(22) NOT NULL default '0000-00-00 00:00',
-  				`lastModifyUserIp` varchar(16) NOT NULL default '0.0.0.0',
-  				PRIMARY KEY  (`ID`)
-				) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-				CREATE TABLE `$this->excel_db`.`$this->excel_sheets` (
-  				`ID` int(10) NOT NULL auto_increment,
-  				`fileID` int(10) NOT NULL,
-  				`sheetTitle` nvarchar(70) NOT NULL,
-  				`sheetTableName` varchar(50) NOT NULL,
-  				PRIMARY KEY  (`ID`)
-				) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-				CREATE TABLE `$this->excel_db`.`$this->excel_columns` (
-  				`ID` int(10) NOT NULL auto_increment,
-  				`sheetID` int(10) NOT NULL,
-  				`columnTitle` nvarchar(50) NOT NULL,
-  				`columnName` varchar(25) NOT NULL,
-  				PRIMARY KEY  (`ID`)
-				) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;";
-			
-			//继承自CDbCommand,准备执行sql语句的命令
-			$command = $conn->createCommand($sql);  
-			//执行no-query sql
-			if($command->execute()){
-				echo "init DB success","<br/>","executed sql statement:","<br/>";  
-				echo "<pre>";
-				print_r($command->text);
-				echo "</pre>";
-			}
-			//关闭连接
-			$conn->active = FALSE;
-		} catch (Exception $e) {
-			echo "初始化数据库出错:","<br />";
-			print_r($e->getMessage());
-			exit();
-		}
-		//$result = $command->queryAll();  //执行会返回若干行数据的sql语句，成功返回一个CDbDataReader实例，就是一个结果集
-		//var_dump($result);
-		
-	}
-
-
-	/**
 	 * 更新title，如果首字母重复则自动更改，同时update 表
 	 * type in (filetitle,sheettitle,columntitle)
 	 * ajax
@@ -372,23 +305,28 @@ class SiteController extends Controller
 		if(Yii::app()->request->isAjaxRequest){
 			$id = intval($_POST['id']);
 			$title = $_POST['title'];  //这里需要做一下后台check，返回errorMsg
-			$type = intval($_POST['type']);
-			$types = array(2=>'file',3=>'sheet');
-			$type = $types[$type];
+			$type = $_POST['type'];
+			
+			$types = array('file','sheet','column');
+			if(!in_array($type, $types)){
+				throw new CHttpException(404,'The requested page does not exist.');
+				exit;
+			}
+			
 			$field = $type.'Title';
+			//$model = $this->loadSheetModel($id);
+			
 			if(method_exists($this, $method_name='load'.ucfirst($type).'Model')){
 				$model = call_user_func(array($this,$method_name),$id);
 			}
+			
+			
 			$model->$field = $title;
-			try {
-				if($model->save(true)){
-					echo json_encode(array('flag'=>TRUE));
-				}else{
-					echo json_encode(array('flag'=>FALSE,'errorMsg'=>'重命名出现错误，请刷新页面后再重新操作！'));
-				}
-				//var_dump($model->getErrors());exit;
-			} catch (CDbException $e) {
-				echo json_encode(array('flag'=>FALSE,'errorMsg'=>$e->getMessage()));
+			//$model->sheetTitle = $title;
+			if($model->validate() && $model->save()){
+				echo json_encode(array('flag'=>TRUE));
+			}else{
+				echo json_encode(array('flag'=>FALSE));
 			}
 			exit;
 		}else{
@@ -544,61 +482,56 @@ class SiteController extends Controller
 		
 		$actions = array('insert','update','delete');
 		if(!in_array($ac,$actions)){
-			//throw new CHttpException(404,'The requested page does not exist.');
-			echo json_encode(array('flag'=>FALSE,'errorMsg'=>'请求错误，请重试！'));
+			throw new CHttpException(404,'The requested page does not exist.');
 			exit;
 		}
 		$id = intval($id);
 		$sheetID = intval($sheetID);
-		$affected_rows = 0;
 		$sheet = $this->loadSheetModel($sheetID);
 		$conn = Yii::app()->db;
 		$transaction = $conn->beginTransaction();
 		switch ($ac){
 			case 'delete':	
 				try {
-					$affected_rows = $conn->createCommand()->delete($sheet->sheetTableName,'ID=:id',array(':id'=>$id));
+					$conn->createCommand()->delete($sheet->sheetTableName,'ID=:id',array(':id'=>$id));
 					$transaction->commit();
-					if(empty($affected_rows)){
-						echo json_encode(array('flag'=>FALSE,'errorMsg'=>'数据已经发生变化，请在页面刷新后再操作'));
-						exit;
-					}
+					echo json_encode(array('flag'=>true));
 				} catch (CDbException $e) {
 					$transaction->rollback();
-					echo json_encode(array('flag'=>FALSE,'errorMsg'=>$e->getMessage()));
-					exit;
+					echo "<pre>";
+					print_r($e->getMessage());
+					echo "</pre>";
 				}
 				break;
 			case 'insert':
 				if(isset($_POST['colData'])){
 					try {
-						$affected_rows = $conn->createCommand()->insert($sheet->sheetTableName, $_POST['colData']);
+						$conn->createCommand()->insert($sheet->sheetTableName, $_POST['colData']);
 						$transaction->commit();
-						if(empty($affected_rows)){
-							echo json_encode(array('flag'=>FALSE,'errorMsg'=>'数据已经发生变化，请在页面刷新后再操作'));
-							exit;
-						}
+						echo json_encode(array('flag'=>true));
 					} catch (CDbException $e) {
 						$transaction->rollback();
-						echo json_encode(array('flag'=>FALSE,'errorMsg'=>$e->getMessage()));
-						exit;
+						echo "<pre>";
+						print_r($e->getMessage());
+						echo "</pre>";
 					}
 				}
 				break;
 			case 'update':
 				if(isset($_POST['colData'])){
 					try {
-						$affected_rows = $conn->createCommand()->update($sheet->sheetTableName, $_POST['colData'],'ID=:id',array(':id'=>$id));
+						$conn->createCommand()->update($sheet->sheetTableName, $_POST['colData'],'ID=:id',array(':id'=>$id));
 						$transaction->commit();
+						echo json_encode(array('flag'=>true));
 					} catch (CDbException $e) {
 						$transaction->rollback();
-						echo json_encode(array('flag'=>FALSE,'errorMsg'=>$e->getMessage()));
-						exit;
+						echo "<pre>";
+						print_r($e->getMessage());
+						echo "</pre>";
 					}
 				}
 				break;
 		}
-		echo json_encode(array('flag'=>true));
 		exit;
 	}
 	
@@ -609,39 +542,26 @@ class SiteController extends Controller
 	public function actionDelete(){
 		if(Yii::app()->request->isAjaxRequest){		
 			$table_sheets = Yii::app()->params['excel_sheets'];	
-			$table_files = Yii::app()->params['excel_files'];	
+			$table_columns = Yii::app()->params['excel_columns'];	
 			$id = intval($_POST['id']);
-			$type = intval($_POST['lvl']);
-			switch ($type){
-				case 1:
-					$table = $table_files;
-					$column = array('fDelete'=>'1');
-					$where = '1';
-					break;
-				case 2:
-					$table = $table_files;
-					$column = array('fDelete'=>'1');
-					$where = 'ID = '.$id;
-					break;
-				case 3:
-					$table = $table_sheets;
-					$column = array('sDelete'=>'1');
-					$where = 'ID = '.$id;
-					break;
-			}
+			$type = $_POST['lvl'];
 			$conn = Yii::app()->db;
-			$command = $conn->createCommand();
+			$sheet = $this->loadSheetModel($id);
+			$transaction = $conn->beginTransaction();
 			try {
-				if($command->update($table, $column, $where, array())){
-					echo json_encode(array('flag'=>true));
-				}else {
-					echo json_encode(array('flag'=>false,'errorMsg'=>'删除出现错误，请刷新页面后再重新操作！'));
-				}
+				$command = $conn->createCommand();
+				$command->delete(($table_columns),'sheetID=:sheetID',array(':sheetID'=>$sheet->ID));
+				$command->dropTable($sheet->sheetTableName);
+				$command->delete($table_sheets,'ID=:ID',array(':ID'=>$id));
+				$transaction->commit();
 			} catch (CDbException $e) {
-				echo json_encode(array('flag'=>false,'errorMsg'=>$e->getMessage()));
+				$transaction->rollback();
+				echo "<pre>";
+				print_r($e->getMessage());
+				echo "</pre>";
+				exit;
 			}
-			
-			exit;
+			echo true;exit;
 		}else{
 			$this->redirect(array('site/index'));
 		}
@@ -778,10 +698,75 @@ class SiteController extends Controller
 		return $sql;
 	}
 
-	
+	/**
+	 * 
+	 * 重置数据库
+	 */
+	public function actionInitDB(){
+		
+		$db = Yii::app()->params['excel_db'];
+		$table_files = Yii::app()->params['excel_files'];
+		$table_sheets = Yii::app()->params['excel_sheets'];
+		$table_columns = Yii::app()->params['excel_columns'];
+		$dsn = 'mysql:host=localhost;dbname=INFORMATION_SCHEMA';
+		$username = 'root';
+		$password = 'xiucai5880';
+		
+		try {
+			$conn = new CDbConnection($dsn,$username,$password); //继承自CDbConnection类，connectString来自配置文件/config/main.php
+			$conn->active = TRUE;  //激活连接
+			$sql = "DROP DATABASE IF EXISTS `$db`;
+				CREATE DATABASE IF NOT EXISTS `$db` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+				CREATE TABLE `$db`.`$table_files` (
+  				`ID` int(10) NOT NULL auto_increment,
+  				`fileTitle` nvarchar(50) NOT NULL,
+  				`filePath` nvarchar(100) NOT NULL,
+  				`uploadTime` varchar(22) NOT NULL default '0000-00-00 00:00',
+  				`userIp` varchar(16) NOT NULL default '0.0.0.0',
+  				`fileType` varchar(5) NOT NULL default 'xlsx',
+  				`lastModifyTime` varchar(22) NOT NULL default '0000-00-00 00:00',
+  				`lastModifyUserIp` varchar(16) NOT NULL default '0.0.0.0',
+  				PRIMARY KEY  (`ID`)
+				) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+				CREATE TABLE `$db`.`$table_sheets` (
+  				`ID` int(10) NOT NULL auto_increment,
+  				`fileID` int(10) NOT NULL,
+  				`sheetTitle` nvarchar(70) NOT NULL,
+  				`sheetTableName` varchar(50) NOT NULL,
+  				PRIMARY KEY  (`ID`)
+				) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+				CREATE TABLE `$db`.`$table_columns` (
+  				`ID` int(10) NOT NULL auto_increment,
+  				`sheetID` int(10) NOT NULL,
+  				`columnTitle` nvarchar(50) NOT NULL,
+  				`columnName` varchar(25) NOT NULL,
+  				PRIMARY KEY  (`ID`)
+				) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;";
+			
+			//继承自CDbCommand,准备执行sql语句的命令
+			$command = $conn->createCommand($sql);  
+			//执行no-query sql
+			if($command->execute()){
+				echo "init DB success","<br/>","executed sql statement:","<br/>";  
+				echo "<pre>";
+				print_r($command->text);
+				echo "</pre>";
+			}
+			//关闭连接
+			$conn->active = FALSE;
+			$conn = Yii::app()->db;
+			$conn->active = TRUE;
+			
+		} catch (Exception $e) {
+			echo "初始化数据库出错:","<br />";
+			print_r($e->getMessage());
+			exit();
+		}
+		$this->redirect(array('site/index'));
+	}
 
 	public function actionAbout(){
-		$this->render('about');
+		$this->render('index1');
 	}
 								
 }

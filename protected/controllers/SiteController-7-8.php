@@ -372,23 +372,28 @@ class SiteController extends Controller
 		if(Yii::app()->request->isAjaxRequest){
 			$id = intval($_POST['id']);
 			$title = $_POST['title'];  //这里需要做一下后台check，返回errorMsg
-			$type = intval($_POST['type']);
-			$types = array(2=>'file',3=>'sheet');
-			$type = $types[$type];
+			$type = $_POST['type'];
+			
+			$types = array('file','sheet','column');
+			if(!in_array($type, $types)){
+				throw new CHttpException(404,'The requested page does not exist.');
+				exit;
+			}
+			
 			$field = $type.'Title';
+			//$model = $this->loadSheetModel($id);
+			
 			if(method_exists($this, $method_name='load'.ucfirst($type).'Model')){
 				$model = call_user_func(array($this,$method_name),$id);
 			}
+			
+			
 			$model->$field = $title;
-			try {
-				if($model->save(true)){
-					echo json_encode(array('flag'=>TRUE));
-				}else{
-					echo json_encode(array('flag'=>FALSE,'errorMsg'=>'重命名出现错误，请刷新页面后再重新操作！'));
-				}
-				//var_dump($model->getErrors());exit;
-			} catch (CDbException $e) {
-				echo json_encode(array('flag'=>FALSE,'errorMsg'=>$e->getMessage()));
+			//$model->sheetTitle = $title;
+			if($model->validate() && $model->save()){
+				echo json_encode(array('flag'=>TRUE));
+			}else{
+				echo json_encode(array('flag'=>FALSE));
 			}
 			exit;
 		}else{
@@ -528,9 +533,15 @@ class SiteController extends Controller
 			}
 		}
 		//清空输出缓存
-		ob_clean(); 
-		//覆盖文件 
-		$objWriter->save($filepath);
+			ob_clean(); 
+			//覆盖文件 
+			//echo $filepath;exit;
+			//$filepath = $this->changeEncode('UTF-8', 'GBK', $filepath);
+			if(is_writeable($filepath)){
+				$objWriter->save($filepath);
+			}else{
+				echo 1222;exit;
+			}
 	}
 	
 	/**
@@ -544,61 +555,56 @@ class SiteController extends Controller
 		
 		$actions = array('insert','update','delete');
 		if(!in_array($ac,$actions)){
-			//throw new CHttpException(404,'The requested page does not exist.');
-			echo json_encode(array('flag'=>FALSE,'errorMsg'=>'请求错误，请重试！'));
+			throw new CHttpException(404,'The requested page does not exist.');
 			exit;
 		}
 		$id = intval($id);
 		$sheetID = intval($sheetID);
-		$affected_rows = 0;
 		$sheet = $this->loadSheetModel($sheetID);
 		$conn = Yii::app()->db;
 		$transaction = $conn->beginTransaction();
 		switch ($ac){
 			case 'delete':	
 				try {
-					$affected_rows = $conn->createCommand()->delete($sheet->sheetTableName,'ID=:id',array(':id'=>$id));
+					$conn->createCommand()->delete($sheet->sheetTableName,'ID=:id',array(':id'=>$id));
 					$transaction->commit();
-					if(empty($affected_rows)){
-						echo json_encode(array('flag'=>FALSE,'errorMsg'=>'数据已经发生变化，请在页面刷新后再操作'));
-						exit;
-					}
+					echo json_encode(array('flag'=>true));
 				} catch (CDbException $e) {
 					$transaction->rollback();
-					echo json_encode(array('flag'=>FALSE,'errorMsg'=>$e->getMessage()));
-					exit;
+					echo "<pre>";
+					print_r($e->getMessage());
+					echo "</pre>";
 				}
 				break;
 			case 'insert':
 				if(isset($_POST['colData'])){
 					try {
-						$affected_rows = $conn->createCommand()->insert($sheet->sheetTableName, $_POST['colData']);
+						$conn->createCommand()->insert($sheet->sheetTableName, $_POST['colData']);
 						$transaction->commit();
-						if(empty($affected_rows)){
-							echo json_encode(array('flag'=>FALSE,'errorMsg'=>'数据已经发生变化，请在页面刷新后再操作'));
-							exit;
-						}
+						echo json_encode(array('flag'=>true));
 					} catch (CDbException $e) {
 						$transaction->rollback();
-						echo json_encode(array('flag'=>FALSE,'errorMsg'=>$e->getMessage()));
-						exit;
+						echo "<pre>";
+						print_r($e->getMessage());
+						echo "</pre>";
 					}
 				}
 				break;
 			case 'update':
 				if(isset($_POST['colData'])){
 					try {
-						$affected_rows = $conn->createCommand()->update($sheet->sheetTableName, $_POST['colData'],'ID=:id',array(':id'=>$id));
+						$conn->createCommand()->update($sheet->sheetTableName, $_POST['colData'],'ID=:id',array(':id'=>$id));
 						$transaction->commit();
+						echo json_encode(array('flag'=>true));
 					} catch (CDbException $e) {
 						$transaction->rollback();
-						echo json_encode(array('flag'=>FALSE,'errorMsg'=>$e->getMessage()));
-						exit;
+						echo "<pre>";
+						print_r($e->getMessage());
+						echo "</pre>";
 					}
 				}
 				break;
 		}
-		echo json_encode(array('flag'=>true));
 		exit;
 	}
 	
@@ -609,39 +615,26 @@ class SiteController extends Controller
 	public function actionDelete(){
 		if(Yii::app()->request->isAjaxRequest){		
 			$table_sheets = Yii::app()->params['excel_sheets'];	
-			$table_files = Yii::app()->params['excel_files'];	
+			$table_columns = Yii::app()->params['excel_columns'];	
 			$id = intval($_POST['id']);
-			$type = intval($_POST['lvl']);
-			switch ($type){
-				case 1:
-					$table = $table_files;
-					$column = array('fDelete'=>'1');
-					$where = '1';
-					break;
-				case 2:
-					$table = $table_files;
-					$column = array('fDelete'=>'1');
-					$where = 'ID = '.$id;
-					break;
-				case 3:
-					$table = $table_sheets;
-					$column = array('sDelete'=>'1');
-					$where = 'ID = '.$id;
-					break;
-			}
+			$type = $_POST['lvl'];
 			$conn = Yii::app()->db;
-			$command = $conn->createCommand();
+			$sheet = $this->loadSheetModel($id);
+			$transaction = $conn->beginTransaction();
 			try {
-				if($command->update($table, $column, $where, array())){
-					echo json_encode(array('flag'=>true));
-				}else {
-					echo json_encode(array('flag'=>false,'errorMsg'=>'删除出现错误，请刷新页面后再重新操作！'));
-				}
+				$command = $conn->createCommand();
+				$command->delete(($table_columns),'sheetID=:sheetID',array(':sheetID'=>$sheet->ID));
+				$command->dropTable($sheet->sheetTableName);
+				$command->delete($table_sheets,'ID=:ID',array(':ID'=>$id));
+				$transaction->commit();
 			} catch (CDbException $e) {
-				echo json_encode(array('flag'=>false,'errorMsg'=>$e->getMessage()));
+				$transaction->rollback();
+				echo "<pre>";
+				print_r($e->getMessage());
+				echo "</pre>";
+				exit;
 			}
-			
-			exit;
+			echo true;exit;
 		}else{
 			$this->redirect(array('site/index'));
 		}
