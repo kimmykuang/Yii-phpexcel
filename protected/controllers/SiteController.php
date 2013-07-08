@@ -103,6 +103,9 @@ class SiteController extends Controller
 			echo $dyData;exit;
 		}
 		$dyData['total'] = intval($count);
+		if(empty($dyData['rows'])){
+			$dyData['errorMsg'] = '没有数据';
+		}
 		$dyData = json_encode($dyData);
 		// <!-- end dyData -->
 		echo $dyData;

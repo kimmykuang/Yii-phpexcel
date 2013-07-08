@@ -4,6 +4,7 @@
 			var columns = <?php echo $columns;?>;
 			//datagrid绑定列
             $('#list').datagrid({
+                
 				 iconCls:'icon-ok',
 				 collapsible:false,//是否可折叠的 
 				 fit: true,//自动大小
@@ -11,17 +12,19 @@
 				 rownumbers:false,
 				 toolbar:'#tb',
                  singleSelect:true,
+                 pageNumber:1,
                  fitColumns:true,
                  striped:true,
                  nowrap:true,
                  columns:eval(columns),
                  url:'<?php echo Yii::app()->createUrl('site/dataprovider',array('id'=>$id));?>',
                  onLoadSuccess:function(data){
-                     var data = eval('('+data+')');
-                     if(data.total == 0){
+                     //var data = eval('('+data+')');
+                     if(eval(data.total) == 0){
                          $.messager.alert('错误提示',data.errorMsg);
                      }
                  },
+            	
                
 			});
             

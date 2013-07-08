@@ -1,62 +1,6 @@
 <?php 
 $this->pageTitle = CHtml::encode(iconv('gbk','utf-8',Yii::app()->name)).' | '.$pageTitle;
 ?>
-<!--在线情况右键js代码开始-->
-<script type="text/javascript">
-  $(function(){
-    $('#dg1').datagrid({
-      url: '<?php echo Yii::app()->request->baseUrl; ?>/protected/data/online.json',
-      fitColumns: false,
-      columns:[[
-        {field:'name',title:'登录名',width:100},
-        {field:'time',title:'登录时间',width:100},
-        {field:'ip',title:'IP',width:100}
-      ]],
-      onHeaderContextMenu: function(e, field){
-        e.preventDefault();
-        if (!cmenu){
-          createColumnMenu();
-        }
-        cmenu.menu('show', {
-          left:e.pageX,
-          top:e.pageY
-        });
-      }
-    });
-  });
-  var cmenu;
-  function createColumnMenu(){
-    cmenu = $('<div/>').appendTo('body');
-    cmenu.menu({
-      onClick: function(item){
-        if (item.iconCls == 'icon-ok'){
-          $('#dg1').datagrid('hideColumn', item.name);
-          cmenu.menu('setIcon', {
-            target: item.target,
-            iconCls: 'icon-empty'
-          });
-        } else {
-          $('#dg1').datagrid('showColumn', item.name);
-          cmenu.menu('setIcon', {
-            target: item.target,
-            iconCls: 'icon-ok'
-          });
-        }
-      }
-    });
-    var fields = $('#dg1').datagrid('getColumnFields');
-    for(var i=0; i<fields.length; i++){
-      var field = fields[i];
-      var col = $('#dg1').datagrid('getColumnOption', field);
-      cmenu.menu('appendItem', {
-        text: col.title,
-        name: field,
-        iconCls: 'icon-ok'
-      });
-    }
-  }
-</script> <!--在线情况右键js代码结束-->
-
 
 <script type="text/javascript">
 	$(window).resize(function() {
@@ -163,16 +107,19 @@ $this->pageTitle = CHtml::encode(iconv('gbk','utf-8',Yii::app()->name)).' | '.$p
     <!-- dlg2 -->
     <div id="dlg2" class="easyui-dialog" style="width:300px;padding:10px 20px;top:100%;" closed="true" buttons="#dlg2-buttons" >
     	<div class="ftitle">数据操作</div>
-    	<form id="datafm" method="post" action="">
-    		
-    	</form>
+    	<form id="datafm" method="post" action=""></form>
     </div>
     <div id="dlg2-buttons">
     	<a href="javascript:void(0);" class="easyui-linkbutton" iconCls="icon-ok" onclick="saveDataForm()">Save</a>
     	<a href="javascript:void(0);" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg2').dialog('close')">Cancel</a>
     </div>
     
+    <!-- dlg3 -->
+    
+    <!-- dlg4 -->
+    
 </center>
+
 <script type="text/javascript">
 var url;
 var t = $("#tree");
@@ -376,10 +323,14 @@ function exportSheet(obj){
 	}
 }
 
+
+
 </script>
 
 <script type="text/javascript"> 
+
 $(document).ready(function(){
+var cmenu = null;
 var treeList = <?php echo $treeList;?>;
 $('#tree').tree({
        		animate:true,
@@ -390,6 +341,7 @@ $('#tree').tree({
                     $('#dlg1').dialog('close');
                     $('#dlg2').dialog('close');
                     var dataGrid = $('#list');
+                    //dataGrid.datagrid('options').pageNumber = 1;
                 	var url = '<?php echo Yii::app()->createUrl('site/readsheet');?>';
                		$.ajax({
                       	type:'post',
@@ -397,7 +349,7 @@ $('#tree').tree({
  					   	url:url,
  					   	success:function(data,textStatus){
  					    	$('#datagrid_view').html('').append(data);
- 					    	dataGrid.datagrid('getPager').pagination('select', 1);
+ 					    	//dataGrid.datagrid('getPager').pagination('select', 1);
   					    	//更新dlg2
   					    	var colList = dataGrid.datagrid('getColumnFields');
   					    	var colStr = "";
@@ -423,6 +375,58 @@ $('#tree').tree({
         });
 //动态加载树列表
 $('#tree').tree('loadData',treeList);
+//登录情况
+$('#dg1').datagrid({
+    url: '<?php echo Yii::app()->request->baseUrl; ?>/protected/data/online.json',
+    fitColumns: false,
+    columns:[[
+      {field:'name',title:'登录名',width:100},
+      {field:'time',title:'登录时间',width:100},
+      {field:'ip',title:'IP',width:100}
+    ]],
+    onHeaderContextMenu: function(e, field){
+      e.preventDefault();
+      if (!cmenu){
+        createColumnMenu();
+      }
+      cmenu.menu('show', {
+        left:e.pageX,
+        top:e.pageY
+      });
+    }
+  });
+
+//在线情况右键事件
+function createColumnMenu(){
+	cmenu = $('<div></div>').appendTo('body');
+    cmenu.menu({
+      onClick: function(item){
+        if (item.iconCls == 'icon-ok'){
+          $('#dg1').datagrid('hideColumn', item.name);
+          cmenu.menu('setIcon', {
+            target: item.target,
+            iconCls: 'icon-empty'
+          });
+        } else {
+          $('#dg1').datagrid('showColumn', item.name);
+          cmenu.menu('setIcon', {
+            target: item.target,
+            iconCls: 'icon-ok'
+          });
+        }
+      }
+    });
+    var fields = $('#dg1').datagrid('getColumnFields');
+    for(var i=0; i<fields.length; i++){
+      var field = fields[i];
+      var col = $('#dg1').datagrid('getColumnOption', field);
+      cmenu.menu('appendItem', {
+        text: col.title,
+        name: field,
+        iconCls: 'icon-ok'
+      });
+    }
+  }
 });
 </script>
 <style>
